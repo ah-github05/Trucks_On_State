@@ -139,7 +139,7 @@ export default function IndividualFoodTruckDetailPage() {
                       </p>
                       <div className="mt-4">
                         <a 
-                          href="#" 
+                          href="https://www.sandwichhubmadison.com/menu" 
                           className="text-primary hover:text-primary/80 transition-colors"
                           target="_blank"
                           rel="noopener noreferrer"

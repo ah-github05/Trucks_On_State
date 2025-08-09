@@ -25,22 +25,17 @@ export class MemStorage implements IStorage {
         slug: "fresh-cool",
         name: "Fresh Cool Drinks",
         description: "Cold smoothies and authentic springrolls!",
-        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+        image: "https://preview.redd.it/1q28cjowgp831.jpg?width=1080&crop=smart&auto=webp&s=9c7ee5e79fda7ce69fab280c949fa9c038d7b352",
         category: "asian",
         location: "State Street & Library Mall",
         phone: "N/A",
-        businessLinks: {
-          website: "https://freshcooldrinks.com",
-          facebook: "https://facebook.com/freshcooldrinks",
-          instagram: "https://instagram.com/freshcooldrinks",
-          orderOnline: "https://doordash.com/store/fresh-cool-drinks"
-        },
         menu: [
-          { name: "Classic Badger Burger", price: "$12.99", description: "Wisconsin beef, cheese, lettuce, tomato, onion" },
-          { name: "Cheese Curd Burger", price: "$14.99", description: "Beef burger topped with fried cheese curds" },
-          { name: "Brat Burger", price: "$13.99", description: "Wisconsin bratwurst patty with sauerkraut" },
-          { name: "Veggie Burger", price: "$11.99", description: "House-made veggie patty with avocado" },
-          { name: "Sweet Potato Fries", price: "$4.99", description: "Crispy sweet potato fries with dipping sauce" }
+          { name: "Avocado Spring Roll", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, penut sauce." },
+          { name: "Avocado Chicken Spring Roll", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, penut sauce" },
+          { name: "Avocado Tofu Spring Roll", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, penut sauce" },
+          { name: "Avocado Shrimp Spring Roll", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, penut sauce" },
+          { name: "Avocado BBQ Pork Spring Roll", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, penut sauce" }
+          
         ],
         schedule: {
           "Monday": "10:00 am - 6:00 pm",
@@ -57,8 +52,8 @@ export class MemStorage implements IStorage {
       {
         slug: "toast",
         name: "Toast",
-        description: "Made-to-order paninis with fresh ingredients and homemade sauces!",
-        image: "TBD",
+        description: "Made-to-order paninis with  homemade sauces!",
+        image: "https://www.toastmadison.com/wp-content/themes/gili/images/toast-madison-with-bucky.jpg",
         category: "sandwiches",
         location: "State Street & Library Mall",
         phone: "TBD",
