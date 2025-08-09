@@ -568,9 +568,9 @@
   @apply rounded-xl shadow-lg w-full h-auto;
 }
 
-/* Newsletter Component Classes */
+/* Contact Component Classes */
 .newsletter-section {
-  @apply py-16 hero-gradient;
+background: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(22 82% 39%) 100%);
 }
 
 .newsletter-container {
@@ -786,7 +786,7 @@
 
 /* Contact Form Classes */
 .contact-form-section {
-  @apply hero-gradient py-16 px-4;
+  @apply py-16 px-4;
 }
 
 .contact-form-container {

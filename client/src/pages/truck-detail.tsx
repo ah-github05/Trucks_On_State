@@ -172,7 +172,7 @@ export default function IndividualFoodTruckDetailPage() {
                   </Card>
                 )}
 
-                {/* Business Links - Hide for Fresh Cool Drinks */}
+                {/* Business Links - Hidden for Fresh Cool Drinks */}
                 {truck.slug !== "fresh-cool" && (
                   <Card>
                     <CardHeader>
