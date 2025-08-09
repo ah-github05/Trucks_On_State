@@ -1,34 +1,35 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
-export default function FoodTruckNewsletterSignup() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+export default function FoodTruckContactForm() {
+  const [contactName, setContactName] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactMessage, setContactMessage] = useState("");
   const { toast } = useToast();
 
   const getWordCount = (text: string) => {
     return text.trim().split(/\s+/).filter(word => word.length > 0).length;
   };
 
-  const wordCount = getWordCount(message);
-  const maxWords = 250;
+  const messageWordCount = getWordCount(contactMessage);
+  const maxMessageWords = 250;
 
-  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleContactMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newMessage = e.target.value;
     const newWordCount = getWordCount(newMessage);
     
-    if (newWordCount <= maxWords) {
-      setMessage(newMessage);
+    if (newWordCount <= maxMessageWords) {
+      setContactMessage(newMessage);
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email || !message) {
+    if (!contactName || !contactEmail || !contactMessage) {
       toast({
         title: "All fields required",
         description: "Please fill in your name, email, and message.",
@@ -42,56 +43,56 @@ export default function FoodTruckNewsletterSignup() {
       title: "Message sent!",
       description: "We'll get back to you as soon as we can.",
     });
-    setName("");
-    setEmail("");
-    setMessage("");
+    setContactName("");
+    setContactEmail("");
+    setContactMessage("");
   };
 
   return (
-    <section className="hero-section">
+    <section className="contact-form-section">
       <div className="hero-overlay"></div>
       <div className="contact-form-container relative">
         <div className="contact-form-card">
           <h2 className="contact-form-title">Contact Us</h2>
           
-          <form onSubmit={handleSubmit} className="contact-form">
+          <form onSubmit={handleContactSubmit} className="contact-form">
             <div className="form-field">
-              <label htmlFor="name" className="form-label">Name</label>
+              <label htmlFor="contact-name" className="form-label">Name</label>
               <Input
-                id="name"
+                id="contact-name"
                 type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={contactName}
+                onChange={(e) => setContactName(e.target.value)}
                 className="form-input"
                 required
               />
             </div>
 
             <div className="form-field">
-              <label htmlFor="email" className="form-label">E-mail</label>
+              <label htmlFor="contact-email" className="form-label">E-mail</label>
               <Input
-                id="email"
+                id="contact-email"
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={contactEmail}
+                onChange={(e) => setContactEmail(e.target.value)}
                 className="form-input"
                 required
               />
             </div>
 
             <div className="form-field">
-              <label htmlFor="message" className="form-label">Message</label>
+              <label htmlFor="contact-message" className="form-label">Message</label>
               <Textarea
-                id="message"
-                value={message}
-                onChange={handleMessageChange}
+                id="contact-message"
+                value={contactMessage}
+                onChange={handleContactMessageChange}
                 className="form-textarea"
                 rows={6}
                 required
               />
               <div className="word-counter">
-                <span className={wordCount > maxWords ? "word-counter-over" : "word-counter-normal"}>
-                  {wordCount}/{maxWords} words
+                <span className={messageWordCount > maxMessageWords ? "word-counter-over" : "word-counter-normal"}>
+                  {messageWordCount}/{maxMessageWords} words
                 </span>
               </div>
             </div>
