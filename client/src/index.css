@@ -570,7 +570,7 @@
 
 /* Contact Component Classes */
 .contact-form-section {
-  @apply py-24;
+  @apply py-32;
 }
 
 .newsletter-container {
