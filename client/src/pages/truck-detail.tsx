@@ -138,7 +138,6 @@ export default function IndividualFoodTruckDetailPage() {
                         Sandwich Hub has a rotating menu and is subject to change. Please check their website to find the menu of the day!
                       </p>
                       <div className="mt-4">
-                        <h4 className="font-medium text-gray-900 mb-2">Daily Menu</h4>
                         <a 
                           href="#" 
                           className="text-primary hover:text-primary/80 transition-colors"
