@@ -570,7 +570,7 @@
 
 /* Contact Component Classes */
 .contact-form-section {
-  @apply py-16;
+  @apply hero-gradient py-24 px-4;
 }
 
 .newsletter-container {
