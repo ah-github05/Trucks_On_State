@@ -11,10 +11,12 @@ export function capitalizeFirst(str: string): string {
 }
 
 export function isCurrentlyOpen(schedule: Schedule): boolean {
+  // Get current time in CST (UTC-6) or CDT (UTC-5)
   const now = new Date();
+  const cstTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Chicago"}));
   const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const currentDay = dayNames[now.getDay()];
-  const currentTime = now.getHours() * 60 + now.getMinutes(); // Current time in minutes since midnight
+  const currentDay = dayNames[cstTime.getDay()];
+  const currentTime = cstTime.getHours() * 60 + cstTime.getMinutes(); // Current time in minutes since midnight
   
   const todayHours = schedule[currentDay];
   
