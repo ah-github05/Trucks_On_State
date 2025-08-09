@@ -13,7 +13,7 @@
   --card-foreground: 20 14.3% 4.1%;
   --border: 20 5.9% 90%;
   --input: 20 5.9% 90%;
-  --primary: 25 95% 53%; /* #D97706 - Orange/Amber for food trucks */
+  --primary: 0 80% 45%; /* #B91C3C - Red-maroon for food trucks */
   --primary-foreground: 60 9.1% 97.8%;
   --secondary: 158 64% 52%; /* #059669 - Green accent */
   --secondary-foreground: 0 0% 98%;
@@ -49,7 +49,7 @@
   --card-foreground: 0 0% 98%;
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
-  --primary: 25 95% 53%; /* Keep same orange in dark mode */
+  --primary: 0 80% 45%; /* Keep same red-maroon in dark mode */
   --primary-foreground: 60 9.1% 97.8%;
   --secondary: 158 64% 52%; /* Keep same green in dark mode */
   --secondary-foreground: 0 0% 98%;
@@ -80,19 +80,19 @@
 
 /* Custom food truck themed colors */
 .bg-primary-600 {
-  background-color: hsl(22 82% 39%); /* #B45309 */
+  background-color: hsl(0 70% 35%); /* #8B1538 */
 }
 
 .bg-primary-700 {
-  background-color: hsl(20 83% 29%); /* #92400E */
+  background-color: hsl(0 75% 25%); /* #6B1020 */
 }
 
 .text-primary-700 {
-  color: hsl(20 83% 29%); /* #92400E */
+  color: hsl(0 75% 25%); /* #6B1020 */
 }
 
 .text-primary-500 {
-  color: hsl(25 95% 53%); /* #D97706 */
+  color: hsl(0 80% 45%); /* #B91C3C */
 }
 
 .bg-secondary-600 {
@@ -112,12 +112,12 @@
 }
 
 .text-accent-red {
-  color: hsl(0 73% 48%); /* #DC2626 */
+  color: hsl(0 75% 30%); /* #7F1D1D */
 }
 
 /* Food truck hero gradient */
 .hero-gradient {
-  background: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(22 82% 39%) 100%);
+  background: linear-gradient(135deg, hsl(0 80% 45%) 0%, hsl(0 70% 35%) 100%);
 }
 
 /* Footer Component Classes */
@@ -318,7 +318,7 @@
 }
 
 .hero-accent-text {
-  @apply text-accent-yellow;
+  @apply text-yellow-300;
 }
 
 .hero-description {
@@ -330,7 +330,7 @@
 }
 
 .explore-trucks-button {
-  @apply bg-accent-yellow text-gray-900 font-semibold px-8 py-3 rounded-full hover:bg-yellow-300 transition-colors;
+  @apply bg-yellow-300 text-gray-900 font-semibold px-8 py-3 rounded-full hover:bg-yellow-200 transition-colors;
 }
 
 .learn-more-button {
@@ -570,7 +570,7 @@
 
 /* Contact Component Classes */
 .newsletter-section {
-background: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(22 82% 39%) 100%);
+background: linear-gradient(135deg, hsl(0 80% 45%) 0%, hsl(0 70% 35%) 100%);
 }
 
 .newsletter-container {
@@ -594,7 +594,7 @@ background: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(22 82% 39%) 100%);
 }
 
 .newsletter-subscribe-button {
-  @apply bg-accent-yellow text-gray-900 font-semibold hover:bg-yellow-300 transition-colors;
+  @apply bg-yellow-300 text-gray-900 font-semibold hover:bg-yellow-200 transition-colors;
 }
 
 /* Truck Grid Component Classes */
@@ -786,7 +786,7 @@ background: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(22 82% 39%) 100%);
 
 /* Contact Form Classes */
 .contact-form-section {
-  @apply py-16 px-4;
+  @apply hero-gradient py-16 px-4;
 }
 
 .contact-form-container {

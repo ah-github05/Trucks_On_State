@@ -2,6 +2,12 @@
 
 This is a Madison food truck discovery web application called "Trucks on State" that helps users find and explore food trucks throughout Madison, Wisconsin. The application provides features for browsing food trucks, searching by name/description, filtering by categories, viewing detailed truck information including menus and schedules, and discovering trucks around the city with a focus on State Street and nearby locations.
 
+## Recent Changes (August 2025)
+- **Theme Update**: Transitioned entire website color scheme from orange/amber to red-maroon and white theme
+- **Color Scheme**: Updated primary colors to red-maroon (hsl(0 80% 45%)) with yellow accent buttons
+- **Contact Form**: Implemented responsive contact form with 250-word limit and live counter, matching new theme
+- **Descriptive Naming**: Applied comprehensive semantic CSS class naming throughout codebase
+
 # User Preferences
 
 Preferred communication style: Simple, everyday language.
