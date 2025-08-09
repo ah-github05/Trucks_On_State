@@ -39,20 +39,3 @@ export const insertFoodTruckSchema = createInsertSchema(foodTrucks).omit({
 
 export type InsertFoodTruck = z.infer<typeof insertFoodTruckSchema>;
 export type FoodTruck = typeof foodTrucks.$inferSelect;
-
-// Contact Form Schema
-export const contactMessages = pgTable("contact_messages", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  email: text("email").notNull(),
-  message: text("message").notNull(),
-  submitted_at: text("submitted_at").notNull(),
-});
-
-export const insertContactMessageSchema = createInsertSchema(contactMessages).omit({
-  id: true,
-  submitted_at: true,
-});
-
-export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
-export type ContactMessage = typeof contactMessages.$inferSelect;
