@@ -158,21 +158,30 @@ export default function IndividualFoodTruckDetailPage() {
                       <div className="space-y-6">
                         <div>
                           {truck.slug === "fresh-cool" && (
-                            <h2 className="text-lg font-semibold text-gray-900 mb-4">Springrolls</h2>
+                            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Springrolls</h2>
                           )}
+                          
+                          {truck.slug === "toast" && (
+                            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Classic Paninis</h2>
+                          )}
+                          
                           <div className="space-y-4">
                             {truck.menu.map((item, index) => (
                               <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                
                                 <div className="flex justify-between items-start">
                                   <div className="flex-1">
                                     <h5 className="font-medium text-gray-900">{item.name}</h5>
                                     <p className="text-sm text-gray-600 mt-1">{item.description}</p>
                                   </div>
+                                  
                                   <span className="font-semibold text-primary ml-4">{item.price}</span>
                                 </div>
+                                
                               </div>
                             ))}
                           </div>
+                          
                         </div>
                       </div>
                     </CardContent>
