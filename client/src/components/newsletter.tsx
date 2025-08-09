@@ -1,29 +1,34 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 export default function FoodTruckNewsletterSignup() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) {
+    if (!name || !email || !message) {
       toast({
-        title: "Email required",
-        description: "Please enter your email address.",
+        title: "All fields required",
+        description: "Please fill in your name, email, and message.",
         variant: "destructive",
       });
       return;
     }
     
-    // Simulate subscription
+    // Simulate message submission
     toast({
-      title: "Subscribed!",
-      description: "You'll receive updates about Madison's food trucks.",
+      title: "Message sent!",
+      description: "We'll get back to you as soon as we can.",
     });
+    setName("");
     setEmail("");
+    setMessage("");
   };
 
   return (
@@ -35,17 +40,31 @@ export default function FoodTruckNewsletterSignup() {
         </p>
         <form onSubmit={handleSubmit} className="newsletter-form">
           <Input
+            type="text"
+            placeholder="Enter your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="newsletter-name-input"
+          />
+          <Input
             type="email"
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="newsletter-email-input"
           />
+          <Textarea
+            placeholder="Enter your message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="newsletter-message-input"
+            rows={4}
+          />
           <Button 
             type="submit"
             className="newsletter-subscribe-button"
           >
-            Subscribe
+            Send Message
           </Button>
         </form>
       </div>
