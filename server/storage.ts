@@ -60,23 +60,24 @@ export class MemStorage implements IStorage {
         businessLinks: {
           website: "https://toastmadison.com",
           instagram: "https://www.instagram.com/toastmadison?igsh=bDRmNjJzZm5sdWIy",
+          facebook: "https://www.facebook.com/toastmadison?mibextid=wwXIfr"
         },
         menu: [
-          { name: "Carnitas Tacos", price: "$3.50", description: "Slow-cooked pork with onions and cilantro" },
-          { name: "Carne Asada Tacos", price: "$3.75", description: "Grilled steak with fresh salsa verde" },
-          { name: "Al Pastor Tacos", price: "$3.50", description: "Marinated pork with pineapple" },
-          { name: "Fish Tacos", price: "$4.00", description: "Grilled fish with cabbage slaw" },
-          { name: "Elote (Street Corn)", price: "$5.99", description: "Mexican street corn with cotija cheese" },
-          { name: "Guacamole & Chips", price: "$6.99", description: "Fresh guacamole with house-made tortilla chips" }
+          { name: "Turkey Panini", price: "$11.00", description: "Honey-smoked turkey, pesto, garlic mayo, provolone, tomatos, red onions, black olives, & spinach." },
+          { name: "Italian Mixed Meat Panini", price: "$11.00", description: "Pastrami, ham, garlic mayo, sriracha, provolone, tomatos, black & green olives." },
+          { name: "Pollo Panini", price: "$11.00", description: "Smoked chicken, pesto, garlic mayo, mozzarella, tomaotes, & spinach." },
+          { name: "Club Panini", price: "$11.00", description: "Grilled fish with cabbage slaw" },
+          { name: "Elote (Street Corn)", price: "$11.00", description: "Mexican street corn with cotija cheese" },
+          { name: "Guacamole & Chips", price: "$11.00", description: "Fresh guacamole with house-made tortilla chips" }
         ],
         schedule: {
-          "Monday": "TBD",
-          "Tuesday": "TBD",
-          "Wednesday": "TBD",
-          "Thursday": "TBD",
-          "Friday": "TBD",
-          "Saturday": "TBD",
-          "Sunday": "TBD"
+          "Monday": "11:00 am - 3:00 pm",
+          "Tuesday": "11:00 am - 3:00 pm",
+          "Wednesday": "11:00 am - 3:00 pm",
+          "Thursday": "11:00 am - 3:00 pm",
+          "Friday": "11:00 am - 3:00 pm",
+          "Saturday": "11:00 am - 3:00 pm",
+          "Sunday": "11:00 am - 3:00 pm"
         }
       },
 
