@@ -34,8 +34,8 @@ export class MemStorage implements IStorage {
           { name: "Avocado Chicken Spring Roll", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, penut sauce" },
           { name: "Avocado Tofu Spring Roll", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, penut sauce" },
           { name: "Avocado Shrimp Spring Roll", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, penut sauce" },
-          { name: "Avocado BBQ Pork Spring Roll", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, penut sauce" }
-          
+          { name: "Avocado BBQ Pork Spring Roll", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, penut sauce" },
+          { name: "Salad Bowl", price: "$7.00", description: "Description coming soon..." }      
         ],
         schedule: {
           "Monday": "10:00 am - 6:00 pm",
@@ -56,12 +56,10 @@ export class MemStorage implements IStorage {
         image: "https://www.toastmadison.com/wp-content/themes/gili/images/toast-madison-with-bucky.jpg",
         category: "sandwiches",
         location: "State Street & Library Mall",
-        phone: "TBD",
+        phone: "+1 (608) 692-4549",
         businessLinks: {
           website: "https://toastmadison.com",
-          facebook: "https://facebook.com/toastmadison",
-          instagram: "https://instagram.com/toastmadison",
-          orderOnline: "https://grubhub.com/restaurant/toast-madison"
+          instagram: "https://www.instagram.com/toastmadison?igsh=bDRmNjJzZm5sdWIy",
         },
         menu: [
           { name: "Carnitas Tacos", price: "$3.50", description: "Slow-cooked pork with onions and cilantro" },
