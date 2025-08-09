@@ -1,4 +1,4 @@
-import { foodTrucks, type FoodTruck, type InsertFoodTruck } from "@shared/schema";
+import { foodTrucks, type FoodTruck, type InsertFoodTruck, type ContactMessage, type InsertContactMessage } from "@shared/schema";
 
 export interface IStorage {
   getFoodTrucks(): Promise<FoodTruck[]>;
@@ -6,15 +6,20 @@ export interface IStorage {
   createFoodTruck(truck: InsertFoodTruck): Promise<FoodTruck>;
   searchFoodTrucks(query: string): Promise<FoodTruck[]>;
   filterFoodTrucksByCategory(category: string): Promise<FoodTruck[]>;
+  createContactMessage(message: InsertContactMessage & { submitted_at: string }): Promise<ContactMessage>;
 }
 
 export class MemStorage implements IStorage {
   private trucks: Map<number, FoodTruck>;
-  private currentId: number;
+  private contactMessages: Map<number, ContactMessage>;
+  private currentTruckId: number;
+  private currentMessageId: number;
 
   constructor() {
     this.trucks = new Map();
-    this.currentId = 1;
+    this.contactMessages = new Map();
+    this.currentTruckId = 1;
+    this.currentMessageId = 1;
     this.seedData();
   }
 
@@ -223,10 +228,17 @@ export class MemStorage implements IStorage {
   }
 
   async createFoodTruck(insertTruck: InsertFoodTruck): Promise<FoodTruck> {
-    const id = this.currentId++;
+    const id = this.currentTruckId++;
     const truck: FoodTruck = { ...insertTruck, id };
     this.trucks.set(id, truck);
     return truck;
+  }
+
+  async createContactMessage(insertMessage: InsertContactMessage & { submitted_at: string }): Promise<ContactMessage> {
+    const id = this.currentMessageId++;
+    const message: ContactMessage = { ...insertMessage, id };
+    this.contactMessages.set(id, message);
+    return message;
   }
 
   async searchFoodTrucks(query: string): Promise<FoodTruck[]> {

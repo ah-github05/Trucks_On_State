@@ -5,7 +5,12 @@ This is a Madison food truck discovery web application called "Trucks on State" 
 ## Recent Changes (August 2025)
 - **Theme Update**: Transitioned entire website color scheme from orange/amber to red-maroon and white theme
 - **Color Scheme**: Updated primary colors to red-maroon (hsl(0 80% 45%)) with yellow accent buttons
-- **Contact Form**: Implemented responsive contact form with 250-word limit and live counter, matching new theme
+- **Contact Form Overhaul**: Renamed newsletter component to contact form with proper variable naming
+  - Updated FoodTruckNewsletterSignup to ContactForm component
+  - Renamed all variables (name/email/message → contactName/contactEmail/contactMessage)  
+  - Added SendGrid email integration forwarding to ahayempourwork@gmail.com
+  - Implemented backend API endpoint with form validation
+  - Increased vertical padding from py-16 to py-24 for better spacing
 - **Descriptive Naming**: Applied comprehensive semantic CSS class naming throughout codebase
 
 # User Preferences

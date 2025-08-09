@@ -3,7 +3,7 @@ import FoodTruckHeroBanner from "@/components/hero";
 import FoodTruckSearchAndFilter from "@/components/search-filter";
 import IndividualFoodTruckCard from "@/components/truck-card";
 import TrucksOnStateAboutSection from "@/components/about";
-import FoodTruckNewsletterSignup from "@/components/newsletter";
+import ContactForm from "@/components/contact-form";
 import SiteContactFooter from "@/components/footer";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
@@ -97,7 +97,7 @@ export default function MadisonFoodTruckHomePage() {
       </section>
       
       <TrucksOnStateAboutSection />
-      <FoodTruckNewsletterSignup />
+      <ContactForm />
       <SiteContactFooter />
     </div>
   );
