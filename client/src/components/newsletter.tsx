@@ -48,8 +48,9 @@ export default function FoodTruckNewsletterSignup() {
   };
 
   return (
-    <section className="contact-form-section hero-gradient">
-      <div className="contact-form-container">
+    <section className="hero-section">
+      <div className="hero-overlay"></div>
+      <div className="contact-form-container relative">
         <div className="contact-form-card">
           <h2 className="contact-form-title">Contact Us</h2>
           
