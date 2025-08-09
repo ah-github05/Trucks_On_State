@@ -157,7 +157,7 @@ export default function IndividualFoodTruckDetailPage() {
                     <CardContent>
                       <div className="space-y-6">
                         <div>
-                          <h4 className="text-lg font-semibold text-gray-900 mb-4">Springrolls</h4>
+                          <h2 className="text-lg font-semibold text-gray-900 mb-4">Springrolls</h2>
                           <div className="space-y-4">
                             {truck.menu.map((item, index) => (
                               <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
