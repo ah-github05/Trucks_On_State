@@ -25,7 +25,7 @@ export class MemStorage implements IStorage {
         slug: "fresh-cool",
         name: "Fresh Cool Drinks",
         description: "Cold smoothies and authentic springrolls!",
-        image: "https://preview.redd.it/1q28cjowgp831.jpg?width=1080&crop=smart&auto=webp&s=9c7ee5e79fda7ce69fab280c949fa9c038d7b352",
+        image: "https://badgerherald.com/wp-content/uploads/2024/03/BMW_7422-Enhanced-NR-scaled-1-1200x801.jpg",
         category: "asian",
         location: "State Street & Library Mall",
         phone: "N/A",
@@ -91,8 +91,8 @@ export class MemStorage implements IStorage {
         slug: "sandwich-hub",
         name: "Sandwich Hub",
         description: "Sandwich pop-up food cart with in-house daily baked bread!",
-        image: "TBD",
-        category: "sandwich",
+        image: "https://bloximages.chicago2.vip.townnews.com/captimes.com/content/tncms/assets/v3/editorial/2/b2/2b236bbb-3e8a-5bdf-835e-ef9a2ac09809/669806c2aa375.image.jpg?resize=1396%2C930",
+        category: "sandwiches",
         location: "State Street & Library Mall",
         phone: "TBD",
         businessLinks: {
@@ -117,100 +117,102 @@ export class MemStorage implements IStorage {
           "Sunday": "Closed"
         }
       },
+      
+      // Surco Food Cart
       {
-        slug: "sweet-dreams",
-        name: "Sweet Dreams",
-        description: "Artisanal ice cream and desserts made with local Wisconsin dairy",
-        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-        category: "desserts",
-        location: "Memorial Union Terrace",
-        phone: "(608) 555-0126",
+        slug: "surco",
+        name: "Surco Food Cart",
+        description: "A flavorful twist on classic Peruvian dishes!",
+        image: "https://bloximages.chicago2.vip.townnews.com/wiscnews.com/content/tncms/assets/v3/editorial/8/01/8012f089-6556-50d8-8dc0-847ada21877a/6719d0d705f72.image.jpg?crop=1920%2C1008%2C0%2C35&resize=1200%2C630&order=crop%2Cresize",
+        category: "south_american",
+        location: "State Street & Library Mall",
+        phone: "TBD",
         businessLinks: {
-          website: "https://sweetdreamsicecream.com",
-          facebook: "https://facebook.com/sweetdreamsmadison",
-          instagram: "https://instagram.com/sweetdreamsicecream",
-          orderOnline: "https://sweetdreamsicecream.com/order"
+          website: "https://www.surcocart.com",
+          facebook: "https://www.facebook.com/SurcoCart/",
+          instagram: "https://www.instagram.com/surcocart?utm_source=ig_web_button_share_sheet&igsh=MThpNXhnaTk4eWFhYw==",
         },
         menu: [
-          { name: "Vanilla Bean Ice Cream", price: "$4.99", description: "Madagascar vanilla with local cream" },
-          { name: "Wisconsin Cheese Curds Flavor", price: "$5.99", description: "Unique sweet & salty combination" },
-          { name: "Chocolate Fudge Brownie", price: "$5.49", description: "Rich chocolate with brownie chunks" },
-          { name: "Strawberry Rhubarb", price: "$5.49", description: "Made with local strawberries and rhubarb" },
-          { name: "Ice Cream Sandwich", price: "$6.99", description: "House-made cookies with your choice of ice cream" },
-          { name: "Milkshake", price: "$7.99", description: "Thick shake with any flavor" }
+          { name: "Arroz Con Pollo (Chicken & Rice), GF", price: "$TBD", description: "Cilantro-infused jasmine rice, marinated chicken, salad with homemade passion fruit dresssing." },
+          { name: "Aji de Gallina (Chili Chicken), Mild", price: "$TBD", description: "Pulled chicken breast in aji amarillo pepper sauce, jasmine rice, boiled potatoes, hard boiled egg, salad with homemade passion fruit dressing."},
+          { name: "Chicken Adobo (Chili Chicken), Mild", price: "$TBD", description: "Chicken breast strips in aji panca sauce, side of brown lentils, jasmine rice, salad." },
+          { name: "Pastel De Papa", price: "$TBD", description: "2-cheese scalloped potatoe,s, grilled chicken, salad with passion fruit dressing."},
+          { name: "Arroz Chaufa, GF", price: "$TBD", description: "Stir-fried rice, grilled chicken, salad with passion fruit dressing."},
         ],
         schedule: {
-          "Monday": "12:00 PM - 8:00 PM",
-          "Tuesday": "12:00 PM - 8:00 PM",
-          "Wednesday": "12:00 PM - 8:00 PM",
-          "Thursday": "12:00 PM - 9:00 PM",
-          "Friday": "12:00 PM - 10:00 PM",
-          "Saturday": "11:00 AM - 10:00 PM",
-          "Sunday": "12:00 PM - 8:00 PM"
+          "Monday": "11:30 PM - 2:30 PM",
+          "Tuesday": "11:30 PM - 2:30 PM",
+          "Wednesday": "11:30 PM - 2:30 PM",
+          "Thursday": "11:30 PM - 2:30 PM",
+          "Friday": "11:30 PM - 2:30 PM",
+          "Saturday": "Closed",
+          "Sunday": "Closed"
         }
       },
+
+      // TBD
       {
         slug: "farm-fresh",
-        name: "Farm Fresh Kitchen",
-        description: "Farm-to-table meals featuring seasonal Wisconsin ingredients",
-        image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-        category: "healthy",
-        location: "Farmers Market",
-        phone: "(608) 555-0127",
+        name: "Coming soon...",
+        description: "Coming soon...",
+        image: "https://images.squarespace-cdn.com/content/v1/5a6a66438fd4d22de6b7ba2e/1520359836611-E2MB7ZJ1ALQZ5P5Q3GPW/coming-soon.jpg",
+        category: "TBD",
+        location: "TBD",
+        phone: "TBD",
         businessLinks: {
-          website: "https://farmfreshkitchenmadison.com",
-          facebook: "https://facebook.com/farmfreshkitchen",
-          instagram: "https://instagram.com/farmfreshkitchenmadison",
-          orderOnline: "https://farmfreshkitchenmadison.com/order-online"
+          website: "TBD",
+          facebook: "TBD",
+          instagram: "TBD",
+          orderOnline: "TBD"
         },
         menu: [
-          { name: "Seasonal Salad Bowl", price: "$12.99", description: "Mixed greens with seasonal vegetables" },
-          { name: "Farm Burger", price: "$13.99", description: "Grass-fed beef with local cheese" },
-          { name: "Grilled Chicken Wrap", price: "$11.99", description: "Free-range chicken with fresh vegetables" },
-          { name: "Vegetarian Quinoa Bowl", price: "$10.99", description: "Quinoa with roasted vegetables" },
-          { name: "Sweet Corn Soup", price: "$6.99", description: "Made with local sweet corn" },
-          { name: "Apple Crisp", price: "$5.99", description: "Made with Wisconsin apples" }
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD (4pc)", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" }
         ],
         schedule: {
-          "Monday": "10:00 AM - 6:00 PM",
-          "Tuesday": "10:00 AM - 6:00 PM",
-          "Wednesday": "10:00 AM - 6:00 PM",
-          "Thursday": "10:00 AM - 6:00 PM",
-          "Friday": "10:00 AM - 7:00 PM",
-          "Saturday": "8:00 AM - 7:00 PM",
-          "Sunday": "10:00 AM - 5:00 PM"
+        "Monday": "TBD",
+        "Tuesday": "TBD",
+        "Wednesday": "TBD",
+        "Thursday": "TBD",
+        "Friday": "TBD",
+        "Saturday": "TBD",
+        "Sunday": "TBD"
         }
       },
       {
         slug: "noodle-nomad",
-        name: "Noodle Nomad",
-        description: "Asian fusion noodles and bowls with bold flavors and fresh ingredients",
-        image: "https://images.unsplash.com/photo-1594007654729-407eedc4be65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-        category: "asian",
-        location: "State Street",
-        phone: "(608) 555-0128",
+        name: "Coming soon...",
+        description: "Coming soon...",
+        image: "https://images.squarespace-cdn.com/content/v1/5a6a66438fd4d22de6b7ba2e/1520359836611-E2MB7ZJ1ALQZ5P5Q3GPW/coming-soon.jpg",
+        category: "TBD",
+        location: "TBD",
+        phone: "TBD",
         businessLinks: {
-          website: "https://noodlenomadmadison.com",
-          facebook: "https://facebook.com/noodlenomad",
-          instagram: "https://instagram.com/noodlenomadmadison",
-          orderOnline: "https://postmates.com/store/noodle-nomad"
+          website: "TBD",
+          facebook: "TBD",
+          instagram: "TBD",
+          orderOnline: "TBD"
         },
         menu: [
-          { name: "Pad Thai", price: "$11.99", description: "Classic Thai noodles with tamarind sauce" },
-          { name: "Korean Bibimbap", price: "$12.99", description: "Rice bowl with mixed vegetables and gochujang" },
-          { name: "Ramen Bowl", price: "$13.99", description: "Rich pork broth with fresh noodles" },
-          { name: "Vietnamese Pho", price: "$12.99", description: "Beef pho with fresh herbs" },
-          { name: "Spring Rolls (4pc)", price: "$6.99", description: "Fresh spring rolls with peanut sauce" },
-          { name: "Fried Rice", price: "$9.99", description: "Wok-fried rice with vegetables and protein" }
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" }
         ],
         schedule: {
-          "Monday": "Closed",
-          "Tuesday": "11:00 AM - 8:00 PM",
-          "Wednesday": "11:00 AM - 8:00 PM",
-          "Thursday": "11:00 AM - 9:00 PM",
-          "Friday": "11:00 AM - 9:00 PM",
-          "Saturday": "11:00 AM - 9:00 PM",
-          "Sunday": "12:00 PM - 7:00 PM"
+          "Monday": "TBD",
+          "Tuesday": "TBD",
+          "Wednesday": "TBD",
+          "Thursday": "TBD",
+          "Friday": "TBD",
+          "Saturday": "TBD",
+          "Sunday": "TBD"
         }
       }
     ];
