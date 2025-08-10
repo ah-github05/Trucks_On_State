@@ -378,43 +378,35 @@ html {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
-.burgers-category-active {
+.sandwiches-category-active {
   @apply bg-primary text-white;
 }
 
-.burgers-category-inactive {
+.sandwiches-category-inactive {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
-.tacos-category-active {
+.south_american-category-active {
   @apply bg-primary text-white;
 }
 
-.tacos-category-inactive {
+.south_american-category-inactive {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
-.bbq-category-active {
+.tbd1-category-active {
   @apply bg-primary text-white;
 }
 
-.bbq-category-inactive {
+.tbd1-category-inactive {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
-.desserts-category-active {
+.tbd2-category-active {
   @apply bg-primary text-white;
 }
 
-.desserts-category-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.healthy-category-active {
-  @apply bg-primary text-white;
-}
-
-.healthy-category-inactive {
+.tbd2-category-inactive {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 

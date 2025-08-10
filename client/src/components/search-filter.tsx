@@ -11,11 +11,11 @@ interface SearchFilterProps {
 
 const categories = [
   { value: "all", label: "All Trucks" },
-  { value: "burgers", label: "Burgers" },
-  { value: "tacos", label: "Tacos" },
-  { value: "bbq", label: "BBQ" },
-  { value: "desserts", label: "Desserts" },
   { value: "asian", label: "Asian" },
+  { value: "sandwiches", label: "Sandwiches" },
+  { value: "south_american", label: "South American" },
+ //TBD { value: "tbd1", label: "TBD" },
+ //TBD { value: "tbd2", label: "TBD" },
 ];
 
 export default function FoodTruckSearchAndFilter({
