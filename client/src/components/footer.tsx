@@ -23,11 +23,12 @@ export default function SiteContactFooter() {
             <h4 className="quick-links-title">Quick Links</h4>
             <ul className="quick-links-list">
               <li>
-                <Link href="/">
-                  <span className="home-link">
-                    Home
-                  </span>
-                </Link>
+                <button 
+                  onClick={() => scrollToSection('home')}
+                  className="home-link"
+                >
+                  Home
+                </button>
               </li>
               <li>
                 <button 

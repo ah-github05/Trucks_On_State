@@ -68,6 +68,10 @@
   --sidebar-ring: 217.2 10.6% 64.9%;
 }
 
+html {
+  scroll-padding-top: 30px;
+}
+
 @layer base {
   * {
     @apply border-border;
