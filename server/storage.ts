@@ -24,7 +24,7 @@ export class MemStorage implements IStorage {
         // Fresh cool drinks
         slug: "fresh-cool",
         name: "Fresh Cool Drinks",
-        description: "Cold smoothies and authentic springrolls!",
+        description: "Cold smoothies and authentic springrolls",
         image: "https://badgerherald.com/wp-content/uploads/2024/03/BMW_7422-Enhanced-NR-scaled-1-1200x801.jpg",
         category: "asian",
         location: "State Street & Library Mall",
@@ -52,7 +52,7 @@ export class MemStorage implements IStorage {
       {
         slug: "toast",
         name: "Toast",
-        description: "Made-to-order paninis with homemade sauces!",
+        description: "Made-to-order paninis with homemade sauces",
         image: "https://www.toastmadison.com/wp-content/themes/gili/images/toast-madison-with-bucky.jpg",
         category: "sandwiches",
         location: "State Street & Library Mall",
@@ -90,7 +90,7 @@ export class MemStorage implements IStorage {
       {
         slug: "sandwich-hub",
         name: "Sandwich Hub",
-        description: "Sandwich pop-up food cart with in-house daily baked bread!",
+        description: "Sandwich pop-up food cart with in-house daily baked bread",
         image: "https://bloximages.chicago2.vip.townnews.com/captimes.com/content/tncms/assets/v3/editorial/2/b2/2b236bbb-3e8a-5bdf-835e-ef9a2ac09809/669806c2aa375.image.jpg?resize=1396%2C930",
         category: "sandwiches",
         location: "State Street & Library Mall",
@@ -122,7 +122,7 @@ export class MemStorage implements IStorage {
       {
         slug: "surco",
         name: "Surco Food Cart",
-        description: "A flavorful twist on classic Peruvian dishes!",
+        description: "A flavorful twist on classic Peruvian dishes",
         image: "https://bloximages.chicago2.vip.townnews.com/wiscnews.com/content/tncms/assets/v3/editorial/8/01/8012f089-6556-50d8-8dc0-847ada21877a/6719d0d705f72.image.jpg?crop=1920%2C1008%2C0%2C35&resize=1200%2C630&order=crop%2Cresize",
         category: "south_american",
         location: "State Street & Library Mall",
@@ -140,11 +140,11 @@ export class MemStorage implements IStorage {
           { name: "Arroz Chaufa, GF", price: "$TBD", description: "Stir-fried rice, grilled chicken, salad with passion fruit dressing."},
         ],
         schedule: {
-          "Monday": "11:30 PM - 2:30 PM",
-          "Tuesday": "11:30 PM - 2:30 PM",
-          "Wednesday": "11:30 PM - 2:30 PM",
-          "Thursday": "11:30 PM - 2:30 PM",
-          "Friday": "11:30 PM - 2:30 PM",
+          "Monday": "11:30 am - 2:30 pm",
+          "Tuesday": "11:30 am - 2:30 pm",
+          "Wednesday": "11:30 am - 2:30 pm",
+          "Thursday": "11:30 am - 2:30 pm",
+          "Friday": "11:30 am - 2:30 pm",
           "Saturday": "Closed",
           "Sunday": "Closed"
         }
