@@ -782,7 +782,7 @@ html {
 
 /* Contact Form Classes */
 .contact-form-section {
-  @apply hero-gradient py-32 px-4;
+  @apply hero-gradient py-16 px-4;
 }
 
 .contact-form-container {
