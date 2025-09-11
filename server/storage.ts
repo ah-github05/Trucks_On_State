@@ -152,21 +152,18 @@ export class MemStorage implements IStorage {
 
       // TBD
       {
-        slug: "farm-fresh",
-        name: "Coming soon...",
-        description: "Coming soon...",
-        image: "https://images.squarespace-cdn.com/content/v1/5a6a66438fd4d22de6b7ba2e/1520359836611-E2MB7ZJ1ALQZ5P5Q3GPW/coming-soon.jpg",
-        category: "TBD",
-        location: "TBD",
-        phone: "TBD",
+        slug: "bombay",
+        name: "Bombay Fast",
+        description: "",
+        image: "********",
+        category: "southeast_asian",
+        location: "State Street & Library Mall",
+        phone: "(608) 886-3273",
         businessLinks: {
-          website: "TBD",
-          facebook: "TBD",
-          instagram: "TBD",
-          orderOnline: "TBD"
+          instagram: "https://www.instagram.com/bombayfastcafe?utm_source=ig_web_button_share_sheet&igsh=enJzc25kaWZodTZt",
         },
         menu: [
-          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "Bombay Vada Pav", price: "$10.00", description: "Bombay potato burger topped with sweet and spicyrelishserved with garlic chutney and flavored green chilies." },
           { name: "TBD", price: "$TBD", description: "TBD" },
           { name: "TBD", price: "$TBD", description: "TBD" },
           { name: "TBD", price: "$TBD", description: "TBD" },
@@ -174,13 +171,13 @@ export class MemStorage implements IStorage {
           { name: "TBD", price: "$TBD", description: "TBD" }
         ],
         schedule: {
-        "Monday": "TBD",
-        "Tuesday": "TBD",
-        "Wednesday": "TBD",
-        "Thursday": "TBD",
-        "Friday": "TBD",
-        "Saturday": "TBD",
-        "Sunday": "TBD"
+        "Monday": "Closed",
+        "Tuesday": "11:00 am - 4:30 pm",
+        "Wednesday": "11:00 am - 4:30 pm",
+        "Thursday": "11:00 am - 4:30 pm",
+        "Friday": "11:00 am - 4:30 pm",
+        "Saturday": "Closed",
+        "Sunday": "Closed"
         }
       },
       {
