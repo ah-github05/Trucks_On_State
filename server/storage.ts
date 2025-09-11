@@ -164,11 +164,13 @@ export class MemStorage implements IStorage {
         },
         menu: [
           { name: "Bombay Vada Pav", price: "$10.00", description: "Bombay potato burger topped with sweet and spicyrelishserved with garlic chutney and flavored green chilies." },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD (4pc)", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" }
+          { name: "Bombay Misal Pav", price: "$10.00", description: "Indian pluses cooked with authentic home-style spices topped with Bombay Trail mix. Garnished with chopped onions, cilantro, and lemon. Served with bread." },
+          { name: "Bombay Pav Bhaji", price: "$10.00", description: "Medley of vegetbles cooked with authentic home-style spices. Garnished with butter, chopped onions, cilanto, and lemon. Served with bread." },
+          { name: "Bombay Falafel Meal", price: "$10.00", description: "Bombay style falafel completed with pulav, gravy, and saald. Served with a side of sweet and green chutney." },
+          { name: "Chole", price: "$10.00", description: "One pot recipe of garbonzo beans (chickpeas) cooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney."},
+          { name: "Chole Samosa", price: "$10.00", description: "Chatt recipe made with samosas, chana masala, various chutneys, and spices. Popular recipe from North India" },
+          { name: "Dal Makhani (Black Gram)", price: "$10.00", description: "Black Gram sooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lemon. Served with naan, rice, and chutney."},
+          { name: "Rajma (Kidney Beans)", price: "$10.00", description: "Kidney beans cooked with authentic home style spices garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney."}
         ],
         schedule: {
         "Monday": "Closed",
