@@ -394,11 +394,11 @@ html {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
-.tbd1-category-active {
+.southeast_asian-category-active {
   @apply bg-primary text-white;
 }
 
-.tbd1-category-inactive {
+.southeast_asian-category-inactive {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
