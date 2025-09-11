@@ -15,8 +15,9 @@ const categories = [
   { value: "sandwiches", label: "Sandwiches" },
   { value: "south_american", label: "South American" },
   { value: "southeast_asian", label: "Southeast Asian" }
- //TBD { value: "tbd1", label: "TBD" },
- //TBD { value: "tbd2", label: "TBD" },
+ //TBD { value: "tbd2", label: "TBD" },\
+
+  // When adding a new lable go to index.css and add the corresponding classes for active and inactive states
 ];
 
 export default function FoodTruckSearchAndFilter({
