@@ -36,10 +36,16 @@ export default function SiteNavigationHeader() {
           <nav className="desktop-navigation">
             <div className="desktop-nav-links">
               <Link href="/">
-                <Button variant="ghost" className="home-nav-button">
+                {/* home */}
+                <Button 
+                  variant="ghost" 
+                  className="home-nav-button"
+                  onClick={() => scrollToSection('home')}
+                  >
                   Home
                 </Button>
               </Link>
+              {/* trucks */}
               <Button 
                 variant="ghost" 
                 className="food-trucks-nav-button"
@@ -47,12 +53,14 @@ export default function SiteNavigationHeader() {
               >
                 Food Trucks
               </Button>
+              {/* about */}
               <Button 
                 variant="ghost" 
                 className="about-nav-button"
                 onClick={() => scrollToSection('about')}
               >
                 About
+                {/* contact */}
               </Button>
               <Button 
                 variant="ghost" 

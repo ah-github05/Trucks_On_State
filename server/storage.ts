@@ -154,8 +154,8 @@ export class MemStorage implements IStorage {
       {
         slug: "bombay",
         name: "Bombay Fast",
-        description: "",
-        image: "********",
+        description: "Spiced dishes from the heart of Bombay",
+        image: "https://bloximages.chicago2.vip.townnews.com/captimes.com/content/tncms/assets/v3/editorial/6/86/686e01e1-6dcf-5678-bba6-30383ae84644/60f6c1e8cf21f.image.jpg?resize=1396%2C930",
         category: "southeast_asian",
         location: "State Street & Library Mall",
         phone: "(608) 886-3273",
@@ -185,18 +185,16 @@ export class MemStorage implements IStorage {
 
       // TBD. New one?
       {
-        slug: "noodle-nomad",
-        name: "Coming soon...",
-        description: "Coming soon...",
-        image: "https://images.squarespace-cdn.com/content/v1/5a6a66438fd4d22de6b7ba2e/1520359836611-E2MB7ZJ1ALQZ5P5Q3GPW/coming-soon.jpg",
-        category: "TBD",
+        slug: "nani",
+        name: "Nani",
+        description: "Chinese dim sum and Sichuan-style stir-fry",
+        image: "***",
+        category: "Asian",
         location: "TBD",
         phone: "TBD",
         businessLinks: {
-          website: "TBD",
-          facebook: "TBD",
-          instagram: "TBD",
-          orderOnline: "TBD"
+          website: "https://nani.restaurant",
+          instagram: "https://www.instagram.com/nani.restaurant/?utm_source=ig_web_button_share_sheet",
         },
         menu: [
           { name: "TBD", price: "$TBD", description: "TBD" },
@@ -207,13 +205,13 @@ export class MemStorage implements IStorage {
           { name: "TBD", price: "$TBD", description: "TBD" }
         ],
         schedule: {
-          "Monday": "TBD",
-          "Tuesday": "TBD",
-          "Wednesday": "TBD",
-          "Thursday": "TBD",
-          "Friday": "TBD",
-          "Saturday": "TBD",
-          "Sunday": "TBD"
+          "Monday": "11:00 am - 2:00 pm",
+          "Tuesday": "11:00 am - 2:00 pm",
+          "Wednesday": "11:00 am - 2:00 pm",
+          "Thursday": "11:00 am - 2:00 pm",
+          "Friday": "11:00 am - 2:00 pm",
+          "Saturday": "Closed",
+          "Sunday": "Closed"
         }
       }
     ];
