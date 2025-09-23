@@ -157,12 +157,17 @@ export default function IndividualFoodTruckDetailPage() {
                     <CardContent>
                       <div className="space-y-6">
                         <div>
+                          
                           {truck.slug === "fresh-cool" && (
                             <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Springrolls</h2>
                           )}
                           
                           {truck.slug === "toast" && (
                             <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Classic Paninis</h2>
+                          )}
+
+                          {truck.slug === "jolly-frog" && (
+                            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Test</h2>
                           )}
                           
                           <div className="space-y-4">

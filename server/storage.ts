@@ -216,12 +216,12 @@ export class MemStorage implements IStorage {
         }
       },
 
-      // Taco Libre
+      // Jolly Frog
       {
-        slug: "taco-libre",
-        name: "Taco Libre",
+        slug: "jolly-frog",
+        name: "Jolly Frog",
         description: "Authentic Mexican street tacos with fresh ingredients",
-        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        image: "TBD",
         category: "mexican",
         location: "University Avenue & Park Street",
         phone: "(608) 555-TACO",
