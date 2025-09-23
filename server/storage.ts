@@ -127,7 +127,7 @@ export class MemStorage implements IStorage {
         image: "https://bloximages.chicago2.vip.townnews.com/wiscnews.com/content/tncms/assets/v3/editorial/8/01/8012f089-6556-50d8-8dc0-847ada21877a/6719d0d705f72.image.jpg?crop=1920%2C1008%2C0%2C35&resize=1200%2C630&order=crop%2Cresize",
         category: "south_american",
         location: "State Street & Library Mall",
-        phone: "TBD",
+        phone: "N/A",
         businessLinks: {
           website: "https://www.surcocart.com",
           facebook: "https://www.facebook.com/SurcoCart/",
@@ -159,7 +159,7 @@ export class MemStorage implements IStorage {
         image: "https://bloximages.chicago2.vip.townnews.com/captimes.com/content/tncms/assets/v3/editorial/6/86/686e01e1-6dcf-5678-bba6-30383ae84644/60f6c1e8cf21f.image.jpg?resize=1396%2C930",
         category: "southeast_asian",
         location: "State Street & Library Mall",
-        phone: "(608) 886-3273",
+        phone: "N/A",
         businessLinks: {
           instagram: "https://www.instagram.com/bombayfastcafe?utm_source=ig_web_button_share_sheet&igsh=enJzc25kaWZodTZt",
         },
@@ -192,7 +192,7 @@ export class MemStorage implements IStorage {
         image: "***",
         category: "Asian",
         location: "TBD",
-        phone: "TBD",
+        phone: "N/A",
         businessLinks: {
           website: "https://nani.restaurant",
           instagram: "https://www.instagram.com/nani.restaurant/?utm_source=ig_web_button_share_sheet",
@@ -220,34 +220,32 @@ export class MemStorage implements IStorage {
       {
         slug: "jolly-frog",
         name: "Jolly Frog",
-        description: "Authentic Mexican street tacos with fresh ingredients",
+        description: "Authentic Mexican food with fresh ingredients",
         image: "TBD",
         category: "mexican",
-        location: "University Avenue & Park Street",
-        phone: "(608) 555-TACO",
+        location: "State Street & Library Mall",
+        phone: "N/A",
         businessLinks: {
-          website: "https://www.tacolibre-madison.com",
-          instagram: "https://www.instagram.com/tacolibre_madison",
-          facebook: "https://www.facebook.com/TacoLibreMadison"
+          facebook: "https://www.facebook.com/jollyfrogllc?mibextid=wwXIfr"
         },
         menu: [
-          { name: "Carnitas Tacos", price: "$3.50", description: "Slow-cooked pork with onions, cilantro, and salsa verde on corn tortillas." },
-          { name: "Carne Asada Tacos", price: "$4.00", description: "Grilled steak with pico de gallo and avocado crema on corn tortillas." },
-          { name: "Al Pastor Tacos", price: "$3.75", description: "Marinated pork with pineapple, onions, and cilantro on corn tortillas." },
-          { name: "Chicken Tinga Tacos", price: "$3.25", description: "Shredded chicken in chipotle sauce with lettuce and Mexican crema." },
+          { name: "Steak and/or Pork", price: "$10.00", description: "Corn tortilla, onion, cilantro, and lime." },
+          { name: "Chicken", price: "$10.00", description: "Corn tortilla, lettuce, sour cream, cheese." },
+          { name: "Veggie", price: "$10.00", description: "Corn tortilla, onion, cilantro, lettuce, tomato, sour cream, cheese, and avocado." },
+          { name: "TBD", price: "$3.25", description: "Shredded chicken in chipotle sauce with lettuce and Mexican crema." },
           { name: "Fish Tacos", price: "$4.25", description: "Beer-battered fish with cabbage slaw and chipotle mayo on flour tortillas." },
           { name: "Vegetarian Black Bean Tacos", price: "$3.00", description: "Seasoned black beans with corn salsa and avocado on corn tortillas." },
           { name: "Elote (Mexican Street Corn)", price: "$5.50", description: "Grilled corn with mayo, cotija cheese, chili powder, and lime." },
           { name: "Churros", price: "$4.00", description: "Fresh churros dusted with cinnamon sugar and served with chocolate sauce." }
         ],
         schedule: {
-          "Monday": "11:00 am - 9:00 pm",
-          "Tuesday": "11:00 am - 9:00 pm",
-          "Wednesday": "11:00 am - 9:00 pm",
-          "Thursday": "11:00 am - 9:00 pm",
-          "Friday": "11:00 am - 10:00 pm",
-          "Saturday": "11:00 am - 10:00 pm",
-          "Sunday": "12:00 pm - 8:00 pm"
+          "Monday": "11:00 am - 3:00 pm",
+          "Tuesday": "11:00 am - 3:00 pm",
+          "Wednesday": "11:00 am - 3:00 pm",
+          "Thursday": "11:00 am - 3:00 pm",
+          "Friday": "11:00 am - 3:00 pm",
+          "Saturday": "Closed",
+          "Sunday": "Closed"
         }
       },
 
