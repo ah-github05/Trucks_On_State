@@ -370,6 +370,8 @@ html {
   @apply flex flex-wrap gap-2;
 }
 
+  /* Category Button Classes */
+
 .all-category-active {
   @apply bg-primary text-white;
 }
@@ -402,11 +404,11 @@ html {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
-.tbd2-category-active {
+.mexican-category-active {
   @apply bg-primary text-white;
 }
 
-.tbd2-category-inactive {
+.mexican-category-inactive {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
