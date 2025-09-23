@@ -150,7 +150,7 @@ export class MemStorage implements IStorage {
         }
       },
 
-      // TBD
+      // Bombay Fast
       {
         slug: "bombay",
         name: "Bombay Fast",
@@ -183,7 +183,7 @@ export class MemStorage implements IStorage {
         }
       },
 
-      // TBD. New one?
+      // Nani
       {
         slug: "nani",
         name: "Nani",
