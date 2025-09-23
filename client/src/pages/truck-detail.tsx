@@ -166,8 +166,9 @@ export default function IndividualFoodTruckDetailPage() {
                             <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Classic Paninis</h2>
                           )}
 
+                          {/* Jolly Frog */}
                           {truck.slug === "jolly-frog" && (
-                            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Test</h2>
+                            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Tacos with Rice & Beans (2 per order)</h2>
                           )}
                           
                           <div className="space-y-4">
