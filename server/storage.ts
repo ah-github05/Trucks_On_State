@@ -29,6 +29,7 @@ export class MemStorage implements IStorage {
         category: "asian",
         location: "State Street & Library Mall",
         phone: "N/A",
+        businessLinks: {},
         menu: [
           { name: "Avocado Spring Roll", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce." },
           { name: "Avocado Chicken Spring Roll", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce" },
@@ -213,6 +214,77 @@ export class MemStorage implements IStorage {
           "Saturday": "Closed",
           "Sunday": "Closed"
         }
+      },
+
+      // Taco Libre
+      {
+        slug: "taco-libre",
+        name: "Taco Libre",
+        description: "Authentic Mexican street tacos with fresh ingredients",
+        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        category: "mexican",
+        location: "University Avenue & Park Street",
+        phone: "(608) 555-TACO",
+        businessLinks: {
+          website: "https://www.tacolibre-madison.com",
+          instagram: "https://www.instagram.com/tacolibre_madison",
+          facebook: "https://www.facebook.com/TacoLibreMadison"
+        },
+        menu: [
+          { name: "Carnitas Tacos", price: "$3.50", description: "Slow-cooked pork with onions, cilantro, and salsa verde on corn tortillas." },
+          { name: "Carne Asada Tacos", price: "$4.00", description: "Grilled steak with pico de gallo and avocado crema on corn tortillas." },
+          { name: "Al Pastor Tacos", price: "$3.75", description: "Marinated pork with pineapple, onions, and cilantro on corn tortillas." },
+          { name: "Chicken Tinga Tacos", price: "$3.25", description: "Shredded chicken in chipotle sauce with lettuce and Mexican crema." },
+          { name: "Fish Tacos", price: "$4.25", description: "Beer-battered fish with cabbage slaw and chipotle mayo on flour tortillas." },
+          { name: "Vegetarian Black Bean Tacos", price: "$3.00", description: "Seasoned black beans with corn salsa and avocado on corn tortillas." },
+          { name: "Elote (Mexican Street Corn)", price: "$5.50", description: "Grilled corn with mayo, cotija cheese, chili powder, and lime." },
+          { name: "Churros", price: "$4.00", description: "Fresh churros dusted with cinnamon sugar and served with chocolate sauce." }
+        ],
+        schedule: {
+          "Monday": "11:00 am - 9:00 pm",
+          "Tuesday": "11:00 am - 9:00 pm",
+          "Wednesday": "11:00 am - 9:00 pm",
+          "Thursday": "11:00 am - 9:00 pm",
+          "Friday": "11:00 am - 10:00 pm",
+          "Saturday": "11:00 am - 10:00 pm",
+          "Sunday": "12:00 pm - 8:00 pm"
+        }
+      },
+
+      // Smoky Joe's BBQ
+      {
+        slug: "smoky-joes-bbq",
+        name: "Smoky Joe's BBQ",
+        description: "Slow-smoked meats and classic BBQ sides with authentic pit flavors",
+        image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        category: "bbq",
+        location: "East Washington Avenue & First Street",
+        phone: "(608) 555-SMOKE",
+        businessLinks: {
+          website: "https://www.smokyjoesmadison.com",
+          instagram: "https://www.instagram.com/smokyjoesbbq_madison",
+          facebook: "https://www.facebook.com/SmokyJoesBBQMadison"
+        },
+        menu: [
+          { name: "Pulled Pork Sandwich", price: "$12.99", description: "Slow-smoked pulled pork with house BBQ sauce on a brioche bun." },
+          { name: "Brisket Platter", price: "$18.99", description: "Sliced beef brisket with two classic sides and cornbread." },
+          { name: "BBQ Ribs (Half Rack)", price: "$16.99", description: "Fall-off-the-bone ribs with dry rub and signature sauce." },
+          { name: "Smoked Chicken (Half)", price: "$14.99", description: "Half chicken with smoky BBQ glaze and choice of two sides." },
+          { name: "BBQ Combo Platter", price: "$22.99", description: "Choice of two meats with two sides and cornbread." },
+          { name: "Mac & Cheese", price: "$5.99", description: "Creamy three-cheese mac with crispy breadcrumb topping." },
+          { name: "Coleslaw", price: "$4.99", description: "Fresh coleslaw with tangy vinegar-based dressing." },
+          { name: "Baked Beans", price: "$5.49", description: "House-made baked beans with bacon and molasses." },
+          { name: "Cornbread", price: "$3.99", description: "Fresh-baked cornbread with honey butter." }
+        ],
+        schedule: {
+          "Monday": "11:00 am - 8:00 pm",
+          "Tuesday": "11:00 am - 8:00 pm",
+          "Wednesday": "11:00 am - 8:00 pm",
+          "Thursday": "11:00 am - 8:00 pm",
+          "Friday": "11:00 am - 9:00 pm",
+          "Saturday": "11:00 am - 9:00 pm",
+          "Sunday": "12:00 pm - 7:00 pm"
+        }
       }
     ];
 
@@ -231,7 +303,7 @@ export class MemStorage implements IStorage {
 
   async createFoodTruck(insertTruck: InsertFoodTruck): Promise<FoodTruck> {
     const id = this.currentId++;
-    const truck: FoodTruck = { ...insertTruck, id };
+    const truck = { ...insertTruck, id } as FoodTruck;
     this.trucks.set(id, truck);
     return truck;
   }
