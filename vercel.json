@@ -16,12 +16,21 @@
   ],
   "routes": [
     {
+      "src": "/assets/(.*)",
+      "dest": "/dist/public/assets/$1"
+    },
+    {
+      "src": "/(.*\..*)",
+      "dest": "/dist/public/$1"
+    },
+    {
       "src": "/api/(.*)",
       "dest": "dist/index.js"
     },
     {
       "src": "/(.*)",
-      "dest": "dist/public/$1"
+      "dest": "dist/index.js"
     }
   ]
 }
+
