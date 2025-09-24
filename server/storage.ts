@@ -1,6 +1,4 @@
 import { foodTrucks, type FoodTruck, type InsertFoodTruck } from "@shared/schema";
-import { db } from './db';
-import { eq } from 'drizzle-orm';
 
 export interface IStorage {
   getFoodTrucks(): Promise<FoodTruck[]>;
@@ -9,44 +7,6 @@ export interface IStorage {
   searchFoodTrucks(query: string): Promise<FoodTruck[]>;
   filterFoodTrucksByCategory(category: string): Promise<FoodTruck[]>;
 }
-
-export class DbStorage implements IStorage {
-  async getFoodTrucks(): Promise<FoodTruck[]> {
-    return await db.query.foodTrucks.findMany();
-  }
-
-  async getFoodTruckBySlug(slug: string): Promise<FoodTruck | undefined> {
-    return await db.query.foodTrucks.findFirst({
-      where: eq(foodTrucks.slug, slug),
-    });
-  }
-
-  async createFoodTruck(truck: InsertFoodTruck): Promise<FoodTruck> {
-    const result = await db.insert(foodTrucks).values(truck).returning();
-    return result[0];
-  }
-
-  async searchFoodTrucks(query: string): Promise<FoodTruck[]> {
-    // This is a simple search. For a more advanced search, you might want to use a full-text search engine.
-    const lowerCaseQuery = query.toLowerCase();
-    const allTrucks = await this.getFoodTrucks();
-    return allTrucks.filter(truck =>
-      truck.name.toLowerCase().includes(lowerCaseQuery) ||
-      truck.description.toLowerCase().includes(lowerCaseQuery) ||
-      truck.category.toLowerCase().includes(lowerCaseQuery)
-    );
-  }
-
-  async filterFoodTrucksByCategory(category: string): Promise<FoodTruck[]> {
-    if (category === "all") {
-      return this.getFoodTrucks();
-    }
-    return await db.query.foodTrucks.findMany({
-      where: eq(foodTrucks.category, category),
-    });
-  }
-}
-
 
 export class MemStorage implements IStorage {
   private trucks: Map<number, FoodTruck>;
@@ -241,9 +201,9 @@ export class MemStorage implements IStorage {
           { name: "TBD", price: "$TBD", description: "TBD" },
           { name: "TBD", price: "$TBD", description: "TBD" },
           { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", "description": "TBD" },
-          { name: "TBD", price: "$TBD", "description": "TBD" },
-          { name: "TBD", price: "$TBD", "description": "TBD" }
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" }
         ],
         schedule: {
           "Monday": "11:00 am - 2:00 pm",
@@ -363,4 +323,4 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new DbStorage();
+export const storage = new MemStorage();
