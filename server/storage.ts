@@ -1,4 +1,6 @@
 import { foodTrucks, type FoodTruck, type InsertFoodTruck } from "@shared/schema";
+import { db } from "./db";
+import { eq, like, or } from "drizzle-orm";
 
 export interface IStorage {
   getFoodTrucks(): Promise<FoodTruck[]>;
@@ -6,19 +8,54 @@ export interface IStorage {
   createFoodTruck(truck: InsertFoodTruck): Promise<FoodTruck>;
   searchFoodTrucks(query: string): Promise<FoodTruck[]>;
   filterFoodTrucksByCategory(category: string): Promise<FoodTruck[]>;
+  seedData(): Promise<void>;
 }
 
-export class MemStorage implements IStorage {
-  private trucks: Map<number, FoodTruck>;
-  private currentId: number;
-
-  constructor() {
-    this.trucks = new Map();
-    this.currentId = 1;
-    this.seedData();
+export class DatabaseStorage implements IStorage {
+  async getFoodTrucks(): Promise<FoodTruck[]> {
+    return await db.select().from(foodTrucks);
   }
 
-  private seedData() {
+  async getFoodTruckBySlug(slug: string): Promise<FoodTruck | undefined> {
+    const [truck] = await db.select().from(foodTrucks).where(eq(foodTrucks.slug, slug));
+    return truck || undefined;
+  }
+
+  async createFoodTruck(insertTruck: InsertFoodTruck): Promise<FoodTruck> {
+    const [truck] = await db
+      .insert(foodTrucks)
+      .values(insertTruck as any)
+      .returning();
+    return truck;
+  }
+
+  async searchFoodTrucks(query: string): Promise<FoodTruck[]> {
+    const searchTerm = `%${query.toLowerCase()}%`;
+    return await db
+      .select()
+      .from(foodTrucks)
+      .where(
+        or(
+          like(foodTrucks.name, searchTerm),
+          like(foodTrucks.description, searchTerm),
+          like(foodTrucks.category, searchTerm)
+        )
+      );
+  }
+
+  async filterFoodTrucksByCategory(category: string): Promise<FoodTruck[]> {
+    if (category === "all") {
+      return this.getFoodTrucks();
+    }
+    return await db.select().from(foodTrucks).where(eq(foodTrucks.category, category));
+  }
+
+  async seedData(): Promise<void> {
+    // Check if data already exists
+    const existingTrucks = await this.getFoodTrucks();
+    if (existingTrucks.length > 0) {
+      return; // Data already seeded
+    }
     const sampleTrucks: InsertFoodTruck[] = [
       {
         // Fresh cool drinks
@@ -286,41 +323,11 @@ export class MemStorage implements IStorage {
       }
     ];
 
-    sampleTrucks.forEach(truck => {
-      this.createFoodTruck(truck);
-    });
-  }
-
-  async getFoodTrucks(): Promise<FoodTruck[]> {
-    return Array.from(this.trucks.values());
-  }
-
-  async getFoodTruckBySlug(slug: string): Promise<FoodTruck | undefined> {
-    return Array.from(this.trucks.values()).find(truck => truck.slug === slug);
-  }
-
-  async createFoodTruck(insertTruck: InsertFoodTruck): Promise<FoodTruck> {
-    const id = this.currentId++;
-    const truck = { ...insertTruck, id } as FoodTruck;
-    this.trucks.set(id, truck);
-    return truck;
-  }
-
-  async searchFoodTrucks(query: string): Promise<FoodTruck[]> {
-    const searchTerm = query.toLowerCase();
-    return Array.from(this.trucks.values()).filter(truck =>
-      truck.name.toLowerCase().includes(searchTerm) ||
-      truck.description.toLowerCase().includes(searchTerm) ||
-      truck.category.toLowerCase().includes(searchTerm)
+    // Insert all trucks in parallel for better performance
+    await Promise.all(
+      sampleTrucks.map(truck => this.createFoodTruck(truck))
     );
-  }
-
-  async filterFoodTrucksByCategory(category: string): Promise<FoodTruck[]> {
-    if (category === "all") {
-      return this.getFoodTrucks();
-    }
-    return Array.from(this.trucks.values()).filter(truck => truck.category === category);
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
