@@ -6,10 +6,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get all food trucks
   app.get("/api/food-trucks", async (req, res) => {
     try {
+      // Ensure data is seeded before fetching
+      await storage.seedData();
       const trucks = await storage.getFoodTrucks();
       res.json(trucks);
     } catch (error) {
-      res.status(500).json({ message: "Failed to fetch food trucks" });
+      console.error("Error fetching food trucks:", error);
+      res.status(500).json({ 
+        message: "Failed to fetch food trucks",
+        error: process.env.NODE_ENV === 'development' ? (error as Error).message : undefined
+      });
     }
   });
 
