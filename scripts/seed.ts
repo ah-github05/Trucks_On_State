@@ -1,66 +1,10 @@
-import { foodTrucks, type FoodTruck, type InsertFoodTruck } from "@shared/schema";
-import { db } from './db';
-import { eq } from 'drizzle-orm';
+import { DbStorage } from '../server/storage';
+import type { InsertFoodTruck } from '@shared/schema';
 
-export interface IStorage {
-  getFoodTrucks(): Promise<FoodTruck[]>;
-  getFoodTruckBySlug(slug: string): Promise<FoodTruck | undefined>;
-  createFoodTruck(truck: InsertFoodTruck): Promise<FoodTruck>;
-  searchFoodTrucks(query: string): Promise<FoodTruck[]>;
-  filterFoodTrucksByCategory(category: string): Promise<FoodTruck[]>;
-}
+const storage = new DbStorage();
 
-export class DbStorage implements IStorage {
-  async getFoodTrucks(): Promise<FoodTruck[]> {
-    return await db.query.foodTrucks.findMany();
-  }
-
-  async getFoodTruckBySlug(slug: string): Promise<FoodTruck | undefined> {
-    return await db.query.foodTrucks.findFirst({
-      where: eq(foodTrucks.slug, slug),
-    });
-  }
-
-  async createFoodTruck(truck: InsertFoodTruck): Promise<FoodTruck> {
-    const result = await db.insert(foodTrucks).values(truck).returning();
-    return result[0];
-  }
-
-  async searchFoodTrucks(query: string): Promise<FoodTruck[]> {
-    // This is a simple search. For a more advanced search, you might want to use a full-text search engine.
-    const lowerCaseQuery = query.toLowerCase();
-    const allTrucks = await this.getFoodTrucks();
-    return allTrucks.filter(truck =>
-      truck.name.toLowerCase().includes(lowerCaseQuery) ||
-      truck.description.toLowerCase().includes(lowerCaseQuery) ||
-      truck.category.toLowerCase().includes(lowerCaseQuery)
-    );
-  }
-
-  async filterFoodTrucksByCategory(category: string): Promise<FoodTruck[]> {
-    if (category === "all") {
-      return this.getFoodTrucks();
-    }
-    return await db.query.foodTrucks.findMany({
-      where: eq(foodTrucks.category, category),
-    });
-  }
-}
-
-
-export class MemStorage implements IStorage {
-  private trucks: Map<number, FoodTruck>;
-  private currentId: number;
-
-  constructor() {
-    this.trucks = new Map();
-    this.currentId = 1;
-    this.seedData();
-  }
-
-  private seedData() {
-    const sampleTrucks: InsertFoodTruck[] = [
-      {
+const sampleTrucks: InsertFoodTruck[] = [
+    {
         // Fresh cool drinks
         slug: "fresh-cool",
         name: "Fresh Cool Drinks",
@@ -76,7 +20,7 @@ export class MemStorage implements IStorage {
           { name: "Avocado Tofu Spring Roll", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce" },
           { name: "Avocado Shrimp Spring Roll", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce" },
           { name: "Avocado BBQ Pork Spring Roll", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce" },
-          { name: "Salad Bowl", price: "$7.00", description: "Description coming soon..." }      
+          { name: "Salad Bowl", price: "$7.00", description: "Description coming soon..." }
         ],
         schedule: {
           "Monday": "10:00 am - 6:00 pm",
@@ -158,7 +102,7 @@ export class MemStorage implements IStorage {
           "Sunday": "Closed"
         }
       },
-      
+
       // Surco Food Cart
       {
         slug: "surco",
@@ -324,43 +268,18 @@ export class MemStorage implements IStorage {
           "Sunday": "12:00 pm - 7:00 pm"
         }
       }
-    ];
+];
 
-    sampleTrucks.forEach(truck => {
-      this.createFoodTruck(truck);
-    });
+async function seed() {
+  console.log('Seeding database...');
+  for (const truck of sampleTrucks) {
+    await storage.createFoodTruck(truck);
   }
-
-  async getFoodTrucks(): Promise<FoodTruck[]> {
-    return Array.from(this.trucks.values());
-  }
-
-  async getFoodTruckBySlug(slug: string): Promise<FoodTruck | undefined> {
-    return Array.from(this.trucks.values()).find(truck => truck.slug === slug);
-  }
-
-  async createFoodTruck(insertTruck: InsertFoodTruck): Promise<FoodTruck> {
-    const id = this.currentId++;
-    const truck = { ...insertTruck, id } as FoodTruck;
-    this.trucks.set(id, truck);
-    return truck;
-  }
-
-  async searchFoodTrucks(query: string): Promise<FoodTruck[]> {
-    const searchTerm = query.toLowerCase();
-    return Array.from(this.trucks.values()).filter(truck =>
-      truck.name.toLowerCase().includes(searchTerm) ||
-      truck.description.toLowerCase().includes(searchTerm) ||
-      truck.category.toLowerCase().includes(searchTerm)
-    );
-  }
-
-  async filterFoodTrucksByCategory(category: string): Promise<FoodTruck[]> {
-    if (category === "all") {
-      return this.getFoodTrucks();
-    }
-    return Array.from(this.trucks.values()).filter(truck => truck.category === category);
-  }
+  console.log('Seeding complete.');
+  process.exit(0);
 }
 
-export const storage = new DbStorage();
+seed().catch(err => {
+  console.error('Failed to seed database:', err);
+  process.exit(1);
+});
