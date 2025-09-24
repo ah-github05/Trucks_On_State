@@ -1,23 +1,36 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "functions": {
-    "dist/index.js": {
-      "memory": 1024
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "installCommand": "npm install",
+        "buildCommand": "npm run build"
+      }
+    },
+    {
+      "src": "dist/index.js",
+      "use": "@vercel/node"
     }
-  },
+  ],
   "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/dist/public/assets/$1"
+    },
+    {
+      "src": "/(.*\..*)",
+      "dest": "/dist/public/$1"
+    },
     {
       "src": "/api/(.*)",
       "dest": "dist/index.js"
     },
     {
-      "src": "/(.*\\..*)",
-      "dest": "/dist/public/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/dist/public/index.html"
+      "dest": "dist/index.js"
     }
   ]
 }
+
