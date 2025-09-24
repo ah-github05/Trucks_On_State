@@ -1,16 +1,23 @@
 {
   "version": 2,
-  "buildCommand": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
-  "builds": [
-    {
-      "src": "dist/index.js",
-      "use": "@vercel/node"
+  "buildCommand": "npm run build",
+  "functions": {
+    "dist/index.js": {
+      "memory": 1024
     }
-  ],
+  },
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "dest": "dist/index.js"
+    },
+    {
+      "src": "/(.*\\..*)",
+      "dest": "/dist/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/public/index.html"
     }
   ]
 }
