@@ -167,26 +167,83 @@ export default function IndividualFoodTruckDetailPage() {
                           )}
 
                           {/* Jolly Frog */}
-                          {truck.slug === "jolly-frog" && (
-                            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Tacos with Rice & Beans (2 per order)</h2>
-                          )}
-                          
-                          <div className="space-y-4">
-                            {truck.menu.map((item, index) => (
-                              <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                
-                                <div className="flex justify-between items-start">
-                                  <div className="flex-1">
-                                    <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                    <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                          {truck.slug === "jolly-frog" ? (
+                            <>
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Tacos with Rice & Beans (2 per order)</h2>
+                              <div className="space-y-4 mb-6">
+                                {truck.menu.slice(0, 3).map((item, index) => (
+                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                    <div className="flex justify-between items-start">
+                                      <div className="flex-1">
+                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                      </div>
+                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                    </div>
                                   </div>
-                                  
-                                  <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                </div>
-                                
+                                ))}
                               </div>
-                            ))}
-                          </div>
+
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Burrito / Bowl</h2>
+                              <div className="space-y-4 mb-6">
+                                {truck.menu.slice(3, 5).map((item, index) => (
+                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                    <div className="flex justify-between items-start">
+                                      <div className="flex-1">
+                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                      </div>
+                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Tostadas with Rice</h2>
+                              <div className="space-y-4 mb-6">
+                                {truck.menu.slice(5, 7).map((item, index) => (
+                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                    <div className="flex justify-between items-start">
+                                      <div className="flex-1">
+                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                      </div>
+                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Build your own</h2>
+                              <div className="space-y-4">
+                                {truck.menu.slice(7, 8).map((item, index) => (
+                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                    <div className="flex justify-between items-start">
+                                      <div className="flex-1">
+                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                      </div>
+                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </>
+                          ) : (
+                            <div className="space-y-4">
+                              {truck.menu.map((item, index) => (
+                                <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                  <div className="flex justify-between items-start">
+                                    <div className="flex-1">
+                                      <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                    </div>
+                                    <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                           
                         </div>
                       </div>
