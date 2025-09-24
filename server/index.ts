@@ -38,14 +38,11 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  // Initialize database with seed data in development only
-  // In production, this will be handled per-request to work with serverless
-  if (process.env.NODE_ENV === 'development') {
-    try {
-      await storage.seedData();
-    } catch (error) {
-      console.error("Failed to seed data:", error);
-    }
+  // Initialize database with seed data
+  try {
+    await storage.seedData();
+  } catch (error) {
+    console.error("Failed to seed data:", error);
   }
   
   const server = await registerRoutes(app);
