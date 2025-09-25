@@ -251,17 +251,17 @@ export class MemStorage implements IStorage {
 
       // Smoky Joe's BBQ
       {
-        slug: "smoky-joes-bbq",
-        name: "Smoky Joe's BBQ",
-        description: "Slow-smoked meats and classic BBQ sides with authentic pit flavors",
-        image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        category: "bbq",
-        location: "East Washington Avenue & First Street",
-        phone: "(608) 555-SMOKE",
+        slug: "roost",
+        name: "The Roost Fried Chicken",
+        description: "Crispy fried chicken with spicy dry rubs",
+        image: "TBD",
+        category: "TBD",
+        location: "State Street & Library Mall",
+        phone: "(608) 422-9622",
         businessLinks: {
-          website: "https://www.smokyjoesmadison.com",
-          instagram: "https://www.instagram.com/smokyjoesbbq_madison",
-          facebook: "https://www.facebook.com/SmokyJoesBBQMadison"
+          website: "https://www.theroostfriedchicken.com",
+          instagram: "https://www.instagram.com/theroostfriedchicken?utm_source=ig_web_button_share_sheet&igsh=MTdueWhrd3BnMjdzcw==",
+          facebook: "https://www.facebook.com/TheRoostFriedChicken/"
         },
         menu: [
           { name: "Pulled Pork Sandwich", price: "$12.99", description: "Slow-smoked pulled pork with house BBQ sauce on a brioche bun." },
@@ -288,7 +288,7 @@ export class MemStorage implements IStorage {
       // TBD Food Truck
       {
         slug: "tbd-food-truck",
-        name: "TBD Food Truck",
+        name: "M & J Jamaican Kitch'n",
         description: "TBD",
         image: "TBD",
         category: "TBD",
