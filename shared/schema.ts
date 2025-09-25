@@ -11,7 +11,7 @@ export const foodTrucks = pgTable("food_trucks", {
   category: text("category").notNull(),
   location: text("location").notNull(),
   phone: text("phone").notNull(),
-  menu: json("menu").$type<MenuItem[]>().notNull(),
+  menu: json("menu").$type<MenuItem[] | MenuCategory[]>().notNull(),
   schedule: json("schedule").$type<Schedule>().notNull(),
   businessLinks: json("business_links").$type<BusinessLinks>(),
 });
@@ -20,6 +20,11 @@ export interface MenuItem {
   name: string;
   price: string;
   description: string;
+}
+
+export interface MenuCategory {
+  category: string;
+  items: MenuItem[];
 }
 
 export interface Schedule {
