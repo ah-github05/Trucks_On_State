@@ -229,14 +229,41 @@ export class MemStorage implements IStorage {
           facebook: "https://www.facebook.com/jollyfrogllc?mibextid=wwXIfr"
         },
         menu: [
-          { name: "Steak and/or Pork", price: "$10.00", description: "Corn tortilla, onion, cilantro, lime." },
-          { name: "Chicken", price: "$10.00", description: "Corn tortilla, lettuce, sour cream, cheese." },
-          { name: "Veggie", price: "$10.00", description: "Corn tortilla, onion, cilantro, lettuce, tomato, sour cream, cheese, avocado." },
-          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, cheese, sour cream." },
-          { name: "Veggie", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, tomato, avocado, cheese, sour cream." },
-          { name: "Vegetarian Black Bean Tacos", price: "$3.00", description: "Seasoned black beans with corn salsa and avocado on corn tortillas." },
-          { name: "Elote (Mexican Street Corn)", price: "$5.50", description: "Grilled corn with mayo, cotija cheese, chili powder, and lime." },
-          { name: "Churros", price: "$4.00", description: "Fresh churros dusted with cinnamon sugar and served with chocolate sauce." }
+          {
+            category: "Tacos with Rice & Beans (2 per order)",
+            items: [
+              { name: "Steak and/or Pork", price: "$10.00", description: "Corn tortilla, onion, cilantro, lime." },
+              { name: "Chicken", price: "$10.00", description: "Corn tortilla, lettuce, sour cream, cheese." },
+              { name: "Veggie", price: "$10.00", description: "Corn tortilla, onion, cilantro, lettuce, tomato, sour cream, cheese, avocado." },
+            ]
+          },
+          {
+            category: "Burrito / Bowl (chips on the side)",
+            items: [
+              { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, cheese, sour cream." },
+              { name: "Veggie", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, tomato, avocado, cheese, sour cream." },
+            ]
+          },
+          {
+            category: "Tostadas with Rice",
+            items: [
+              { name: "Vegetarian Black Bean Tacos", price: "$3.00", description: "Seasoned black beans with corn salsa and avocado on corn tortillas." },
+              { name: "Elote (Mexican Street Corn)", price: "$5.50", description: "Grilled corn with mayo, cotija cheese, chili powder, and lime." },
+            ]
+          },
+          {
+            category: "Build your own",
+            items: [
+              { name: "Churros", price: "$4.00", description: "Fresh churros dusted with cinnamon sugar and served with chocolate sauce." }
+            ]
+          },
+          {
+            category: "Sides",
+            items: [
+              { name: "TBD", price: "$TBD", description: "TBD" },
+              { name: "TBD", price: "$TBD", description: "TBD" }
+            ]
+          }
         ],
         schedule: {
           "Monday": "11:00 am - 3:00 pm",
