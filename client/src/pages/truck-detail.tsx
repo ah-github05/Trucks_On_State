@@ -184,7 +184,7 @@ export default function IndividualFoodTruckDetailPage() {
                                 ))}
                               </div>
 
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Burrito / Bowl</h2>
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Burrito / Bowl (chips on the side)</h2>
                               <div className="space-y-4 mb-6">
                                 {truck.menu.slice(3, 5).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">

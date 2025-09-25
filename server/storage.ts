@@ -229,11 +229,11 @@ export class MemStorage implements IStorage {
           facebook: "https://www.facebook.com/jollyfrogllc?mibextid=wwXIfr"
         },
         menu: [
-          { name: "Steak and/or Pork", price: "$10.00", description: "Corn tortilla, onion, cilantro, and lime." },
+          { name: "Steak and/or Pork", price: "$10.00", description: "Corn tortilla, onion, cilantro, lime." },
           { name: "Chicken", price: "$10.00", description: "Corn tortilla, lettuce, sour cream, cheese." },
-          { name: "Veggie", price: "$10.00", description: "Corn tortilla, onion, cilantro, lettuce, tomato, sour cream, cheese, and avocado." },
-          { name: "TBD", price: "$3.25", description: "Shredded chicken in chipotle sauce with lettuce and Mexican crema." },
-          { name: "Fish Tacos", price: "$4.25", description: "Beer-battered fish with cabbage slaw and chipotle mayo on flour tortillas." },
+          { name: "Veggie", price: "$10.00", description: "Corn tortilla, onion, cilantro, lettuce, tomato, sour cream, cheese, avocado." },
+          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, cheese, sour cream." },
+          { name: "Veggie", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, tomato, avocado, cheese, sour cream." },
           { name: "Vegetarian Black Bean Tacos", price: "$3.00", description: "Seasoned black beans with corn salsa and avocado on corn tortillas." },
           { name: "Elote (Mexican Street Corn)", price: "$5.50", description: "Grilled corn with mayo, cotija cheese, chili powder, and lime." },
           { name: "Churros", price: "$4.00", description: "Fresh churros dusted with cinnamon sugar and served with chocolate sauce." }
