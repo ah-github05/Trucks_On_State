@@ -283,6 +283,42 @@ export class MemStorage implements IStorage {
           "Saturday": "11:00 am - 9:00 pm",
           "Sunday": "12:00 pm - 7:00 pm"
         }
+      },
+
+      // TBD Food Truck
+      {
+        slug: "tbd-food-truck",
+        name: "TBD Food Truck",
+        description: "TBD",
+        image: "TBD",
+        category: "TBD",
+        location: "TBD",
+        phone: "TBD",
+        businessLinks: {
+          website: "TBD",
+          instagram: "TBD",
+          facebook: "TBD"
+        },
+        menu: [
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" }
+        ],
+        schedule: {
+          "Monday": "TBD",
+          "Tuesday": "TBD",
+          "Wednesday": "TBD",
+          "Thursday": "TBD",
+          "Friday": "TBD",
+          "Saturday": "TBD",
+          "Sunday": "TBD"
+        }
       }
     ];
 
