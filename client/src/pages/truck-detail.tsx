@@ -214,9 +214,9 @@ export default function IndividualFoodTruckDetailPage() {
                                 ))}
                               </div>
 
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Build Your Own </h2>
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Nachos</h2>
                               <div className="space-y-4 mb-6">
-                                {truck.menu.slice(7, 8).map((item, index) => (
+                                {truck.menu.slice(8, 10).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -229,9 +229,9 @@ export default function IndividualFoodTruckDetailPage() {
                                 ))}
                               </div>
 
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Nachos</h2>
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Build Your Own </h2>
                               <div className="space-y-4">
-                                {truck.menu.slice(8, 10).map((item, index) => (
+                                {truck.menu.slice(7, 8).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
