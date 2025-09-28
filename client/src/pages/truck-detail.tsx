@@ -199,7 +199,7 @@ export default function IndividualFoodTruckDetailPage() {
                                 ))}
                               </div>
 
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Tostadas with Rice</h2>
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Tostadas with Rice (2 per order)</h2>
                               <div className="space-y-4 mb-6">
                                 {truck.menu.slice(5, 7).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
