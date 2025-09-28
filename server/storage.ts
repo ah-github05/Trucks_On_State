@@ -234,11 +234,11 @@ export class MemStorage implements IStorage {
           { name: "Veggie", price: "$10.00", description: "Corn tortilla, onion, cilantro, lettuce, tomato, sour cream, cheese, avocado." },
           { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, cheese, sour cream." },
           { name: "Veggie", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, tomato, avocado, cheese, sour cream." },
-          { name: "Vegetarian Black Bean Tacos", price: "$3.00", description: "Seasoned black beans with corn salsa and avocado on corn tortillas." },
-          { name: "Elote (Mexican Street Corn)", price: "$5.50", description: "Grilled corn with mayo, cotija cheese, chili powder, and lime." },
-          { name: "Churros", price: "$4.00", description: "Fresh churros dusted with cinnamon sugar and served with chocolate sauce." },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" }
+          { name: "Steak, Chicken, and/or Pork", price: "$10.00", description: "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños." },
+          { name: "Veggie", price: "$10.00", description: "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños." },
+          { name: "Taco", price: "$3.50", description: "Meat, onion, cilantro, lettuce, tomato, mozzarella cheese, sour cream." },
+          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Corn hard flat tortilla, beans ,lettuce, onion ,cilantro, sour cream mozarella cheese." },
+          { name: "Veggie", price: "$12.00", description: "Corn hard flat tortilla, beans, lettuce, onion, cilantro, tomato, sour cream, mozzarella cheese, avocado." }
         ],
         schedule: {
           "Monday": "11:00 am - 3:00 pm",
