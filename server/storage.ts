@@ -155,7 +155,7 @@ export class MemStorage implements IStorage {
       {
         slug: "bombay",
         name: "Bombay Fast",
-        description: "Spiced dishes from the heart of Bombay",
+        description: "Hearty dishes from the streets of Bombay",
         image: "https://bloximages.chicago2.vip.townnews.com/captimes.com/content/tncms/assets/v3/editorial/6/86/686e01e1-6dcf-5678-bba6-30383ae84644/60f6c1e8cf21f.image.jpg?resize=1396%2C930",
         category: "southeast_asian",
         location: "State Street & Library Mall",
@@ -257,7 +257,7 @@ export class MemStorage implements IStorage {
         name: "The Roost Fried Chicken",
         description: "Crispy fried chicken with spicy dry rubs",
         image: "TBD",
-        category: "TBD",
+        category: "american",
         location: "State Street & Library Mall",
         phone: "(608) 422-9622",
         businessLinks: {
@@ -266,16 +266,17 @@ export class MemStorage implements IStorage {
           facebook: "https://www.facebook.com/TheRoostFriedChicken/"
         },
         menu: [
-          { name: "Pulled Pork Sandwich", price: "$12.99", description: "Slow-smoked pulled pork with house BBQ sauce on a brioche bun." },
-          { name: "Brisket Platter", price: "$18.99", description: "Sliced beef brisket with two classic sides and cornbread." },
-          { name: "BBQ Ribs (Half Rack)", price: "$16.99", description: "Fall-off-the-bone ribs with dry rub and signature sauce." },
-          { name: "Smoked Chicken (Half)", price: "$14.99", description: "Half chicken with smoky BBQ glaze and choice of two sides." },
-          { name: "BBQ Combo Platter", price: "$22.99", description: "Choice of two meats with two sides and cornbread." },
-          { name: "Mac & Cheese", price: "$5.99", description: "Creamy three-cheese mac with crispy breadcrumb topping." },
-          { name: "Coleslaw", price: "$4.99", description: "Fresh coleslaw with tangy vinegar-based dressing." },
-          { name: "Baked Beans", price: "$5.49", description: "House-made baked beans with bacon and molasses." },
-          { name: "Cornbread", price: "$3.99", description: "Fresh-baked cornbread with honey butter." }
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" }
         ],
+        
         schedule: {
           "Monday": "Closed",
           "Tuesday": "11:00 am - 2:00 pm",
