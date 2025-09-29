@@ -251,7 +251,7 @@ export class MemStorage implements IStorage {
         }
       },
 
-      // Smoky Joe's BBQ
+      // The Roost Fried Chicken
       {
         slug: "roost",
         name: "The Roost Fried Chicken",
@@ -277,13 +277,13 @@ export class MemStorage implements IStorage {
           { name: "Cornbread", price: "$3.99", description: "Fresh-baked cornbread with honey butter." }
         ],
         schedule: {
-          "Monday": "11:00 am - 8:00 pm",
-          "Tuesday": "11:00 am - 8:00 pm",
-          "Wednesday": "11:00 am - 8:00 pm",
-          "Thursday": "11:00 am - 8:00 pm",
-          "Friday": "11:00 am - 9:00 pm",
-          "Saturday": "11:00 am - 9:00 pm",
-          "Sunday": "12:00 pm - 7:00 pm"
+          "Monday": "Closed",
+          "Tuesday": "11:00 am - 2:00 pm",
+          "Wednesday": "11:00 am - 2:00 pm",
+          "Thursday": "11:00 am - 2:00 pm",
+          "Friday": "11:00 am - 2:00 pm",
+          "Saturday": "Closed",
+          "Sunday": "Closed"
         }
       },
 
