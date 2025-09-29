@@ -190,7 +190,7 @@ export class MemStorage implements IStorage {
         name: "Nani",
         description: "Chinese dim sum and Sichuan-style stir-fry",
         image: "***",
-        category: "Asian",
+        category: "asian",
         location: "TBD",
         phone: "N/A",
         businessLinks: {
