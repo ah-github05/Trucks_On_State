@@ -250,7 +250,10 @@ export default function IndividualFoodTruckDetailPage() {
                             </>
                           ) : truck.slug === "roost" ? (
                             <>
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Jumbo 1/4 lb Chicken Tenders</h2>
+                              <div className="flex justify-between items-baseline mb-4">
+                                <h2 className="text-lg font-semibold text-gray-900 underline">Jumbo 1/4 lb Chicken Tenders</h2>
+                                <span className="font-semibold text-gray-900">Tenders / Meal</span>
+                              </div>
                               <div className="space-y-4 mb-6">
                                 {truck.menu.slice(0, 3).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
@@ -265,7 +268,10 @@ export default function IndividualFoodTruckDetailPage() {
                                 ))}
                               </div>
 
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Chicken Sandwiches</h2>
+                              <div className="flex justify-between items-baseline mb-4">
+                                <h2 className="text-lg font-semibold text-gray-900 underline">Chicken Sandwiches</h2>
+                                <span className="font-semibold text-gray-900">Sandwich / Meal</span>
+                              </div>
                               <div className="space-y-4 mb-6">
                                 {truck.menu.slice(3, 6).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
@@ -280,7 +286,10 @@ export default function IndividualFoodTruckDetailPage() {
                                 ))}
                               </div>
 
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Sides</h2>
+                              <div className="flex justify-between items-baseline mb-4">
+                                <h2 className="text-lg font-semibold text-gray-900 underline">Sides</h2>
+                                <span className="font-semibold text-gray-900">Small / Large</span>
+                              </div>
                               <div className="space-y-4 mb-6">
                                 {truck.menu.slice(6, 9).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
