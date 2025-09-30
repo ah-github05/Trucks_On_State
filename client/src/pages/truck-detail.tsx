@@ -241,6 +241,8 @@ export default function IndividualFoodTruckDetailPage() {
                                         <p className="text-sm text-gray-600 mt-1">{item.description}</p>
                                       </div>
                                       <span className="font-semibold text-primary ml-4">{item.price}</span>
+
+                                      {/* Jolly Frog */}
                                     </div>
                                   </div>
                                 ))}
@@ -248,7 +250,7 @@ export default function IndividualFoodTruckDetailPage() {
                             </>
                           ) : truck.slug === "roost" ? (
                             <>
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Chicken Tenders</h2>
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Jumbo 1/4 lb Chicken Tenders</h2>
                               <div className="space-y-4 mb-6">
                                 {truck.menu.slice(0, 3).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
