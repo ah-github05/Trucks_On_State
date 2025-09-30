@@ -244,6 +244,68 @@ export default function IndividualFoodTruckDetailPage() {
                                 ))}
                               </div>
                             </>
+                          ) : truck.slug === "roost" ? (
+                            <>
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Chicken Tenders</h2>
+                              <div className="space-y-4 mb-6">
+                                {truck.menu.slice(0, 3).map((item, index) => (
+                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                    <div className="flex justify-between items-start">
+                                      <div className="flex-1">
+                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                      </div>
+                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Chicken Sandwiches</h2>
+                              <div className="space-y-4 mb-6">
+                                {truck.menu.slice(3, 6).map((item, index) => (
+                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                    <div className="flex justify-between items-start">
+                                      <div className="flex-1">
+                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                      </div>
+                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Sides</h2>
+                              <div className="space-y-4 mb-6">
+                                {truck.menu.slice(6, 9).map((item, index) => (
+                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                    <div className="flex justify-between items-start">
+                                      <div className="flex-1">
+                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                      </div>
+                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Extras</h2>
+                              <div className="space-y-4">
+                                {truck.menu.slice(9, 12).map((item, index) => (
+                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                    <div className="flex justify-between items-start">
+                                      <div className="flex-1">
+                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                      </div>
+                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </>
                           ) : (
                             <div className="space-y-4">
                               {truck.menu.map((item, index) => (

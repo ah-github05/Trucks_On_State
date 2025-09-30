@@ -266,15 +266,22 @@ export class MemStorage implements IStorage {
           facebook: "https://www.facebook.com/TheRoostFriedChicken/"
         },
         menu: [
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" }
+          // Chicken Tenders
+          { name: "3-Piece Tenders", price: "$8.99", description: "Three crispy chicken tenders served with your choice of sauce." },
+          { name: "5-Piece Tenders", price: "$11.99", description: "Five crispy chicken tenders served with your choice of two sauces." },
+          { name: "7-Piece Tenders", price: "$14.99", description: "Seven crispy chicken tenders served with your choice of three sauces." },
+          // Chicken Sandwiches
+          { name: "The Classic Roost", price: "$10.99", description: "Fried chicken breast, pickles, and mayo on a brioche bun." },
+          { name: "Spicy Deluxe", price: "$11.99", description: "Spicy fried chicken breast, pepper jack cheese, lettuce, tomato, and spicy mayo on a brioche bun." },
+          { name: "The Honey Butter", price: "$11.99", description: "Fried chicken breast smothered in honey butter on a brioche bun." },
+          // Sides
+          { name: "Fries", price: "$3.99", description: "Crispy golden fries." },
+          { name: "Mac & Cheese", price: "$4.99", description: "Creamy, cheesy macaroni." },
+          { name: "Coleslaw", price: "$2.99", description: "Classic creamy coleslaw." },
+          // Extras
+          { name: "Ranch Sauce", price: "$0.99", description: "Our signature homemade ranch." },
+          { name: "Honey Mustard", price: "$0.99", description: "Sweet and tangy honey mustard." },
+          { name: "BBQ Sauce", price: "$0.99", description: "Smoky and sweet BBQ sauce." }
         ],
         
         schedule: {
