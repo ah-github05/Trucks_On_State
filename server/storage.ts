@@ -237,7 +237,7 @@ export class MemStorage implements IStorage {
           { name: "Steak, Chicken, and/or Pork", price: "$10.00", description: "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños." },
           { name: "Veggie", price: "$10.00", description: "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños." },
           { name: "Taco", price: "$3.50", description: "Meat, onion, cilantro, lettuce, tomato, mozzarella cheese, sour cream." },
-          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Corn hard flat tortilla, beans ,lettuce, onion ,cilantro, sour cream mozarella cheese." },
+          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Corn hard flat tortilla, beans ,lettuce, onion, cilantro, sour cream mozarella cheese." },
           { name: "Veggie", price: "$12.00", description: "Corn hard flat tortilla, beans, lettuce, onion, cilantro, tomato, sour cream, mozzarella cheese, avocado." }
         ],
         schedule: {
@@ -295,7 +295,7 @@ export class MemStorage implements IStorage {
         }
       },
 
-      // TBD Food Truck
+      // M & J Jamaican Kitch'n
       {
         slug: "tbd-food-truck",
         name: "M & J Jamaican Kitch'n",
