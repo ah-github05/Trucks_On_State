@@ -283,7 +283,7 @@ export class MemStorage implements IStorage {
           
           // Extras
           { name: "Make it a Meal", price: "", description: "Includes french fries and a drink. Substitute cheese curds ($2.00). Substitute lemonade  (Small- $1.00) (Large- $2.00)" },
-          { name: "Roost Style", price: "", description: "Substitute mayo for roost sauce." },
+          { name: "Roost Style", price: "", description: "Substitute mayo for Roost Sauce." },
           { name: "Dip Chicken in Honey Butter", price: "$1.00", description: "" }
         ],
         
