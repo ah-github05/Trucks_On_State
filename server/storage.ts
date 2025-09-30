@@ -267,21 +267,24 @@ export class MemStorage implements IStorage {
         },
         menu: [
           // Chicken Tenders
-          { name: "3-Piece Tenders", price: "$8.99", description: "Three crispy chicken tenders served with your choice of sauce." },
-          { name: "5-Piece Tenders", price: "$11.99", description: "Five crispy chicken tenders served with your choice of two sauces." },
-          { name: "7-Piece Tenders", price: "$14.99", description: "Seven crispy chicken tenders served with your choice of three sauces." },
+          { name: "2-Piece Tenders", price: "$8.00 / $12.00", description: "" },
+          { name: "3-Piece Tenders", price: "$12.00 / $15.00", description: "" },
+          { name: "4-Piece Tenders", price: "$16.00 / $18.00", description: "" },
+          
           // Chicken Sandwiches
-          { name: "The Classic Roost", price: "$10.99", description: "Fried chicken breast, pickles, and mayo on a brioche bun." },
-          { name: "Spicy Deluxe", price: "$11.99", description: "Spicy fried chicken breast, pepper jack cheese, lettuce, tomato, and spicy mayo on a brioche bun." },
-          { name: "The Honey Butter", price: "$11.99", description: "Fried chicken breast smothered in honey butter on a brioche bun." },
+          { name: "Badgerville Spicy", price: "$10.00 / $14.00", description: "Fried chicken dipped in honey butter and seasoned with spicy dry rub. Topped with pickles and coleslaw on a brioche bun." },
+          { name: "Original", price: "$9.00 / $13.00", description: "Signature fried chicken topped with mayo and pickles on a brioche bun." },
+          { name: "Deluxe", price: "$10.00 / $14.00", description: "Signature fried chicken topped with lettuce, tomato, pickles, cheese, and mayo on a brioche bun." },
+          
           // Sides
-          { name: "Fries", price: "$3.99", description: "Crispy golden fries." },
-          { name: "Mac & Cheese", price: "$4.99", description: "Creamy, cheesy macaroni." },
-          { name: "Coleslaw", price: "$2.99", description: "Classic creamy coleslaw." },
+          { name: "French Fries", price: "$4.00 / $6.00", description: "" },
+          { name: "Cheese Curds", price: "$6.00", description: "" },
+          { name: "Coleslaw", price: "$3.00", description: "" },
+          
           // Extras
-          { name: "Ranch Sauce", price: "$0.99", description: "Our signature homemade ranch." },
-          { name: "Honey Mustard", price: "$0.99", description: "Sweet and tangy honey mustard." },
-          { name: "BBQ Sauce", price: "$0.99", description: "Smoky and sweet BBQ sauce." }
+          { name: "Make it a Meal", price: "", description: "Includes french fries and a drink. Substitute cheese curds ($2.00). Substitute lemonade  (Small- $1.00) (Large- $2.00)" },
+          { name: "Roost Style", price: "", description: "Substitute mayo for roost sauce." },
+          { name: "Dip Chicken in Honey Butter", price: "$1.00", description: "" }
         ],
         
         schedule: {
