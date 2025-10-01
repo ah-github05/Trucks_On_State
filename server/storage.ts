@@ -304,7 +304,7 @@ export class MemStorage implements IStorage {
         name: "M & J Jamaican Kitch'n",
         description: "TBD",
         image: "TBD",
-        category: "TBD",
+        category: "caribbean",
         location: "TBD",
         phone: "TBD",
         businessLinks: {
@@ -331,6 +331,39 @@ export class MemStorage implements IStorage {
           "Friday": "TBD",
           "Saturday": "TBD",
           "Sunday": "TBD"
+        }
+      },
+
+      // New Food Truck
+      {
+        slug: "new-food-truck",
+        name: "New Food Truck",
+        description: "Authentic Caribbean Cuisine",
+        image: "TBD",
+        category: "caribbean",
+        location: "TBD",
+        phone: "TBD",
+        businessLinks: {
+          website: "TBD",
+          instagram: "TBD",
+          facebook: "TBD"
+        },
+        menu: [
+          { name: "Jerk Chicken", price: "$12.00", description: "Spicy grilled chicken with rice and peas." },
+          { name: "Oxtail Stew", price: "$15.00", description: "Slow-cooked oxtail with butter beans." },
+          { name: "Curry Goat", price: "$14.00", description: "Tender goat meat in a rich curry sauce." },
+          { name: "Ackee and Saltfish", price: "$13.00", description: "Jamaica's national dish." },
+          { name: "Plantains", price: "$4.00", description: "Fried sweet plantains." },
+          { name: "Jamaican Patties", price: "$3.00", description: "Beef, chicken, or vegetable." }
+        ],
+        schedule: {
+          "Monday": "11:00 am - 5:00 pm",
+          "Tuesday": "11:00 am - 5:00 pm",
+          "Wednesday": "11:00 am - 5:00 pm",
+          "Thursday": "11:00 am - 5:00 pm",
+          "Friday": "11:00 am - 5:00 pm",
+          "Saturday": "12:00 pm - 6:00 pm",
+          "Sunday": "Closed"
         }
       }
     ];
