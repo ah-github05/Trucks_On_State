@@ -336,34 +336,32 @@ export class MemStorage implements IStorage {
 
       // New Food Truck
       {
-        slug: "new-food-truck",
-        name: "New Food Truck",
-        description: "Authentic Caribbean Cuisine",
+        slug: "falafel",
+        name: "King of Falafel",
+        description: "Fresh falafel and ",
         image: "TBD",
-        category: "caribbean",
-        location: "TBD",
-        phone: "TBD",
+        category: "middle_eastern",
+        location: "State Street & Library Mall",
+        phone: "N/A",
         businessLinks: {
-          website: "TBD",
-          instagram: "TBD",
-          facebook: "TBD"
+          website: "https://kingoffalafel.dine.online/locations/2964238?fulfillment=pickup",
+
         },
         menu: [
-          { name: "Jerk Chicken", price: "$12.00", description: "Spicy grilled chicken with rice and peas." },
-          { name: "Oxtail Stew", price: "$15.00", description: "Slow-cooked oxtail with butter beans." },
-          { name: "Curry Goat", price: "$14.00", description: "Tender goat meat in a rich curry sauce." },
-          { name: "Ackee and Saltfish", price: "$13.00", description: "Jamaica's national dish." },
-          { name: "Plantains", price: "$4.00", description: "Fried sweet plantains." },
-          { name: "Jamaican Patties", price: "$3.00", description: "Beef, chicken, or vegetable." }
+          { name: "Falafel Sandwich", price: "$9.00", description: "Hummus, tomato, tahini." },
+          { name: "Falafel Sandwich", price: "$10.00", description: "Taziki, tomato, onion." },
+          { name: "Chicken Shawarma", price: "$10.00", description: "Grilled onion, tomato, pickle, lettuce, tahini." },
+          { name: "Veggie Plate", price: "$12.00", description: "Babaganouj, hummus, basmati rice, falafel (x2)." },
+          { name: "Gyro Egg Roll (2 pieces)", price: "$5.00", description: "Gyro meat, banana pepper, swiss cheese." }
         ],
         schedule: {
-          "Monday": "11:00 am - 5:00 pm",
-          "Tuesday": "11:00 am - 5:00 pm",
-          "Wednesday": "11:00 am - 5:00 pm",
-          "Thursday": "11:00 am - 5:00 pm",
-          "Friday": "11:00 am - 5:00 pm",
-          "Saturday": "12:00 pm - 6:00 pm",
-          "Sunday": "Closed"
+          "Monday": "11:00 am - 3:00 pm",
+          "Tuesday": "11:00 am - 3:00 pm",
+          "Wednesday": "11:00 am - 3:00 pm",
+          "Thursday": "11:00 am - 3:00 pm",
+          "Friday": "11:00 am - 3:00 pm",
+          "Saturday": "11:00 pm - 3:00 pm",
+          "Sunday": "11:00 pm - 3:00 pm"
         }
       }
     ];
