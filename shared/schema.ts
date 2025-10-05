@@ -19,7 +19,9 @@ export const foodTrucks = pgTable("food_trucks", {
 export interface MenuItem {
   name: string;
   price: string;
+  price2?: string;
   description: string;
+  category?: string;
 }
 
 export interface Schedule {
