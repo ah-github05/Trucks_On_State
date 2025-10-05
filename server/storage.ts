@@ -134,11 +134,18 @@ export class MemStorage implements IStorage {
           instagram: "https://www.instagram.com/surcocart?utm_source=ig_web_button_share_sheet&igsh=MThpNXhnaTk4eWFhYw==",
         },
         menu: [
-          { name: "Arroz Con Pollo (Chicken & Rice), GF", price: "$TBD", description: "Cilantro-infused jasmine rice, marinated chicken, salad with homemade passion fruit dresssing." },
-          { name: "Aji de Gallina (Chili Chicken), Mild", price: "$TBD", description: "Pulled chicken breast in aji amarillo pepper sauce, jasmine rice, boiled potatoes, hard boiled egg, salad with homemade passion fruit dressing."},
-          { name: "Chicken Adobo (Chili Chicken), Mild", price: "$TBD", description: "Chicken breast strips in aji panca sauce, side of brown lentils, jasmine rice, salad." },
-          { name: "Pastel De Papa", price: "$TBD", description: "2-cheese scalloped potatoe,s, grilled chicken, salad with passion fruit dressing."},
+          { name: "Arroz Con Pollo (Chicken & Rice), GF", price: "$13.00", description: "Aromatic Jasmine rice bursting with fresh cilantro, grilled chicken, cabbage, and organic spring mix with homemade passion fruit dressing." },
+          { name: "Aji de Gallina (Chili Chicken), Mild", price: "$13.00", description: "Shredded chicken in creamy sauce with a mild kick of yellow chili pepper, jasmine rice, boiled potatoes, hard boiled egg, cabbage, and organic spring mix with homemade passion fruit dressing."},
+          { name: "Chicken Adobo (Chili Chicken), Mild", price: "$13.00", description: "Slow-braised chicken strips in tangy adobo sauce, brown lentils, jasmine rice, cabbage, and organic spring mix with homemade passion fruit dressing." },
+          { name: "Pastel De Papa (Scalloped Potatoes)", price: "$13.00", description: "Golden-baked potatoes slices layered with cheese, grilled chicken, cabbage, and organic spring mix with homemade passion fruit dressing."},
+          { name: "Arroz Chaufa, GF", price: "$TBD", description: "Wok stir-fried rice elevated with unique blends of homemade sauces (including sesame oil, soy sauce, & scrambled eggs), grilled chicken, cabbage, and organic spring mix with passion fruit dressing."},
+
+          // Start of vegitarian section
+          { name: "Cilantro Rice, GF", price: "$TBD", description: "Stir-fried rice, grilled chicken, salad with passion fruit dressing."},
           { name: "Arroz Chaufa, GF", price: "$TBD", description: "Stir-fried rice, grilled chicken, salad with passion fruit dressing."},
+          { name: "Pastel De Papa, GF", price: "$TBD", description: "Stir-fried rice, grilled chicken, salad with passion fruit dressing."},
+          
+          
         ],
         schedule: {
           "Monday": "11:30 am - 2:30 pm",
