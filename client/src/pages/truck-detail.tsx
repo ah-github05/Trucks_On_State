@@ -6,9 +6,10 @@ import SiteContactFooter from "@/components/footer";
 import { isCurrentlyOpen } from "@/lib/utils";
 import { ArrowLeft, MapPin, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import type { FoodTruck } from "@shared/schema";
+import type { FoodTruck, MenuItem } from "@shared/schema";
 
 export default function IndividualFoodTruckDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -248,6 +249,40 @@ export default function IndividualFoodTruckDetailPage() {
                                 ))}
                               </div>
                             </>
+                          ) : truck.slug === "surco" ? (
+                            (() => {
+                              const groupedMenu = truck.menu.reduce((acc, item) => {
+                                const category = item.category || 'Uncategorized';
+                                if (!acc[category]) {
+                                  acc[category] = [];
+                                }
+                                acc[category].push(item);
+                                return acc;
+                              }, {} as Record<string, MenuItem[]>);
+
+                              const categoryOrder = ["Chicken Dishes", "Vegetarian Dishes", "Extras", "Beverages"];
+
+                              return categoryOrder.map(category => (
+                                groupedMenu[category] && (
+                                  <React.Fragment key={category}>
+                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+                                    <div className="space-y-4 mb-6">
+                                      {groupedMenu[category].map((item, index) => (
+                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                          <div className="flex justify-between items-start">
+                                            <div className="flex-1">
+                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                            </div>
+                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </React.Fragment>
+                                )
+                              ));
+                            })()
                           ) : truck.slug === "roost" ? (
                             <>
                               <div className="flex justify-between items-baseline mb-4">
