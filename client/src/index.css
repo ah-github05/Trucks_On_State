@@ -126,7 +126,7 @@ html {
 
 /* Footer Component Classes */
 .footer-background {
-  @apply bg-gray-900 text-white py-12;
+  @apply hero-gradient text-white py-24;
 }
 
 .footer-container {
