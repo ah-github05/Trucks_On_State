@@ -9,13 +9,13 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import type { FoodCart, MenuItem } from "@shared/schema";
+import type { FoodTruck, MenuItem } from "@shared/schema";
 
-export default function IndividualFoodCartDetailPage() {
+export default function IndividualFoodTruckDetailPage() {
   const { slug } = useParams<{ slug: string }>();
 
-  const { data: cart, isLoading, error } = useQuery<FoodCart>({
-    queryKey: [`/api/food-carts/${slug}`],
+  const { data: truck, isLoading, error } = useQuery<FoodTruck>({
+    queryKey: [`/api/food-trucks/${slug}`],
   });
 
   if (error) {
@@ -24,8 +24,8 @@ export default function IndividualFoodCartDetailPage() {
         <SiteNavigationHeader />
         <div className="max-w-4xl mx-auto px-4 py-16">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Food Cart Not Found</h1>
-            <p className="text-gray-600 mb-8">The food cart you're looking for doesn't exist.</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Food Truck Not Found</h1>
+            <p className="text-gray-600 mb-8">The food truck you're looking for doesn't exist.</p>
             <Link href="/">
               <Button>
                 <ArrowLeft className="w-4 h-4 mr-2" />
@@ -47,7 +47,7 @@ export default function IndividualFoodCartDetailPage() {
         <Link href="/">
           <Button variant="outline" className="mb-6">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to All Carts
+            Back to All Trucks
           </Button>
         </Link>
 
@@ -68,41 +68,41 @@ export default function IndividualFoodCartDetailPage() {
           </div>
         )}
 
-        {cart && (
+        {truck && (
           <div className="space-y-8">
             {/* Hero Image */}
             <div className="relative">
               <img 
-                src={cart.image}
-                alt={cart.name}
+                src={truck.image} 
+                alt={truck.name}
                 className="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"
               />
               <div className="absolute top-4 right-4">
                 <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                  isCurrentlyOpen(cart.schedule)
+                  isCurrentlyOpen(truck.schedule) 
                     ? 'bg-green-100 text-green-800' 
                     : 'bg-red-100 text-red-800'
                 }`}>
-                  {isCurrentlyOpen(cart.schedule) ? 'Open Now' : 'Closed'}
+                  {isCurrentlyOpen(truck.schedule) ? 'Open Now' : 'Closed'}
                 </span>
               </div>
             </div>
 
             {/* Main Content */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Cart Info */}
+              {/* Truck Info */}
               <div className="space-y-6">
                 <div>
                   <div className="mb-2">
-                    <h1 className="text-3xl font-bold text-gray-900">{cart.name}</h1>
+                    <h1 className="text-3xl font-bold text-gray-900">{truck.name}</h1>
                   </div>
-                  <p className="text-lg text-gray-600">{cart.description}</p>
+                  <p className="text-lg text-gray-600">{truck.description}</p>
                 </div>
 
                 <div className="space-y-3">
                   <div className="flex items-center text-gray-600">
                     <MapPin className="w-5 h-5 mr-3" />
-                    <span>{cart.location}</span>
+                    <span>{truck.location}</span>
                   </div>
                 </div>
 
@@ -119,7 +119,7 @@ export default function IndividualFoodCartDetailPage() {
                       {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
                         <div key={day} className="flex justify-between">
                           <span className="font-medium">{day}</span>
-                          <span className="text-gray-600">{cart.schedule[day]}</span>
+                          <span className="text-gray-600">{truck.schedule[day]}</span>
                         </div>
                       ))}
                     </div>
@@ -129,7 +129,7 @@ export default function IndividualFoodCartDetailPage() {
 
               {/* Menu */}
               <div className="space-y-6">
-                {cart.slug === "sandwich-hub" ? (
+                {truck.slug === "sandwich-hub" ? (
                   <Card>
                     <CardHeader>
                       <CardTitle>Menu</CardTitle>
@@ -160,21 +160,21 @@ export default function IndividualFoodCartDetailPage() {
                         <div>
 
                            {/* Fresh cool drinks */}
-                          {cart.slug === "fresh-cool" && (
+                          {truck.slug === "fresh-cool" && (
                             <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Springrolls</h2>
                           )}
 
                            {/* Toast */}
-                          {cart.slug === "toast" && (
+                          {truck.slug === "toast" && (
                             <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Classic Paninis</h2>
                           )}
 
                           {/* Jolly Frog */}
-                          {cart.slug === "jolly-frog" ? (
+                          {truck.slug === "jolly-frog" ? (
                             <>
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Tacos with Rice & Beans (2 per order)</h2>
                               <div className="space-y-4 mb-6">
-                                {cart.menu.slice(0, 3).map((item, index) => (
+                                {truck.menu.slice(0, 3).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -189,7 +189,7 @@ export default function IndividualFoodCartDetailPage() {
 
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Burrito / Bowl (chips on the side)</h2>
                               <div className="space-y-4 mb-6">
-                                {cart.menu.slice(3, 5).map((item, index) => (
+                                {truck.menu.slice(3, 5).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -204,7 +204,7 @@ export default function IndividualFoodCartDetailPage() {
 
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Tostadas with Rice (2 per order)</h2>
                               <div className="space-y-4 mb-6">
-                                {cart.menu.slice(5, 7).map((item, index) => (
+                                {truck.menu.slice(5, 7).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -219,7 +219,7 @@ export default function IndividualFoodCartDetailPage() {
 
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Nachos</h2>
                               <div className="space-y-4 mb-6">
-                                {cart.menu.slice(8, 10).map((item, index) => (
+                                {truck.menu.slice(8, 10).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -234,7 +234,7 @@ export default function IndividualFoodCartDetailPage() {
 
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Build Your Own </h2>
                               <div className="space-y-4">
-                                {cart.menu.slice(7, 8).map((item, index) => (
+                                {truck.menu.slice(7, 8).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -249,9 +249,9 @@ export default function IndividualFoodCartDetailPage() {
                                 ))}
                               </div>
                             </>
-                          ) : cart.slug === "surco" ? (
+                          ) : truck.slug === "surco" ? (
                             (() => {
-                              const groupedMenu = cart.menu.reduce((acc, item) => {
+                              const groupedMenu = truck.menu.reduce((acc, item) => {
                                 const category = item.category || 'Uncategorized';
                                 if (!acc[category]) {
                                   acc[category] = [];
@@ -283,14 +283,14 @@ export default function IndividualFoodCartDetailPage() {
                                 )
                               ));
                             })()
-                          ) : cart.slug === "roost" ? (
+                          ) : truck.slug === "roost" ? (
                             <>
                               <div className="flex justify-between items-baseline mb-4">
                                 <h2 className="text-lg font-semibold text-gray-900 underline">Jumbo 1/4 lb Chicken Tenders</h2>
                                 <span className="font-semibold text-gray-900">Tenders / Meal</span>
                               </div>
                               <div className="space-y-4 mb-6">
-                                {cart.menu.slice(0, 3).map((item, index) => (
+                                {truck.menu.slice(0, 3).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -308,7 +308,7 @@ export default function IndividualFoodCartDetailPage() {
                                 <span className="font-semibold text-gray-900">Sandwich / Meal</span>
                               </div>
                               <div className="space-y-4 mb-6">
-                                {cart.menu.slice(3, 6).map((item, index) => (
+                                {truck.menu.slice(3, 6).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -326,7 +326,7 @@ export default function IndividualFoodCartDetailPage() {
                                 <span className="font-semibold text-gray-900">Small / Large</span>
                               </div>
                               <div className="space-y-4 mb-6">
-                                {cart.menu.slice(6, 9).map((item, index) => (
+                                {truck.menu.slice(6, 9).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -341,7 +341,7 @@ export default function IndividualFoodCartDetailPage() {
 
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Extras</h2>
                               <div className="space-y-4">
-                                {cart.menu.slice(9, 12).map((item, index) => (
+                                {truck.menu.slice(9, 12).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -354,11 +354,11 @@ export default function IndividualFoodCartDetailPage() {
                                 ))}
                               </div>
                             </>
-                          ) : cart.slug === "new-food-cart" ? (
+                          ) : truck.slug === "new-food-truck" ? (
                             <>
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Main Dishes</h2>
                               <div className="space-y-4 mb-6">
-                                {cart.menu.slice(0, 4).map((item, index) => (
+                                {truck.menu.slice(0, 4).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -373,7 +373,7 @@ export default function IndividualFoodCartDetailPage() {
 
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Sides</h2>
                               <div className="space-y-4 mb-6">
-                                {cart.menu.slice(4, 5).map((item, index) => (
+                                {truck.menu.slice(4, 5).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -388,7 +388,7 @@ export default function IndividualFoodCartDetailPage() {
 
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Patties</h2>
                               <div className="space-y-4">
-                                {cart.menu.slice(5, 6).map((item, index) => (
+                                {truck.menu.slice(5, 6).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
                                       <div className="flex-1">
@@ -403,7 +403,7 @@ export default function IndividualFoodCartDetailPage() {
                             </>
                           ) : (
                             <div className="space-y-4">
-                              {cart.menu.map((item, index) => (
+                              {truck.menu.map((item, index) => (
                                 <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                   <div className="flex justify-between items-start">
                                     <div className="flex-1">
@@ -424,7 +424,7 @@ export default function IndividualFoodCartDetailPage() {
                 )}
 
                 {/* Business Links - Hidden for Fresh Cool Drinks */}
-                {cart.slug !== "fresh-cool" && (
+                {truck.slug !== "fresh-cool" && (
                   <Card>
                     <CardHeader>
                       <CardTitle>Business Links</CardTitle>
@@ -432,9 +432,9 @@ export default function IndividualFoodCartDetailPage() {
                     <CardContent>
                       <div className="space-y-3">
                         <div className="flex flex-col gap-2">
-                          {cart.businessLinks?.website && (
+                          {truck.businessLinks?.website && (
                             <a 
-                              href={cart.businessLinks.website}
+                              href={truck.businessLinks.website} 
                               className="text-primary hover:text-primary/80 transition-colors"
                               target="_blank"
                               rel="noopener noreferrer"
@@ -442,9 +442,9 @@ export default function IndividualFoodCartDetailPage() {
                               Visit Website
                             </a>
                           )}
-                          {cart.businessLinks?.facebook && (
+                          {truck.businessLinks?.facebook && (
                             <a 
-                              href={cart.businessLinks.facebook}
+                              href={truck.businessLinks.facebook} 
                               className="text-primary hover:text-primary/80 transition-colors"
                               target="_blank"
                               rel="noopener noreferrer"
@@ -452,9 +452,9 @@ export default function IndividualFoodCartDetailPage() {
                               Facebook Page
                             </a>
                           )}
-                          {cart.businessLinks?.instagram && (
+                          {truck.businessLinks?.instagram && (
                             <a 
-                              href={cart.businessLinks.instagram}
+                              href={truck.businessLinks.instagram} 
                               className="text-primary hover:text-primary/80 transition-colors"
                               target="_blank"
                               rel="noopener noreferrer"
@@ -462,9 +462,9 @@ export default function IndividualFoodCartDetailPage() {
                               Instagram
                             </a>
                           )}
-                          {cart.businessLinks?.orderOnline && (
+                          {truck.businessLinks?.orderOnline && (
                             <a 
-                              href={cart.businessLinks.orderOnline}
+                              href={truck.businessLinks.orderOnline} 
                               className="text-primary hover:text-primary/80 transition-colors"
                               target="_blank"
                               rel="noopener noreferrer"

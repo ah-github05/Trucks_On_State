@@ -3,51 +3,51 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Get all food carts
-  app.get("/api/food-carts", async (req, res) => {
+  // Get all food trucks
+  app.get("/api/food-trucks", async (req, res) => {
     try {
-      const carts = await storage.getFoodCarts();
-      res.json(carts);
+      const trucks = await storage.getFoodTrucks();
+      res.json(trucks);
     } catch (error) {
-      res.status(500).json({ message: "Failed to fetch food carts" });
+      res.status(500).json({ message: "Failed to fetch food trucks" });
     }
   });
 
-  // Get food cart by slug
-  app.get("/api/food-carts/:slug", async (req, res) => {
+  // Get food truck by slug
+  app.get("/api/food-trucks/:slug", async (req, res) => {
     try {
       const { slug } = req.params;
-      const cart = await storage.getFoodCartBySlug(slug);
+      const truck = await storage.getFoodTruckBySlug(slug);
       
-      if (!cart) {
-        return res.status(404).json({ message: "Food cart not found" });
+      if (!truck) {
+        return res.status(404).json({ message: "Food truck not found" });
       }
       
-      res.json(cart);
+      res.json(truck);
     } catch (error) {
-      res.status(500).json({ message: "Failed to fetch food cart" });
+      res.status(500).json({ message: "Failed to fetch food truck" });
     }
   });
 
-  // Search food carts
-  app.get("/api/food-carts/search/:query", async (req, res) => {
+  // Search food trucks
+  app.get("/api/food-trucks/search/:query", async (req, res) => {
     try {
       const { query } = req.params;
-      const carts = await storage.searchFoodCarts(query);
-      res.json(carts);
+      const trucks = await storage.searchFoodTrucks(query);
+      res.json(trucks);
     } catch (error) {
-      res.status(500).json({ message: "Failed to search food carts" });
+      res.status(500).json({ message: "Failed to search food trucks" });
     }
   });
 
-  // Filter food carts by category
-  app.get("/api/food-carts/category/:category", async (req, res) => {
+  // Filter food trucks by category
+  app.get("/api/food-trucks/category/:category", async (req, res) => {
     try {
       const { category } = req.params;
-      const carts = await storage.filterFoodCartsByCategory(category);
-      res.json(carts);
+      const trucks = await storage.filterFoodTrucksByCategory(category);
+      res.json(trucks);
     } catch (error) {
-      res.status(500).json({ message: "Failed to filter food carts" });
+      res.status(500).json({ message: "Failed to filter food trucks" });
     }
   });
 
