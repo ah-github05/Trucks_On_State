@@ -25,7 +25,7 @@ export default function FoodTruckHeroBanner() {
             <span className="hero-accent-text">Food Trucks</span>
           </h1>
           <p className="hero-description">
-            Discover amazing local food trucks on State Street and around Madison to find your next favorite meal on wheels.
+            Discover amazing local food carts on State Street and around Madison to find your next favorite meal on wheels.
           </p>
           <div className="hero-buttons-container">
             <Button 
