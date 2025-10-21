@@ -3,38 +3,38 @@ import { MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { capitalizeFirst, isCurrentlyOpen } from "@/lib/utils";
-import type { FoodTruck } from "@shared/schema";
+import type { FoodCart } from "@shared/schema";
 
-interface TruckCardProps {
-  truck: FoodTruck;
+interface CartCardProps {
+  cart: FoodCart;
 }
 
-export default function IndividualFoodTruckCard({ truck }: TruckCardProps) {
-  const isOpen = isCurrentlyOpen(truck.schedule);
+export default function IndividualFoodCartCard({ cart }: CartCardProps) {
+  const isOpen = isCurrentlyOpen(cart.schedule);
   
   return (
-    <Card className="food-truck-card">
+    <Card className="food-cart-card">
       <img 
-        src={truck.image} 
-        alt={`${truck.name} food truck`}
-        className="truck-card-image"
+        src={cart.image}
+        alt={`${cart.name} food cart`}
+        className="cart-card-image"
       />
-      <CardContent className="truck-card-content">
-        <div className="truck-card-header">
-          <h3 className="truck-card-title">{truck.name}</h3>
+      <CardContent className="cart-card-content">
+        <div className="cart-card-header">
+          <h3 className="cart-card-title">{cart.name}</h3>
         </div>
-        <p className="truck-card-description">{truck.description}</p>
-        <div className="truck-card-location">
-          <MapPin className="truck-location-icon" />
-          <span className="truck-location-text">{truck.location}</span>
+        <p className="cart-card-description">{cart.description}</p>
+        <div className="cart-card-location">
+          <MapPin className="cart-location-icon" />
+          <span className="cart-location-text">{cart.location}</span>
         </div>
-        <div className="truck-card-footer">
-          <span className={`truck-status ${
-            isOpen ? 'truck-status-open' : 'truck-status-closed'
+        <div className="cart-card-footer">
+          <span className={`cart-status ${
+            isOpen ? 'cart-status-open' : 'cart-status-closed'
           }`}>
             {isOpen ? 'Open Now' : 'Closed'}
           </span>
-          <Link href={`/truck/${truck.slug}`}>
+          <Link href={`/cart/${cart.slug}`}>
             <Button className="view-menu-button">
               View Menu
             </Button>

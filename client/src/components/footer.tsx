@@ -1,4 +1,4 @@
-import { Truck, Mail, Phone, MapPin } from "lucide-react";
+import { ShoppingCart, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "wouter";
 
 export default function SiteContactFooter() {
@@ -15,8 +15,8 @@ export default function SiteContactFooter() {
         <div className="footer-grid">
           <div className="brand-section">
             <h3 className="text-2xl font-bold flex items-center">
-              <Truck className="w-6 h-6 mr-2" />
-              Trucks on State
+              <ShoppingCart className="w-6 h-6 mr-2" />
+              Carts on State
             </h3>
           </div>
           <div>
@@ -32,10 +32,10 @@ export default function SiteContactFooter() {
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection('trucks')}
-                  className="food-trucks-button"
+                  onClick={() => scrollToSection('carts')}
+                  className="food-carts-button"
                 >
-                  Food Trucks
+                  Food Carts
                 </button>
               </li>
               <li>
@@ -51,7 +51,7 @@ export default function SiteContactFooter() {
           
         </div>
         <div className="footer-bottom">
-          <p className="copyright-text">&copy; 2025 Trucks on State. All rights reserved.</p>
+          <p className="copyright-text">&copy; 2025 Carts on State. All rights reserved.</p>
         </div>
       </div>
     </footer>
