@@ -1,25 +1,25 @@
-import { foodCarts, type FoodCart, type InsertFoodCart } from "@shared/schema";
+import { foodTrucks, type FoodTruck, type InsertFoodTruck } from "@shared/schema";
 
 export interface IStorage {
-  getFoodCarts(): Promise<FoodCart[]>;
-  getFoodCartBySlug(slug: string): Promise<FoodCart | undefined>;
-  createFoodCart(cart: InsertFoodCart): Promise<FoodCart>;
-  searchFoodCarts(query: string): Promise<FoodCart[]>;
-  filterFoodCartsByCategory(category: string): Promise<FoodCart[]>;
+  getFoodTrucks(): Promise<FoodTruck[]>;
+  getFoodTruckBySlug(slug: string): Promise<FoodTruck | undefined>;
+  createFoodTruck(truck: InsertFoodTruck): Promise<FoodTruck>;
+  searchFoodTrucks(query: string): Promise<FoodTruck[]>;
+  filterFoodTrucksByCategory(category: string): Promise<FoodTruck[]>;
 }
 
 export class MemStorage implements IStorage {
-  private carts: Map<number, FoodCart>;
+  private trucks: Map<number, FoodTruck>;
   private currentId: number;
 
   constructor() {
-    this.carts = new Map();
+    this.trucks = new Map();
     this.currentId = 1;
     this.seedData();
   }
 
   private seedData() {
-    const sampleCarts: InsertFoodCart[] = [
+    const sampleTrucks: InsertFoodTruck[] = [
       {
         // Fresh cool drinks
         slug: "fresh-cool",
@@ -318,7 +318,7 @@ export class MemStorage implements IStorage {
 
       // M & J Jamaican Kitch'n
       {
-        slug: "tbd-food-cart",
+        slug: "tbd-food-truck",
         name: "M & J Jamaican Kitch'n",
         description: "TBD",
         image: "TBD",
@@ -384,40 +384,40 @@ export class MemStorage implements IStorage {
       }
     ];
 
-    sampleCarts.forEach(cart => {
-      this.createFoodCart(cart);
+    sampleTrucks.forEach(truck => {
+      this.createFoodTruck(truck);
     });
   }
 
-  async getFoodCarts(): Promise<FoodCart[]> {
-    return Array.from(this.carts.values());
+  async getFoodTrucks(): Promise<FoodTruck[]> {
+    return Array.from(this.trucks.values());
   }
 
-  async getFoodCartBySlug(slug: string): Promise<FoodCart | undefined> {
-    return Array.from(this.carts.values()).find(cart => cart.slug === slug);
+  async getFoodTruckBySlug(slug: string): Promise<FoodTruck | undefined> {
+    return Array.from(this.trucks.values()).find(truck => truck.slug === slug);
   }
 
-  async createFoodCart(insertCart: InsertFoodCart): Promise<FoodCart> {
+  async createFoodTruck(insertTruck: InsertFoodTruck): Promise<FoodTruck> {
     const id = this.currentId++;
-    const cart = { ...insertCart, id } as FoodCart;
-    this.carts.set(id, cart);
-    return cart;
+    const truck = { ...insertTruck, id } as FoodTruck;
+    this.trucks.set(id, truck);
+    return truck;
   }
 
-  async searchFoodCarts(query: string): Promise<FoodCart[]> {
+  async searchFoodTrucks(query: string): Promise<FoodTruck[]> {
     const searchTerm = query.toLowerCase();
-    return Array.from(this.carts.values()).filter(cart =>
-      cart.name.toLowerCase().includes(searchTerm) ||
-      cart.description.toLowerCase().includes(searchTerm) ||
-      cart.category.toLowerCase().includes(searchTerm)
+    return Array.from(this.trucks.values()).filter(truck =>
+      truck.name.toLowerCase().includes(searchTerm) ||
+      truck.description.toLowerCase().includes(searchTerm) ||
+      truck.category.toLowerCase().includes(searchTerm)
     );
   }
 
-  async filterFoodCartsByCategory(category: string): Promise<FoodCart[]> {
+  async filterFoodTrucksByCategory(category: string): Promise<FoodTruck[]> {
     if (category === "all") {
-      return this.getFoodCarts();
+      return this.getFoodTrucks();
     }
-    return Array.from(this.carts.values()).filter(cart => cart.category === category);
+    return Array.from(this.trucks.values()).filter(truck => truck.category === category);
   }
 }
 
