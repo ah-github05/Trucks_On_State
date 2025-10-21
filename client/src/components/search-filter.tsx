@@ -10,7 +10,7 @@ interface SearchFilterProps {
 }
 
 const categories = [
-  { value: "all", label: "All Carts" },
+  { value: "all", label: "All Trucks" },
   { value: "asian", label: "Asian" },
   { value: "sandwiches", label: "Sandwiches" },
   { value: "south_american", label: "South American" },
