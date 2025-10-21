@@ -1,29 +1,29 @@
 import SiteNavigationHeader from "@/components/header";
-import FoodTruckHeroBanner from "@/components/hero";
-import FoodTruckSearchAndFilter from "@/components/search-filter";
-import IndividualFoodTruckCard from "@/components/truck-card";
-import TrucksOnStateAboutSection from "@/components/about";
-import FoodTruckNewsletterSignup from "@/components/newsletter";
+import FoodCartHeroBanner from "@/components/hero";
+import FoodCartSearchAndFilter from "@/components/search-filter";
+import IndividualFoodCartCard from "@/components/cart-card";
+import CartsOnStateAboutSection from "@/components/about";
+import FoodCartNewsletterSignup from "@/components/newsletter";
 import SiteContactFooter from "@/components/footer";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import type { FoodTruck } from "@shared/schema";
+import type { FoodCart } from "@shared/schema";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function MadisonFoodTruckHomePage() {
+export default function MadisonFoodCartHomePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const { data: trucks, isLoading, error } = useQuery<FoodTruck[]>({
-    queryKey: ["/api/food-trucks"],
+  const { data: carts, isLoading, error } = useQuery<FoodCart[]>({
+    queryKey: ["/api/food-carts"],
   });
 
-  const filteredTrucks = trucks?.filter((truck) => {
+  const filteredCarts = carts?.filter((cart) => {
     const matchesSearch = searchQuery === "" || 
-      truck.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      truck.description.toLowerCase().includes(searchQuery.toLowerCase());
+      cart.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      cart.description.toLowerCase().includes(searchQuery.toLowerCase());
     
-    const matchesCategory = selectedCategory === "all" || truck.category === selectedCategory;
+    const matchesCategory = selectedCategory === "all" || cart.category === selectedCategory;
     
     return matchesSearch && matchesCategory;
   }) || [];
@@ -31,44 +31,44 @@ export default function MadisonFoodTruckHomePage() {
   return (
     <div className="home-page-container">
       <SiteNavigationHeader />
-      <FoodTruckHeroBanner />
-      <FoodTruckSearchAndFilter
+      <FoodCartHeroBanner />
+      <FoodCartSearchAndFilter
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
       />
       
-      <section id="trucks" className="home-trucks-section">
-        <div className="home-trucks-container">
-          <div className="home-trucks-header">
-            <h2 className="home-trucks-title">
-              Featured Food Trucks
+      <section id="carts" className="home-carts-section">
+        <div className="home-carts-container">
+          <div className="home-carts-header">
+            <h2 className="home-carts-title">
+              Featured Food Carts
             </h2>
-            <p className="home-trucks-description">
-              Each truck brings unique flavors and experiences to Madison's streets. 
-              Click on any truck to see their full menu and schedule.
+            <p className="home-carts-description">
+              Each cart brings unique flavors and experiences to Madison's streets.
+              Click on any cart to see their full menu and schedule.
             </p>
           </div>
           
           {error && (
-            <div className="home-trucks-error">
-              <p className="home-trucks-error-message">Failed to load food trucks. Please try again later.</p>
+            <div className="home-carts-error">
+              <p className="home-carts-error-message">Failed to load food carts. Please try again later.</p>
             </div>
           )}
           
           {isLoading && (
-            <div className="home-trucks-loading-grid">
+            <div className="home-carts-loading-grid">
               {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="home-truck-skeleton-card">
-                  <Skeleton className="home-truck-skeleton-image" />
-                  <div className="home-truck-skeleton-content">
-                    <Skeleton className="home-truck-skeleton-title" />
-                    <Skeleton className="home-truck-skeleton-description" />
-                    <Skeleton className="home-truck-skeleton-location" />
-                    <div className="home-truck-skeleton-footer">
-                      <Skeleton className="home-truck-skeleton-status" />
-                      <Skeleton className="home-truck-skeleton-button" />
+                <div key={i} className="home-cart-skeleton-card">
+                  <Skeleton className="home-cart-skeleton-image" />
+                  <div className="home-cart-skeleton-content">
+                    <Skeleton className="home-cart-skeleton-title" />
+                    <Skeleton className="home-cart-skeleton-description" />
+                    <Skeleton className="home-cart-skeleton-location" />
+                    <div className="home-cart-skeleton-footer">
+                      <Skeleton className="home-cart-skeleton-status" />
+                      <Skeleton className="home-cart-skeleton-button" />
                     </div>
                   </div>
                 </div>
@@ -76,28 +76,28 @@ export default function MadisonFoodTruckHomePage() {
             </div>
           )}
           
-          {trucks && filteredTrucks.length === 0 && !isLoading && (
-            <div className="home-trucks-empty-state">
-              <p className="home-trucks-empty-message">
+          {carts && filteredCarts.length === 0 && !isLoading && (
+            <div className="home-carts-empty-state">
+              <p className="home-carts-empty-message">
                 {searchQuery || selectedCategory !== "all" 
-                  ? "No food trucks match your search criteria." 
-                  : "No food trucks available at the moment."}
+                  ? "No food carts match your search criteria."
+                  : "No food carts available at the moment."}
               </p>
             </div>
           )}
           
-          {trucks && filteredTrucks.length > 0 && (
-            <div className="home-trucks-active-grid">
-              {filteredTrucks.map((truck) => (
-                <IndividualFoodTruckCard key={truck.id} truck={truck} />
+          {carts && filteredCarts.length > 0 && (
+            <div className="home-carts-active-grid">
+              {filteredCarts.map((cart) => (
+                <IndividualFoodCartCard key={cart.id} cart={cart} />
               ))}
             </div>
           )}
         </div>
       </section>
       
-      <TrucksOnStateAboutSection />
-      <FoodTruckNewsletterSignup />
+      <CartsOnStateAboutSection />
+      <FoodCartNewsletterSignup />
       <SiteContactFooter />
     </div>
   );

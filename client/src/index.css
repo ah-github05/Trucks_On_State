@@ -191,7 +191,7 @@ html {
   @apply text-gray-300 hover:text-white transition-colors cursor-pointer;
 }
 
-.food-trucks-button {
+.food-carts-button {
   @apply text-gray-300 hover:text-white transition-colors text-left;
 }
 
@@ -248,7 +248,7 @@ html {
   @apply text-primary-700 hover:text-primary;
 }
 
-.food-trucks-nav-button {
+.food-carts-nav-button {
   @apply text-gray-700 hover:text-primary;
 }
 
@@ -288,7 +288,7 @@ html {
   @apply text-primary-700 block w-full text-left;
 }
 
-.mobile-food-trucks-button {
+.mobile-food-carts-button {
   @apply text-gray-700 hover:text-primary block w-full text-left;
 }
 
@@ -333,7 +333,7 @@ html {
   @apply flex flex-col sm:flex-row gap-4 justify-center;
 }
 
-.explore-trucks-button {
+.explore-carts-button {
   @apply bg-yellow-300 text-gray-900 font-semibold px-8 py-3 rounded-full hover:bg-yellow-200 transition-colors;
 }
 
@@ -362,7 +362,7 @@ html {
   @apply absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4;
 }
 
-.food-truck-search-input {
+.food-cart-search-input {
   @apply pl-10;
 }
 
@@ -436,56 +436,56 @@ html {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
-/* Truck Card Component Classes */
-.food-truck-card {
+/* Cart Card Component Classes */
+.food-cart-card {
   @apply bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300;
 }
 
-.truck-card-image {
+.cart-card-image {
   @apply w-full h-48 object-cover;
 }
 
-.truck-card-content {
+.cart-card-content {
   @apply p-6;
 }
 
-.truck-card-header {
+.cart-card-header {
   @apply mb-2;
 }
 
-.truck-card-title {
+.cart-card-title {
   @apply text-xl font-bold text-gray-900;
 }
 
-.truck-card-description {
+.cart-card-description {
   @apply text-gray-600 mb-4;
 }
 
-.truck-card-location {
+.cart-card-location {
   @apply flex items-center text-sm text-gray-500 mb-4;
 }
 
-.truck-location-icon {
+.cart-location-icon {
   @apply w-4 h-4 mr-2;
 }
 
-.truck-location-text {
+.cart-location-text {
   @apply text-gray-500;
 }
 
-.truck-card-footer {
+.cart-card-footer {
   @apply flex items-center justify-between;
 }
 
-.truck-status {
+.cart-status {
   @apply text-sm font-medium;
 }
 
-.truck-status-open {
+.cart-status-open {
   @apply text-secondary-600;
 }
 
-.truck-status-closed {
+.cart-status-closed {
   @apply text-red-600;
 }
 
@@ -526,27 +526,27 @@ html {
   @apply flex flex-col sm:flex-row gap-4;
 }
 
-.food-trucks-stat {
+.food-carts-stat {
   @apply flex items-center;
 }
 
-.food-trucks-stat-icon-bg {
+.food-carts-stat-icon-bg {
   @apply bg-primary/10 rounded-full p-3 mr-4;
 }
 
-.food-trucks-stat-icon {
+.food-carts-stat-icon {
   @apply w-6 h-6 text-primary;
 }
 
-.food-trucks-stat-content {
+.food-carts-stat-content {
   @apply space-y-1;
 }
 
-.food-trucks-stat-number {
+.food-carts-stat-number {
   @apply font-semibold text-gray-900;
 }
 
-.food-trucks-stat-label {
+.food-carts-stat-label {
   @apply text-sm text-gray-600;
 }
 
@@ -611,76 +611,76 @@ html {
   @apply bg-yellow-300 text-gray-900 font-semibold hover:bg-yellow-200 transition-colors;
 }
 
-/* Truck Grid Component Classes */
-.trucks-listing-section {
+/* Cart Grid Component Classes */
+.carts-listing-section {
   @apply py-16;
 }
 
-.trucks-listing-container {
+.carts-listing-container {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-.trucks-listing-header {
+.carts-listing-header {
   @apply text-center mb-12;
 }
 
-.trucks-listing-title {
+.carts-listing-title {
   @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4;
 }
 
-.trucks-listing-description {
+.carts-listing-description {
   @apply text-lg text-gray-600 max-w-2xl mx-auto;
 }
 
-.trucks-loading-grid {
+.carts-loading-grid {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
 }
 
-.truck-skeleton-card {
+.cart-skeleton-card {
   @apply bg-white rounded-xl shadow-lg overflow-hidden;
 }
 
-.truck-skeleton-image {
+.cart-skeleton-image {
   @apply w-full h-48;
 }
 
-.truck-skeleton-content {
+.cart-skeleton-content {
   @apply p-6 space-y-4;
 }
 
-.truck-skeleton-title {
+.cart-skeleton-title {
   @apply h-6 w-48;
 }
 
-.truck-skeleton-description {
+.cart-skeleton-description {
   @apply h-4 w-full;
 }
 
-.truck-skeleton-location {
+.cart-skeleton-location {
   @apply h-4 w-32;
 }
 
-.truck-skeleton-footer {
+.cart-skeleton-footer {
   @apply flex justify-between items-center;
 }
 
-.truck-skeleton-status {
+.cart-skeleton-status {
   @apply h-4 w-16;
 }
 
-.truck-skeleton-button {
+.cart-skeleton-button {
   @apply h-8 w-20;
 }
 
-.trucks-active-grid {
+.carts-active-grid {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
 }
 
-.trucks-empty-state {
+.carts-empty-state {
   @apply text-center py-12;
 }
 
-.trucks-empty-message {
+.carts-empty-message {
   @apply text-lg text-gray-600;
 }
 
@@ -689,83 +689,83 @@ html {
   @apply min-h-screen bg-gray-50;
 }
 
-.home-trucks-section {
+.home-carts-section {
   @apply py-16;
 }
 
-.home-trucks-container {
+.home-carts-container {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-.home-trucks-header {
+.home-carts-header {
   @apply text-center mb-12;
 }
 
-.home-trucks-title {
+.home-carts-title {
   @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4;
 }
 
-.home-trucks-description {
+.home-carts-description {
   @apply text-lg text-gray-600 max-w-2xl mx-auto;
 }
 
-.home-trucks-error {
+.home-carts-error {
   @apply text-center py-8;
 }
 
-.home-trucks-error-message {
+.home-carts-error-message {
   @apply text-red-600;
 }
 
-.home-trucks-loading-grid {
+.home-carts-loading-grid {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
 }
 
-.home-truck-skeleton-card {
+.home-cart-skeleton-card {
   @apply bg-white rounded-xl shadow-lg overflow-hidden;
 }
 
-.home-truck-skeleton-image {
+.home-cart-skeleton-image {
   @apply w-full h-48;
 }
 
-.home-truck-skeleton-content {
+.home-cart-skeleton-content {
   @apply p-6;
 }
 
-.home-truck-skeleton-title {
+.home-cart-skeleton-title {
   @apply h-6 w-3/4 mb-2;
 }
 
-.home-truck-skeleton-description {
+.home-cart-skeleton-description {
   @apply h-4 w-full mb-4;
 }
 
-.home-truck-skeleton-location {
+.home-cart-skeleton-location {
   @apply h-4 w-1/2 mb-4;
 }
 
-.home-truck-skeleton-footer {
+.home-cart-skeleton-footer {
   @apply flex justify-between items-center;
 }
 
-.home-truck-skeleton-status {
+.home-cart-skeleton-status {
   @apply h-4 w-16;
 }
 
-.home-truck-skeleton-button {
+.home-cart-skeleton-button {
   @apply h-8 w-20;
 }
 
-.home-trucks-empty-state {
+.home-carts-empty-state {
   @apply text-center py-12;
 }
 
-.home-trucks-empty-message {
+.home-carts-empty-message {
   @apply text-gray-600 text-lg;
 }
 
-.home-trucks-active-grid {
+.home-carts-active-grid {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
 }
 
