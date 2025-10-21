@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 
-export default function FoodCartHeroBanner() {
-  const scrollToCarts = () => {
-    const element = document.getElementById('carts');
+export default function FoodTruckHeroBanner() {
+  const scrollToTrucks = () => {
+    const element = document.getElementById('trucks');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -22,17 +22,17 @@ export default function FoodCartHeroBanner() {
         <div className="hero-text-center">
           <h1 className="hero-main-title">
             Madison's Best<br />
-            <span className="hero-accent-text">Food Carts</span>
+            <span className="hero-accent-text">Food Trucks</span>
           </h1>
           <p className="hero-description">
-            Discover amazing local food carts on State Street and around Madison to find your next favorite meal on wheels.
+            Discover amazing local food trucks on State Street and around Madison to find your next favorite meal on wheels.
           </p>
           <div className="hero-buttons-container">
             <Button 
-              onClick={scrollToCarts}
-              className="explore-carts-button"
+              onClick={scrollToTrucks}
+              className="explore-trucks-button"
             >
-              Explore Food Carts
+              Explore Food Trucks
             </Button>
             <Button 
               variant="outline"

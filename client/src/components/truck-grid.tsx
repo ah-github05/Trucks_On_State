@@ -1,72 +1,72 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import type { FoodCart } from "@shared/schema";
-import FoodCartSearchAndFilter from "./search-filter";
-import IndividualFoodCartCard from "./truck-card";
+import type { FoodTruck } from "@shared/schema";
+import FoodTruckSearchAndFilter from "./search-filter";
+import IndividualFoodTruckCard from "./truck-card";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function FoodCartListingGrid() {
+export default function FoodTruckListingGrid() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("all");
 
-  const { data: carts, isLoading } = useQuery<FoodCart[]>({
-    queryKey: ["/api/carts"],
+  const { data: trucks, isLoading } = useQuery<FoodTruck[]>({
+    queryKey: ["/api/trucks"],
   });
 
-  const filteredCarts = carts?.filter((cart) => {
-    const matchesSearch = cart.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         cart.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = selectedFilter === "all" || cart.category === selectedFilter;
+  const filteredTrucks = trucks?.filter((truck) => {
+    const matchesSearch = truck.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         truck.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesFilter = selectedFilter === "all" || truck.category === selectedFilter;
     return matchesSearch && matchesFilter;
   });
 
   return (
     <>
-      <FoodCartSearchAndFilter
+      <FoodTruckSearchAndFilter
         searchQuery={searchTerm}
         onSearchChange={setSearchTerm}
         selectedCategory={selectedFilter}
         onCategoryChange={setSelectedFilter}
       />
       
-      <section id="carts" className="carts-listing-section">
-        <div className="carts-listing-container">
-          <div className="carts-listing-header">
-            <h2 className="carts-listing-title">Featured Food Carts</h2>
-            <p className="carts-listing-description">
-              Each cart brings unique flavors and experiences to Madison's streets. Click on any cart to see their full menu and schedule.
+      <section id="trucks" className="trucks-listing-section">
+        <div className="trucks-listing-container">
+          <div className="trucks-listing-header">
+            <h2 className="trucks-listing-title">Featured Food Trucks</h2>
+            <p className="trucks-listing-description">
+              Each truck brings unique flavors and experiences to Madison's streets. Click on any truck to see their full menu and schedule.
             </p>
           </div>
           
           {isLoading ? (
-            <div className="carts-loading-grid">
+            <div className="trucks-loading-grid">
               {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="cart-skeleton-card">
-                  <Skeleton className="cart-skeleton-image" />
-                  <div className="cart-skeleton-content">
-                    <Skeleton className="cart-skeleton-title" />
-                    <Skeleton className="cart-skeleton-description" />
-                    <Skeleton className="cart-skeleton-location" />
-                    <div className="cart-skeleton-footer">
-                      <Skeleton className="cart-skeleton-status" />
-                      <Skeleton className="cart-skeleton-button" />
+                <div key={i} className="truck-skeleton-card">
+                  <Skeleton className="truck-skeleton-image" />
+                  <div className="truck-skeleton-content">
+                    <Skeleton className="truck-skeleton-title" />
+                    <Skeleton className="truck-skeleton-description" />
+                    <Skeleton className="truck-skeleton-location" />
+                    <div className="truck-skeleton-footer">
+                      <Skeleton className="truck-skeleton-status" />
+                      <Skeleton className="truck-skeleton-button" />
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-          ) : filteredCarts && filteredCarts.length > 0 ? (
-            <div className="carts-active-grid">
-              {filteredCarts.map((cart) => (
-                <IndividualFoodCartCard key={cart.id} cart={cart} />
+          ) : filteredTrucks && filteredTrucks.length > 0 ? (
+            <div className="trucks-active-grid">
+              {filteredTrucks.map((truck) => (
+                <IndividualFoodTruckCard key={truck.id} truck={truck} />
               ))}
             </div>
           ) : (
-            <div className="carts-empty-state">
-              <p className="carts-empty-message">
+            <div className="trucks-empty-state">
+              <p className="trucks-empty-message">
                 {searchTerm || selectedFilter !== "all" 
-                  ? "No food carts match your search criteria."
-                  : "No food carts available at the moment."
+                  ? "No food trucks match your search criteria." 
+                  : "No food trucks available at the moment."
                 }
               </p>
             </div>
