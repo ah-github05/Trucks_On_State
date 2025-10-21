@@ -32,7 +32,7 @@ export default function FoodTruckListingGrid() {
       <section id="trucks" className="trucks-listing-section">
         <div className="trucks-listing-container">
           <div className="trucks-listing-header">
-            <h2 className="trucks-listing-title">Featured Food Carts</h2>
+            <h2 className="trucks-listing-title">Featured Food Trucks</h2>
             <p className="trucks-listing-description">
               Each truck brings unique flavors and experiences to Madison's streets. Click on any truck to see their full menu and schedule.
             </p>
