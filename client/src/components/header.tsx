@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { Truck, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function SiteNavigationHeader() {
@@ -25,9 +25,9 @@ export default function SiteNavigationHeader() {
           <div className="brand-logo-section">
             <Link href="/">
               <div className="brand-logo-link">
-                <ShoppingCart className="brand-logo-icon" />
+                <Truck className="brand-logo-icon" />
                 <h1 className="brand-logo-text">
-                  Carts on State
+                  Trucks on State
                 </h1>
               </div>
             </Link>
@@ -45,13 +45,13 @@ export default function SiteNavigationHeader() {
                   Home
                 </Button>
               </Link>
-              {/* carts */}
+              {/* trucks */}
               <Button 
                 variant="ghost" 
-                className="food-carts-nav-button"
-                onClick={() => scrollToSection('carts')}
+                className="food-trucks-nav-button"
+                onClick={() => scrollToSection('trucks')}
               >
-                Food Carts
+                Food Trucks
               </Button>
               {/* about */}
               <Button 
@@ -100,10 +100,10 @@ export default function SiteNavigationHeader() {
             </Link>
             <Button 
               variant="ghost" 
-              className="mobile-food-carts-button"
-              onClick={() => scrollToSection('carts')}
+              className="mobile-food-trucks-button"
+              onClick={() => scrollToSection('trucks')}
             >
-              Food Carts
+              Food Trucks
             </Button>
             <Button 
               variant="ghost" 
