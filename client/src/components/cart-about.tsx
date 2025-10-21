@@ -1,27 +1,27 @@
-import { Truck, MapPin } from "lucide-react";
+import { ShoppingCart, MapPin } from "lucide-react";
 
 import state_street_vimal_1 from "@assets/state-street-vimal-1.jpg";
 
-export default function TrucksOnStateAboutSection() {
+export default function CartsOnStateAboutSection() {
   return (
     <section id="about" className="about-section">
       <div className="about-container">
         <div className="about-content-grid">
           <div className="about-text-content">
             <h2 className="about-section-title">
-              About Trucks on State
+              About Carts on State
             </h2>
             <p className="about-description-first">
-              Food trucks bring incredible diversity and flavor to Madison's culinary landscape. We're passionate about connecting the vibrant food truck community with hungry locals, students, and visitors. 
+              Food carts bring incredible diversity and flavor to Madison's culinary landscape. We're passionate about connecting the vibrant food cart community with hungry locals, students, and visitors.
             </p>
             <div className="about-stats-container">
-              <div className="food-trucks-stat">
-                <div className="food-trucks-stat-icon-bg">
-                  <Truck className="food-trucks-stat-icon" />
+              <div className="food-carts-stat">
+                <div className="food-carts-stat-icon-bg">
+                  <ShoppingCart className="food-carts-stat-icon" />
                 </div>
-                <div className="food-trucks-stat-content">
-                  <h4 className="food-trucks-stat-number">7+ Trucks</h4>
-                  <p className="food-trucks-stat-label">Active in Madison</p>
+                <div className="food-carts-stat-content">
+                  <h4 className="food-carts-stat-number">7+ Carts</h4>
+                  <p className="food-carts-stat-label">Active in Madison</p>
                 </div>
               </div>
               <div className="locations-stat">
