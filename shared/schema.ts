@@ -2,7 +2,7 @@ import { pgTable, text, serial, integer, boolean, json } from "drizzle-orm/pg-co
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const foodTrucks = pgTable("food_trucks", {
+export const foodCarts = pgTable("food_carts", {
   id: serial("id").primaryKey(),
   slug: text("slug").notNull().unique(),
   name: text("name").notNull(),
@@ -35,9 +35,9 @@ export interface BusinessLinks {
   orderOnline?: string;
 }
 
-export const insertFoodTruckSchema = createInsertSchema(foodTrucks).omit({
+export const insertFoodCartSchema = createInsertSchema(foodCarts).omit({
   id: true,
 });
 
-export type InsertFoodTruck = z.infer<typeof insertFoodTruckSchema>;
-export type FoodTruck = typeof foodTrucks.$inferSelect;
+export type InsertFoodCart = z.infer<typeof insertFoodCartSchema>;
+export type FoodCart = typeof foodCarts.$inferSelect;
