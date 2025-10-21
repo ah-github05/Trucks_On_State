@@ -12,7 +12,7 @@ export default function TrucksOnStateAboutSection() {
               About Trucks on State
             </h2>
             <p className="about-description-first">
-              Food carts bring incredible diversity and flavor to Madison's culinary landscape. We're passionate about connecting the vibrant food truck community with hungry locals, students, and visitors. 
+              Food trucks bring incredible diversity and flavor to Madison's culinary landscape. We're passionate about connecting the vibrant food truck community with hungry locals, students, and visitors. 
             </p>
             <div className="about-stats-container">
               <div className="food-trucks-stat">
@@ -20,7 +20,7 @@ export default function TrucksOnStateAboutSection() {
                   <Truck className="food-trucks-stat-icon" />
                 </div>
                 <div className="food-trucks-stat-content">
-                  <h4 className="food-trucks-stat-number">100+ Trucks</h4>
+                  <h4 className="food-trucks-stat-number">7+ Trucks</h4>
                   <p className="food-trucks-stat-label">Active in Madison</p>
                 </div>
               </div>
@@ -29,7 +29,7 @@ export default function TrucksOnStateAboutSection() {
                   <MapPin className="locations-stat-icon" />
                 </div>
                 <div className="locations-stat-content">
-                  <h4 className="locations-stat-number">4 Areas</h4>
+                  <h4 className="locations-stat-number">2+ Locations</h4>
                   <p className="locations-stat-label">Around the city</p>
                 </div>
               </div>
