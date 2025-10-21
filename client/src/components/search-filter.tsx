@@ -10,7 +10,7 @@ interface SearchFilterProps {
 }
 
 const categories = [
-  { value: "all", label: "All Trucks" },
+  { value: "all", label: "All Carts" },
   { value: "asian", label: "Asian" },
   { value: "sandwiches", label: "Sandwiches" },
   { value: "south_american", label: "South American" },
@@ -21,7 +21,7 @@ const categories = [
   // When adding a new lable go to index.css and add the corresponding classes for active and inactive states
 ];
 
-export default function FoodTruckSearchAndFilter({
+export default function FoodCartSearchAndFilter({
   searchQuery,
   onSearchChange,
   selectedCategory,
@@ -35,10 +35,10 @@ export default function FoodTruckSearchAndFilter({
             <Search className="search-input-icon" />
             <Input
               type="text"
-              placeholder="Search food trucks..."
+              placeholder="Search food carts..."
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="food-truck-search-input"
+              className="food-cart-search-input"
             />
           </div>
           <div className="category-filter-buttons">
