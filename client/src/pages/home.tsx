@@ -13,6 +13,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function MadisonFoodTruckHomePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedLocation, setSelectedLocation] = useState("all");
 
   const { data: trucks, isLoading, error } = useQuery<FoodTruck[]>({
     queryKey: ["/api/food-trucks"],
@@ -25,7 +26,9 @@ export default function MadisonFoodTruckHomePage() {
     
     const matchesCategory = selectedCategory === "all" || truck.category === selectedCategory;
     
-    return matchesSearch && matchesCategory;
+    const matchesLocation = selectedLocation === "all" || truck.location === selectedLocation;
+
+    return matchesSearch && matchesCategory && matchesLocation;
   }) || [];
 
   return (
@@ -37,6 +40,8 @@ export default function MadisonFoodTruckHomePage() {
         onSearchChange={setSearchQuery}
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
+        selectedLocation={selectedLocation}
+        onLocationChange={setSelectedLocation}
       />
       
       <section id="trucks" className="home-trucks-section">
