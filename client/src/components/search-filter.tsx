@@ -7,6 +7,8 @@ interface SearchFilterProps {
   onSearchChange: (query: string) => void;
   selectedCategory: string;
   onCategoryChange: (category: string) => void;
+  selectedLocation: string;
+  onLocationChange: (location: string) => void;
 }
 
 const categories = [
@@ -21,11 +23,17 @@ const categories = [
   // When adding a new lable go to index.css and add the corresponding classes for active and inactive states
 ];
 
+const locations = [
+  { value: "state-street-library-mall", label: "State Street & Library Mall" },
+]
+
 export default function FoodTruckSearchAndFilter({
   searchQuery,
   onSearchChange,
   selectedCategory,
   onCategoryChange,
+  selectedLocation,
+  onLocationChange,
 }: SearchFilterProps) {
   return (
     <section className="search-filter-section">
@@ -40,6 +48,22 @@ export default function FoodTruckSearchAndFilter({
               onChange={(e) => onSearchChange(e.target.value)}
               className="food-truck-search-input"
             />
+          </div>
+          <div className="location-filter-buttons">
+            {locations.map((location) => (
+              <Button
+                key={location.value}
+                variant={selectedLocation === location.value ? "default" : "secondary"}
+                size="sm"
+                onClick={() => onLocationChange(location.value === selectedLocation ? "all" : location.value)}
+                className={selectedLocation === location.value
+                  ? `${location.value}-location-active`
+                  : `${location.value}-location-inactive`
+                }
+              >
+                {location.label}
+              </Button>
+            ))}
           </div>
           <div className="category-filter-buttons">
             {categories.map((category) => (
