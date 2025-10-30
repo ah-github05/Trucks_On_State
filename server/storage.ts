@@ -28,6 +28,7 @@ export class MemStorage implements IStorage {
         image: "https://badgerherald.com/wp-content/uploads/2024/03/BMW_7422-Enhanced-NR-scaled-1-1200x801.jpg",
         category: "asian",
         location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
         phone: "N/A",
         businessLinks: {},
         menu: [
@@ -57,6 +58,7 @@ export class MemStorage implements IStorage {
         image: "https://www.toastmadison.com/wp-content/themes/gili/images/toast-madison-with-bucky.jpg",
         category: "sandwiches",
         location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
         phone: "+1 (608) 692-4549",
         businessLinks: {
           website: "https://toastmadison.com",
@@ -95,6 +97,7 @@ export class MemStorage implements IStorage {
         image: "https://bloximages.chicago2.vip.townnews.com/captimes.com/content/tncms/assets/v3/editorial/2/b2/2b236bbb-3e8a-5bdf-835e-ef9a2ac09809/669806c2aa375.image.jpg?resize=1396%2C930",
         category: "sandwiches",
         location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
         phone: "TBD",
         businessLinks: {
           website: "https://www.sandwichhubmadison.com",
@@ -127,6 +130,7 @@ export class MemStorage implements IStorage {
         image: "https://bloximages.chicago2.vip.townnews.com/wiscnews.com/content/tncms/assets/v3/editorial/8/01/8012f089-6556-50d8-8dc0-847ada21877a/6719d0d705f72.image.jpg?crop=1920%2C1008%2C0%2C35&resize=1200%2C630&order=crop%2Cresize",
         category: "south_american",
         location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
         phone: "N/A",
         businessLinks: {
           website: "https://www.surcocart.com",
@@ -177,6 +181,7 @@ export class MemStorage implements IStorage {
         image: "https://bloximages.chicago2.vip.townnews.com/captimes.com/content/tncms/assets/v3/editorial/6/86/686e01e1-6dcf-5678-bba6-30383ae84644/60f6c1e8cf21f.image.jpg?resize=1396%2C930",
         category: "southeast_asian",
         location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
         phone: "N/A",
         businessLinks: {
           instagram: "https://www.instagram.com/bombayfastcafe?utm_source=ig_web_button_share_sheet&igsh=enJzc25kaWZodTZt",
@@ -210,6 +215,7 @@ export class MemStorage implements IStorage {
         image: "***",
         category: "asian",
         location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
         phone: "N/A",
         businessLinks: {
           website: "https://nani.restaurant",
@@ -242,6 +248,7 @@ export class MemStorage implements IStorage {
         image: "TBD",
         category: "mexican",
         location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
         phone: "N/A",
         businessLinks: {
           facebook: "https://www.facebook.com/jollyfrogllc?mibextid=wwXIfr"
@@ -277,6 +284,7 @@ export class MemStorage implements IStorage {
         image: "TBD",
         category: "american",
         location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
         phone: "(608) 422-9622",
         businessLinks: {
           website: "https://www.theroostfriedchicken.com",
@@ -324,6 +332,7 @@ export class MemStorage implements IStorage {
         image: "TBD",
         category: "caribbean",
         location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
         phone: "TBD",
         businessLinks: {
           website: "TBD",
@@ -360,6 +369,7 @@ export class MemStorage implements IStorage {
         image: "TBD",
         category: "middle_eastern",
         location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
         phone: "N/A",
         businessLinks: {
           website: "https://kingoffalafel.dine.online/locations/2964238?fulfillment=pickup",
