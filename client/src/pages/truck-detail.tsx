@@ -341,16 +341,15 @@ export default function IndividualFoodTruckDetailPage() {
 
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Spice Level</h2>
                               <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
-                                <div className="font-bold text-right">Spiciest</div>
-                                <div>Extreme</div>
+                                <div>1) Extreme</div>
                                 <div></div>
-                                <div>Spicy</div>
+                                <div>2) Spicy</div>
                                 <div></div>
-                                <div>Mild</div>
+                                <div>3) Mild</div>
                                 <div></div>
-                                <div>No Spice</div>
-                                <div className="font-bold text-right">No Spice</div>
-                                <div>Naked</div>
+                                <div>4) No Spice</div>
+                                <div></div>
+                                <div>5) Naked</div>
                               </div>
 
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Extras</h2>
