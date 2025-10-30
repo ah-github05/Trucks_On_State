@@ -10,6 +10,7 @@ export const foodTrucks = pgTable("food_trucks", {
   image: text("image").notNull(),
   category: text("category").notNull(),
   location: text("location").notNull(),
+  locationDisplayName: text("location_display_name").notNull(),
   phone: text("phone").notNull(),
   menu: json("menu").$type<MenuItem[]>().notNull(),
   schedule: json("schedule").$type<Schedule>().notNull(),
