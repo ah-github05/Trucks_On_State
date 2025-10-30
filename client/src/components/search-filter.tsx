@@ -11,6 +11,7 @@ interface SearchFilterProps {
   onLocationChange: (location: string) => void;
 }
 
+// Food category filters
 const categories = [
   { value: "all", label: "All Trucks" },
   { value: "asian", label: "Asian" },
@@ -24,8 +25,12 @@ const categories = [
   // When adding a new lable go to index.css and add the corresponding classes for active and inactive states
 ];
 
+// Location category filters
 const locations = [
   { value: "state-street-library-mall", label: "State Street & Library Mall" },
+  { value: "tbd1", label: "TBD1" },
+  { value: "tbd2", label: "TBD2" },
+  { value: "tbd3", label: "TBD3" }
 ]
 
 export default function FoodTruckSearchAndFilter({
