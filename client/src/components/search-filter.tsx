@@ -18,7 +18,8 @@ const categories = [
   { value: "south_american", label: "South American" },
   { value: "southeast_asian", label: "Southeast Asian" },
   { value: "mexican", label: "Mexican" },
-   { value: "american", label: "American" }
+  { value: "american", label: "American" },
+  { value: "caribbean", label: "Caribbean" }
 
   // When adding a new lable go to index.css and add the corresponding classes for active and inactive states
 ];

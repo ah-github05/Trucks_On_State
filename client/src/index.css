@@ -436,6 +436,15 @@ html {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
+.state-street-library-mall-location-active {
+  @apply bg-primary text-white;
+}
+
+.state-street-library-mall-location-inactive {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+
+
 /* Truck Card Component Classes */
 .food-truck-card {
   @apply bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300;
