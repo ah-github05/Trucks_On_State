@@ -339,6 +339,20 @@ export default function IndividualFoodTruckDetailPage() {
                                 ))}
                               </div>
 
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Spice Level</h2>
+                              <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
+                                <div className="font-bold text-right">Spiciest</div>
+                                <div>Extreme</div>
+                                <div></div>
+                                <div>Spicy</div>
+                                <div></div>
+                                <div>Mild</div>
+                                <div></div>
+                                <div>No Spice</div>
+                                <div className="font-bold text-right">No Spice</div>
+                                <div>Naked</div>
+                              </div>
+
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Extras</h2>
                               <div className="space-y-4">
                                 {truck.menu.slice(9, 12).map((item, index) => (
