@@ -26,7 +26,7 @@ export default function IndividualFoodTruckCard({ truck }: TruckCardProps) {
         <p className="truck-card-description">{truck.description}</p>
         <div className="truck-card-location">
           <MapPin className="truck-location-icon" />
-          <span className="truck-location-text">{truck.location}</span>
+          <span className="truck-location-text">{truck.locationDisplayName}</span>
         </div>
         <div className="truck-card-footer">
           <span className={`truck-status ${
