@@ -444,6 +444,30 @@ html {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
+.tbd1-location-active {
+   @apply bg-primary text-white;
+}
+
+.tbd1-location-inactive {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+
+.tbd2-location-active {
+  @apply bg-primary text-white;
+}
+
+.tbd2-location-inactive {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+
+.tbd3-location-active {
+  @apply bg-primary text-white;
+}
+
+.tbd3-location-inactive {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+
 
 /* Truck Card Component Classes */
 .food-truck-card {
