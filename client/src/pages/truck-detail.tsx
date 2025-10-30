@@ -102,7 +102,7 @@ export default function IndividualFoodTruckDetailPage() {
                 <div className="space-y-3">
                   <div className="flex items-center text-gray-600">
                     <MapPin className="w-5 h-5 mr-3" />
-                    <span>{truck.location}</span>
+                    <span>{truck.locationDisplayName}</span>
                   </div>
                 </div>
 
