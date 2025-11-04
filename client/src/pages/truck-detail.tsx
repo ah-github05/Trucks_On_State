@@ -339,19 +339,6 @@ export default function IndividualFoodTruckDetailPage() {
                                 ))}
                               </div>
 
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Spice Level</h2>
-                              <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
-                                <div>1) Extreme</div>
-                                <div></div>
-                                <div>2) Spicy</div>
-                                <div></div>
-                                <div>3) Mild</div>
-                                <div></div>
-                                <div>4) No Spice</div>
-                                <div></div>
-                                <div>5) Naked</div>
-                              </div>
-
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Extras</h2>
                               <div className="space-y-4">
                                 {truck.menu.slice(9, 12).map((item, index) => (
@@ -365,6 +352,19 @@ export default function IndividualFoodTruckDetailPage() {
                                     </div>
                                   </div>
                                 ))}
+                              </div>
+
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Spice Level</h2>
+                              <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
+                                <div>1) Extreme</div>
+                                <div></div>
+                                <div>2) Spicy</div>
+                                <div></div>
+                                <div>3) Mild</div>
+                                <div></div>
+                                <div>4) No Spice</div>
+                                <div></div>
+                                <div>5) Naked</div>
                               </div>
                             </>
                           ) : truck.slug === "new-food-truck" ? (
