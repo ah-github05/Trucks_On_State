@@ -1,0 +1,17 @@
+# Development files
+node_modules
+.git
+.gitignore
+.replit
+*.md
+replit.md
+
+# Build files (will be rebuilt by Vercel)
+dist
+
+# Assets not needed for deployment
+*.jpeg
+*.png
+
+# IDE and config files
+.claude
