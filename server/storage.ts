@@ -281,7 +281,7 @@ export class MemStorage implements IStorage {
         slug: "roost",
         name: "The Roost Fried Chicken",
         description: "Crispy fried chicken with spicy dry rubs",
-        image: "TBD",
+        image: "https://scontent-msp1-1.xx.fbcdn.net/v/t39.30808-6/496304393_732093949380946_4609703619317452273_n.jpg?stp=cp6_dst-jpg_p960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=4BWxq__sQg4Q7kNvwEMSEMc&_nc_oc=Adntr2MiasQvHh7rlpdUSOQ18dWlda9HdDj9Otv0oD2CQEeoE1eYeiFJomAFSc3uE5kSDSC8omDkyfd7FVND6otv&_nc_zt=23&_nc_ht=scontent-msp1-1.xx&_nc_gid=kbo_BSELfE5_dLmxwszWjg&oh=00_Afisv439em4dutfuZSixOiDI86w8kgdCeCoC79PPjOiWEA&oe=6927F1D9",
         category: "american",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
