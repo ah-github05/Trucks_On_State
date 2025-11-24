@@ -16,7 +16,7 @@ export default function MadisonFoodTruckHomePage() {
   const [selectedLocation, setSelectedLocation] = useState("all");
 
   const { data: trucks, isLoading, error } = useQuery<FoodTruck[]>({
-    queryKey: ["/api/food-trucks"],
+    queryKey: ["/trucks.json"],
   });
 
   const filteredTrucks = trucks?.filter((truck) => {

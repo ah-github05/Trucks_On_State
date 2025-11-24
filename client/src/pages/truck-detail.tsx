@@ -14,11 +14,13 @@ import type { FoodTruck, MenuItem } from "@shared/schema";
 export default function IndividualFoodTruckDetailPage() {
   const { slug } = useParams<{ slug: string }>();
 
-  const { data: truck, isLoading, error } = useQuery<FoodTruck>({
-    queryKey: [`/api/food-trucks/${slug}`],
+  const { data: trucks, isLoading, error } = useQuery<FoodTruck[]>({
+    queryKey: ["/trucks.json"],
   });
 
-  if (error) {
+  const truck = trucks?.find(t => t.slug === slug);
+
+  if (error || (trucks && !truck)) {
     return (
       <div className="min-h-screen bg-gray-50">
         <SiteNavigationHeader />
