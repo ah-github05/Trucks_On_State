@@ -258,42 +258,14 @@ To add a new food truck, edit `server/storage.ts`:
 vercel --prod
 ```
 
-## 🤝 Contributing
-
-Contributions are welcome! This project is under active development.
-
-### Development Workflow
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ### Code Style
 - TypeScript for type safety
 - ESLint configuration included
 - Semantic CSS class names
 - Component-based architecture
 
-## 📄 License
-
-This project is currently unlicensed and maintained by the creator.
-
 ## 📧 Contact
 
 For questions, suggestions, or to add your food truck to the platform:
-- Project Maintainer: Aria Vahayempour
+- Project Maintainer: Ariav Hahayempour
 - GitHub: [@ariavhayempour](https://github.com/ariavhayempour)
-
-## 🙏 Acknowledgments
-
-- Food truck owners and operators in Madison, WI
-- Madison community for supporting local businesses
-- shadcn/ui for beautiful component library
-- Vercel for hosting and deployment platform
-
----
-
-**Note**: This application is transitioning from Replit to Vercel deployment. Some documentation may reference legacy configurations. For technical specifications, see `replit.md`.
-
-Built with ❤️ for the Madison food truck community
