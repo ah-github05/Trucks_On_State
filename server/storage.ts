@@ -245,7 +245,7 @@ export class MemStorage implements IStorage {
         slug: "jolly-frog",
         name: "Jolly Frog",
         description: "Authentic Mexican food with fresh ingredients",
-        image: "/jollyfrog_pic.jpg",
+        image: "TBD",
         category: "mexican",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
