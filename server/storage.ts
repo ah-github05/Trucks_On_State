@@ -326,7 +326,7 @@ export class MemStorage implements IStorage {
 
       // M & J Jamaican Kitch'n
       {
-        slug: "m&j",
+        slug: "mj-jamaican",
         name: "M & J Jamaican Kitch'n",
         description: "TBD",
         image: "/mj_pic.jpg",
