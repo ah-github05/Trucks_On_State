@@ -1,25 +1,4 @@
 {
-  "version": 2,
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/public",
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/index"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/.*",
-      "dest": "/api/index"
-    },
-    {
-      "src": "/(.*\\.(jpg|jpeg|png|gif|svg|css|js|ico|json))",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "outputDirectory": "dist/public"
 }
