@@ -325,7 +325,6 @@ export default function IndividualFoodTruckDetailPage() {
 
                               <div className="flex justify-between items-baseline mb-4">
                                 <h2 className="text-lg font-semibold text-gray-900 underline">Sides</h2>
-                                <span className="font-semibold text-gray-900">Small / Large</span>
                               </div>
                               
                               <div className="space-y-4 mb-6">
