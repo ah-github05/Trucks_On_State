@@ -140,14 +140,14 @@ export class MemStorage implements IStorage {
         menu: [
           { name: "Arroz Con Pollo (Chicken & Rice), GF", price: "$13.00", description: "Aromatic Jasmine rice bursting with fresh cilantro, grilled chicken, cabbage, and organic spring mix with homemade passion fruit dressing.", category: "Chicken Dishes" },
           { name: "Aji de Gallina (Chili Chicken), Mild", price: "$13.00", description: "Shredded chicken in creamy sauce with a mild kick of yellow chili pepper, jasmine rice, boiled potatoes, hard boiled egg, cabbage, and organic spring mix with homemade passion fruit dressing.", category: "Chicken Dishes" },
-          { name: "Chicken Adobo (Chili Chicken), Mild", price: "$13.00", description: "Slow-braised chicken strips in tangy adobo sauce, brown lentils, jasmine rice, cabbage, and organic spring mix with homemade passion fruit dressing.", category: "Chicken Dishes" },
+          { name: "Chicken Adobo, GF", price: "$13.00", description: "Pan-seared chicken strips in a tangy adobo sauce, brown lentils, jasmine rice, cabbage, and organic spring mix with passion fruit dressing.", category: "Chicken Dishes" },
           { name: "Pastel De Papa (Scalloped Potatoes)", price: "$13.00", description: "Golden-baked potatoes slices layered with cheese, grilled chicken, cabbage, and organic spring mix with homemade passion fruit dressing.", category: "Chicken Dishes" },
-          { name: "Arroz Chaufa, GF", price: "$TBD", description: "Wok stir-fried rice elevated with unique blends of homemade sauces (including sesame oil, soy sauce, & scrambled eggs), grilled chicken, cabbage, and organic spring mix with passion fruit dressing.", category: "Chicken Dishes" },
+          { name: "Arroz Chaufa, GF", price: "$13.00", description: "Wok stir-fried rice elevated with unique blends of homemade sauces (including sesame oil, soy sauce, & scrambled eggs), grilled chicken, cabbage, and organic spring mix with passion fruit dressing.", category: "Chicken Dishes" },
 
           // Start of vegitarian section
-          { name: "Cilantro Rice, GF", price: "$TBD", description: "Stir-fried rice, grilled chicken, salad with passion fruit dressing.", category: "Vegetarian Dishes" },
-          { name: "Arroz Chaufa, GF", price: "$TBD", description: "Stir-fried rice, grilled chicken, salad with passion fruit dressing.", category: "Vegetarian Dishes" },
-          { name: "Pastel De Papa, GF", price: "$TBD", description: "Stir-fried rice, grilled chicken, salad with passion fruit dressing.", category: "Vegetarian Dishes" },
+          { name: "Cilantro Rice, GF", price: "$TBD", description: "Flavorful fluffy jasmine rice cooked with fresh cilantro, herbs, cabbage, and organic spring mix with passion fruit dressing.", category: "Vegetarian Dishes" },
+          { name: "Arroz Chaufa", price: "$12.00", description: "Wok stir-fried rice elevated with unique blends of homemade sauces (including sesame oil, soy sauce, & scrambled eggs), cabbage, and organic spring mix with passion fruit dressing.", category: "Vegetarian Dishes" },
+          { name: "Pastel De Papa (Scalloped Potatoes)", price: "$12.00", description: "Golden-baked potatoes slices layered with cheese, sliced avocado, cabbage, and organic spring mix with passion fruit dressing.", category: "Vegetarian Dishes" },
 
           // Extras
           { name: "Extra avocado", price: "$2.00", description: "", category: "Extras" },
