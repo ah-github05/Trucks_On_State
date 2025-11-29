@@ -1,13 +1,13 @@
-# Trucks on State 🚚
+# Capital City Food Carts 🚚
 
-A centralized web application for discovering and exploring food trucks throughout Madison, Wisconsin, with a focus on the State Street and Library Mall area.
+A centralized web application for discovering and exploring food carts throughout Madison, Wisconsin, with a focus on the State Street and Library Mall area.
 
 ## 🌟 Features
 
-- **Browse Food Trucks**: View all available food trucks in the Madison area
+- **Browse Food Trucks**: View all available food carts in the Madison area
 - **Search & Filter**: Search by name or description, filter by cuisine category and location
 - **Detailed Information**: Access complete menus, pricing, schedules, and contact information
-- **Real-Time Status**: See which trucks are currently open
+- **Real-Time Status**: See which carts are currently open
 - **Mobile Responsive**: Seamless experience across all devices
 - **Performance Tracking**: Integrated Vercel Analytics and SpeedInsights
 
@@ -26,7 +26,7 @@ A centralized web application for discovering and exploring food trucks througho
 ### Backend
 - **Express.js** - Node.js web framework
 - **TypeScript** - Type-safe development
-- **In-Memory Storage** - Fast data access with seeded truck data
+- **In-Memory Storage** - Fast data access with seeded cart data
 - **Drizzle ORM** - Type-safe SQL query builder (configured for future PostgreSQL integration)
 
 ### Deployment
@@ -54,7 +54,7 @@ Trucks_On_State/
 │   ├── storage.ts       # Data storage implementation
 │   └── vite.ts          # Vite dev server configuration
 ├── shared/              # Shared TypeScript types/schemas
-│   └── schema.ts        # Food truck data schema
+│   └── schema.ts        # Food cart data schema
 ├── dist/                # Production build output
 │   ├── public/         # Frontend static files
 │   └── index.js        # Compiled server
@@ -121,7 +121,7 @@ npm start
 
 #### Get All Food Trucks
 ```http
-GET /api/food-trucks
+GET /api/food-carts
 ```
 
 **Response:**
@@ -150,30 +150,30 @@ GET /api/food-trucks
 
 #### Get Food Truck by Slug
 ```http
-GET /api/food-trucks/:slug
+GET /api/food-carts/:slug
 ```
 
 **Parameters:**
-- `slug` (string) - Unique identifier for the food truck
+- `slug` (string) - Unique identifier for the food cart
 
-**Response:** Single food truck object or 404 if not found
+**Response:** Single food cart object or 404 if not found
 
 #### Search Food Trucks
 ```http
-GET /api/food-trucks/search/:query
+GET /api/food-carts/search/:query
 ```
 
 **Parameters:**
-- `query` (string) - Search term to match against truck name, description, or category
+- `query` (string) - Search term to match against cart name, description, or category
 
 #### Filter by Category
 ```http
-GET /api/food-trucks/category/:category
+GET /api/food-carts/category/:category
 ```
 
 **Parameters:**
 - `category` (string) - Category to filter by (e.g., "american", "asian", "mexican")
-- Use "all" to return all trucks
+- Use "all" to return all carts
 
 ## 🎨 Design System
 
@@ -185,7 +185,7 @@ GET /api/food-trucks/category/:category
 
 ### Components
 The application uses shadcn/ui components with custom Tailwind styling:
-- Cards for truck listings
+- Cards for cart listings
 - Dialogs for detailed views
 - Buttons with consistent styling
 - Responsive navigation
@@ -208,14 +208,14 @@ The `vercel.json` file configures serverless deployment:
 
 ## 📝 Adding New Food Trucks
 
-To add a new food truck, edit `server/storage.ts`:
+To add a new food cart, edit `server/storage.ts`:
 
 ```typescript
 {
-  slug: "unique-truck-slug",
+  slug: "unique-cart-slug",
   name: "Truck Name",
   description: "Brief description",
-  image: "/truck-image.jpg", // Place image in client/public/
+  image: "/cart-image.jpg", // Place image in client/public/
   category: "cuisine-category",
   location: "location-slug",
   locationDisplayName: "Display Name",
@@ -266,6 +266,6 @@ vercel --prod
 
 ## 📧 Contact
 
-For questions, suggestions, or to add your food truck to the platform:
+For questions, suggestions, or to add your food cart to the platform:
 - Project Maintainer: Ariav Hahayempour
 - GitHub: [@ariavhayempour](https://github.com/ariavhayempour)
