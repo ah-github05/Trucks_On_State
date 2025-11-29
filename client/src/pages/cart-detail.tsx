@@ -397,7 +397,7 @@ export default function IndividualFoodCartDetailPage() {
                               </div>
                               </div>
                             </>
-                          ) : cart.slug === "new-food-truck" ? (
+                          ) : cart.slug === "falafel" ? (
                             <>
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Main Dishes</h2>
                               <div className="space-y-4 mb-6">

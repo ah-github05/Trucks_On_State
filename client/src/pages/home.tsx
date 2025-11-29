@@ -58,7 +58,7 @@ export default function MadisonFoodCartHomePage() {
           
           {error && (
             <div className="home-carts-error">
-              <p className="home-carts-error-message">Failed to load food trucks. Please try again later.</p>
+              <p className="home-carts-error-message">Failed to load food carts. Please try again later.</p>
             </div>
           )}
           
