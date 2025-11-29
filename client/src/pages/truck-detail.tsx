@@ -336,7 +336,20 @@ export default function IndividualFoodTruckDetailPage() {
                                         <h5 className="font-medium text-gray-900">{item.name}</h5>
                                         <p className="text-sm text-gray-600 mt-1">{item.description}</p>
                                       </div>
-                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                      {item.name === "French Fries" ? (
+                                        <div className="ml-4 flex flex-col items-end">
+                                          <div className="font-semibold">
+                                            <span className="text-gray-900">Small: </span>
+                                            <span className="text-primary">$4.00</span>
+                                          </div>
+                                          <div className="font-semibold">
+                                            <span className="text-gray-900">Large: </span>
+                                            <span className="text-primary">$6.00</span>
+                                          </div>
+                                        </div>
+                                      ) : (
+                                        <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                      )}
                                     </div>
                                   </div>
                                 ))}
