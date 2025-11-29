@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { Truck, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function SiteNavigationHeader() {
@@ -25,7 +25,7 @@ export default function SiteNavigationHeader() {
           <div className="brand-logo-section">
             <Link href="/">
               <div className="brand-logo-link">
-                <ShoppingCart className="brand-logo-icon" />
+                <Truck className="brand-logo-icon" />
                 <h1 className="brand-logo-text">
                   Capital City Food Carts
                 </h1>
