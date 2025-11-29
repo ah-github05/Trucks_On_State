@@ -308,8 +308,10 @@ export class MemStorage implements IStorage {
           { name: "Coleslaw", price: "$3.00", description: " " },
           
           // Extras
-          { name: "Make it a Meal", price: " ", description: "Includes french fries and a drink. Substitute cheese curds ($2.00). Substitute lemonade  (Small- $1.00) (Large- $2.00)" },
-          { name: "Roost Style", price: " ", description: "Substitute mayo for Roost Sauce." },
+          { name: "Make it a Meal", price: " ", description: "Includes french fries and a drink." },
+          { name: "Meal - Substitute cheese curds", price: "$2.00 ", description: " " },
+          { name: "Meal - Substitute lemonade", price: "$1.00 / $2.00", description: " " },
+          { name: "Roost Style", price: "Free", description: "Substitute mayo for Roost Sauce." },
           { name: "Dip Chicken in Honey Butter", price: "$1.00", description: " " }
         ],
         
