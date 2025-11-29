@@ -150,17 +150,17 @@ export class MemStorage implements IStorage {
           { name: "Pastel De Papa, GF", price: "$TBD", description: "Stir-fried rice, grilled chicken, salad with passion fruit dressing.", category: "Vegetarian Dishes" },
 
           // Extras
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Extras" },
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Extras" },
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Extras" },
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Extras" },
+          { name: "Extra avocado", price: "$2.00", description: "", category: "Extras" },
+          { name: "Extra chicken", price: "$6.00", description: "", category: "Extras" },
+          { name: "Switch to cilantro rice", price: "$3.00", description: "", category: "Extras" },
+          { name: "Switch to chaufa rice", price: "$3.00", description: "", category: "Extras" },
 
           // Beverages
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Beverages" },
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Beverages" },
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Beverages" },
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Beverages" },
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Beverages" },
+          { name: "Inka Cola", price: "$3.00", description: "", category: "Beverages" },
+          { name: "San Pellegrino", price: "$3.00", description: "", category: "Beverages" },
+          { name: "Coke", price: "$2.00", description: "", category: "Beverages" },
+          { name: "LaCroix", price: "$2.00", description: "", category: "Beverages" },
+          { name: "Water", price: "$2.00", description: "", category: "Beverages" },
         ],
         schedule: {
           "Monday": "11:30 am - 2:30 pm",
