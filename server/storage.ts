@@ -144,7 +144,7 @@ export class MemStorage implements IStorage {
           { name: "Pastel De Papa (Scalloped Potatoes)", price: "$13.00", description: "Golden-baked potatoes slices layered with cheese, grilled chicken, cabbage, and organic spring mix with homemade passion fruit dressing.", category: "Chicken Dishes" },
           { name: "Arroz Chaufa, GF", price: "$13.00", description: "Wok stir-fried rice elevated with unique blends of homemade sauces (including sesame oil, soy sauce, & scrambled eggs), grilled chicken, cabbage, and organic spring mix with passion fruit dressing.", category: "Chicken Dishes" },
 
-          // Start of vegitarian section
+          // Start of vegetarian section
           { name: "Cilantro Rice, GF", price: "$TBD", description: "Flavorful fluffy jasmine rice cooked with fresh cilantro, herbs, cabbage, and organic spring mix with passion fruit dressing.", category: "Vegetarian Dishes" },
           { name: "Arroz Chaufa", price: "$12.00", description: "Wok stir-fried rice elevated with unique blends of homemade sauces (including sesame oil, soy sauce, & scrambled eggs), cabbage, and organic spring mix with passion fruit dressing.", category: "Vegetarian Dishes" },
           { name: "Pastel De Papa (Scalloped Potatoes)", price: "$12.00", description: "Golden-baked potatoes slices layered with cheese, sliced avocado, cabbage, and organic spring mix with passion fruit dressing.", category: "Vegetarian Dishes" },
@@ -187,13 +187,13 @@ export class MemStorage implements IStorage {
           instagram: "https://www.instagram.com/bombayfastcafe?utm_source=ig_web_button_share_sheet&igsh=enJzc25kaWZodTZt",
         },
         menu: [
-          { name: "Bombay Vada Pav", price: "$10.00", description: "Bombay potato burger topped with sweet and spicyrelishserved with garlic chutney and flavored green chilies." },
+          { name: "Bombay Vada Pav", price: "$10.00", description: "Bombay potato burger topped with sweet and spicy relish, served with garlic chutney and flavored green chilies." },
           { name: "Bombay Misal Pav", price: "$10.00", description: "Indian pluses cooked with authentic home-style spices topped with Bombay Trail mix. Garnished with chopped onions, cilantro, and lemon. Served with bread." },
-          { name: "Bombay Pav Bhaji", price: "$10.00", description: "Medley of vegetbles cooked with authentic home-style spices. Garnished with butter, chopped onions, cilanto, and lemon. Served with bread." },
-          { name: "Bombay Falafel Meal", price: "$10.00", description: "Bombay style falafel completed with pulav, gravy, and saald. Served with a side of sweet and green chutney." },
-          { name: "Chole", price: "$10.00", description: "One pot recipe of garbonzo beans (chickpeas) cooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney."},
+          { name: "Bombay Pav Bhaji", price: "$10.00", description: "Medley of vegetables cooked with authentic home-style spices. Garnished with butter, chopped onions, cilantro, and lemon. Served with bread." },
+          { name: "Bombay Falafel Meal", price: "$10.00", description: "Bombay style falafel completed with pulav, gravy, and salad. Served with a side of sweet and green chutney." },
+          { name: "Chole", price: "$10.00", description: "One pot recipe of garbanzo beans (chickpeas) cooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney."},
           { name: "Chole Samosa", price: "$10.00", description: "Chatt recipe made with samosas, chana masala, various chutneys, and spices. Popular recipe from North India" },
-          { name: "Dal Makhani (Black Gram)", price: "$10.00", description: "Black Gram sooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lemon. Served with naan, rice, and chutney."},
+          { name: "Dal Makhani (Black Gram)", price: "$10.00", description: "Black Gram cooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lemon. Served with naan, rice, and chutney."},
           { name: "Rajma (Kidney Beans)", price: "$10.00", description: "Kidney beans cooked with authentic home style spices garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney."}
         ],
         schedule: {
@@ -262,7 +262,7 @@ export class MemStorage implements IStorage {
           { name: "Steak, Chicken, and/or Pork", price: "$10.00", description: "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños." },
           { name: "Veggie", price: "$10.00", description: "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños." },
           { name: "Taco", price: "$3.50", description: "Meat, onion, cilantro, lettuce, tomato, mozzarella cheese, sour cream." },
-          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Corn hard flat tortilla, beans ,lettuce, onion, cilantro, sour cream mozarella cheese." },
+          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Corn hard flat tortilla, beans ,lettuce, onion, cilantro, sour cream mozzarella cheese." },
           { name: "Veggie", price: "$12.00", description: "Corn hard flat tortilla, beans, lettuce, onion, cilantro, tomato, sour cream, mozzarella cheese, avocado." }
         ],
         schedule: {
@@ -363,11 +363,11 @@ export class MemStorage implements IStorage {
         }
       },
 
-      // New Food Truck
+      // King of Falafel
       {
         slug: "falafel",
         name: "King of Falafel",
-        description: "Fresh falafel and ",
+        description: "Fresh falafel and pitas",
         image: "TBD",
         category: "middle_eastern",
         location: "state-street-library-mall",
@@ -381,7 +381,7 @@ export class MemStorage implements IStorage {
           { name: "Falafel Sandwich", price: "$9.00", description: "Hummus, tomato, tahini." },
           { name: "Falafel Sandwich", price: "$10.00", description: "Taziki, tomato, onion." },
           { name: "Chicken Shawarma", price: "$10.00", description: "Grilled onion, tomato, pickle, lettuce, tahini." },
-          { name: "Veggie Plate", price: "$12.00", description: "Babaganouj, hummus, basmati rice, falafel (x2)." },
+          { name: "Veggie Plate", price: "$12.00", description: "Baba ghanoush, hummus, basmati rice, falafel (x2)." },
           { name: "Gyro Egg Roll (2 pieces)", price: "$5.00", description: "Gyro meat, banana pepper, swiss cheese." }
         ],
         schedule: {
@@ -395,37 +395,41 @@ export class MemStorage implements IStorage {
         }
       },
 
-      // Template 1
+      // Crepeuw
       {
-        slug: "food-truck-template-1",
-        name: "TBD",
-        description: "TBD",
+        slug: "crepeuw",
+        name: "Crepeuw",
+        description: "Gluten-free sweet and savory crepes",
         image: "TBD",
         category: "TBD",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        phone: "TBD",
+        phone: "N/A",
         businessLinks: {
-          website: "TBD",
-          instagram: "TBD",
-          facebook: "TBD"
+          instagram: "https://www.instagram.com/crepuwmadison?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+          facebook: "https://www.facebook.com/crepuwmadison"
         },
         menu: [
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" }
+          // Crepes
+          { name: "Strawberry Banana", price: "$8.00", description: "Strawberries, bananas, custard, cream, nutella, selection of sauce", category: "Crepes" },
+          { name: "Strawberry Nutella", price: "$8.00", description: "Strawberries, nutella selection of sauce", category: "Crepes" },
+          { name: "Banana Nutella", price: "$8.00", description: "Banana, nutella selection of sauce", category: "Crepes" },
+          { name: "Mediterranean Breeze", price: "$9.00", description: "Avocado, lettuce, feta cheese, olive oil, tomatoes", category: "Crepes" },
+          { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream, kataifi, chocolate sauce.", category: "Crepes" },
+
+          // Crepe Sushi
+          { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream. kataifi, chocolate sauce", category: "Crepe Sushi" },
+          { name: "Strawberry Brownie", price: "$8.00", description: "Strawberry, brownie, selection of sauce", category: "Crepe Sushi" },
+          { name: "Nutella Banana", price: "$8.00", description: "Banana, nutella, selection of sauce", category: "Crepe Sushi" },
         ],
         schedule: {
-          "Monday": "TBD",
-          "Tuesday": "TBD",
-          "Wednesday": "TBD",
-          "Thursday": "TBD",
-          "Friday": "TBD",
-          "Saturday": "TBD",
-          "Sunday": "TBD"
+          "Monday": "11:00 am - 3:00 pm",
+          "Tuesday": "11:00 am - 3:00 pm",
+          "Wednesday": "11:00 am - 3:00 pm",
+          "Thursday": "11:00 am - 3:00 pm",
+          "Friday": "11:00 am - 3:00 pm",
+          "Saturday": "Closed",
+          "Sunday": "Closed"
         }
       },
 
