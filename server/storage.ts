@@ -393,6 +393,74 @@ export class MemStorage implements IStorage {
           "Saturday": "11:00 pm - 3:00 pm",
           "Sunday": "11:00 pm - 3:00 pm"
         }
+      },
+
+      // Template 1
+      {
+        slug: "food-truck-template-1",
+        name: "TBD",
+        description: "TBD",
+        image: "TBD",
+        category: "TBD",
+        location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
+        phone: "TBD",
+        businessLinks: {
+          website: "TBD",
+          instagram: "TBD",
+          facebook: "TBD"
+        },
+        menu: [
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" }
+        ],
+        schedule: {
+          "Monday": "TBD",
+          "Tuesday": "TBD",
+          "Wednesday": "TBD",
+          "Thursday": "TBD",
+          "Friday": "TBD",
+          "Saturday": "TBD",
+          "Sunday": "TBD"
+        }
+      },
+
+      // Template 2
+      {
+        slug: "food-truck-template-2",
+        name: "TBD",
+        description: "TBD",
+        image: "TBD",
+        category: "TBD",
+        location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
+        phone: "TBD",
+        businessLinks: {
+          website: "TBD",
+          instagram: "TBD",
+          facebook: "TBD"
+        },
+        menu: [
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" }
+        ],
+        schedule: {
+          "Monday": "TBD",
+          "Tuesday": "TBD",
+          "Wednesday": "TBD",
+          "Thursday": "TBD",
+          "Friday": "TBD",
+          "Saturday": "TBD",
+          "Sunday": "TBD"
+        }
       }
     ];
 
