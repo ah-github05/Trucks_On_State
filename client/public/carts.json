@@ -619,49 +619,52 @@
     },
     "menu": [
       {
-        "name": "TBD",
-        "price": "$TBD",
-        "description": "TBD"
+        "name": "Jerk BBQ Chicken Tenders",
+        "price": "$13.00",
+        "description": "Served with mac & cheese.",
+        "category": "Plates"
       },
       {
-        "name": "TBD",
-        "price": "$TBD",
-        "description": "TBD"
+        "name": "Jerk Chicken",
+        "price": "$12.00",
+        "description": "Served with rice, beans, and cabbage mix.",
+        "category": "Plates"
       },
       {
-        "name": "TBD",
-        "price": "$TBD",
-        "description": "TBD"
+        "name": "Jerk Pork",
+        "price": "$12.00",
+        "description": "Served with rice, beans, and cabbage mix.",
+        "category": "Plates"
       },
       {
-        "name": "TBD",
-        "price": "$TBD",
-        "description": "TBD"
+        "name": "Brown Stew Chicken",
+        "price": "$13.00",
+        "description": "Served with carrots, bell peppers.",
+        "category": "Plates"
       },
       {
-        "name": "TBD",
-        "price": "$TBD",
-        "description": "TBD"
+        "name": "Vegetable Coconut Stew",
+        "price": "$13.00",
+        "description": " ",
+        "category": "Plates"
       },
       {
-        "name": "TBD",
+        "name": "Mac & Cheese",
         "price": "$TBD",
-        "description": "TBD"
+        "description": "TBD",
+        "category": "Sides"
       },
       {
-        "name": "TBD",
+        "name": "Fried Plantains",
         "price": "$TBD",
-        "description": "TBD"
+        "description": "TBD",
+        "category": "Sides"
       },
       {
-        "name": "TBD",
-        "price": "$TBD",
-        "description": "TBD"
-      },
-      {
-        "name": "TBD",
-        "price": "$TBD",
-        "description": "TBD"
+        "name": "Drinks",
+        "price": "$4.00",
+        "description": "Variety of bottled drinks available.",
+        "category": "Sides"
       }
     ],
     "schedule": {

@@ -32,11 +32,11 @@ export class MemStorage implements IStorage {
         businessLinks: {},
         menu: [
           { name: "Avocado Spring Roll", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce." },
-          { name: "Avocado Chicken Spring Roll", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce" },
-          { name: "Avocado Tofu Spring Roll", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce" },
-          { name: "Avocado Shrimp Spring Roll", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce" },
-          { name: "Avocado BBQ Pork Spring Roll", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce" },
-          { name: "Salad Bowl", price: "$7.00", description: "Description coming soon..." }      
+          { name: "Avocado Chicken Spring Roll", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce." },
+          { name: "Avocado Tofu Spring Roll", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce." },
+          { name: "Avocado Shrimp Spring Roll", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce." },
+          { name: "Avocado BBQ Pork Spring Roll", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce." },
+          { name: "Salad Bowl", price: "$7.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce, avocado, choice of protein (chicken, tofu, shrimp, BBQ pork, beef)." }      
         ],
         schedule: {
           "Monday": "10:00 am - 6:00 pm",
@@ -182,7 +182,7 @@ export class MemStorage implements IStorage {
           instagram: "https://www.instagram.com/bombayfastcafe?utm_source=ig_web_button_share_sheet&igsh=enJzc25kaWZodTZt",
         },
         menu: [
-          { name: "Bombay Vada Pav", price: "$10.00", description: "Bombay potato burger topped with sweet and spicy relish, served with garlic chutney and flavored green chilies." },
+          { name: "Bombay Vada Pav", price: "$10.00", description: "Bombay potato burger topped with sweet and spicy relish. Served with garlic chutney and flavored green chilies." },
           { name: "Bombay Misal Pav", price: "$10.00", description: "Indian pluses cooked with authentic home-style spices topped with Bombay Trail mix. Garnished with chopped onions, cilantro, and lemon. Served with bread." },
           { name: "Bombay Pav Bhaji", price: "$10.00", description: "Medley of vegetables cooked with authentic home-style spices. Garnished with butter, chopped onions, cilantro, and lemon. Served with bread." },
           { name: "Bombay Falafel Meal", price: "$10.00", description: "Bombay style falafel completed with pulav, gravy, and salad. Served with a side of sweet and green chutney." },
@@ -247,16 +247,26 @@ export class MemStorage implements IStorage {
           facebook: "https://www.facebook.com/jollyfrogllc?mibextid=wwXIfr"
         },
         menu: [
+          // Tacos
           { name: "Steak and/or Pork", price: "$10.00", description: "Corn tortilla, onion, cilantro, lime." },
           { name: "Chicken", price: "$10.00", description: "Corn tortilla, lettuce, sour cream, cheese." },
           { name: "Veggie", price: "$10.00", description: "Corn tortilla, onion, cilantro, lettuce, tomato, sour cream, cheese, avocado." },
+
+          // Burritos / Bowls
           { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, cheese, sour cream." },
           { name: "Veggie", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, tomato, avocado, cheese, sour cream." },
+
+          // Nachos
           { name: "Steak, Chicken, and/or Pork", price: "$10.00", description: "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños." },
           { name: "Veggie", price: "$10.00", description: "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños." },
-          { name: "Taco", price: "$3.50", description: "Meat, onion, cilantro, lettuce, tomato, mozzarella cheese, sour cream." },
-          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Corn hard flat tortilla, beans ,lettuce, onion, cilantro, sour cream mozzarella cheese." },
-          { name: "Veggie", price: "$12.00", description: "Corn hard flat tortilla, beans, lettuce, onion, cilantro, tomato, sour cream, mozzarella cheese, avocado." }
+          
+          // Tostadas 
+          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Corn hard flat tortilla, beans, lettuce, onion, cilantro, sour cream mozzarella cheese." },
+          { name: "Veggie", price: "$12.00", description: "Corn hard flat tortilla, beans, lettuce, onion, cilantro, tomato, sour cream, mozzarella cheese, avocado." },
+
+          // Build your own
+          { name: "Taco", price: "$3.50", description: "Choice of meat, onion, cilantro, lettuce, tomato, mozzarella cheese, sour cream." },
+
         ],
         schedule: {
           "Monday": "11:00 am - 3:00 pm",
@@ -328,20 +338,21 @@ export class MemStorage implements IStorage {
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         businessLinks: {
-          website: "TBD",
-          instagram: "TBD",
-          facebook: "TBD"
+          instagram: "Thttps://www.instagram.com/mjjamaicankitchn/?hl=enBD",
+          facebook: "https://www.facebook.com/MJJamaicanK/"
         },
         menu: [
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" }
+          // Plates
+          { name: "Jerk BBQ Chicken Tenders", price: "$13.00", description: "Served with mac & cheese.", category: "Plates" },
+          { name: "Jerk Chicken", price: "$12.00", description: "Served with rice, beans, and cabbage mix.", category: "Plates" },
+          { name: "Jerk Pork", price: "$12.00", description: "Served with rice, beans, and cabbage mix.", category: "Plates" },
+          { name: "Brown Stew Chicken", price: "$13.00", description: "Served with carrots, bell peppers.", category: "Plates" },
+          { name: "Vegetable Coconut Stew", price: "$13.00", description: " ", category: "Plates" },
+
+          // Sides
+          { name: "Mac & Cheese", price: "$TBD", description: "TBD", category: "Sides" },
+          { name: "Fried Plantains", price: "$TBD", description: "TBD", category: "Sides" },
+          { name: "Drinks", price: "$4.00", description: "Variety of bottled drinks available.", category: "Sides" }
         ],
         schedule: {
           "Monday": "TBD",

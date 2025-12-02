@@ -467,10 +467,11 @@ export default function IndividualFoodCartDetailPage() {
                                   return acc;
                                 }, {} as Record<string, MenuItem[]>);
 
-                                const categoryOrder = ["Crepes", "Crepe Sushi", "Sauce"];
+                                const categoryOrder = ["Crepes", "Crepe Sushi"];
 
-                                return categoryOrder.map(category => (
-                                  groupedMenu[category] && (
+                                return categoryOrder
+                                  .filter(category => groupedMenu[category])
+                                  .map(category => (
                                     <React.Fragment key={category}>
                                       <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
                                       <div className="space-y-4 mb-6">
@@ -487,8 +488,7 @@ export default function IndividualFoodCartDetailPage() {
                                         ))}
                                       </div>
                                     </React.Fragment>
-                                  )
-                                ));
+                                  ));
                               })()}
                               <div className="space-y-4 mb-6">
                                 <h2 className="text-lg font-semibold text-gray-900 underline">Sauces</h2>
@@ -503,6 +503,40 @@ export default function IndividualFoodCartDetailPage() {
                                 </div>
                               </div>
                             </>
+                          ) : cart.slug === "mj-jamaican" ? (
+                            (() => {
+                              const groupedMenu = cart.menu.reduce((acc, item) => {
+                                const category = item.category || 'Uncategorized';
+                                if (!acc[category]) {
+                                  acc[category] = [];
+                                }
+                                acc[category].push(item);
+                                return acc;
+                              }, {} as Record<string, MenuItem[]>);
+
+                              const categoryOrder = ["Plates", "Sides"];
+
+                              return categoryOrder
+                                .filter(category => groupedMenu[category])
+                                .map(category => (
+                                  <React.Fragment key={category}>
+                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+                                    <div className="space-y-4 mb-6">
+                                      {groupedMenu[category].map((item, index) => (
+                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                          <div className="flex justify-between items-start">
+                                            <div className="flex-1">
+                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                            </div>
+                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </React.Fragment>
+                                ));
+                            })()
                           ) : (
                             <div className="space-y-4">
                               {cart.menu.map((item, index) => (
