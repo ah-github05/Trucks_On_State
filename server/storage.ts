@@ -350,8 +350,8 @@ export class MemStorage implements IStorage {
           { name: "Vegetable Coconut Stew", price: "$13.00", description: " ", category: "Plates" },
 
           // Sides
-          { name: "Mac & Cheese", price: "$TBD", description: "TBD", category: "Sides" },
-          { name: "Fried Plantains", price: "$TBD", description: "TBD", category: "Sides" },
+          { name: "Mac & Cheese", price: "$5.00", description: " ", category: "Sides" },
+          { name: "Fried Plantains", price: "$5.00", description: " ", category: "Sides" },
           { name: "Drinks", price: "$4.00", description: "Variety of bottled drinks available.", category: "Sides" }
         ],
         schedule: {
@@ -440,7 +440,7 @@ export class MemStorage implements IStorage {
         description: "TBD",
         image: "/naan_pic.jpg",
         category: "TBD",
-        location: "TBD1",
+        location: "west",
         locationDisplayName: "6640 Odana Rd, Madison, WI 53719",
         businessLinks: {
           instagram: "https://www.instagram.com/naanstop.fusion",
