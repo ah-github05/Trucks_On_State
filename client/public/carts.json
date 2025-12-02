@@ -335,7 +335,7 @@
       {
         "name": "Bombay Vada Pav",
         "price": "$10.00",
-        "description": "Bombay potato burger topped with sweet and spicyrelishserved with garlic chutney and flavored green chilies."
+        "description": "Bombay potato burger topped with sweet and spicy relish, served with garlic chutney and flavored green chilies."
       },
       {
         "name": "Bombay Misal Pav",
@@ -345,17 +345,17 @@
       {
         "name": "Bombay Pav Bhaji",
         "price": "$10.00",
-        "description": "Medley of vegetbles cooked with authentic home-style spices. Garnished with butter, chopped onions, cilanto, and lemon. Served with bread."
+        "description": "Medley of vegetables cooked with authentic home-style spices. Garnished with butter, chopped onions, cilantro, and lemon. Served with bread."
       },
       {
         "name": "Bombay Falafel Meal",
         "price": "$10.00",
-        "description": "Bombay style falafel completed with pulav, gravy, and saald. Served with a side of sweet and green chutney."
+        "description": "Bombay style falafel completed with pulav, gravy, and salad. Served with a side of sweet and green chutney."
       },
       {
         "name": "Chole",
         "price": "$10.00",
-        "description": "One pot recipe of garbonzo beans (chickpeas) cooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney."
+        "description": "One pot recipe of garbanzo beans (chickpeas) cooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney."
       },
       {
         "name": "Chole Samosa",
@@ -365,7 +365,7 @@
       {
         "name": "Dal Makhani (Black Gram)",
         "price": "$10.00",
-        "description": "Black Gram sooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lemon. Served with naan, rice, and chutney."
+        "description": "Black Gram cooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lemon. Served with naan, rice, and chutney."
       },
       {
         "name": "Rajma (Kidney Beans)",
@@ -496,7 +496,7 @@
       {
         "name": "Steak, Chicken, and/or Pork",
         "price": "$12.00",
-        "description": "Corn hard flat tortilla, beans ,lettuce, onion, cilantro, sour cream mozarella cheese."
+        "description": "Corn hard flat tortilla, beans ,lettuce, onion, cilantro, sour cream mozzarella cheese."
       },
       {
         "name": "Veggie",
@@ -687,8 +687,8 @@
   {
     "slug": "falafel",
     "name": "King of Falafel",
-    "description": "Fresh falafel and ",
-    "image": "TBD",
+    "description": "Fresh falafel and pitas",
+    "image": "/kof.jpg",
     "category": "middle_eastern",
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
@@ -715,12 +715,7 @@
       {
         "name": "Veggie Plate",
         "price": "$12.00",
-        "description": "Babaganouj, hummus, basmati rice, falafel (x2)."
-      },
-      {
-        "name": "Gyro Egg Roll (2 pieces)",
-        "price": "$5.00",
-        "description": "Gyro meat, banana pepper, swiss cheese."
+        "description": "Baba ghanoush, hummus, basmati rice, falafel (x2)."
       }
     ],
     "schedule": {
@@ -733,5 +728,135 @@
       "Sunday": "11:00 pm - 3:00 pm"
     },
     "id": 10
+  },
+  {
+    "slug": "crepuw",
+    "name": "Crepuw",
+    "description": "Gluten-free sweet and savory crepes",
+    "image": "/crepuw.jpg",
+    "category": "sweet_treats",
+    "location": "state-street-library-mall",
+    "locationDisplayName": "State Street & Library Mall",
+    "phone": "N/A",
+    "businessLinks": {
+      "instagram": "https://www.instagram.com/crepuwmadison?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "facebook": "https://www.facebook.com/crepuwmadison"
+    },
+    "menu": [
+      {
+        "name": "Strawberry Banana",
+        "price": "$8.00",
+        "description": "Strawberries, bananas, custard, cream, nutella, selection of sauce",
+        "category": "Crepes"
+      },
+      {
+        "name": "Strawberry Nutella",
+        "price": "$8.00",
+        "description": "Strawberries, nutella selection of sauce",
+        "category": "Crepes"
+      },
+      {
+        "name": "Banana Nutella",
+        "price": "$8.00",
+        "description": "Banana, nutella selection of sauce",
+        "category": "Crepes"
+      },
+      {
+        "name": "Mediterranean Breeze",
+        "price": "$9.00",
+        "description": "Avocado, lettuce, feta cheese, olive oil, tomatoes",
+        "category": "Crepes"
+      },
+      {
+        "name": "Dubai Chocolate Strawberry",
+        "price": "$9.00",
+        "description": "Strawberry, pistachio cream, kataifi, chocolate sauce.",
+        "category": "Crepe Sushi"
+      },
+      {
+        "name": "Dubai Chocolate Strawberry",
+        "price": "$9.00",
+        "description": "Strawberry, pistachio cream. kataifi, chocolate sauce",
+        "category": "Crepe Sushi"
+      },
+      {
+        "name": "Strawberry Brownie",
+        "price": "$8.00",
+        "description": "Strawberry, brownie, selection of sauce",
+        "category": "Crepe Sushi"
+      },
+      {
+        "name": "Nutella Banana",
+        "price": "$8.00",
+        "description": "Banana, nutella, selection of sauce",
+        "category": "Crepe Sushi"
+      }
+    ],
+    "schedule": {
+      "Monday": "11:00 am - 3:00 pm",
+      "Tuesday": "11:00 am - 3:00 pm",
+      "Wednesday": "11:00 am - 3:00 pm",
+      "Thursday": "11:00 am - 3:00 pm",
+      "Friday": "11:00 am - 3:00 pm",
+      "Saturday": "Closed",
+      "Sunday": "Closed"
+    },
+    "id": 11
+  },
+  {
+    "slug": "naan_stop",
+    "name": "Naan Stop Fusion",
+    "description": "TBD",
+    "image": "TBD",
+    "category": "TBD",
+    "location": "state-street-library-mall",
+    "locationDisplayName": "6640 Odana Rd, Madison, WI 53719",
+    "phone": "N/A",
+    "businessLinks": {
+      "instagram": "https://www.instagram.com/naanstop.fusion",
+      "facebook": "https://www.facebook.com/profile.php?id=100087276965434&sk=about"
+    },
+    "menu": [
+      {
+        "name": "Bacon Bliss",
+        "price": "$12.00",
+        "description": "Sliced bacon, mixed greens, shredded cheese, and diced tomatoes. Topped with garlic aioli on folded, grilled 8 inch naan bread"
+      },
+      {
+        "name": "Firecracker",
+        "price": "$14.00",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$12.00",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$10.00",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      }
+    ],
+    "schedule": {
+      "Monday": "6:30 pm - 11:30 pm",
+      "Tuesday": "Closed",
+      "Wednesday": "Closed",
+      "Thursday": "Closed",
+      "Friday": "Closed",
+      "Saturday": "Closed",
+      "Sunday": "Closed"
+    },
+    "id": 12
   }
 ]

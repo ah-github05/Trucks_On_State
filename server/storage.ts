@@ -401,7 +401,7 @@ export class MemStorage implements IStorage {
         name: "Crepuw",
         description: "Gluten-free sweet and savory crepes",
         image: "/crepuw.jpg",
-        category: "TBD",
+        category: "sweet_treats",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         phone: "N/A",
@@ -440,7 +440,7 @@ export class MemStorage implements IStorage {
         description: "TBD",
         image: "TBD",
         category: "TBD",
-        location: "state-street-library-mall",
+        location: "TBD1",
         locationDisplayName: "6640 Odana Rd, Madison, WI 53719",
         phone: "N/A",
         businessLinks: {
