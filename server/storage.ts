@@ -382,7 +382,6 @@ export class MemStorage implements IStorage {
           { name: "Falafel Sandwich", price: "$10.00", description: "Taziki, tomato, onion." },
           { name: "Chicken Shawarma", price: "$10.00", description: "Grilled onion, tomato, pickle, lettuce, tahini." },
           { name: "Veggie Plate", price: "$12.00", description: "Baba ghanoush, hummus, basmati rice, falafel (x2)." },
-          { name: "Gyro Egg Roll (2 pieces)", price: "$5.00", description: "Gyro meat, banana pepper, swiss cheese." }
         ],
         schedule: {
           "Monday": "11:00 am - 3:00 pm",
