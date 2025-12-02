@@ -368,7 +368,7 @@ export class MemStorage implements IStorage {
         slug: "falafel",
         name: "King of Falafel",
         description: "Fresh falafel and pitas",
-        image: "/kof.jpeg",
+        image: "/kof.jpg",
         category: "middle_eastern",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
@@ -395,7 +395,7 @@ export class MemStorage implements IStorage {
         }
       },
 
-      
+
       // Crepeuw
       {
         slug: "crepuw",
