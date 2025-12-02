@@ -141,7 +141,7 @@ export class MemStorage implements IStorage {
           { name: "Arroz Chaufa, GF", price: "$13.00", description: "Wok stir-fried rice elevated with unique blends of homemade sauces (including sesame oil, soy sauce, & scrambled eggs), grilled chicken, cabbage, and organic spring mix with passion fruit dressing.", category: "Chicken Dishes" },
 
           // Start of vegetarian section
-          { name: "Cilantro Rice, GF", price: "$TBD", description: "Flavorful fluffy jasmine rice cooked with fresh cilantro, herbs, cabbage, and organic spring mix with passion fruit dressing.", category: "Vegetarian Dishes" },
+          { name: "Cilantro Rice, GF", price: "$8.00 / $13.00", description: "Flavorful fluffy jasmine rice cooked with fresh cilantro, herbs, cabbage, and organic spring mix with passion fruit dressing.", category: "Vegetarian Dishes" },
           { name: "Arroz Chaufa", price: "$12.00", description: "Wok stir-fried rice elevated with unique blends of homemade sauces (including sesame oil, soy sauce, & scrambled eggs), cabbage, and organic spring mix with passion fruit dressing.", category: "Vegetarian Dishes" },
           { name: "Pastel De Papa (Scalloped Potatoes)", price: "$12.00", description: "Golden-baked potatoes slices layered with cheese, sliced avocado, cabbage, and organic spring mix with passion fruit dressing.", category: "Vegetarian Dishes" },
 
@@ -427,7 +427,7 @@ export class MemStorage implements IStorage {
         slug: "naan_stop",
         name: "Naan Stop Fusion",
         description: "TBD",
-        image: "TBD",
+        image: "/naan_pic.jpg",
         category: "TBD",
         location: "TBD1",
         locationDisplayName: "6640 Odana Rd, Madison, WI 53719",
