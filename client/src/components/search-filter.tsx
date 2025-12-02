@@ -29,6 +29,7 @@ const categories = [
 
 // Location category filters
 const locations = [
+  { value: "all", label: "All Locations" },
   { value: "state-street-library-mall", label: "State Street & Library Mall" },
   { value: "west", label: "West Side" },
   { value: "tbd2", label: "TBD2" },
@@ -65,7 +66,7 @@ export default function FoodCartSearchAndFilter({
                 key={location.value}
                 variant={selectedLocation === location.value ? "default" : "secondary"}
                 size="sm"
-                onClick={() => onLocationChange(location.value === selectedLocation ? "all" : location.value)}
+                onClick={() => onLocationChange(location.value)}
                 className={selectedLocation === location.value
                   ? `${location.value}-location-active`
                   : `${location.value}-location-inactive`

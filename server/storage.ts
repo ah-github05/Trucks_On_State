@@ -411,16 +411,16 @@ export class MemStorage implements IStorage {
         },
         menu: [
           // Crepes
-          { name: "Strawberry Banana", price: "$8.00", description: "Strawberries, bananas, custard, cream, nutella, selection of sauce", category: "Crepes" },
-          { name: "Strawberry Nutella", price: "$8.00", description: "Strawberries, nutella selection of sauce", category: "Crepes" },
-          { name: "Banana Nutella", price: "$8.00", description: "Banana, nutella selection of sauce", category: "Crepes" },
-          { name: "Mediterranean Breeze", price: "$9.00", description: "Avocado, lettuce, feta cheese, olive oil, tomatoes", category: "Crepes" },
+          { name: "Strawberry Banana", price: "$8.00", description: "Strawberries, bananas, custard, cream, nutella, selection of sauce.", category: "Crepes" },
+          { name: "Strawberry Nutella", price: "$8.00", description: "Strawberries, nutella selection of sauce.", category: "Crepes" },
+          { name: "Banana Nutella", price: "$8.00", description: "Banana, nutella selection of sauce.", category: "Crepes" },
+          { name: "Mediterranean Breeze", price: "$9.00", description: "Avocado, lettuce, feta cheese, olive oil, tomatoes.", category: "Crepes" },
 
           // Crepe Sushi
           { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream, kataifi, chocolate sauce.", category: "Crepe Sushi" },
-          { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream. kataifi, chocolate sauce", category: "Crepe Sushi" },
-          { name: "Strawberry Brownie", price: "$8.00", description: "Strawberry, brownie, selection of sauce", category: "Crepe Sushi" },
-          { name: "Nutella Banana", price: "$8.00", description: "Banana, nutella, selection of sauce", category: "Crepe Sushi" },
+          { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream. kataifi, chocolate sauce.", category: "Crepe Sushi" },
+          { name: "Strawberry Brownie", price: "$8.00", description: "Strawberry, brownie, selection of sauce.", category: "Crepe Sushi" },
+          { name: "Nutella Banana", price: "$8.00", description: "Banana, nutella, selection of sauce.", category: "Crepe Sushi" },
         ],
         schedule: {
           "Monday": "11:00 am - 3:00 pm",
@@ -439,7 +439,7 @@ export class MemStorage implements IStorage {
         name: "Naan Stop Fusion",
         description: "TBD",
         image: "/naan_pic.jpg",
-        category: "TBD",
+        category: "Warm naan sandwiches",
         location: "west",
         locationDisplayName: "6640 Odana Rd, Madison, WI 53719",
         businessLinks: {
@@ -447,12 +447,17 @@ export class MemStorage implements IStorage {
           facebook: "https://www.facebook.com/profile.php?id=100087276965434&sk=about"
         },
         menu: [
-          { name: "Bacon Bliss", price: "$12.00", description: "Sliced bacon, mixed greens, shredded cheese, and diced tomatoes. Topped with garlic aioli on folded, grilled 8 inch naan bread" },
-          { name: "Firecracker", price: "$14.00", description: "TBD" },
-          { name: "TBD", price: "$12.00", description: "TBD" },
-          { name: "TBD", price: "$10.00", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" }
+          { name: "Bacon Bliss", price: "$12.00", description: "Sliced bacon, mixed greens, shredded cheese, and diced tomatoes. Topped with garlic aioli on folded, grilled 8 inch naan bread.", category: "Naan Folds" },
+          { name: "Firecracker (Spicy)", price: "$14.00", description: "Shaved steak, giardiniera, and shredded cheese. Topped with garlic aioli on folded, grilled 8 inch naan bread.", category: "Naan Folds" },
+          { name: "Naan-Rito", price: "$12.00", description: "Roasted chicken, green peppers, mixed greens, and shredded cheese. Topped with garlic chipotle mayo on folded, grilled 8 inch naan bread.", category: "Naan Folds" },
+          { name: "Naan of the Above (vegetarian)", price: "$10.00", description: "Fire-roasted vegetables, mixed greens, and shredded cheese. Topped with garlic chipotle mayo on folded, grilled 8 inch naan bread.", category: "Naan Folds" },
+
+          // Sides
+          { name: "Chips", price: "$3.00", description: " ", category: "Sides" },
+
+          // Drinks
+          { name: "Bottled Water", price: "$2.00", description: " ", category: "Drinks" },
+          { name: "Soda", price: "$2.00", description: " ", category: "Drinks" }
         ],
         schedule: {
           "Monday": "6:30 pm - 11:30 pm",

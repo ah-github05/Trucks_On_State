@@ -799,9 +799,9 @@
     "slug": "naan_stop",
     "name": "Naan Stop Fusion",
     "description": "TBD",
-    "image": "TBD",
-    "category": "TBD",
-    "location": "state-street-library-mall",
+    "image": "/naan_pic.jpg",
+    "category": "Unique ",
+    "location": "west",
     "locationDisplayName": "6640 Odana Rd, Madison, WI 53719",
     "businessLinks": {
       "instagram": "https://www.instagram.com/naanstop.fusion",
@@ -811,32 +811,44 @@
       {
         "name": "Bacon Bliss",
         "price": "$12.00",
-        "description": "Sliced bacon, mixed greens, shredded cheese, and diced tomatoes. Topped with garlic aioli on folded, grilled 8 inch naan bread"
+        "description": "Sliced bacon, mixed greens, shredded cheese, and diced tomatoes. Topped with garlic aioli on folded, grilled 8 inch naan bread.",
+        "category": "Naan Folds"
       },
       {
-        "name": "Firecracker",
+        "name": "Firecracker (Spicy)",
         "price": "$14.00",
-        "description": "TBD"
+        "description": "Shaved steak, giardiniera, and shredded cheese. Topped with garlic aioli on folded, grilled 8 inch naan bread.",
+        "category": "Naan Folds"
       },
       {
-        "name": "TBD",
+        "name": "Naan-Rito",
         "price": "$12.00",
-        "description": "TBD"
+        "description": "Roasted chicken, green peppers, mixed greens, and shredded cheese. Topped with garlic chipotle mayo on folded, grilled 8 inch naan bread.",
+        "category": "Naan Folds"
       },
       {
-        "name": "TBD",
+        "name": "Naan of the Above (vegetarian)",
         "price": "$10.00",
-        "description": "TBD"
+        "description": "Fire-roasted vegetables, mixed greens, and shredded cheese. Topped with garlic chipotle mayo on folded, grilled 8 inch naan bread.",
+        "category": "Naan Folds"
       },
       {
-        "name": "TBD",
-        "price": "$TBD",
-        "description": "TBD"
+        "name": "Chips",
+        "price": "$3.00",
+        "description": " ",
+        "category": "Sides"
       },
       {
-        "name": "TBD",
-        "price": "$TBD",
-        "description": "TBD"
+        "name": "Bottled Water",
+        "price": "$2.00",
+        "description": " ",
+        "category": "Drinks"
+      },
+      {
+        "name": "Soda",
+        "price": "$2.00",
+        "description": " ",
+        "category": "Drinks"
       }
     ],
     "schedule": {
