@@ -397,8 +397,8 @@ export class MemStorage implements IStorage {
 
       // Crepeuw
       {
-        slug: "crepeuw",
-        name: "Crepeuw",
+        slug: "crepuw",
+        name: "Crepuw",
         description: "Gluten-free sweet and savory crepes",
         image: "TBD",
         category: "TBD",
@@ -435,35 +435,34 @@ export class MemStorage implements IStorage {
 
       // Template 2
       {
-        slug: "food-truck-template-2",
-        name: "TBD",
+        slug: "naan_stop",
+        name: "Naan Stop Fusion",
         description: "TBD",
         image: "TBD",
         category: "TBD",
         location: "state-street-library-mall",
-        locationDisplayName: "State Street & Library Mall",
-        phone: "TBD",
+        locationDisplayName: "6640 Odana Rd, Madison, WI 53719",
+        phone: "N/A",
         businessLinks: {
-          website: "TBD",
-          instagram: "TBD",
-          facebook: "TBD"
+          instagram: "https://www.instagram.com/naanstop.fusion",
+          facebook: "https://www.facebook.com/profile.php?id=100087276965434&sk=about"
         },
         menu: [
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "Bacon Bliss", price: "$12.00", description: "Sliced bacon, mixed greens, shredded cheese, and diced tomatoes. Topped with garlic aioli on folded, grilled 8 inch naan bread" },
+          { name: "Firecracker", price: "$14.00", description: "TBD" },
+          { name: "TBD", price: "$12.00", description: "TBD" },
+          { name: "TBD", price: "$10.00", description: "TBD" },
           { name: "TBD", price: "$TBD", description: "TBD" },
           { name: "TBD", price: "$TBD", description: "TBD" }
         ],
         schedule: {
-          "Monday": "TBD",
-          "Tuesday": "TBD",
-          "Wednesday": "TBD",
-          "Thursday": "TBD",
-          "Friday": "TBD",
-          "Saturday": "TBD",
-          "Sunday": "TBD"
+          "Monday": "6:30 pm - 11:30 pm",
+          "Tuesday": "Closed",
+          "Wednesday": "Closed",
+          "Thursday": "Closed",
+          "Friday": "Closed",
+          "Saturday": "Closed",
+          "Sunday": "Closed"
         }
       }
     ];
