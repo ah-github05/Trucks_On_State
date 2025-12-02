@@ -436,6 +436,22 @@ html {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
+.middle_eastern-category-active {
+  @apply bg-primary text-white;
+}
+
+.middle_eastern-category-inactive {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+
+.sweet_treats-category-active {
+  @apply bg-primary text-white;
+}
+
+.sweet_treats-category-inactive {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+
 .state-street-library-mall-location-active {
   @apply bg-primary text-white;
 }
