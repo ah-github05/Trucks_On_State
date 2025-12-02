@@ -414,7 +414,6 @@ export default function IndividualFoodCartDetailPage() {
                                 ))}
                               </div>
 
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Sides</h2>
                               <div className="space-y-4 mb-6">
                                 {cart.menu.slice(4, 5).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
@@ -429,7 +428,6 @@ export default function IndividualFoodCartDetailPage() {
                                 ))}
                               </div>
 
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Patties</h2>
                               <div className="space-y-4">
                                 {cart.menu.slice(5, 6).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
