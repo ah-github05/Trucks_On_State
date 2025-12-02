@@ -276,7 +276,20 @@ export default function IndividualFoodCartDetailPage() {
                                               <h5 className="font-medium text-gray-900">{item.name}</h5>
                                               <p className="text-sm text-gray-600 mt-1">{item.description}</p>
                                             </div>
-                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                            {item.name === "Cilantro Rice, GF" ? (
+                                              <div className="ml-4 flex flex-col items-end">
+                                                <div className="font-semibold">
+                                                  <span className="text-gray-900">Small: </span>
+                                                  <span className="text-primary">$8.00</span>
+                                                </div>
+                                                <div className="font-semibold">
+                                                  <span className="text-gray-900">Large: </span>
+                                                  <span className="text-primary">$13.00</span>
+                                                </div>
+                                              </div>
+                                            ) : (
+                                              <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                            )}
                                           </div>
                                         </div>
                                       ))}
