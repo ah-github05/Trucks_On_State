@@ -456,39 +456,53 @@ export default function IndividualFoodCartDetailPage() {
                               </div>
                             </>
                           ) : cart.slug === "crepeuw" ? (
-                            (() => {
-                              const groupedMenu = cart.menu.reduce((acc, item) => {
-                                const category = item.category || 'Uncategorized';
-                                if (!acc[category]) {
-                                  acc[category] = [];
-                                }
-                                acc[category].push(item);
-                                return acc;
-                              }, {} as Record<string, MenuItem[]>);
+                            <>
+                              {(() => {
+                                const groupedMenu = cart.menu.reduce((acc, item) => {
+                                  const category = item.category || 'Uncategorized';
+                                  if (!acc[category]) {
+                                    acc[category] = [];
+                                  }
+                                  acc[category].push(item);
+                                  return acc;
+                                }, {} as Record<string, MenuItem[]>);
 
-                              const categoryOrder = ["Crepes", "Crepe Sushi", "Sauce"];
+                                const categoryOrder = ["Crepes", "Crepe Sushi", "Sauce"];
 
-                              return categoryOrder.map(category => (
-                                groupedMenu[category] && (
-                                  <React.Fragment key={category}>
-                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-                                    <div className="space-y-4 mb-6">
-                                      {groupedMenu[category].map((item, index) => (
-                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                          <div className="flex justify-between items-start">
-                                            <div className="flex-1">
-                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                return categoryOrder.map(category => (
+                                  groupedMenu[category] && (
+                                    <React.Fragment key={category}>
+                                      <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+                                      <div className="space-y-4 mb-6">
+                                        {groupedMenu[category].map((item, index) => (
+                                          <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                            <div className="flex justify-between items-start">
+                                              <div className="flex-1">
+                                                <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                                <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                              </div>
+                                              <span className="font-semibold text-primary ml-4">{item.price}</span>
                                             </div>
-                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
                                           </div>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </React.Fragment>
-                                )
-                              ));
-                            })()
+                                        ))}
+                                      </div>
+                                    </React.Fragment>
+                                  )
+                                ));
+                              })()}
+                              <div className="space-y-4 mb-6">
+                                <h2 className="text-lg font-semibold text-gray-900 underline">Sauces</h2>
+                                <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
+                                  <div>Chocolate</div>
+                                  <div></div>
+                                  <div>White Chocolate</div>
+                                  <div></div>
+                                  <div>Caramel</div>
+                                  <div></div>
+                                  <div>Pistachio Sauce</div>
+                                </div>
+                              </div>
+                            </>
                           ) : (
                             <div className="space-y-4">
                               {cart.menu.map((item, index) => (
