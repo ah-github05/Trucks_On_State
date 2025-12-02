@@ -11,7 +11,6 @@ export const foodCarts = pgTable("food_carts", {
   category: text("category").notNull(),
   location: text("location").notNull(),
   locationDisplayName: text("location_display_name").notNull(),
-  phone: text("phone").notNull(),
   menu: json("menu").$type<MenuItem[]>().notNull(),
   schedule: json("schedule").$type<Schedule>().notNull(),
   businessLinks: json("business_links").$type<BusinessLinks>(),

@@ -136,7 +136,6 @@ GET /api/food-carts
     "category": "american",
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
-    "phone": "(608) 422-9622",
     "businessLinks": {
       "website": "https://www.theroostfriedchicken.com",
       "instagram": "...",
@@ -219,7 +218,6 @@ To add a new food cart, edit `server/storage.ts`:
   category: "cuisine-category",
   location: "location-slug",
   locationDisplayName: "Display Name",
-  phone: "(608) XXX-XXXX",
   businessLinks: {
     website: "https://...",
     instagram: "https://...",

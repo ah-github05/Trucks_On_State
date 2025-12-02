@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import SiteNavigationHeader from "@/components/header";
 import SiteContactFooter from "@/components/footer";
 import { isCurrentlyOpen } from "@/lib/utils";
-import { ArrowLeft, MapPin, Phone, Clock } from "lucide-react";
+import { ArrowLeft, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
