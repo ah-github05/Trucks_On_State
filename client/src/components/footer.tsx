@@ -1,4 +1,4 @@
-import { ShoppingCart, Mail, Phone, MapPin } from "lucide-react";
+import { ShoppingCart, Mail, MapPin } from "lucide-react";
 import { Link } from "wouter";
 
 export default function SiteContactFooter() {
