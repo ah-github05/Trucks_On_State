@@ -209,8 +209,8 @@ export class MemStorage implements IStorage {
         description: "Chinese dim sum and Sichuan-style stir-fry",
         image: "https://bloximages.chicago2.vip.townnews.com/captimes.com/content/tncms/assets/v3/editorial/5/ec/5ec217a6-6952-5dac-a466-a881079c50ae/61d8c56fd9a7f.image.jpg?resize=780%2C500",
         category: "asian",
-        location: "state-street-library-mall",
-        locationDisplayName: "State Street & Library Mall",
+        location: "southeast",
+        locationDisplayName: "1225 W Dayton St, Madison, WI 53706",
         businessLinks: {
           website: "https://nani.restaurant",
           instagram: "https://www.instagram.com/nani.restaurant/?utm_source=ig_web_button_share_sheet",
@@ -437,9 +437,9 @@ export class MemStorage implements IStorage {
       {
         slug: "naan_stop",
         name: "Naan Stop Fusion",
-        description: "TBD",
+        description: "Warm naan sandwiches",
         image: "/naan_pic.jpg",
-        category: "Warm naan sandwiches",
+        category: "southeast_asian",
         location: "west",
         locationDisplayName: "6640 Odana Rd, Madison, WI 53719",
         businessLinks: {
