@@ -537,6 +537,40 @@ export default function IndividualFoodCartDetailPage() {
                                   </React.Fragment>
                                 ));
                             })()
+                          ) : cart.slug === "naan_stop" ? (
+                            (() => {
+                              const groupedMenu = cart.menu.reduce((acc, item) => {
+                                const category = item.category || 'Uncategorized';
+                                if (!acc[category]) {
+                                  acc[category] = [];
+                                }
+                                acc[category].push(item);
+                                return acc;
+                              }, {} as Record<string, MenuItem[]>);
+
+                              const categoryOrder = ["Naan Folds", "Sides", "Drinks"];
+
+                              return categoryOrder
+                                .filter(category => groupedMenu[category])
+                                .map(category => (
+                                  <React.Fragment key={category}>
+                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+                                    <div className="space-y-4 mb-6">
+                                      {groupedMenu[category].map((item, index) => (
+                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                          <div className="flex justify-between items-start">
+                                            <div className="flex-1">
+                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                            </div>
+                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </React.Fragment>
+                                ));
+                            })()
                           ) : (
                             <div className="space-y-4">
                               {cart.menu.map((item, index) => (
