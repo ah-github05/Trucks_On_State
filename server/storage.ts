@@ -400,7 +400,7 @@ export class MemStorage implements IStorage {
         slug: "crepuw",
         name: "Crepuw",
         description: "Gluten-free sweet and savory crepes",
-        image: "TBD",
+        image: "/crepuw.jpg",
         category: "TBD",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
