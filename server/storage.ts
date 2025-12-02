@@ -415,9 +415,9 @@ export class MemStorage implements IStorage {
           { name: "Strawberry Nutella", price: "$8.00", description: "Strawberries, nutella selection of sauce", category: "Crepes" },
           { name: "Banana Nutella", price: "$8.00", description: "Banana, nutella selection of sauce", category: "Crepes" },
           { name: "Mediterranean Breeze", price: "$9.00", description: "Avocado, lettuce, feta cheese, olive oil, tomatoes", category: "Crepes" },
-          { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream, kataifi, chocolate sauce.", category: "Crepes" },
 
           // Crepe Sushi
+          { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream, kataifi, chocolate sauce.", category: "Crepe Sushi" },
           { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream. kataifi, chocolate sauce", category: "Crepe Sushi" },
           { name: "Strawberry Brownie", price: "$8.00", description: "Strawberry, brownie, selection of sauce", category: "Crepe Sushi" },
           { name: "Nutella Banana", price: "$8.00", description: "Banana, nutella, selection of sauce", category: "Crepe Sushi" },
