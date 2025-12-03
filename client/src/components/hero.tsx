@@ -25,7 +25,7 @@ export default function FoodCartHeroBanner() {
             <span className="hero-accent-text">Food Carts</span>
           </h1>
           <p className="hero-description">
-            Discover amazing local food carts on State Street and around Madison to find your next favorite meal on wheels.
+            Discover amazing local food carts around Madison to find your next favorite meal on wheels.
           </p>
           <div className="hero-buttons-container">
             <Button
