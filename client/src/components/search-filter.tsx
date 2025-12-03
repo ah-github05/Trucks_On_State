@@ -31,9 +31,9 @@ const categories = [
 const locations = [
   { value: "all", label: "All Locations" },
   { value: "state-street-library-mall", label: "State Street & Library Mall" },
-  { value: "west", label: "West Side" },
-  { value: "southeast", label: "Southeast Campus" },
-  { value: "tbd3", label: "TBD3" }
+  { value: "west-side", label: "West Side" },
+  { value: "southeast-campus", label: "Southeast Campus" },
+  { value: "capitol-square", label: "Capitol Square" }
 ]
   // When adding a new label go to index.css and add the corresponding classes for active and inactive states
 
