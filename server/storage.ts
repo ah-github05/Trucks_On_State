@@ -474,36 +474,14 @@ export class MemStorage implements IStorage {
         image: "/stellies_pic.jpg",
         category: "sweet_treats",
         location: "capitol-square",
-        locationDisplayName: "Dane County Farmers' Market",
+        locationDisplayName: "Dane County Farmers' Market, May - November",
         businessLinks: {
           website: "https://www.stelliesicecream.com",
           instagram: "https://www.instagram.com/stelliesicecream/",
           facebook: "https://www.facebook.com/stelliesicecream"
         },
         menu: [
-          // Scoops
-          { name: "Single", price: "$5.00", description: " ", category: "Ice Cream Scoops" },
-          { name: "Double", price: "$7.00", description: " ", category: "Ice Cream Scoops" },
-          { name: "Triple", price: "$9.00", description: " ", category: "Ice Cream Scoops" },
-
-          // Milkshakes
-          { name: "Mini", price: "$7.00", description: " ", category: "Milkshakes" },
-          { name: "Small", price: "$10.00", description: " ", category: "Milkshakes" },
-          { name: "Medium", price: "$12.00", description: " ", category: "Milkshakes" },
-          { name: "Large", price: "$15.00", description: " ", category: "Milkshakes" },
-
-          // Floats
-          { name: "Flavors: Root Beer, Orange, & Seasonal", price: " ", description: " ", category: "Floats" },
-          { name: "Mini", price: "$5.00", description: " ", category: "Floats" },
-          { name: "Small", price: "$7.00", description: " ", category: "Floats" },
-          { name: "Medium", price: "$10.00", description: " ", category: "Floats" },
-          { name: "Large", price: "$12.00", description: " ", category: "Floats" },
-
-          // Add Ons
-          { name: "Waffle Cone", price: "$2.00", description: " ", category: "Add Ons" },
-          { name: "Cherry and Whipped Cream", price: "$2.00", description: " ", category: "Add Ons" },
-          { name: "Additional Toppings", price: "$1.00", description: " ", category: "Add Ons" },
-          { name: "Soda", price: "$3.00", description: "Root beer, orange, and seasonal.", category: "Add Ons" }
+          { name: "Single-Serve Ice Cream Containers", price: "$6.00", description: "Flavors vary on what is available" }
         ],
         schedule: {
           "Monday": "Closed",
@@ -511,7 +489,7 @@ export class MemStorage implements IStorage {
           "Wednesday": "Closed",
           "Thursday": "Closed",
           "Friday": "Closed",
-          "Saturday": "8:00 am - 2:00 pm",
+          "Saturday": "Closed until next Farmers' Market season. Typical hours: 8:00 am - 1:00 pm", // Market day: 8:00 am - 1:00 pm
           "Sunday": "Closed"
         }
       },
