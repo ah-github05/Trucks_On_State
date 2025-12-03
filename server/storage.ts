@@ -101,7 +101,7 @@ export class MemStorage implements IStorage {
           instagram: "https://www.instagram.com/sandwich.hub.madison?igsh=cWFsdmVkMHBqenM4",
         },
         menu: [
-
+          
         ],
         schedule: {
           "Monday": "11:00 am - 2:00 pm",
@@ -506,7 +506,13 @@ export class MemStorage implements IStorage {
           { name: "Soda", price: "$3.00", description: "Root beer, orange, and seasonal.", category: "Add Ons" }
         ],
         schedule: {
+          "Monday": "Closed",
+          "Tuesday": "Closed",
+          "Wednesday": "Closed",
+          "Thursday": "Closed",
+          "Friday": "Closed",
           "Saturday": "8:00 am - 2:00 pm",
+          "Sunday": "Closed"
         }
       },
 
