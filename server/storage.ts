@@ -31,11 +31,11 @@ export class MemStorage implements IStorage {
         locationDisplayName: "State Street & Library Mall",
         businessLinks: {},
         menu: [
-          { name: "Avocado Spring Roll", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Avocado Chicken Spring Roll", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Avocado Tofu Spring Roll", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Avocado Shrimp Spring Roll", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Avocado BBQ Pork Spring Roll", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Chicken", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Tofu", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Shrimp", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado BBQ Pork", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
           { name: "Salad Bowl", price: "$7.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce, avocado, choice of protein (chicken, tofu, shrimp, BBQ pork, beef).", category: "Spring Rolls" }
         ],
         schedule: {
@@ -64,17 +64,17 @@ export class MemStorage implements IStorage {
           facebook: "https://www.facebook.com/toastmadison?mibextid=wwXIfr"
         },
         menu: [
-          { name: "Turkey Panini", price: "$11.00", description: "Honey-smoked turkey, pesto, garlic mayo, provolone, tomatoes, red onions, black olives, spinach.", category: "Classic Paninis" },
-          { name: "Italian Mixed Meat Panini", price: "$11.00", description: "Pastrami, ham, garlic mayo, sriracha, provolone, tomatoes, black & green olives.", category: "Classic Paninis" },
-          { name: "Pollo Panini", price: "$11.00", description: "Smoked chicken, pesto, garlic mayo, mozzarella, tomaotes, spinach.", category: "Classic Paninis" },
-          { name: "Club Panini", price: "$11.00", description: "Ham, honey-smoked turkey, spicy brown mustard, BBQ sauce, provolone, tomatoes, red onions & spinach.", category: "Classic Paninis" },
-          { name: "Spicy Panini", price: "$11.00", description: "Ham, pastrami, garlic mayo, spicy brown mustard, sriracha, provolone, tomatoes, red onions, black olives, hot giardiniera.", category: "Classic Paninis" },
-          { name: "Chicken Panini", price: "$11.00", description: "Smoked chicken, BBQ sauce, red bell, mayo, cheddar, tomatoes, red onions.", category: "Classic Paninis" },
-          { name: "Cuban Panini", price: "$11.00", description: "Ham, garlic mayo, spicy brown mustard, provolone, tomatoes, pickles.", category: "Classic Paninis" },
-          { name: "Bacon & Egg Panini", price: "$11.00", description: "Bacon, homemade omelette, garlic mayo, sriracha, mozzarella, tomatoes, red onions, spinach.", category: "Classic Paninis" },
-          { name: "Veggie Panini", price: "$11.00", description: "Provolone & mozzarella cheeses, pesto, garlic mayo, red bell mayo, tomatoes, red onions, black & green olives, spinach.", category: "Classic Paninis" },
-          { name: "Classic Pesto Panini", price: "$11.00", description: "Pesto, garlic mayo, mozzarella cheese, tomatoes, spinach.", category: "Classic Paninis" },
-          { name: "Grilled Cheese Panini", price: "$11.00", description: "Cheddar cheese on a French roll.", category: "Classic Paninis" },
+          { name: "Turkey", price: "$11.00", description: "Honey-smoked turkey, pesto, garlic mayo, provolone, tomatoes, red onions, black olives, spinach.", category: "Classic Paninis" },
+          { name: "Italian Mixed Meat", price: "$11.00", description: "Pastrami, ham, garlic mayo, sriracha, provolone, tomatoes, black & green olives.", category: "Classic Paninis" },
+          { name: "Pollo", price: "$11.00", description: "Smoked chicken, pesto, garlic mayo, mozzarella, tomaotes, spinach.", category: "Classic Paninis" },
+          { name: "Club", price: "$11.00", description: "Ham, honey-smoked turkey, spicy brown mustard, BBQ sauce, provolone, tomatoes, red onions & spinach.", category: "Classic Paninis" },
+          { name: "Spicy", price: "$11.00", description: "Ham, pastrami, garlic mayo, spicy brown mustard, sriracha, provolone, tomatoes, red onions, black olives, hot giardiniera.", category: "Classic Paninis" },
+          { name: "Chicken", price: "$11.00", description: "Smoked chicken, BBQ sauce, red bell, mayo, cheddar, tomatoes, red onions.", category: "Classic Paninis" },
+          { name: "Cuban", price: "$11.00", description: "Ham, garlic mayo, spicy brown mustard, provolone, tomatoes, pickles.", category: "Classic Paninis" },
+          { name: "Bacon & Egg", price: "$11.00", description: "Bacon, homemade omelette, garlic mayo, sriracha, mozzarella, tomatoes, red onions, spinach.", category: "Classic Paninis" },
+          { name: "Veggie", price: "$11.00", description: "Provolone & mozzarella cheeses, pesto, garlic mayo, red bell mayo, tomatoes, red onions, black & green olives, spinach.", category: "Classic Paninis" },
+          { name: "Classic Pesto", price: "$11.00", description: "Pesto, garlic mayo, mozzarella cheese, tomatoes, spinach.", category: "Classic Paninis" },
+          { name: "Grilled Cheese", price: "$11.00", description: "Cheddar cheese on a French roll.", category: "Classic Paninis" },
         ],
         schedule: {
           "Monday": "11:00 am - 3:00 pm",
@@ -101,12 +101,7 @@ export class MemStorage implements IStorage {
           instagram: "https://www.instagram.com/sandwich.hub.madison?igsh=cWFsdmVkMHBqenM4",
         },
         menu: [
-          { name: "Pulled Pork Sandwich", price: "$11.99", description: "Slow-smoked pulled pork with BBQ sauce" },
-          { name: "Brisket Platter", price: "$16.99", description: "Sliced brisket with two sides" },
-          { name: "BBQ Ribs (Half Rack)", price: "$14.99", description: "Fall-off-the-bone ribs with dry rub" },
-          { name: "Smoked Chicken", price: "$12.99", description: "Half chicken with signature BBQ sauce" },
-          { name: "Mac & Cheese", price: "$4.99", description: "Creamy mac and cheese with breadcrumb topping" },
-          { name: "Coleslaw", price: "$3.99", description: "Fresh coleslaw with tangy dressing" }
+          
         ],
         schedule: {
           "Monday": "11:00 am - 2:00 pm",
