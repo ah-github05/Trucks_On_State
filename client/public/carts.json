@@ -12,32 +12,38 @@
       {
         "name": "Avocado Spring Roll",
         "price": "$5.00",
-        "description": "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce."
+        "description": "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.",
+        "category": "Springrolls"
       },
       {
         "name": "Avocado Chicken Spring Roll",
         "price": "$6.00",
-        "description": "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce"
+        "description": "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce",
+        "category": "Springrolls"
       },
       {
         "name": "Avocado Tofu Spring Roll",
         "price": "$6.00",
-        "description": "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce"
+        "description": "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce",
+        "category": "Springrolls"
       },
       {
         "name": "Avocado Shrimp Spring Roll",
         "price": "$6.00",
-        "description": "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce"
+        "description": "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce",
+        "category": "Springrolls"
       },
       {
         "name": "Avocado BBQ Pork Spring Roll",
         "price": "$6.00",
-        "description": "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce"
+        "description": "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce",
+        "category": "Springrolls"
       },
       {
         "name": "Salad Bowl",
         "price": "$7.00",
-        "description": "Description coming soon..."
+        "description": "Description coming soon...",
+        "category": "Springrolls"
       }
     ],
     "schedule": {
@@ -68,57 +74,68 @@
       {
         "name": "Turkey Panini",
         "price": "$11.00",
-        "description": "Honey-smoked turkey, pesto, garlic mayo, provolone, tomatoes, red onions, black olives, spinach."
+        "description": "Honey-smoked turkey, pesto, garlic mayo, provolone, tomatoes, red onions, black olives, spinach.",
+        "category": "Classic Paninis"
       },
       {
         "name": "Italian Mixed Meat Panini",
         "price": "$11.00",
-        "description": "Pastrami, ham, garlic mayo, sriracha, provolone, tomatoes, black & green olives."
+        "description": "Pastrami, ham, garlic mayo, sriracha, provolone, tomatoes, black & green olives.",
+        "category": "Classic Paninis"
       },
       {
         "name": "Pollo Panini",
         "price": "$11.00",
-        "description": "Smoked chicken, pesto, garlic mayo, mozzarella, tomaotes, spinach."
+        "description": "Smoked chicken, pesto, garlic mayo, mozzarella, tomaotes, spinach.",
+        "category": "Classic Paninis"
       },
       {
         "name": "Club Panini",
         "price": "$11.00",
-        "description": "Ham, honey-smoked turkey, spicy brown mustard, BBQ sauce, provolone, tomatoes, red onions & spinach."
+        "description": "Ham, honey-smoked turkey, spicy brown mustard, BBQ sauce, provolone, tomatoes, red onions & spinach.",
+        "category": "Classic Paninis"
       },
       {
         "name": "Spicy Panini",
         "price": "$11.00",
-        "description": "Ham, pastrami, garlic mayo, spicy brown mustard, sriracha, provolone, tomatoes, red onions, black olives, hot giardiniera."
+        "description": "Ham, pastrami, garlic mayo, spicy brown mustard, sriracha, provolone, tomatoes, red onions, black olives, hot giardiniera.",
+        "category": "Classic Paninis"
       },
       {
         "name": "Chicken Panini",
         "price": "$11.00",
-        "description": "Smoked chicken, BBQ sauce, red bell, mayo, cheddar, tomatoes, red onions."
+        "description": "Smoked chicken, BBQ sauce, red bell, mayo, cheddar, tomatoes, red onions.",
+        "category": "Classic Paninis"
       },
       {
         "name": "Cuban Panini",
         "price": "$11.00",
-        "description": "Ham, garlic mayo, spicy brown mustard, provolone, tomatoes, pickles."
+        "description": "Ham, garlic mayo, spicy brown mustard, provolone, tomatoes, pickles.",
+        "category": "Classic Paninis"
       },
       {
         "name": "Bacon & Egg Panini",
         "price": "$11.00",
-        "description": "Bacon, homemade omelette, garlic mayo, sriracha, mozzarella, tomatoes, red onions, spinach."
+        "description": "Bacon, homemade omelette, garlic mayo, sriracha, mozzarella, tomatoes, red onions, spinach.",
+        "category": "Classic Paninis"
       },
       {
         "name": "Veggie Panini",
         "price": "$11.00",
-        "description": "Provolone & mozzarella cheeses, pesto, garlic mayo, red bell mayo, tomatoes, red onions, black & green olives, spinach."
+        "description": "Provolone & mozzarella cheeses, pesto, garlic mayo, red bell mayo, tomatoes, red onions, black & green olives, spinach.",
+        "category": "Classic Paninis"
       },
       {
         "name": "Classic Pesto Panini",
         "price": "$11.00",
-        "description": "Pesto, garlic mayo, mozzarella cheese, tomatoes, spinach."
+        "description": "Pesto, garlic mayo, mozzarella cheese, tomatoes, spinach.",
+        "category": "Classic Paninis"
       },
       {
         "name": "Grilled Cheese Panini",
         "price": "$11.00",
-        "description": "Cheddar cheese on a French roll."
+        "description": "Cheddar cheese on a French roll.",
+        "category": "Classic Paninis"
       }
     ],
     "schedule": {
@@ -449,52 +466,62 @@
       {
         "name": "Steak and/or Pork",
         "price": "$10.00",
-        "description": "Corn tortilla, onion, cilantro, lime."
+        "description": "Corn tortilla, onion, cilantro, lime.",
+        "category": "Tacos with Rice & Beans (2 per order)"
       },
       {
         "name": "Chicken",
         "price": "$10.00",
-        "description": "Corn tortilla, lettuce, sour cream, cheese."
+        "description": "Corn tortilla, lettuce, sour cream, cheese.",
+        "category": "Tacos with Rice & Beans (2 per order)"
       },
       {
         "name": "Veggie",
         "price": "$10.00",
-        "description": "Corn tortilla, onion, cilantro, lettuce, tomato, sour cream, cheese, avocado."
+        "description": "Corn tortilla, onion, cilantro, lettuce, tomato, sour cream, cheese, avocado.",
+        "category": "Tacos with Rice & Beans (2 per order)"
       },
       {
         "name": "Steak, Chicken, and/or Pork",
         "price": "$12.00",
-        "description": "Flour tortilla, rice, beans, onion, cilantro, lettuce, cheese, sour cream."
+        "description": "Flour tortilla, rice, beans, onion, cilantro, lettuce, cheese, sour cream.",
+        "category": "Burrito / Bowl (chips on the side)"
       },
       {
         "name": "Veggie",
         "price": "$12.00",
-        "description": "Flour tortilla, rice, beans, onion, cilantro, lettuce, tomato, avocado, cheese, sour cream."
+        "description": "Flour tortilla, rice, beans, onion, cilantro, lettuce, tomato, avocado, cheese, sour cream.",
+        "category": "Burrito / Bowl (chips on the side)"
       },
       {
         "name": "Steak, Chicken, and/or Pork",
         "price": "$10.00",
-        "description": "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños."
+        "description": "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños.",
+        "category": "Nachos"
       },
       {
         "name": "Veggie",
         "price": "$10.00",
-        "description": "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños."
+        "description": "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños.",
+        "category": "Nachos"
       },
       {
         "name": "Taco",
         "price": "$3.50",
-        "description": "Meat, onion, cilantro, lettuce, tomato, mozzarella cheese, sour cream."
+        "description": "Meat, onion, cilantro, lettuce, tomato, mozzarella cheese, sour cream.",
+        "category": "Build Your Own"
       },
       {
         "name": "Steak, Chicken, and/or Pork",
         "price": "$12.00",
-        "description": "Corn hard flat tortilla, beans ,lettuce, onion, cilantro, sour cream mozzarella cheese."
+        "description": "Corn hard flat tortilla, beans ,lettuce, onion, cilantro, sour cream mozzarella cheese.",
+        "category": "Tostadas with Rice (2 per order)"
       },
       {
         "name": "Veggie",
         "price": "$12.00",
-        "description": "Corn hard flat tortilla, beans, lettuce, onion, cilantro, tomato, sour cream, mozzarella cheese, avocado."
+        "description": "Corn hard flat tortilla, beans, lettuce, onion, cilantro, tomato, sour cream, mozzarella cheese, avocado.",
+        "category": "Tostadas with Rice (2 per order)"
       },
       {
         "name": "Jarritos",
@@ -537,72 +564,86 @@
       {
         "name": "2-Piece Tenders",
         "price": "$8.00 / $12.00",
-        "description": " "
+        "description": " ",
+        "category": "Chicken Tenders & Sandwiches"
       },
       {
         "name": "3-Piece Tenders",
         "price": "$12.00 / $15.00",
-        "description": " "
+        "description": " ",
+        "category": "Chicken Tenders & Sandwiches"
       },
       {
         "name": "4-Piece Tenders",
         "price": "$16.00 / $18.00",
-        "description": " "
+        "description": " ",
+        "category": "Chicken Tenders & Sandwiches"
       },
       {
         "name": "Badgerville Spicy",
         "price": "$10.00 / $14.00",
-        "description": "Fried chicken dipped in honey butter and seasoned with spicy dry rub. Topped with pickles and coleslaw on a brioche bun."
+        "description": "Fried chicken dipped in honey butter and seasoned with spicy dry rub. Topped with pickles and coleslaw on a brioche bun.",
+        "category": "Chicken Tenders & Sandwiches"
       },
       {
         "name": "Original",
         "price": "$9.00 / $13.00",
-        "description": "Signature fried chicken topped with mayo and pickles on a brioche bun."
+        "description": "Signature fried chicken topped with mayo and pickles on a brioche bun.",
+        "category": "Chicken Tenders & Sandwiches"
       },
       {
         "name": "Deluxe",
         "price": "$10.00 / $14.00",
-        "description": "Signature fried chicken topped with lettuce, tomato, pickles, cheese, and mayo on a brioche bun."
+        "description": "Signature fried chicken topped with lettuce, tomato, pickles, cheese, and mayo on a brioche bun.",
+        "category": "Chicken Tenders & Sandwiches"
       },
       {
         "name": "French Fries",
         "price": "$4.00 / $6.00",
-        "description": " "
+        "description": " ",
+        "category": "Chicken Tenders & Sandwiches"
       },
       {
         "name": "Cheese Curds",
         "price": "$6.00",
-        "description": " "
+        "description": " ",
+        "category": "Chicken Tenders & Sandwiches"
       },
       {
         "name": "Coleslaw",
         "price": "$3.00",
-        "description": " "
+        "description": " ",
+        "category": "Chicken Tenders & Sandwiches"
       },
       {
         "name": "Make it a Meal",
         "price": " ",
-        "description": "Includes french fries and a drink."
+        "description": "Includes french fries and a drink.",
+        "category": "Extras"
       },
       {
         "name": "Meal - Substitute cheese curds",
         "price": "$2.00 ",
-        "description": " "
+        "description": " ",
+        "category": "Extras"
       },
       {
         "name": "Meal - Substitute lemonade",
         "price": "$1.00 / $2.00",
-        "description": " "
+        "description": " ",
+        "category": "Extras"
       },
       {
         "name": "Roost Style",
         "price": "Free",
-        "description": "Substitute mayo for Roost Sauce."
+        "description": "Substitute mayo for Roost Sauce.",
+        "category": "Extras"
       },
       {
         "name": "Dip Chicken in Honey Butter",
         "price": "$1.00",
-        "description": " "
+        "description": " ",
+        "category": "Extras"
       }
     ],
     "schedule": {
@@ -705,22 +746,26 @@
       {
         "name": "Falafel Sandwich",
         "price": "$9.00",
-        "description": "Hummus, tomato, tahini."
+        "description": "Hummus, tomato, tahini.",
+        "category": "Main Dishes"
       },
       {
         "name": "Falafel Sandwich",
         "price": "$10.00",
-        "description": "Taziki, tomato, onion."
+        "description": "Taziki, tomato, onion.",
+        "category": "Main Dishes"
       },
       {
         "name": "Chicken Shawarma",
         "price": "$10.00",
-        "description": "Grilled onion, tomato, pickle, lettuce, tahini."
+        "description": "Grilled onion, tomato, pickle, lettuce, tahini.",
+        "category": "Main Dishes"
       },
       {
         "name": "Veggie Plate",
         "price": "$12.00",
-        "description": "Baba ghanoush, hummus, basmati rice, falafel (x2)."
+        "description": "Baba ghanoush, hummus, basmati rice, falafel (x2).",
+        "category": "Main Dishes"
       }
     ],
     "schedule": {
