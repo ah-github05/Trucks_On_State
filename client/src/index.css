@@ -474,19 +474,19 @@ html {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
-.west-location-active {
-   @apply bg-primary text-white;
-}
-
-.west-location-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.southeast-location-active {
+.west-side-location-active {
   @apply bg-primary text-white;
 }
 
-.southeast-location-inactive {
+.west-sidelocation-inactive {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+
+.southeast-campus-location-active {
+  @apply bg-primary text-white;
+}
+
+.southeast-campus-location-inactive {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
