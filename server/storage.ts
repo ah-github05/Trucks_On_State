@@ -470,11 +470,11 @@ export class MemStorage implements IStorage {
       {
         slug: "stellies",
         name: "Stellies Ice Cream",
-        description: "Premium ice cream made with local ingredients",
+        description: "Premium ice cream made with local ingredients. Reopens next Farmers' Market season.",
         image: "/stellies_pic.jpg",
         category: "sweet_treats",
         location: "capitol-square",
-        locationDisplayName: "Dane County Farmers' Market, May - November",
+        locationDisplayName: "Dane County Farmers' Market",
         businessLinks: {
           website: "https://www.stelliesicecream.com",
           instagram: "https://www.instagram.com/stelliesicecream/",
@@ -489,7 +489,7 @@ export class MemStorage implements IStorage {
           "Wednesday": "Closed",
           "Thursday": "Closed",
           "Friday": "Closed",
-          "Saturday": "Closed until next Farmers' Market season. Typical hours: 8:00 am - 1:00 pm", // Market day: 8:00 am - 1:00 pm
+          "Saturday": "Closed", // Market day: 8:00 am - 1:00 pm
           "Sunday": "Closed"
         }
       },
