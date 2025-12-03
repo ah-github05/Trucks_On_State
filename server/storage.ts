@@ -470,7 +470,7 @@ export class MemStorage implements IStorage {
       {
         slug: "stellies",
         name: "Stellies Ice Cream",
-        description: "Premium ice cream made with local ingredients. Reopens next Farmers' Market season.",
+        description: "Premium ice cream made with local ingredients",
         image: "/stellies_pic.jpg",
         category: "sweet_treats",
         location: "capitol-square",
