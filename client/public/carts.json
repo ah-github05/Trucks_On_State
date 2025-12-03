@@ -861,5 +861,274 @@
       "Sunday": "Closed"
     },
     "id": 12
+  },
+  {
+    "slug": "stellies",
+    "name": "Stellies Ice Cream",
+    "description": "Premium ice cream made with local ingredients",
+    "image": "TBD",
+    "category": "sweet_treats",
+    "location": "capitol-square",
+    "locationDisplayName": "1815 E Washington Avenue, Madison, WI 53704",
+    "businessLinks": {
+      "website": "https://www.stelliesicecream.com",
+      "instagram": "https://www.instagram.com/stelliesicecream/",
+      "facebook": "https://www.facebook.com/stelliesicecream"
+    },
+    "menu": [
+      {
+        "name": "Single",
+        "price": "$5.00",
+        "description": " ",
+        "category": "Ice Cream Scoops"
+      },
+      {
+        "name": "Double",
+        "price": "$7.00",
+        "description": " ",
+        "category": "Ice Cream Scoops"
+      },
+      {
+        "name": "Triple",
+        "price": "$9.00",
+        "description": " ",
+        "category": "Ice Cream Scoops"
+      },
+      {
+        "name": "Mini",
+        "price": "$7.00",
+        "description": " ",
+        "category": "Milkshakes"
+      },
+      {
+        "name": "Small",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Milkshakes"
+      },
+      {
+        "name": "Medium",
+        "price": "$12.00",
+        "description": " ",
+        "category": "Milkshakes"
+      },
+      {
+        "name": "Large",
+        "price": "$15.00",
+        "description": " ",
+        "category": "Milkshakes"
+      },
+      {
+        "name": "Mini",
+        "price": "$5.00",
+        "description": " ",
+        "category": "Floats"
+      },
+      {
+        "name": "Small",
+        "price": "$7.00",
+        "description": " ",
+        "category": "Floats"
+      },
+      {
+        "name": "Medium",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Floats"
+      },
+      {
+        "name": "Large",
+        "price": "$12.00",
+        "description": " ",
+        "category": "Floats"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD",
+        "category": "Add Ons"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD",
+        "category": "Add Ons"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD",
+        "category": "Add Ons"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD",
+        "category": "Add Ons"
+      }
+    ],
+    "schedule": {
+      "Monday": "TBD",
+      "Tuesday": "TBD",
+      "Wednesday": "TBD",
+      "Thursday": "TBD",
+      "Friday": "TBD",
+      "Saturday": "TBD",
+      "Sunday": "TBD"
+    },
+    "id": 14
+  },
+  {
+    "slug": "template-cart-1",
+    "name": "TBD",
+    "description": "TBD",
+    "image": "TBD",
+    "category": "TBD",
+    "location": "TBD",
+    "locationDisplayName": "TBD",
+    "businessLinks": {
+      "website": "TBD",
+      "instagram": "TBD",
+      "facebook": "TBD"
+    },
+    "menu": [
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      }
+    ],
+    "schedule": {
+      "Monday": "TBD",
+      "Tuesday": "TBD",
+      "Wednesday": "TBD",
+      "Thursday": "TBD",
+      "Friday": "TBD",
+      "Saturday": "TBD",
+      "Sunday": "TBD"
+    },
+    "id": 13
+  },
+  {
+    "slug": "template-cart-2",
+    "name": "TBD",
+    "description": "TBD",
+    "image": "TBD",
+    "category": "TBD",
+    "location": "TBD",
+    "locationDisplayName": "TBD",
+    "businessLinks": {
+      "website": "TBD",
+      "instagram": "TBD",
+      "facebook": "TBD"
+    },
+    "menu": [
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      }
+    ],
+    "schedule": {
+      "Monday": "TBD",
+      "Tuesday": "TBD",
+      "Wednesday": "TBD",
+      "Thursday": "TBD",
+      "Friday": "TBD",
+      "Saturday": "TBD",
+      "Sunday": "TBD"
+    },
+    "id": 15
+  },
+  {
+    "slug": "template-cart-3",
+    "name": "TBD",
+    "description": "TBD",
+    "image": "TBD",
+    "category": "TBD",
+    "location": "TBD",
+    "locationDisplayName": "TBD",
+    "businessLinks": {
+      "website": "TBD",
+      "instagram": "TBD",
+      "facebook": "TBD"
+    },
+    "menu": [
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      }
+    ],
+    "schedule": {
+      "Monday": "TBD",
+      "Tuesday": "TBD",
+      "Wednesday": "TBD",
+      "Thursday": "TBD",
+      "Friday": "TBD",
+      "Saturday": "TBD",
+      "Sunday": "TBD"
+    },
+    "id": 16
   }
 ]

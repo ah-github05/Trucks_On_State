@@ -209,7 +209,7 @@ export class MemStorage implements IStorage {
         description: "Chinese dim sum and Sichuan-style stir-fry",
         image: "https://bloximages.chicago2.vip.townnews.com/captimes.com/content/tncms/assets/v3/editorial/5/ec/5ec217a6-6952-5dac-a466-a881079c50ae/61d8c56fd9a7f.image.jpg?resize=780%2C500",
         category: "asian",
-        location: "southeast",
+        location: "southeast-campus",
         locationDisplayName: "1225 W Dayton St, Madison, WI 53706",
         businessLinks: {
           website: "https://nani.restaurant",
@@ -332,7 +332,7 @@ export class MemStorage implements IStorage {
       {
         slug: "mj-jamaican",
         name: "M & J Jamaican Kitch'n",
-        description: "TBD",
+        description: "Jamaican combination plates",
         image: "/mj_pic.jpg",
         category: "caribbean",
         location: "state-street-library-mall",
@@ -440,7 +440,7 @@ export class MemStorage implements IStorage {
         description: "Warm naan sandwiches",
         image: "/naan_pic.jpg",
         category: "southeast_asian",
-        location: "west",
+        location: "west-side",
         locationDisplayName: "6640 Odana Rd, Madison, WI 53719",
         businessLinks: {
           instagram: "https://www.instagram.com/naanstop.fusion",
@@ -467,6 +467,120 @@ export class MemStorage implements IStorage {
           "Friday": "Closed",
           "Saturday": "Closed",
           "Sunday": "Closed"
+        }
+      },
+
+      // Stellies Ice Cream
+      {
+        slug: "stellies",
+        name: "Stellies Ice Cream",
+        description: "Premium ice cream made with local ingredients",
+        image: "TBD",
+        category: "sweet_treats",
+        location: "capitol-square",
+        locationDisplayName: "1815 E Washington Avenue, Madison, WI 53704",
+        businessLinks: {
+          website: "https://www.stelliesicecream.com",
+          instagram: "https://www.instagram.com/stelliesicecream/",
+          facebook: "https://www.facebook.com/stelliesicecream"
+        },
+        menu: [
+          // Scoops
+          { name: "Single", price: "$5.00", description: " ", category: "Ice Cream Scoops" },
+          { name: "Double", price: "$7.00", description: " ", category: "Ice Cream Scoops" },
+          { name: "Triple", price: "$9.00", description: " ", category: "Ice Cream Scoops" },
+
+          // Milkshakes
+          { name: "Mini", price: "$7.00", description: " ", category: "Milkshakes" },
+          { name: "Small", price: "$10.00", description: " ", category: "Milkshakes" },
+          { name: "Medium", price: "$12.00", description: " ", category: "Milkshakes" },
+          { name: "Large", price: "$15.00", description: " ", category: "Milkshakes" },
+
+          // Floats
+          { name: "Flavors: Root Beer, Orange, & Seasonal", price: " ", description: " ", category: "Floats" },
+          { name: "Mini", price: "$5.00", description: " ", category: "Floats" },
+          { name: "Small", price: "$7.00", description: " ", category: "Floats" },
+          { name: "Medium", price: "$10.00", description: " ", category: "Floats" },
+          { name: "Large", price: "$12.00", description: " ", category: "Floats" },
+
+          // Add Ons
+          { name: "Waffle Cone", price: "$2.00", description: " ", category: "Add Ons" },
+          { name: "Cherry and Whipped Cream", price: "$2.00", description: " ", category: "Add Ons" },
+          { name: "Additional Toppings", price: "$1.00", description: " ", category: "Add Ons" },
+          { name: "Soda", price: "$3.00", description: "Root beer, orange, and seasonal.", category: "Add Ons" }
+        ],
+        schedule: {
+          "Monday": "TBD",
+          "Tuesday": "TBD",
+          "Wednesday": "TBD",
+          "Thursday": "TBD",
+          "Friday": "TBD",
+          "Saturday": "TBD",
+          "Sunday": "TBD"
+        }
+      },
+
+      // Template Cart 2
+      {
+        slug: "template-cart-2",
+        name: "TBD",
+        description: "TBD",
+        image: "TBD",
+        category: "TBD",
+        location: "TBD",
+        locationDisplayName: "TBD",
+        businessLinks: {
+          website: "TBD",
+          instagram: "TBD",
+          facebook: "TBD"
+        },
+        menu: [
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" }
+        ],
+        schedule: {
+          "Monday": "TBD",
+          "Tuesday": "TBD",
+          "Wednesday": "TBD",
+          "Thursday": "TBD",
+          "Friday": "TBD",
+          "Saturday": "TBD",
+          "Sunday": "TBD"
+        }
+      },
+
+      // Template Cart 3
+      {
+        slug: "template-cart-3",
+        name: "TBD",
+        description: "TBD",
+        image: "TBD",
+        category: "TBD",
+        location: "TBD",
+        locationDisplayName: "TBD",
+        businessLinks: {
+          website: "TBD",
+          instagram: "TBD",
+          facebook: "TBD"
+        },
+        menu: [
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" }
+        ],
+        schedule: {
+          "Monday": "TBD",
+          "Tuesday": "TBD",
+          "Wednesday": "TBD",
+          "Thursday": "TBD",
+          "Friday": "TBD",
+          "Saturday": "TBD",
+          "Sunday": "TBD"
         }
       }
     ];
