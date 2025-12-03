@@ -481,7 +481,7 @@ export class MemStorage implements IStorage {
           facebook: "https://www.facebook.com/stelliesicecream"
         },
         menu: [
-          { name: "Single-Serve Ice Cream Containers", price: "$6.00", description: "Flavors vary on what is available" }
+          { name: "Single-Serve Ice Cream Containers", price: "$6.00", description: "Flavors vary on what is available." }
         ],
         schedule: {
           "Monday": "Closed",
