@@ -31,12 +31,12 @@ export class MemStorage implements IStorage {
         locationDisplayName: "State Street & Library Mall",
         businessLinks: {},
         menu: [
-          { name: "Avocado Spring Roll", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce." },
-          { name: "Avocado Chicken Spring Roll", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce." },
-          { name: "Avocado Tofu Spring Roll", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce." },
-          { name: "Avocado Shrimp Spring Roll", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce." },
-          { name: "Avocado BBQ Pork Spring Roll", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce." },
-          { name: "Salad Bowl", price: "$7.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce, avocado, choice of protein (chicken, tofu, shrimp, BBQ pork, beef)." }      
+          { name: "Avocado Spring Roll", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Springrolls" },
+          { name: "Avocado Chicken Spring Roll", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Springrolls" },
+          { name: "Avocado Tofu Spring Roll", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Springrolls" },
+          { name: "Avocado Shrimp Spring Roll", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Springrolls" },
+          { name: "Avocado BBQ Pork Spring Roll", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Springrolls" },
+          { name: "Salad Bowl", price: "$7.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce, avocado, choice of protein (chicken, tofu, shrimp, BBQ pork, beef).", category: "Springrolls" }
         ],
         schedule: {
           "Monday": "10:00 am - 6:00 pm",
@@ -64,17 +64,17 @@ export class MemStorage implements IStorage {
           facebook: "https://www.facebook.com/toastmadison?mibextid=wwXIfr"
         },
         menu: [
-          { name: "Turkey Panini", price: "$11.00", description: "Honey-smoked turkey, pesto, garlic mayo, provolone, tomatoes, red onions, black olives, spinach." },
-          { name: "Italian Mixed Meat Panini", price: "$11.00", description: "Pastrami, ham, garlic mayo, sriracha, provolone, tomatoes, black & green olives." },
-          { name: "Pollo Panini", price: "$11.00", description: "Smoked chicken, pesto, garlic mayo, mozzarella, tomaotes, spinach." },
-          { name: "Club Panini", price: "$11.00", description: "Ham, honey-smoked turkey, spicy brown mustard, BBQ sauce, provolone, tomatoes, red onions & spinach." },
-          { name: "Spicy Panini", price: "$11.00", description: "Ham, pastrami, garlic mayo, spicy brown mustard, sriracha, provolone, tomatoes, red onions, black olives, hot giardiniera." },
-          { name: "Chicken Panini", price: "$11.00", description: "Smoked chicken, BBQ sauce, red bell, mayo, cheddar, tomatoes, red onions." },
-          { name: "Cuban Panini", price: "$11.00", description: "Ham, garlic mayo, spicy brown mustard, provolone, tomatoes, pickles." },
-          { name: "Bacon & Egg Panini", price: "$11.00", description: "Bacon, homemade omelette, garlic mayo, sriracha, mozzarella, tomatoes, red onions, spinach." },
-          { name: "Veggie Panini", price: "$11.00", description: "Provolone & mozzarella cheeses, pesto, garlic mayo, red bell mayo, tomatoes, red onions, black & green olives, spinach." },
-          { name: "Classic Pesto Panini", price: "$11.00", description: "Pesto, garlic mayo, mozzarella cheese, tomatoes, spinach." },
-          { name: "Grilled Cheese Panini", price: "$11.00", description: "Cheddar cheese on a French roll." },
+          { name: "Turkey Panini", price: "$11.00", description: "Honey-smoked turkey, pesto, garlic mayo, provolone, tomatoes, red onions, black olives, spinach.", category: "Classic Paninis" },
+          { name: "Italian Mixed Meat Panini", price: "$11.00", description: "Pastrami, ham, garlic mayo, sriracha, provolone, tomatoes, black & green olives.", category: "Classic Paninis" },
+          { name: "Pollo Panini", price: "$11.00", description: "Smoked chicken, pesto, garlic mayo, mozzarella, tomaotes, spinach.", category: "Classic Paninis" },
+          { name: "Club Panini", price: "$11.00", description: "Ham, honey-smoked turkey, spicy brown mustard, BBQ sauce, provolone, tomatoes, red onions & spinach.", category: "Classic Paninis" },
+          { name: "Spicy Panini", price: "$11.00", description: "Ham, pastrami, garlic mayo, spicy brown mustard, sriracha, provolone, tomatoes, red onions, black olives, hot giardiniera.", category: "Classic Paninis" },
+          { name: "Chicken Panini", price: "$11.00", description: "Smoked chicken, BBQ sauce, red bell, mayo, cheddar, tomatoes, red onions.", category: "Classic Paninis" },
+          { name: "Cuban Panini", price: "$11.00", description: "Ham, garlic mayo, spicy brown mustard, provolone, tomatoes, pickles.", category: "Classic Paninis" },
+          { name: "Bacon & Egg Panini", price: "$11.00", description: "Bacon, homemade omelette, garlic mayo, sriracha, mozzarella, tomatoes, red onions, spinach.", category: "Classic Paninis" },
+          { name: "Veggie Panini", price: "$11.00", description: "Provolone & mozzarella cheeses, pesto, garlic mayo, red bell mayo, tomatoes, red onions, black & green olives, spinach.", category: "Classic Paninis" },
+          { name: "Classic Pesto Panini", price: "$11.00", description: "Pesto, garlic mayo, mozzarella cheese, tomatoes, spinach.", category: "Classic Paninis" },
+          { name: "Grilled Cheese Panini", price: "$11.00", description: "Cheddar cheese on a French roll.", category: "Classic Paninis" },
         ],
         schedule: {
           "Monday": "11:00 am - 3:00 pm",
@@ -248,24 +248,22 @@ export class MemStorage implements IStorage {
         },
         menu: [
           // Tacos
-          { name: "Steak and/or Pork", price: "$10.00", description: "Corn tortilla, onion, cilantro, lime." },
-          { name: "Chicken", price: "$10.00", description: "Corn tortilla, lettuce, sour cream, cheese." },
-          { name: "Veggie", price: "$10.00", description: "Corn tortilla, onion, cilantro, lettuce, tomato, sour cream, cheese, avocado." },
+          { name: "Steak and/or Pork", price: "$10.00", description: "Corn tortilla, onion, cilantro, lime.", category: "Tacos with Rice & Beans (2 per order)" },
+          { name: "Chicken", price: "$10.00", description: "Corn tortilla, lettuce, sour cream, cheese.", category: "Tacos with Rice & Beans (2 per order)" },
+          { name: "Veggie", price: "$10.00", description: "Corn tortilla, onion, cilantro, lettuce, tomato, sour cream, cheese, avocado.", category: "Tacos with Rice & Beans (2 per order)" },
 
           // Burritos / Bowls
-          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, cheese, sour cream." },
-          { name: "Veggie", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, tomato, avocado, cheese, sour cream." },
+          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, cheese, sour cream.", category: "Burrito / Bowl (chips on the side)" },
+          { name: "Veggie", price: "$12.00", description: "Flour tortilla, rice, beans, onion, cilantro, lettuce, tomato, avocado, cheese, sour cream.", category: "Burrito / Bowl (chips on the side)" },
 
           // Nachos
-          { name: "Steak, Chicken, and/or Pork", price: "$10.00", description: "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños." },
-          { name: "Veggie", price: "$10.00", description: "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños." },
-          
-          // Tostadas 
-          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Corn hard flat tortilla, beans, lettuce, onion, cilantro, sour cream mozzarella cheese." },
-          { name: "Veggie", price: "$12.00", description: "Corn hard flat tortilla, beans, lettuce, onion, cilantro, tomato, sour cream, mozzarella cheese, avocado." },
+          { name: "Steak, Chicken, and/or Pork", price: "$10.00", description: "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños.", category: "Tostadas with Rice (2 per order)" },
+          { name: "Veggie", price: "$10.00", description: "Nacho cheese, beans, onion, cilantro, lettuce, shredded cheddar cheese, monterrey jack, sour cream, jalapeños.", category: "Tostadas with Rice (2 per order)" },
 
-          // Build your own
-          { name: "Taco", price: "$3.50", description: "Choice of meat, onion, cilantro, lettuce, tomato, mozzarella cheese, sour cream." },
+          // Tostadas
+          { name: "Taco", price: "$3.50", description: "Choice of meat, onion, cilantro, lettuce, tomato, mozzarella cheese, sour cream.", category: "Build Your Own" },
+          { name: "Steak, Chicken, and/or Pork", price: "$12.00", description: "Corn hard flat tortilla, beans, lettuce, onion, cilantro, sour cream mozzarella cheese.", category: "Nachos" },
+          { name: "Veggie", price: "$12.00", description: "Corn hard flat tortilla, beans, lettuce, onion, cilantro, tomato, sour cream, mozzarella cheese, avocado.", category: "Nachos" },
 
           // Drinks
           { name: "Soda", price: "$2.00", description: " ", category: "Drinks" },
@@ -298,26 +296,26 @@ export class MemStorage implements IStorage {
         },
         menu: [
           // Chicken Tenders
-          { name: "2-Piece Tenders", price: "$8.00 / $12.00", description: " " },
-          { name: "3-Piece Tenders", price: "$12.00 / $15.00", description: " " },
-          { name: "4-Piece Tenders", price: "$16.00 / $18.00", description: " " },
-          
+          { name: "2-Piece Tenders", price: "$8.00 / $12.00", description: " ", category: "Chicken Tenders & Sandwiches" },
+          { name: "3-Piece Tenders", price: "$12.00 / $15.00", description: " ", category: "Chicken Tenders & Sandwiches" },
+          { name: "4-Piece Tenders", price: "$16.00 / $18.00", description: " ", category: "Chicken Tenders & Sandwiches" },
+
           // Chicken Sandwiches
-          { name: "Badgerville Spicy", price: "$10.00 / $14.00", description: "Fried chicken dipped in honey butter and seasoned with spicy dry rub. Topped with pickles and coleslaw on a brioche bun." },
-          { name: "Original", price: "$9.00 / $13.00", description: "Signature fried chicken topped with mayo and pickles on a brioche bun." },
-          { name: "Deluxe", price: "$10.00 / $14.00", description: "Signature fried chicken topped with lettuce, tomato, pickles, cheese, and mayo on a brioche bun." },
-          
+          { name: "Badgerville Spicy", price: "$10.00 / $14.00", description: "Fried chicken dipped in honey butter and seasoned with spicy dry rub. Topped with pickles and coleslaw on a brioche bun.", category: "Chicken Tenders & Sandwiches" },
+          { name: "Original", price: "$9.00 / $13.00", description: "Signature fried chicken topped with mayo and pickles on a brioche bun.", category: "Chicken Tenders & Sandwiches" },
+          { name: "Deluxe", price: "$10.00 / $14.00", description: "Signature fried chicken topped with lettuce, tomato, pickles, cheese, and mayo on a brioche bun.", category: "Chicken Tenders & Sandwiches" },
+
           // Sides
-          { name: "French Fries", price: "$4.00 / $6.00", description: " " },
-          { name: "Cheese Curds", price: "$6.00", description: " " },
-          { name: "Coleslaw", price: "$3.00", description: " " },
-          
+          { name: "French Fries", price: "$4.00 / $6.00", description: " ", category: "Chicken Tenders & Sandwiches" },
+          { name: "Cheese Curds", price: "$6.00", description: " ", category: "Chicken Tenders & Sandwiches" },
+          { name: "Coleslaw", price: "$3.00", description: " ", category: "Chicken Tenders & Sandwiches" },
+
           // Extras
-          { name: "Make it a Meal", price: " ", description: "Includes french fries and a drink." },
-          { name: "Meal - Substitute cheese curds", price: "$2.00 ", description: " " },
-          { name: "Meal - Substitute lemonade", price: "$1.00 / $2.00", description: " " },
-          { name: "Roost Style", price: "Free", description: "Substitute mayo for Roost Sauce." },
-          { name: "Dip Chicken in Honey Butter", price: "$1.00", description: " " }
+          { name: "Make it a Meal", price: " ", description: "Includes french fries and a drink.", category: "Extras" },
+          { name: "Meal - Substitute cheese curds", price: "$2.00 ", description: " ", category: "Extras" },
+          { name: "Meal - Substitute lemonade", price: "$1.00 / $2.00", description: " ", category: "Extras" },
+          { name: "Roost Style", price: "Free", description: "Substitute mayo for Roost Sauce.", category: "Extras" },
+          { name: "Dip Chicken in Honey Butter", price: "$1.00", description: " ", category: "Extras" }
         ],
         
         schedule: {
@@ -382,10 +380,10 @@ export class MemStorage implements IStorage {
 
         },
         menu: [
-          { name: "Falafel Sandwich", price: "$9.00", description: "Hummus, tomato, tahini." },
-          { name: "Falafel Sandwich", price: "$10.00", description: "Taziki, tomato, onion." },
-          { name: "Chicken Shawarma", price: "$10.00", description: "Grilled onion, tomato, pickle, lettuce, tahini." },
-          { name: "Veggie Plate", price: "$12.00", description: "Baba ghanoush, hummus, basmati rice, falafel (x2)." },
+          { name: "Falafel Sandwich", price: "$9.00", description: "Hummus, tomato, tahini.", category: "Main Dishes" },
+          { name: "Falafel Sandwich", price: "$10.00", description: "Taziki, tomato, onion.", category: "Main Dishes" },
+          { name: "Chicken Shawarma", price: "$10.00", description: "Grilled onion, tomato, pickle, lettuce, tahini.", category: "Main Dishes" },
+          { name: "Veggie Plate", price: "$12.00", description: "Baba ghanoush, hummus, basmati rice, falafel (x2).", category: "Main Dishes" },
         ],
         schedule: {
           "Monday": "11:00 am - 3:00 pm",
@@ -399,7 +397,7 @@ export class MemStorage implements IStorage {
       },
 
 
-      // Crepeuw
+      // Crepuw
       {
         slug: "crepuw",
         name: "Crepuw",
@@ -481,7 +479,7 @@ export class MemStorage implements IStorage {
         image: "/stellies_pic.jpg",
         category: "sweet_treats",
         location: "capitol-square",
-        locationDisplayName: "1815 E Washington Avenue, Madison, WI 53704",
+        locationDisplayName: "Dane County Farmers' Market",
         businessLinks: {
           website: "https://www.stelliesicecream.com",
           instagram: "https://www.instagram.com/stelliesicecream/",
@@ -518,7 +516,7 @@ export class MemStorage implements IStorage {
           "Wednesday": "TBD",
           "Thursday": "TBD",
           "Friday": "TBD",
-          "Saturday": "TBD",
+          "Saturday": "8:00 am - 2:00 pm",
           "Sunday": "TBD"
         }
       },
