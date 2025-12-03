@@ -267,6 +267,9 @@ export class MemStorage implements IStorage {
           // Build your own
           { name: "Taco", price: "$3.50", description: "Choice of meat, onion, cilantro, lettuce, tomato, mozzarella cheese, sour cream." },
 
+          // Drinks
+          { name: "Soda", price: "$2.00", description: " ", category: "Drinks" },
+          { name: "Water", price: "$1.00", description: " ", category: "Drinks" }
         ],
         schedule: {
           "Monday": "11:00 am - 3:00 pm",
@@ -475,7 +478,7 @@ export class MemStorage implements IStorage {
         slug: "stellies",
         name: "Stellies Ice Cream",
         description: "Premium ice cream made with local ingredients",
-        image: "TBD",
+        image: "/stellies_pic.jpg",
         category: "sweet_treats",
         location: "capitol-square",
         locationDisplayName: "1815 E Washington Avenue, Madison, WI 53704",
