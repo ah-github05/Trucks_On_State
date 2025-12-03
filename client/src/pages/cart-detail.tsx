@@ -576,7 +576,7 @@ export default function IndividualFoodCartDetailPage() {
                                 return acc;
                               }, {} as Record<string, MenuItem[]>);
 
-                              const categoryOrder = ["Springrolls"];
+                              const categoryOrder = ["Spring Rolls"];
 
                               return categoryOrder
                                 .filter(category => groupedMenu[category])

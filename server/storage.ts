@@ -24,19 +24,19 @@ export class MemStorage implements IStorage {
         // Fresh cool drinks
         slug: "fresh-cool",
         name: "Fresh Cool Drinks",
-        description: "Cold smoothies and authentic springrolls",
+        description: "Cold smoothies and authentic spring rolls",
         image: "https://badgerherald.com/wp-content/uploads/2024/03/BMW_7422-Enhanced-NR-scaled-1-1200x801.jpg",
         category: "asian",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         businessLinks: {},
         menu: [
-          { name: "Avocado Spring Roll", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Springrolls" },
-          { name: "Avocado Chicken Spring Roll", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Springrolls" },
-          { name: "Avocado Tofu Spring Roll", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Springrolls" },
-          { name: "Avocado Shrimp Spring Roll", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Springrolls" },
-          { name: "Avocado BBQ Pork Spring Roll", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Springrolls" },
-          { name: "Salad Bowl", price: "$7.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce, avocado, choice of protein (chicken, tofu, shrimp, BBQ pork, beef).", category: "Springrolls" }
+          { name: "Avocado Spring Roll", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Chicken Spring Roll", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Tofu Spring Roll", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Shrimp Spring Roll", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado BBQ Pork Spring Roll", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Salad Bowl", price: "$7.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce, avocado, choice of protein (chicken, tofu, shrimp, BBQ pork, beef).", category: "Spring Rolls" }
         ],
         schedule: {
           "Monday": "10:00 am - 6:00 pm",
