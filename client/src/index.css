@@ -478,7 +478,7 @@ html {
   @apply bg-primary text-white;
 }
 
-.west-sidelocation-inactive {
+.west-side-location-inactive {
   @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
 }
 
