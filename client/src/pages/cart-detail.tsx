@@ -235,7 +235,7 @@ export default function IndividualFoodCartDetailPage() {
                               </div>
 
                               <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Build Your Own </h2>
-                              <div className="space-y-4">
+                              <div className="space-y-4 mb-6">
                                 {cart.menu.slice(7, 8).map((item, index) => (
                                   <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
                                     <div className="flex justify-between items-start">
@@ -244,8 +244,21 @@ export default function IndividualFoodCartDetailPage() {
                                         <p className="text-sm text-gray-600 mt-1">{item.description}</p>
                                       </div>
                                       <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
 
-                                      {/* Jolly Frog */}
+                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Drinks</h2>
+                              <div className="space-y-4">
+                                {cart.menu.slice(10, 12).map((item, index) => (
+                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                    <div className="flex justify-between items-start">
+                                      <div className="flex-1">
+                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                      </div>
+                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
                                     </div>
                                   </div>
                                 ))}
