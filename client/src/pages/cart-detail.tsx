@@ -161,109 +161,41 @@ export default function IndividualFoodCartDetailPage() {
                       <div className="space-y-6">
                         <div>
 
-                           {/* Fresh cool drinks */}
-                          {cart.slug === "fresh-cool" && (
-                            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Springrolls</h2>
-                          )}
-
-                           {/* Toast */}
-                          {cart.slug === "toast" && (
-                            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Classic Paninis</h2>
-                          )}
-
                           {/* Jolly Frog */}
                           {cart.slug === "jolly-frog" ? (
-                            <>
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Tacos with Rice & Beans (2 per order)</h2>
-                              <div className="space-y-4 mb-6">
-                                {cart.menu.slice(0, 3).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
+                            (() => {
+                              const groupedMenu = cart.menu.reduce((acc, item) => {
+                                const category = item.category || 'Uncategorized';
+                                if (!acc[category]) {
+                                  acc[category] = [];
+                                }
+                                acc[category].push(item);
+                                return acc;
+                              }, {} as Record<string, MenuItem[]>);
 
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Burrito / Bowl (chips on the side)</h2>
-                              <div className="space-y-4 mb-6">
-                                {cart.menu.slice(3, 5).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
+                              const categoryOrder = ["Tacos with Rice & Beans (2 per order)", "Burrito / Bowl (chips on the side)", "Tostadas with Rice (2 per order)", "Build Your Own", "Nachos", "Drinks"];
 
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Tostadas with Rice (2 per order)</h2>
-                              <div className="space-y-4 mb-6">
-                                {cart.menu.slice(5, 7).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                              return categoryOrder
+                                .filter(category => groupedMenu[category])
+                                .map(category => (
+                                  <React.Fragment key={category}>
+                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+                                    <div className="space-y-4 mb-6">
+                                      {groupedMenu[category].map((item, index) => (
+                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                          <div className="flex justify-between items-start">
+                                            <div className="flex-1">
+                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                            </div>
+                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                          </div>
+                                        </div>
+                                      ))}
                                     </div>
-                                  </div>
-                                ))}
-                              </div>
-
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Nachos</h2>
-                              <div className="space-y-4 mb-6">
-                                {cart.menu.slice(8, 10).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Build Your Own </h2>
-                              <div className="space-y-4 mb-6">
-                                {cart.menu.slice(7, 8).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Drinks</h2>
-                              <div className="space-y-4">
-                                {cart.menu.slice(10, 12).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                            </>
+                                  </React.Fragment>
+                                ));
+                            })()
                           ) : cart.slug === "surco" ? (
                             (() => {
                               const groupedMenu = cart.menu.reduce((acc, item) => {
@@ -312,162 +244,177 @@ export default function IndividualFoodCartDetailPage() {
                               ));
                             })()
                           ) : cart.slug === "roost" ? (
-                            <>
-                              <div className="flex justify-between items-baseline mb-4">
-                                <h2 className="text-lg font-semibold text-gray-900 underline">Jumbo 1/4 lb Chicken Tenders</h2>
-                                <span className="font-semibold text-gray-900">Tenders / Meal</span>
-                              </div>
-                              <div className="space-y-4 mb-6">
-                                {cart.menu.slice(0, 3).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
+                            (() => {
+                              const groupedMenu = cart.menu.reduce((acc, item) => {
+                                const category = item.category || 'Uncategorized';
+                                if (!acc[category]) {
+                                  acc[category] = [];
+                                }
+                                acc[category].push(item);
+                                return acc;
+                              }, {} as Record<string, MenuItem[]>);
 
-                              <div className="flex justify-between items-baseline mb-4">
-                                  <h2 className="text-lg font-semibold text-gray-900 underline">Chicken Sandwiches</h2>
-                                <span className="font-semibold text-gray-900">Sandwich / Meal</span>
-                              </div>
-                              <div className="space-y-4 mb-6">
-                                {cart.menu.slice(3, 6).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
+                              const categoryOrder = ["Chicken Tenders & Sandwiches", "Extras"];
 
-                              <div className="flex justify-between items-baseline mb-4">
-                                <h2 className="text-lg font-semibold text-gray-900 underline">Sides</h2>
-                              </div>
-                              
-                              <div className="space-y-4 mb-6">
-                                {cart.menu.slice(6, 9).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      {item.name === "French Fries" ? (
-                                        <div className="ml-4 flex flex-col items-end">
-                                          <div className="font-semibold">
-                                            <span className="text-gray-900">Small: </span>
-                                            <span className="text-primary">$4.00</span>
-                                          </div>
-                                          <div className="font-semibold">
-                                            <span className="text-gray-900">Large: </span>
-                                            <span className="text-primary">$6.00</span>
-                                          </div>
-                                        </div>
-                                      ) : (
-                                        <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                      )}
+                              return (
+                                <>
+                                  {categoryOrder
+                                    .filter(category => groupedMenu[category])
+                                    .map(category => (
+                                      <React.Fragment key={category}>
+                                        {category === "Chicken Tenders & Sandwiches" && (
+                                          <>
+                                            <div className="flex justify-between items-baseline mb-4">
+                                              <h2 className="text-lg font-semibold text-gray-900 underline">Jumbo 1/4 lb Chicken Tenders</h2>
+                                              <span className="font-semibold text-gray-900">Tenders / Meal</span>
+                                            </div>
+                                            <div className="space-y-4 mb-6">
+                                              {groupedMenu[category].slice(0, 3).map((item, index) => (
+                                                <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                                  <div className="flex justify-between items-start">
+                                                    <div className="flex-1">
+                                                      <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                                    </div>
+                                                    <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                                  </div>
+                                                </div>
+                                              ))}
+                                            </div>
+
+                                            <div className="flex justify-between items-baseline mb-4">
+                                              <h2 className="text-lg font-semibold text-gray-900 underline">Chicken Sandwiches</h2>
+                                              <span className="font-semibold text-gray-900">Sandwich / Meal</span>
+                                            </div>
+                                            <div className="space-y-4 mb-6">
+                                              {groupedMenu[category].slice(3, 6).map((item, index) => (
+                                                <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                                  <div className="flex justify-between items-start">
+                                                    <div className="flex-1">
+                                                      <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                                    </div>
+                                                    <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                                  </div>
+                                                </div>
+                                              ))}
+                                            </div>
+
+                                            <div className="flex justify-between items-baseline mb-4">
+                                              <h2 className="text-lg font-semibold text-gray-900 underline">Sides</h2>
+                                            </div>
+                                            <div className="space-y-4 mb-6">
+                                              {groupedMenu[category].slice(6, 9).map((item, index) => (
+                                                <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                                  <div className="flex justify-between items-start">
+                                                    <div className="flex-1">
+                                                      <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                                    </div>
+                                                    {item.name === "French Fries" ? (
+                                                      <div className="ml-4 flex flex-col items-end">
+                                                        <div className="font-semibold">
+                                                          <span className="text-gray-900">Small: </span>
+                                                          <span className="text-primary">$4.00</span>
+                                                        </div>
+                                                        <div className="font-semibold">
+                                                          <span className="text-gray-900">Large: </span>
+                                                          <span className="text-primary">$6.00</span>
+                                                        </div>
+                                                      </div>
+                                                    ) : (
+                                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                                    )}
+                                                  </div>
+                                                </div>
+                                              ))}
+                                            </div>
+                                          </>
+                                        )}
+                                        {category === "Extras" && (
+                                          <>
+                                            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+                                            <div className="space-y-4 mb-6">
+                                              {groupedMenu[category].map((item, index) => (
+                                                <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                                  <div className="flex justify-between items-start">
+                                                    <div className="flex-1">
+                                                      <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                                    </div>
+                                                    {item.name === "Meal - Substitute lemonade" ? (
+                                                      <div className="ml-4 flex flex-col items-end">
+                                                        <div className="font-semibold">
+                                                          <span className="text-gray-900">Small: </span>
+                                                          <span className="text-primary">$1.00</span>
+                                                        </div>
+                                                        <div className="font-semibold">
+                                                          <span className="text-gray-900">Large: </span>
+                                                          <span className="text-primary">$2.00</span>
+                                                        </div>
+                                                      </div>
+                                                    ) : (
+                                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                                    )}
+                                                  </div>
+                                                </div>
+                                              ))}
+                                            </div>
+                                          </>
+                                        )}
+                                      </React.Fragment>
+                                    ))}
+                                  <div className="space-y-4 mb-6">
+                                    <h2 className="text-lg font-semibold text-gray-900 underline">Spice Level</h2>
+                                    <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
+                                      <div>1) Extreme</div>
+                                      <div></div>
+                                      <div>2) Spicy</div>
+                                      <div></div>
+                                      <div>3) Mild</div>
+                                      <div></div>
+                                      <div>4) No Spice</div>
+                                      <div></div>
+                                      <div>5) Naked</div>
                                     </div>
                                   </div>
-                                ))}
-                              </div>
-                              <div className="space-y-4 mb-6">
-                                <h2 className="text-lg font-semibold text-gray-900 underline">Extras</h2>
-                              <div className="space-y-4">
-                                {cart.menu.slice(9, 12).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      {item.name === "Meal - Substitute lemonade" ? (
-                                        <div className="ml-4 flex flex-col items-end">
-                                          <div className="font-semibold">
-                                            <span className="text-gray-900">Small: </span>
-                                            <span className="text-primary">$1.00</span>
-                                          </div>
-                                          <div className="font-semibold">
-                                            <span className="text-gray-900">Large: </span>
-                                            <span className="text-primary">$2.00</span>
-                                          </div>
-                                        </div>
-                                      ) : (
-                                        <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                      )}
-                                    </div>
-                                  </div>
-                                ))}
-                                </div>
-                              </div>
-                              <div className="space-y-4 mb-6">
-                                <h2 className="text-lg font-semibold text-gray-900 underline">Spice Level</h2>
-                              <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
-                                <div>1) Extreme</div>
-                                <div></div>
-                                <div>2) Spicy</div>
-                                <div></div>
-                                <div>3) Mild</div>
-                                <div></div>
-                                <div>4) No Spice</div>
-                                <div></div>
-                                <div>5) Naked</div>
-                              </div>
-                              </div>
-                            </>
+                                </>
+                              );
+                            })()
                           ) : cart.slug === "falafel" ? (
-                            <>
-                              <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Main Dishes</h2>
-                              <div className="space-y-4 mb-6">
-                                {cart.menu.slice(0, 4).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
+                            (() => {
+                              const groupedMenu = cart.menu.reduce((acc, item) => {
+                                const category = item.category || 'Uncategorized';
+                                if (!acc[category]) {
+                                  acc[category] = [];
+                                }
+                                acc[category].push(item);
+                                return acc;
+                              }, {} as Record<string, MenuItem[]>);
 
-                              <div className="space-y-4 mb-6">
-                                {cart.menu.slice(4, 5).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
+                              const categoryOrder = ["Main Dishes"];
 
-                              <div className="space-y-4">
-                                {cart.menu.slice(5, 6).map((item, index) => (
-                                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                    <div className="flex justify-between items-start">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                        <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                      </div>
-                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
+                              return categoryOrder
+                                .filter(category => groupedMenu[category])
+                                .map(category => (
+                                  <React.Fragment key={category}>
+                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+                                    <div className="space-y-4 mb-6">
+                                      {groupedMenu[category].map((item, index) => (
+                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                          <div className="flex justify-between items-start">
+                                            <div className="flex-1">
+                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                            </div>
+                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                          </div>
+                                        </div>
+                                      ))}
                                     </div>
-                                  </div>
-                                ))}
-                              </div>
-                            </>
+                                  </React.Fragment>
+                                ));
+                            })()
                           ) : cart.slug === "crepeuw" ? (
                             <>
                               {(() => {
@@ -596,6 +543,74 @@ export default function IndividualFoodCartDetailPage() {
                               }, {} as Record<string, MenuItem[]>);
 
                               const categoryOrder = ["Ice Cream Scoops", "Milkshakes", "Floats", "Add Ons"];
+
+                              return categoryOrder
+                                .filter(category => groupedMenu[category])
+                                .map(category => (
+                                  <React.Fragment key={category}>
+                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+                                    <div className="space-y-4 mb-6">
+                                      {groupedMenu[category].map((item, index) => (
+                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                          <div className="flex justify-between items-start">
+                                            <div className="flex-1">
+                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                            </div>
+                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </React.Fragment>
+                                ));
+                            })()
+                          ) : cart.slug === "fresh-cool" ? (
+                            (() => {
+                              const groupedMenu = cart.menu.reduce((acc, item) => {
+                                const category = item.category || 'Uncategorized';
+                                if (!acc[category]) {
+                                  acc[category] = [];
+                                }
+                                acc[category].push(item);
+                                return acc;
+                              }, {} as Record<string, MenuItem[]>);
+
+                              const categoryOrder = ["Springrolls"];
+
+                              return categoryOrder
+                                .filter(category => groupedMenu[category])
+                                .map(category => (
+                                  <React.Fragment key={category}>
+                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+                                    <div className="space-y-4 mb-6">
+                                      {groupedMenu[category].map((item, index) => (
+                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                                          <div className="flex justify-between items-start">
+                                            <div className="flex-1">
+                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
+                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                                            </div>
+                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </React.Fragment>
+                                ));
+                            })()
+                          ) : cart.slug === "toast" ? (
+                            (() => {
+                              const groupedMenu = cart.menu.reduce((acc, item) => {
+                                const category = item.category || 'Uncategorized';
+                                if (!acc[category]) {
+                                  acc[category] = [];
+                                }
+                                acc[category].push(item);
+                                return acc;
+                              }, {} as Record<string, MenuItem[]>);
+
+                              const categoryOrder = ["Classic Paninis"];
 
                               return categoryOrder
                                 .filter(category => groupedMenu[category])
