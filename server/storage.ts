@@ -494,19 +494,19 @@ export class MemStorage implements IStorage {
         }
       },
 
-      // Template Cart 2
+      // Toms Coffee
       {
         slug: "toms_coffee",
         name: "Travelin' Tom's Coffee",
         description: "Hot and cold brews made to order",
         image: "TBD",
         category: "drinks",
-        location: "TBD",
-        locationDisplayName: "TBD",
+        location: "multiple-areas",
+        locationDisplayName: "Multiple Areas",
         businessLinks: {
-          website: "https://travelintomscoffee.com",
+          website: "https://travelintomscoffee.com/local-site/travelin-toms-coffee-of-central-madison/",
           instagram: "https://www.instagram.com/travelintomscoffee/",
-          facebook: "https://www.facebook.com/travelintomscoffee"
+          facebook: "https://www.facebook.com/TravelinTomsCoffeeofCentralMadison/"
         },
         menu: [
           { name: "TBD", price: "$TBD", description: "TBD" },
@@ -526,19 +526,19 @@ export class MemStorage implements IStorage {
         }
       },
 
-      // Template Cart 3
+      // Kona Ice
       {
         slug: "kona-ice",
         name: "Kona Ice",
         description: "Snow cones and shaved ice",
         image: "TBD",
         category: "sweet_treats",
-        location: "TBD",
-        locationDisplayName: "TBD",
+        location: "multiple-areas",
+        locationDisplayName: "Multiple Areas",
         businessLinks: {
-          website: "TBD",
-          instagram: "TBD",
-          facebook: "TBD"
+          website: "https://www.kona-ice.com/local-site/kona-ice-of-madison/",
+          instagram: "https://www.instagram.com/konaice/?hl=en",
+          facebook: "https://www.facebook.com/KonaIceofMadison/"
         },
         menu: [
           { name: "TBD", price: "$TBD", description: "TBD" },
