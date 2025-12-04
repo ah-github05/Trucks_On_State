@@ -215,6 +215,32 @@ export default function IndividualFoodCartDetailPage() {
                       />
                     </CardContent>
                   </Card>
+                ) : cart.slug === "roost" ? (
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Menu</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <img
+                        src="/roost-menu_pic.jpg"
+                        alt="The Roost Fried Chicken Menu"
+                        className="w-full rounded-lg"
+                      />
+                    </CardContent>
+                  </Card>
+                ) : cart.slug === "toms_coffee" ? (
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Menu</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <img
+                        src="/toms-menu_pic.jpg"
+                        alt="Travelin' Tom's Coffee Menu"
+                        className="w-full rounded-lg"
+                      />
+                    </CardContent>
+                  </Card>
                 ) : (
                   <Card>
                     <CardHeader>
