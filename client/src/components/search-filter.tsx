@@ -17,7 +17,7 @@ const categories = [
   { value: "asian", label: "Asian" },
   { value: "sandwiches", label: "Sandwiches" },
   { value: "south_american", label: "South American" },
-  { value: "southeast_asian", label: "Southeast Asian" },
+  { value: "south_asian", label: "Southeast Asian" },
   { value: "mexican", label: "Mexican" },
   { value: "american", label: "American" },
   { value: "caribbean", label: "Caribbean" },
