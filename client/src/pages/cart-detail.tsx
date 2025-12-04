@@ -104,7 +104,18 @@ export default function IndividualFoodCartDetailPage() {
                 <div className="space-y-3">
                   <div className="flex items-center text-gray-600">
                     <MapPin className="w-5 h-5 mr-3" />
-                    <span>{cart.locationDisplayName}</span>
+                    {cart.mapsUrl ? (
+                      <a
+                        href={cart.mapsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:text-primary/80 transition-colors hover:underline"
+                      >
+                        {cart.locationDisplayName}
+                      </a>
+                    ) : (
+                      <span>{cart.locationDisplayName}</span>
+                    )}
                   </div>
                 </div>
 
