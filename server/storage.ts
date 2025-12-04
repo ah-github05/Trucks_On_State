@@ -140,11 +140,11 @@ export class MemStorage implements IStorage {
           { name: "Arroz Chaufa", price: "$12.00", description: "Wok stir-fried rice elevated with unique blends of homemade sauces (including sesame oil, soy sauce, & scrambled eggs), cabbage, and organic spring mix with passion fruit dressing.", category: "Vegetarian Dishes" },
           { name: "Pastel De Papa (Scalloped Potatoes)", price: "$12.00", description: "Golden-baked potatoes slices layered with cheese, sliced avocado, cabbage, and organic spring mix with passion fruit dressing.", category: "Vegetarian Dishes" },
 
-          // Extras
-          { name: "Extra avocado", price: "$2.00", description: "", category: "Extras" },
-          { name: "Extra chicken", price: "$6.00", description: "", category: "Extras" },
-          { name: "Switch to cilantro rice", price: "$3.00", description: "", category: "Extras" },
-          { name: "Switch to chaufa rice", price: "$3.00", description: "", category: "Extras" },
+          // Add Ons
+          { name: "Extra avocado", price: "$2.00", description: "", category: "Add Ons" },
+          { name: "Extra chicken", price: "$6.00", description: "", category: "Add Ons" },
+          { name: "Switch to cilantro rice", price: "$3.00", description: "", category: "Add Ons" },
+          { name: "Switch to chaufa rice", price: "$3.00", description: "", category: "Add Ons" },
 
           // Beverages
           { name: "Inka Cola", price: "$3.00", description: "", category: "Beverages" },
@@ -305,12 +305,12 @@ export class MemStorage implements IStorage {
           { name: "Cheese Curds", price: "$6.00", description: " ", category: "Chicken Tenders & Sandwiches" },
           { name: "Coleslaw", price: "$3.00", description: " ", category: "Chicken Tenders & Sandwiches" },
 
-          // Extras
-          { name: "Make it a Meal", price: " ", description: "Includes french fries and a drink.", category: "Extras" },
-          { name: "Meal - Substitute cheese curds", price: "$2.00 ", description: " ", category: "Extras" },
-          { name: "Meal - Substitute lemonade", price: "$1.00 / $2.00", description: " ", category: "Extras" },
-          { name: "Roost Style", price: "Free", description: "Substitute mayo for Roost Sauce.", category: "Extras" },
-          { name: "Dip Chicken in Honey Butter", price: "$1.00", description: " ", category: "Extras" }
+          // Add Ons
+          { name: "Make it a Meal", price: " ", description: "Includes french fries and a drink.", category: "Add Ons" },
+          { name: "Meal - Substitute Cheese Curds", price: "$2.00 ", description: " ", category: "Add Ons" },
+          { name: "Meal - Substitute Lemonade", price: "$1.00 / $2.00", description: " ", category: "Add Ons" },
+          { name: "Roost Style", price: "Free", description: "Substitute mayo for Roost Sauce.", category: "Add Ons" },
+          { name: "Dip Chicken in Honey Butter", price: "$1.00", description: " ", category: "Add Ons" }
         ],
         
         schedule: {
@@ -556,7 +556,61 @@ export class MemStorage implements IStorage {
           "Saturday": "TBD",
           "Sunday": "TBD"
         }
+      },
+
+      {
+        slug: "cinn-city",
+        name: "Cinn City Smash",
+        description: "Smash burgers and sweet churros",
+        image: "TBD",
+        category: "american",
+        location: "multiple-areas",
+        locationDisplayName: "Multiple Areas",
+        businessLinks: {
+          website: "https://cinncitysmash.com/",
+          instagram: "https://www.instagram.com/cinncitysmash/",
+          facebook: "https://www.facebook.com/cinncitysmash/"
+        },
+        menu: [
+          // Smash burgers
+          { name: "Classic", price: "$TBD", description: "Smash sauce, tomato, lettuce, onions, pickles, & american cheese on a brioche bun.", category: "Smash Burgers" },
+          { name: "Veggie", price: "$TBD", description: "Smash sauce, tomato, lettuce, onions, pickles, & american cheese on a brioche bun.", category: "Smash Burgers" },
+          { name: "Vegan", price: "$TBD", description: "Smash sauce, tomato, lettuce, onions, pickles, & american cheese on a brioche bun.", category: "Smash Burgers" },
+
+          // City fries
+          { name: "Regular", price: "$5.00", description: "Tossed with salt.", category: "City Fries" },
+          { name: "Truffle", price: "$6.00", description: "Tossed with truffle oil, parmesan, crushed red pepper, garlic powder, & parsley.", category: "City Fries" },
+
+          // Fresh churros
+          { name: "Plain (Vegan)", price: "$5.00", description: "Rolled in cinnamon sugar.", category: "Fresh Churros" },
+          { name: "Raspberry (Vegan)", price: "$6.00", description: "Rolled in cinnamon sugar. Filled with raspberry puree.", category: "Fresh Churros" },
+          { name: "Nutella", price: "$6.00", description: "Rolled in cinnamon sugar. Filled with nutella.", category: "Fresh Churros" },
+
+          // Add Ons
+          { name: "Smash Burger - Add Fries", price: "$3.00", description: " ", category: "Add Ons" },
+          { name: "Smash Burger - Add Truffle Fries", price: "$4.00", description: " ", category: "Add Ons" },
+          { name: "Smash Burger - Gluten Free Bun", price: "$2.00", description: " ", category: "Add Ons" },
+          { name: "City Fries - Add Smash Sauce", price: "$0.75", description: " ", category: "Add Ons" },
+
+          // Drinks
+          { name: "Pepsi", price: "$2.00", description: " ", category: "Drinks" },
+          { name: "Diet Pepsi", price: "$2.00", description: " ", category: "Drinks" },
+          { name: "Squirt", price: "$2.00", description: " ", category: "Drinks" },
+          { name: "Root Beer", price: "$2.00", description: " ", category: "Drinks" },
+          { name: "Water", price: "$1.00", description: " ", category: "Drinks" },
+
+        ],
+        schedule: {
+          "Monday": "TBD",
+          "Tuesday": "TBD",
+          "Wednesday": "TBD",
+          "Thursday": "TBD",
+          "Friday": "TBD",
+          "Saturday": "TBD",
+          "Sunday": "TBD"
+        }
       }
+
     ];
 
     sampleCarts.forEach(cart => {
