@@ -1,20 +1,4 @@
-import { pgTable, text, serial, integer, boolean, json } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
-
-export const foodCarts = pgTable("food_carts", {
-  id: serial("id").primaryKey(),
-  slug: text("slug").notNull().unique(),
-  name: text("name").notNull(),
-  description: text("description").notNull(),
-  image: text("image").notNull(),
-  category: text("category").notNull(),
-  location: text("location").notNull(),
-  locationDisplayName: text("location_display_name").notNull(),
-  menu: json("menu").$type<MenuItem[]>().notNull(),
-  schedule: json("schedule").$type<Schedule>().notNull(),
-  businessLinks: json("business_links").$type<BusinessLinks>(),
-});
 
 export interface MenuItem {
   name: string;
@@ -35,9 +19,38 @@ export interface BusinessLinks {
   orderOnline?: string;
 }
 
-export const insertFoodCartSchema = createInsertSchema(foodCarts).omit({
-  id: true,
+const menuItemSchema = z.object({
+  name: z.string(),
+  price: z.string(),
+  price2: z.string().optional(),
+  description: z.string(),
+  category: z.string().optional(),
 });
 
+const scheduleSchema = z.record(z.string());
+
+const businessLinksSchema = z.object({
+  website: z.string().optional(),
+  facebook: z.string().optional(),
+  instagram: z.string().optional(),
+  orderOnline: z.string().optional(),
+});
+
+export const foodCartSchema = z.object({
+  id: z.number(),
+  slug: z.string(),
+  name: z.string(),
+  description: z.string(),
+  image: z.string(),
+  category: z.string(),
+  location: z.string(),
+  locationDisplayName: z.string(),
+  menu: z.array(menuItemSchema),
+  schedule: scheduleSchema,
+  businessLinks: businessLinksSchema.optional(),
+});
+
+export const insertFoodCartSchema = foodCartSchema.omit({ id: true });
+
 export type InsertFoodCart = z.infer<typeof insertFoodCartSchema>;
-export type FoodCart = typeof foodCarts.$inferSelect;
+export type FoodCart = z.infer<typeof foodCartSchema>;

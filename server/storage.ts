@@ -1,4 +1,4 @@
-import { foodCarts, type FoodCart, type InsertFoodCart } from "@shared/schema";
+import type { FoodCart, InsertFoodCart } from "@shared/schema";
 
 export interface IStorage {
   getFoodCarts(): Promise<FoodCart[]>;
