@@ -241,6 +241,19 @@ export default function IndividualFoodCartDetailPage() {
                       />
                     </CardContent>
                   </Card>
+                ) : cart.slug === "cinn-city" ? (
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Menu</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <img
+                        src="/cinncity-menu_pic.jpg"
+                        alt="Cinn City Smash Menu"
+                        className="w-full rounded-lg"
+                      />
+                    </CardContent>
+                  </Card>
                 ) : (
                   <Card>
                     <CardHeader>
