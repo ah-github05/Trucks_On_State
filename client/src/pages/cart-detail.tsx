@@ -109,24 +109,74 @@ export default function IndividualFoodCartDetailPage() {
                 </div>
 
                 {/* Schedule */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center">
-                      <Clock className="w-5 h-5 mr-2" />
-                      Hours
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
-                        <div key={day} className="flex justify-between">
-                          <span className="font-medium">{day}</span>
-                          <span className="text-gray-600">{cart.schedule[day]}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                {cart.slug === "kona-ice" ? (
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center">
+                        <Clock className="w-5 h-5 mr-2" />
+                        Hours
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600 mb-4">
+                        Kona Ice travels to various locations on a changing schedule, check out their facebook to see where they will be!
+                      </p>
+                      <div className="mt-4">
+                        <a
+                          href={cart.businessLinks?.facebook || "#"}
+                          className="text-primary hover:text-primary/80 transition-colors"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View Facebook
+                        </a>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ) : cart.slug === "toms_coffee" ? (
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center">
+                        <Clock className="w-5 h-5 mr-2" />
+                        Hours
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600 mb-4">
+                        Travelin' Tom's Coffee travels to various locations on a changing schedule, check out their facebook to see where they will be!
+                      </p>
+                      <div className="mt-4">
+                        <a
+                          href={cart.businessLinks?.facebook || "#"}
+                          className="text-primary hover:text-primary/80 transition-colors"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View Facebook
+                        </a>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ) : (
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center">
+                        <Clock className="w-5 h-5 mr-2" />
+                        Hours
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2">
+                        {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
+                          <div key={day} className="flex justify-between">
+                            <span className="font-medium">{day}</span>
+                            <span className="text-gray-600">{cart.schedule[day]}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
               </div>
 
               {/* Menu */}
@@ -141,8 +191,8 @@ export default function IndividualFoodCartDetailPage() {
                         Sandwich Hub has a rotating menu and is subject to change. Please check their website to find the menu of the day!
                       </p>
                       <div className="mt-4">
-                        <a 
-                          href="https://www.sandwichhubmadison.com/menu" 
+                        <a
+                          href="https://www.sandwichhubmadison.com/menu"
                           className="text-primary hover:text-primary/80 transition-colors"
                           target="_blank"
                           rel="noopener noreferrer"
