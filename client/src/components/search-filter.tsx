@@ -36,7 +36,7 @@ const locations = [
   { value: "west-side", label: "West Side" },
   { value: "southeast-campus", label: "Southeast Campus" },
   { value: "capitol-square", label: "Capitol Square" },
-  { value: "all-over", label: "All Over" },
+  { value: "multiple-areas", label: "Multiple Areas" },
 
   
 ]
