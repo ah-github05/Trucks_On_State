@@ -29,7 +29,7 @@ export class MemStorage implements IStorage {
         category: "asian",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=43.074889,-89.398194",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
         businessLinks: {},
         menu: [
           { name: "Avocado", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
@@ -59,7 +59,7 @@ export class MemStorage implements IStorage {
         category: "sandwiches",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=43.074889,-89.398194",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
         businessLinks: {
           website: "https://toastmadison.com",
           instagram: "https://www.instagram.com/toastmadison?igsh=bDRmNjJzZm5sdWIy",
@@ -98,7 +98,7 @@ export class MemStorage implements IStorage {
         category: "sandwiches",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=43.074889,-89.398194",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
         businessLinks: {
           website: "https://www.sandwichhubmadison.com",
           instagram: "https://www.instagram.com/sandwich.hub.madison?igsh=cWFsdmVkMHBqenM4",
@@ -126,7 +126,7 @@ export class MemStorage implements IStorage {
         category: "south_american",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=43.074889,-89.398194",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
         businessLinks: {
           website: "https://www.surcocart.com",
           facebook: "https://www.facebook.com/SurcoCart/",
@@ -177,7 +177,7 @@ export class MemStorage implements IStorage {
         category: "south_asian",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=43.074889,-89.398194",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
         businessLinks: {
           instagram: "https://www.instagram.com/bombayfastcafe?utm_source=ig_web_button_share_sheet&igsh=enJzc25kaWZodTZt",
         },
@@ -244,7 +244,7 @@ export class MemStorage implements IStorage {
         category: "mexican",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=43.074889,-89.398194",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
         businessLinks: {
           facebook: "https://www.facebook.com/jollyfrogllc?mibextid=wwXIfr"
         },
@@ -291,7 +291,7 @@ export class MemStorage implements IStorage {
         category: "american",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=43.074889,-89.398194",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
         businessLinks: {
           website: "https://www.theroostfriedchicken.com",
           instagram: "https://www.instagram.com/theroostfriedchicken?utm_source=ig_web_button_share_sheet&igsh=MTdueWhrd3BnMjdzcw==",
@@ -341,7 +341,7 @@ export class MemStorage implements IStorage {
         category: "caribbean",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=43.074889,-89.398194",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
         businessLinks: {
           instagram: "Thttps://www.instagram.com/mjjamaicankitchn/?hl=enBD",
           facebook: "https://www.facebook.com/MJJamaicanK/"
@@ -379,7 +379,7 @@ export class MemStorage implements IStorage {
         category: "middle_eastern",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=43.074889,-89.398194",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
         businessLinks: {
           website: "https://kingoffalafel.dine.online/locations/2964238?fulfillment=pickup",
 
@@ -411,7 +411,7 @@ export class MemStorage implements IStorage {
         category: "sweet_treats",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=43.074889,-89.398194",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
         businessLinks: {
           instagram: "https://www.instagram.com/crepuwmadison?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
           facebook: "https://www.facebook.com/crepuwmadison"
