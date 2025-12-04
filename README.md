@@ -261,12 +261,6 @@ vercel --prod
 - Each time a commit is sent to the remote repo, npm run build occurs. Rather than have API endpoints set up, doing this overwrites and republishes a static json file called carts.json. This file is then used to load the webiste. 
 - By doing this, frontpage loading times are optomized for speed. However, this reqiures that any updates must be pushed to the repo and a vercel redeploy must trigger in order to reflect the changes on the live site.
 
-### Code Style
-- TypeScript for type safety
-- ESLint configuration included
-- Semantic CSS class names
-- Component-based architecture
-
 ## 📧 Contact
 
 For questions, suggestions, or to add your food cart to the platform:
