@@ -496,17 +496,17 @@ export class MemStorage implements IStorage {
 
       // Template Cart 2
       {
-        slug: "template-cart-2",
-        name: "TBD",
-        description: "TBD",
+        slug: "toms_coffee",
+        name: "Travelin' Tom's Coffee",
+        description: "Hot and cold brews made to order",
         image: "TBD",
-        category: "TBD",
+        category: "drinks",
         location: "TBD",
         locationDisplayName: "TBD",
         businessLinks: {
-          website: "TBD",
-          instagram: "TBD",
-          facebook: "TBD"
+          website: "https://travelintomscoffee.com",
+          instagram: "https://www.instagram.com/travelintomscoffee/",
+          facebook: "https://www.facebook.com/travelintomscoffee"
         },
         menu: [
           { name: "TBD", price: "$TBD", description: "TBD" },
@@ -528,11 +528,11 @@ export class MemStorage implements IStorage {
 
       // Template Cart 3
       {
-        slug: "template-cart-3",
-        name: "TBD",
-        description: "TBD",
+        slug: "kona-ice",
+        name: "Kona Ice",
+        description: "Snow cones and shaved ice",
         image: "TBD",
-        category: "TBD",
+        category: "sweet_treats",
         location: "TBD",
         locationDisplayName: "TBD",
         businessLinks: {
