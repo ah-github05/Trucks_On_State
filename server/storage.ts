@@ -29,7 +29,7 @@ export class MemStorage implements IStorage {
         category: "asian",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=State+Street+Library+Mall+Madison+WI",
+        mapsUrl: "https://maps.google.com/?q=704-712+State+St+North+Stacks+Madison+WI+53703",
         businessLinks: {},
         menu: [
           { name: "Avocado", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
@@ -59,7 +59,7 @@ export class MemStorage implements IStorage {
         category: "sandwiches",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=State+Street+Library+Mall+Madison+WI",
+        mapsUrl: "https://maps.google.com/?q=704-712+State+St+North+Stacks+Madison+WI+53703",
         businessLinks: {
           website: "https://toastmadison.com",
           instagram: "https://www.instagram.com/toastmadison?igsh=bDRmNjJzZm5sdWIy",
@@ -98,7 +98,7 @@ export class MemStorage implements IStorage {
         category: "sandwiches",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=State+Street+Library+Mall+Madison+WI",
+        mapsUrl: "https://maps.google.com/?q=704-712+State+St+North+Stacks+Madison+WI+53703",
         businessLinks: {
           website: "https://www.sandwichhubmadison.com",
           instagram: "https://www.instagram.com/sandwich.hub.madison?igsh=cWFsdmVkMHBqenM4",
@@ -126,7 +126,7 @@ export class MemStorage implements IStorage {
         category: "south_american",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=State+Street+Library+Mall+Madison+WI",
+        mapsUrl: "https://maps.google.com/?q=704-712+State+St+North+Stacks+Madison+WI+53703",
         businessLinks: {
           website: "https://www.surcocart.com",
           facebook: "https://www.facebook.com/SurcoCart/",
@@ -177,7 +177,7 @@ export class MemStorage implements IStorage {
         category: "south_asian",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=State+Street+Library+Mall+Madison+WI",
+        mapsUrl: "https://maps.google.com/?q=704-712+State+St+North+Stacks+Madison+WI+53703",
         businessLinks: {
           instagram: "https://www.instagram.com/bombayfastcafe?utm_source=ig_web_button_share_sheet&igsh=enJzc25kaWZodTZt",
         },
@@ -244,7 +244,7 @@ export class MemStorage implements IStorage {
         category: "mexican",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=State+Street+Library+Mall+Madison+WI",
+        mapsUrl: "https://maps.google.com/?q=704-712+State+St+North+Stacks+Madison+WI+53703",
         businessLinks: {
           facebook: "https://www.facebook.com/jollyfrogllc?mibextid=wwXIfr"
         },
@@ -291,7 +291,7 @@ export class MemStorage implements IStorage {
         category: "american",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=State+Street+Library+Mall+Madison+WI",
+        mapsUrl: "https://maps.google.com/?q=704-712+State+St+North+Stacks+Madison+WI+53703",
         businessLinks: {
           website: "https://www.theroostfriedchicken.com",
           instagram: "https://www.instagram.com/theroostfriedchicken?utm_source=ig_web_button_share_sheet&igsh=MTdueWhrd3BnMjdzcw==",
@@ -341,7 +341,7 @@ export class MemStorage implements IStorage {
         category: "caribbean",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=State+Street+Library+Mall+Madison+WI",
+        mapsUrl: "https://maps.google.com/?q=704-712+State+St+North+Stacks+Madison+WI+53703",
         businessLinks: {
           instagram: "Thttps://www.instagram.com/mjjamaicankitchn/?hl=enBD",
           facebook: "https://www.facebook.com/MJJamaicanK/"
@@ -379,7 +379,7 @@ export class MemStorage implements IStorage {
         category: "middle_eastern",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=State+Street+Library+Mall+Madison+WI",
+        mapsUrl: "https://maps.google.com/?q=704-712+State+St+North+Stacks+Madison+WI+53703",
         businessLinks: {
           website: "https://kingoffalafel.dine.online/locations/2964238?fulfillment=pickup",
 
@@ -411,7 +411,7 @@ export class MemStorage implements IStorage {
         category: "sweet_treats",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
-        mapsUrl: "https://maps.google.com/?q=State+Street+Library+Mall+Madison+WI",
+        mapsUrl: "https://maps.google.com/?q=704-712+State+St+North+Stacks+Madison+WI+53703",
         businessLinks: {
           instagram: "https://www.instagram.com/crepuwmadison?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
           facebook: "https://www.facebook.com/crepuwmadison"
@@ -510,7 +510,6 @@ export class MemStorage implements IStorage {
         category: "drinks",
         location: "multiple-areas",
         locationDisplayName: "Multiple Areas",
-        mapsUrl: "https://maps.google.com/?q=Madison+WI",
         businessLinks: {
           website: "https://travelintomscoffee.com/local-site/travelin-toms-coffee-of-central-madison/",
           instagram: "https://www.instagram.com/travelintomscoffee/",
@@ -543,7 +542,6 @@ export class MemStorage implements IStorage {
         category: "sweet_treats",
         location: "multiple-areas",
         locationDisplayName: "Multiple Areas",
-        mapsUrl: "https://maps.google.com/?q=Madison+WI",
         businessLinks: {
           website: "https://www.kona-ice.com/local-site/kona-ice-of-madison/",
           instagram: "https://www.instagram.com/konaice/?hl=en",
@@ -575,7 +573,6 @@ export class MemStorage implements IStorage {
         category: "american",
         location: "multiple-areas",
         locationDisplayName: "Multiple Areas",
-        mapsUrl: "https://maps.google.com/?q=Madison+WI",
         businessLinks: {
           website: "https://cinncitysmash.com/",
           instagram: "https://www.instagram.com/cinncitysmash/",
