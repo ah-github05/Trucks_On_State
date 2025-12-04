@@ -26,7 +26,19 @@ export default function IndividualFoodCartCard({ cart }: CartCardProps) {
         <p className="cart-card-description">{cart.description}</p>
         <div className="cart-card-location">
           <MapPin className="cart-location-icon" />
-          <span className="cart-location-text">{cart.locationDisplayName}</span>
+          {cart.mapsUrl ? (
+            <a
+              href={cart.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cart-location-text text-primary hover:text-primary/80 transition-colors hover:underline"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {cart.locationDisplayName}
+            </a>
+          ) : (
+            <span className="cart-location-text">{cart.locationDisplayName}</span>
+          )}
         </div>
         <div className="cart-card-footer">
           <span className={`cart-status ${

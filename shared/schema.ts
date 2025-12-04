@@ -45,6 +45,7 @@ export const foodCartSchema = z.object({
   category: z.string(),
   location: z.string(),
   locationDisplayName: z.string(),
+  mapsUrl: z.string().optional(),
   menu: z.array(menuItemSchema),
   schedule: scheduleSchema,
   businessLinks: businessLinksSchema.optional(),
