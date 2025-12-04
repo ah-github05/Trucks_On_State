@@ -22,7 +22,9 @@ const categories = [
   { value: "american", label: "American" },
   { value: "caribbean", label: "Caribbean" },
   { value: "middle_eastern", label: "Middle Eastern" },
-  { value: "sweet_treats", label: "Sweet Treats" }
+  { value: "sweet_treats", label: "Sweet Treats" },
+  { value: "drinks", label: "Drinks" }
+
 
   // When adding a new label go to index.css and add the corresponding classes for active and inactive states
 ];
@@ -33,7 +35,10 @@ const locations = [
   { value: "state-street-library-mall", label: "State Street & Library Mall" },
   { value: "west-side", label: "West Side" },
   { value: "southeast-campus", label: "Southeast Campus" },
-  { value: "capitol-square", label: "Capitol Square" }
+  { value: "capitol-square", label: "Capitol Square" },
+  { value: "all-over", label: "All Over" },
+
+  
 ]
   // When adding a new label go to index.css and add the corresponding classes for active and inactive states
 
