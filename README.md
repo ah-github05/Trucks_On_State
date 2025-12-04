@@ -14,20 +14,18 @@ A centralized web application for discovering and exploring food carts throughou
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **React 18** with TypeScript
+- **React 19** with TypeScript
 - **Vite** - Lightning-fast build tool
 - **Wouter** - Lightweight client-side routing
 - **TailwindCSS** - Utility-first styling
 - **shadcn/ui** - Beautifully designed components
-- **Tanstack Query** - Powerful data fetching and caching
 - **Radix UI** - Accessible component primitives
 - **Framer Motion** - Animation library
 
-### Backend
-- **Express.js** - Node.js web framework
+### Backend (Development Only)
+- **Express.js** - Node.js web framework for local development
 - **TypeScript** - Type-safe development
-- **In-Memory Storage** - Fast data access with seeded cart data
-- **Drizzle ORM** - Type-safe SQL query builder (configured for future PostgreSQL integration)
+- **Static JSON Export** - Production uses pre-generated `carts.json` file
 
 ### Deployment
 - **Vercel** - Serverless deployment platform
@@ -37,28 +35,35 @@ A centralized web application for discovering and exploring food carts throughou
 ## 📁 Project Structure
 
 ```
-Trucks_On_State/
-├── api/                    # Vercel serverless functions
-│   └── index.ts           # Main API handler
-├── client/                # Frontend React application
-│   ├── public/           # Static assets (images)
+Capital_City_Food_Carts/
+├── attached_assets/      # Source images (for processing/archival)
+├── client/              # Frontend React application
+│   ├── public/          # Static assets (images, carts.json)
 │   ├── src/
-│   │   ├── components/   # Reusable UI components
-│   │   ├── lib/          # Utility functions
-│   │   ├── pages/        # Page components
-│   │   └── main.tsx      # Application entry point
+│   │   ├── components/  # Reusable UI components
+│   │   │   └── ui/      # shadcn/ui components
+│   │   ├── hooks/       # Custom React hooks
+│   │   ├── lib/         # Utility functions
+│   │   ├── pages/       # Page components
+│   │   ├── App.tsx      # Main app component
+│   │   └── main.tsx     # Application entry point
 │   └── index.html
-├── server/               # Backend Express application
+├── server/              # Development server (not deployed)
 │   ├── index.ts         # Server entry point
-│   ├── routes.ts        # API route definitions
-│   ├── storage.ts       # Data storage implementation
+│   ├── routes.ts        # API route definitions (dev only)
+│   ├── storage.ts       # Food cart data source
 │   └── vite.ts          # Vite dev server configuration
+├── scripts/             # Build and utility scripts
+│   ├── export-carts.ts  # Exports storage.ts to carts.json
+│   └── crop-image.py    # Image preprocessing script
 ├── shared/              # Shared TypeScript types/schemas
 │   └── schema.ts        # Food cart data schema
 ├── dist/                # Production build output
-│   ├── public/         # Frontend static files
-│   └── index.js        # Compiled server
-└── vercel.json         # Vercel deployment configuration
+│   └── public/          # Static files deployed to Vercel
+│       ├── assets/      # Vite-bundled JS/CSS
+│       ├── carts.json   # Generated cart data
+│       └── *.jpg        # Cart images
+└── vercel.json          # Vercel deployment configuration
 ```
 
 ## 🚀 Getting Started
@@ -92,8 +97,8 @@ npm run dev
 The application will be available at `http://localhost:5000`
 
 - Frontend hot module replacement (HMR) is enabled via Vite
-- Backend server runs on port 5000
-- API routes are available at `/api/*`
+- Backend Express server runs on port 5000 for development
+- API routes available at `/api/*` (development only)
 
 ### Building for Production
 
@@ -102,8 +107,9 @@ npm run build
 ```
 
 This command:
-1. Builds the React frontend with Vite → `dist/public/`
-2. Bundles the Express server with esbuild → `dist/index.js`
+1. Exports cart data from `storage.ts` to `carts.json`
+2. Builds the React frontend with Vite → `dist/public/`
+3. Bundles the Express server with esbuild → `dist/index.js` (not used in production)
 
 ### Running Production Build Locally
 
@@ -111,68 +117,7 @@ This command:
 npm start
 ```
 
-## 📡 API Documentation
-
-### Base URL
-- Development: `http://localhost:5000/api`
-- Production: `https://your-domain.vercel.app/api`
-
-### Endpoints
-
-#### Get All Food Trucks
-```http
-GET /api/food-carts
-```
-
-**Response:**
-```json
-[
-  {
-    "id": 1,
-    "slug": "roost",
-    "name": "The Roost Fried Chicken",
-    "description": "Crispy fried chicken with spicy dry rubs",
-    "image": "/roost_pic.jpg",
-    "category": "american",
-    "location": "state-street-library-mall",
-    "locationDisplayName": "State Street & Library Mall",
-    "businessLinks": {
-      "website": "https://www.theroostfriedchicken.com",
-      "instagram": "...",
-      "facebook": "..."
-    },
-    "menu": [...],
-    "schedule": {...}
-  }
-]
-```
-
-#### Get Food Truck by Slug
-```http
-GET /api/food-carts/:slug
-```
-
-**Parameters:**
-- `slug` (string) - Unique identifier for the food cart
-
-**Response:** Single food cart object or 404 if not found
-
-#### Search Food Trucks
-```http
-GET /api/food-carts/search/:query
-```
-
-**Parameters:**
-- `query` (string) - Search term to match against cart name, description, or category
-
-#### Filter by Category
-```http
-GET /api/food-carts/category/:category
-```
-
-**Parameters:**
-- `category` (string) - Category to filter by (e.g., "american", "asian", "mexican")
-- Use "all" to return all carts
+Note: This runs the Express server locally. In production on Vercel, only static files are served.
 
 ## 🎨 Design System
 
@@ -192,29 +137,25 @@ The application uses shadcn/ui components with custom Tailwind styling:
 
 ## 🔧 Configuration
 
-### Environment Variables
-Currently, the application doesn't require environment variables for basic operation. Future PostgreSQL integration will require:
-
-```env
-DATABASE_URL=your_postgresql_connection_string
-```
-
 ### Vercel Configuration
-The `vercel.json` file configures serverless deployment:
-- API routes are handled by `api/index.ts`
+The `vercel.json` file configures static site deployment:
 - Static assets served from `dist/public`
 - Client-side routing supported via rewrites
+- No serverless functions used
 
-## 📝 Adding New Food Trucks
+## 📝 Adding New Food Carts
 
-To add a new food cart, edit `server/storage.ts`:
+To add a new food cart:
+
+1. Add the cart's image to `client/public/` (e.g., `new-cart.jpg`)
+2. Edit `server/storage.ts` and add a new cart object:
 
 ```typescript
 {
   slug: "unique-cart-slug",
-  name: "Truck Name",
+  name: "Cart Name",
   description: "Brief description",
-  image: "/cart-image.jpg", // Place image in client/public/
+  image: "/cart-image.jpg",
   category: "cuisine-category",
   location: "location-slug",
   locationDisplayName: "Display Name",
@@ -232,6 +173,9 @@ To add a new food cart, edit `server/storage.ts`:
   }
 }
 ```
+
+3. Run `npm run build` to regenerate `carts.json`
+4. Commit and push to trigger Vercel deployment
 
 ## 🚢 Deployment
 
@@ -257,9 +201,24 @@ To add a new food cart, edit `server/storage.ts`:
 vercel --prod
 ```
 
-### Current Deployment Strategy
-- Each time a commit is sent to the remote repo, npm run build occurs. Rather than have API endpoints set up, doing this overwrites and republishes a static json file called carts.json. This file is then used to load the webiste. 
-- By doing this, frontpage loading times are optomized for speed. However, this reqiures that any updates must be pushed to the repo and a vercel redeploy must trigger in order to reflect the changes on the live site.
+### Deployment Architecture
+
+**Static Export Strategy:**
+- Production uses a fully static site (no serverless functions)
+- `npm run build` generates `carts.json` from `server/storage.ts`
+- Vercel serves pre-built static files from `dist/public/`
+- Client fetches `/carts.json` directly (no API calls)
+
+**Benefits:**
+- Lightning-fast page loads (no API latency)
+- Lower hosting costs (no serverless compute)
+- Better caching and CDN distribution
+- Improved reliability
+
+**Trade-off:**
+- Updates require rebuild and redeployment
+- No real-time data updates
+- Manual process for content changes
 
 ## 📧 Contact
 
