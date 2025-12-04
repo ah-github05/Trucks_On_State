@@ -562,7 +562,7 @@ export class MemStorage implements IStorage {
         slug: "cinn-city",
         name: "Cinn City Smash",
         description: "Smash burgers and sweet churros",
-        image: "TBD",
+        image: "/cinn_pic.jpg",
         category: "american",
         location: "multiple-areas",
         locationDisplayName: "Multiple Areas",
