@@ -483,14 +483,8 @@ export class MemStorage implements IStorage {
         menu: [
           { name: "Single-Serve Ice Cream Containers", price: "$6.00", description: "Flavors vary on what is available.", category: "Ice Cream" }
         ],
-        schedule: {
-          "Monday": "Closed",
-          "Tuesday": "Closed",
-          "Wednesday": "Closed",
-          "Thursday": "Closed",
-          "Friday": "Closed",
-          "Saturday": "Closed", // Market day: 8:00 am - 1:00 pm
-          "Sunday": "Closed"
+        schedule: { // Typical hours: Saturdays from 8:00 am - 1:00 pm
+          "Closed for the winter. Reopens during Farmers' Market season (May - November).": ""
         }
       },
 
