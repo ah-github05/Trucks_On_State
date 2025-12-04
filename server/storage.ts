@@ -170,7 +170,7 @@ export class MemStorage implements IStorage {
         name: "Bombay Fast",
         description: "Hearty dishes from the streets of Bombay",
         image: "https://bloximages.chicago2.vip.townnews.com/captimes.com/content/tncms/assets/v3/editorial/6/86/686e01e1-6dcf-5678-bba6-30383ae84644/60f6c1e8cf21f.image.jpg?resize=1396%2C930",
-        category: "southeast_asian",
+        category: "south_asian",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         businessLinks: {
@@ -435,7 +435,7 @@ export class MemStorage implements IStorage {
         name: "Naan Stop Fusion",
         description: "Warm naan sandwiches",
         image: "/naan_pic.jpg",
-        category: "southeast_asian",
+        category: "south_asian",
         location: "west-side",
         locationDisplayName: "6640 Odana Rd, Madison, WI 53719",
         businessLinks: {
