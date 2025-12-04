@@ -202,6 +202,19 @@ export default function IndividualFoodCartDetailPage() {
                       </div>
                     </CardContent>
                   </Card>
+                ) : cart.slug === "kona-ice" ? (
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Menu</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <img
+                        src="/konaice-menu_pic.jpg"
+                        alt="Kona Ice Menu"
+                        className="w-full rounded-lg"
+                      />
+                    </CardContent>
+                  </Card>
                 ) : (
                   <Card>
                     <CardHeader>
