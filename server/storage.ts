@@ -497,7 +497,7 @@ export class MemStorage implements IStorage {
           { name: "Single-Serve Ice Cream Containers", price: "$6.00", description: "Flavors vary on what is available.", category: "Ice Cream" }
         ],
         schedule: { // Typical hours: Saturdays from 8:00 am - 1:00 pm
-          "Closed during winter. Reopens in May at the start of the Farmers' Market season until November.": ""
+          "Closed during the winter. Reopens in May at the start of the Farmers' Market season.": ""
         }
       },
 
@@ -565,6 +565,7 @@ export class MemStorage implements IStorage {
         }
       },
 
+      // Cinn City Smash
       {
         slug: "cinn-city",
         name: "Cinn City Smash",
