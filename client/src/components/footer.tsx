@@ -1,8 +1,17 @@
 import { ShoppingCart, Mail, MapPin } from "lucide-react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 
 export default function SiteContactFooter() {
+  const [location, setLocation] = useLocation();
+
   const scrollToSection = (sectionId: string) => {
+    // If we're not on the homepage, navigate there first with hash
+    if (location !== '/') {
+      setLocation(`/#${sectionId}`);
+      return;
+    }
+
+    // If we're on the homepage, scroll to the section
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
