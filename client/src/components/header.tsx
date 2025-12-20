@@ -1,22 +1,44 @@
-import { useState } from "react";
-import { Link } from "wouter";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
 import { Truck, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function SiteNavigationHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location, setLocation] = useLocation();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const scrollToSection = (sectionId: string) => {
+    // If we're not on the homepage, navigate there first with hash
+    if (location !== '/') {
+      setLocation(`/#${sectionId}`);
+      return;
+    }
+
+    // If we're on the homepage, scroll to the section
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
   };
+
+  // Handle scrolling when page loads with a hash
+  useEffect(() => {
+    const hash = window.location.hash.slice(1); // Remove the # character
+    if (hash && location === '/') {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location]);
 
   return (
     <header className="main-header">
