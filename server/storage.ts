@@ -508,8 +508,8 @@ export class MemStorage implements IStorage {
         description: "Hot and cold brews made to order",
         image: "/tomscoffee_pic.jpg",
         category: "drinks",
-        location: "multiple-areas",
-        locationDisplayName: "Multiple Areas",
+        location: "traveling",
+        locationDisplayName: "Traveling",
         businessLinks: {
           website: "https://travelintomscoffee.com/local-site/travelin-toms-coffee-of-central-madison/",
           instagram: "https://www.instagram.com/travelintomscoffee/",
@@ -540,8 +540,8 @@ export class MemStorage implements IStorage {
         description: "Snow cones and shaved ice",
         image: "/konaice_pic.jpg",
         category: "sweet_treats",
-        location: "multiple-areas",
-        locationDisplayName: "Multiple Areas",
+        location: "traveling",
+        locationDisplayName: "Traveling",
         businessLinks: {
           website: "https://www.kona-ice.com/local-site/kona-ice-of-madison/",
           instagram: "https://www.instagram.com/konaice/?hl=en",
@@ -572,8 +572,8 @@ export class MemStorage implements IStorage {
         description: "Smash burgers and sweet churros",
         image: "/cinncity_pic.jpg",
         category: "american",
-        location: "multiple-areas",
-        locationDisplayName: "Multiple Areas",
+        location: "traveling",
+        locationDisplayName: "Traveling",
         businessLinks: {
           website: "https://cinncitysmash.com/",
           instagram: "https://www.instagram.com/cinncitysmash/",
@@ -607,6 +607,38 @@ export class MemStorage implements IStorage {
           { name: "Root Beer", price: "$2.00", description: " ", category: "Drinks" },
           { name: "Water", price: "$1.00", description: " ", category: "Drinks" },
 
+        ],
+        schedule: {
+          "Monday": "TBD",
+          "Tuesday": "TBD",
+          "Wednesday": "TBD",
+          "Thursday": "TBD",
+          "Friday": "TBD",
+          "Saturday": "TBD",
+          "Sunday": "TBD"
+        }
+      },
+
+      // Culinary Nirvana
+      {
+        slug: "nirvana",
+        name: "Culinary Nirvana",
+        description: "TBD",
+        image: "TBD",
+        category: "american",
+        location: "traveling",
+        locationDisplayName: "Traveling",
+        businessLinks: {
+          website: "https://www.culinarynirvanallc.com",
+          instagram: "https://www.facebook.com/p/Culinary-Nirvana-61556890915815/",
+          facebook: "https://www.instagram.com/culinary.nirvana/?hl=en"
+        },
+        menu: [
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" }
         ],
         schedule: {
           "Monday": "TBD",
