@@ -172,7 +172,7 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
     type: 'categorized',
     categoryOrder: ["Main Dishes"]
   },
-  "crepeuw": {
+  "crepeuw": { //FIXME: issue with menu. Add bombay
     type: 'categorized',
     categoryOrder: ["Crepes", "Crepe Sushi"]
   },
