@@ -11,6 +11,492 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { FoodCart, MenuItem } from "@shared/schema";
 
+// Utility function to group menu items by category
+function groupMenuByCategory(menu: MenuItem[]): Record<string, MenuItem[]> {
+  return menu.reduce((acc, item) => {
+    const category = item.category || 'Uncategorized';
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(item);
+    return acc;
+  }, {} as Record<string, MenuItem[]>);
+}
+
+// Standard menu item component
+interface MenuItemProps {
+  item: MenuItem;
+  index: number;
+}
+
+function StandardMenuItem({ item, index }: MenuItemProps) {
+  return (
+    <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+      <div className="flex justify-between items-start">
+        <div className="flex-1">
+          <h5 className="font-medium text-gray-900">{item.name}</h5>
+          <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+        </div>
+        <span className="font-semibold text-primary ml-4">{item.price}</span>
+      </div>
+    </div>
+  );
+}
+
+// Dual price menu item component (for items with small/large pricing)
+interface DualPriceMenuItemProps {
+  item: MenuItem;
+  index: number;
+  smallPrice: string;
+  largePrice: string;
+}
+
+function DualPriceMenuItem({ item, index, smallPrice, largePrice }: DualPriceMenuItemProps) {
+  return (
+    <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+      <div className="flex justify-between items-start">
+        <div className="flex-1">
+          <h5 className="font-medium text-gray-900">{item.name}</h5>
+          <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+        </div>
+        <div className="ml-4 flex flex-col items-end">
+          <div className="font-semibold">
+            <span className="text-gray-900">Small: </span>
+            <span className="text-primary">{smallPrice}</span>
+          </div>
+          <div className="font-semibold">
+            <span className="text-gray-900">Large: </span>
+            <span className="text-primary">{largePrice}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Menu category component
+interface MenuCategoryProps {
+  category: string;
+  items: MenuItem[];
+  renderItem?: (item: MenuItem, index: number) => React.ReactElement;
+}
+
+function MenuCategory({ category, items, renderItem }: MenuCategoryProps) {
+  const defaultRenderItem = (item: MenuItem, index: number) => (
+    <StandardMenuItem item={item} index={index} key={index} />
+  );
+
+  return (
+    <React.Fragment>
+      <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+      <div className="space-y-4 mb-6">
+        {items.map(renderItem || defaultRenderItem)}
+      </div>
+    </React.Fragment>
+  );
+}
+
+// Categorized menu renderer
+interface CategorizedMenuProps {
+  menu: MenuItem[];
+  categoryOrder: string[];
+  renderItem?: (item: MenuItem, index: number) => React.ReactElement;
+}
+
+function CategorizedMenu({ menu, categoryOrder, renderItem }: CategorizedMenuProps) {
+  const groupedMenu = groupMenuByCategory(menu);
+
+  return (
+    <>
+      {categoryOrder
+        .filter(category => groupedMenu[category])
+        .map(category => (
+          <MenuCategory
+            key={category}
+            category={category}
+            items={groupedMenu[category]}
+            renderItem={renderItem}
+          />
+        ))}
+    </>
+  );
+}
+
+// Menu configuration for special cart-specific rendering
+interface MenuConfig {
+  type: 'external-link' | 'image' | 'categorized' | 'roost-special' | 'surco-special' | 'crepeuw-special' | 'default';
+  externalUrl?: string;
+  externalMessage?: string;
+  externalLinkText?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  categoryOrder?: string[];
+}
+
+const MENU_CONFIG: Record<string, MenuConfig> = {
+  "sandwich-hub": {
+    type: 'external-link',
+    externalUrl: 'https://www.sandwichhubmadison.com/menu',
+    externalMessage: 'Sandwich Hub has a rotating menu and is subject to change. Please check their website to find the menu of the day!',
+    externalLinkText: "View Today's Menu"
+  },
+  "kona-ice": {
+    type: 'image',
+    imageSrc: '/konaice-menu_pic.jpg',
+    imageAlt: 'Kona Ice Menu'
+  },
+  "roost": {
+    type: 'roost-special',
+    imageSrc: '/roost-menu_pic.jpg',
+    imageAlt: 'The Roost Fried Chicken Menu'
+  },
+  "toms_coffee": {
+    type: 'image',
+    imageSrc: '/toms-menu_pic.jpg',
+    imageAlt: "Travelin' Tom's Coffee Menu"
+  },
+  "cinn-city": {
+    type: 'image',
+    imageSrc: '/cinncity-menu_pic.jpg',
+    imageAlt: 'Cinn City Smash Menu'
+  },
+  "jolly-frog": {
+    type: 'categorized',
+    categoryOrder: ["Tacos with Rice & Beans (2 per order)", "Burrito / Bowl (chips on the side)", "Tostadas with Rice (2 per order)", "Build Your Own", "Nachos", "Drinks"]
+  },
+  "surco": {
+    type: 'surco-special',
+    categoryOrder: ["Chicken Dishes", "Vegetarian Dishes", "Extras", "Beverages"]
+  },
+  "falafel": {
+    type: 'categorized',
+    categoryOrder: ["Main Dishes"]
+  },
+  "crepeuw": {
+    type: 'crepeuw-special',
+    categoryOrder: ["Crepes", "Crepe Sushi"]
+  },
+  "mj-jamaican": {
+    type: 'categorized',
+    categoryOrder: ["Plates", "Sides"]
+  },
+  "naan_stop": {
+    type: 'categorized',
+    categoryOrder: ["Naan Folds", "Sides", "Drinks"]
+  },
+  "stellies": {
+    type: 'categorized',
+    categoryOrder: ["Ice Cream"]
+  },
+  "fresh-cool": {
+    type: 'categorized',
+    categoryOrder: ["Spring Rolls"]
+  },
+  "toast": {
+    type: 'categorized',
+    categoryOrder: ["Classic Paninis"]
+  }
+};
+
+// Menu content component to handle all menu rendering patterns
+interface MenuContentProps {
+  cart: FoodCart;
+}
+
+function MenuContent({ cart }: MenuContentProps) {
+  const config = MENU_CONFIG[cart.slug] || { type: 'default' as const };
+
+  switch (config.type) {
+    case 'external-link':
+      return (
+        <>
+          <p className="text-gray-600 mb-4">{config.externalMessage}</p>
+          <div className="mt-4">
+            <a
+              href={config.externalUrl}
+              className="text-primary hover:text-primary/80 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {config.externalLinkText}
+            </a>
+          </div>
+        </>
+      );
+
+    case 'image':
+      return (
+        <img
+          src={config.imageSrc}
+          alt={config.imageAlt}
+          className="w-full rounded-lg"
+        />
+      );
+
+    case 'roost-special':
+      return <RoostMenu cart={cart} />;
+
+    case 'surco-special':
+      return <SurcoMenu cart={cart} categoryOrder={config.categoryOrder || []} />;
+
+    case 'crepeuw-special':
+      return <CrepeuwMenu cart={cart} categoryOrder={config.categoryOrder || []} />;
+
+    case 'categorized':
+      return <CategorizedMenu menu={cart.menu} categoryOrder={config.categoryOrder || []} />;
+
+    case 'default':
+      return (
+        <div className="space-y-4">
+          {cart.menu.map((item, index) => (
+            <StandardMenuItem key={index} item={item} index={index} />
+          ))}
+        </div>
+      );
+  }
+}
+
+// Roost special menu (has custom sections and dual-price items)
+function RoostMenu({ cart }: { cart: FoodCart }) {
+  const groupedMenu = groupMenuByCategory(cart.menu);
+  const chickenCategory = groupedMenu["Chicken Tenders & Sandwiches"] || [];
+  const extrasCategory = groupedMenu["Extras"] || [];
+
+  return (
+    <>
+      <div className="flex justify-between items-baseline mb-4">
+        <h2 className="text-lg font-semibold text-gray-900 underline">Jumbo 1/4 lb Chicken Tenders</h2>
+        <span className="font-semibold text-gray-900">Tenders / Meal</span>
+      </div>
+      <div className="space-y-4 mb-6">
+        {chickenCategory.slice(0, 3).map((item, index) => (
+          <StandardMenuItem key={index} item={item} index={index} />
+        ))}
+      </div>
+
+      <div className="flex justify-between items-baseline mb-4">
+        <h2 className="text-lg font-semibold text-gray-900 underline">Chicken Sandwiches</h2>
+        <span className="font-semibold text-gray-900">Sandwich / Meal</span>
+      </div>
+      <div className="space-y-4 mb-6">
+        {chickenCategory.slice(3, 6).map((item, index) => (
+          <StandardMenuItem key={index} item={item} index={index} />
+        ))}
+      </div>
+
+      <div className="flex justify-between items-baseline mb-4">
+        <h2 className="text-lg font-semibold text-gray-900 underline">Sides</h2>
+      </div>
+      <div className="space-y-4 mb-6">
+        {chickenCategory.slice(6, 9).map((item, index) => (
+          item.name === "French Fries" ? (
+            <DualPriceMenuItem key={index} item={item} index={index} smallPrice="$4.00" largePrice="$6.00" />
+          ) : (
+            <StandardMenuItem key={index} item={item} index={index} />
+          )
+        ))}
+      </div>
+
+      <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Extras</h2>
+      <div className="space-y-4 mb-6">
+        {extrasCategory.map((item, index) => (
+          item.name === "Meal - Substitute lemonade" ? (
+            <DualPriceMenuItem key={index} item={item} index={index} smallPrice="$1.00" largePrice="$2.00" />
+          ) : (
+            <StandardMenuItem key={index} item={item} index={index} />
+          )
+        ))}
+      </div>
+
+      <div className="space-y-4 mb-6">
+        <h2 className="text-lg font-semibold text-gray-900 underline">Spice Level</h2>
+        <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
+          <div>1) Extreme</div>
+          <div></div>
+          <div>2) Spicy</div>
+          <div></div>
+          <div>3) Mild</div>
+          <div></div>
+          <div>4) No Spice</div>
+          <div></div>
+          <div>5) Naked</div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// Surco special menu (has dual-price item)
+function SurcoMenu({ cart, categoryOrder }: { cart: FoodCart; categoryOrder: string[] }) {
+  const groupedMenu = groupMenuByCategory(cart.menu);
+
+  return (
+    <>
+      {categoryOrder.map(category => {
+        const items = groupedMenu[category];
+        if (!items) return null;
+
+        return (
+          <React.Fragment key={category}>
+            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+            <div className="space-y-4 mb-6">
+              {items.map((item, index) => (
+                item.name === "Cilantro Rice, GF" ? (
+                  <DualPriceMenuItem key={index} item={item} index={index} smallPrice="$8.00" largePrice="$13.00" />
+                ) : (
+                  <StandardMenuItem key={index} item={item} index={index} />
+                )
+              ))}
+            </div>
+          </React.Fragment>
+        );
+      })}
+    </>
+  );
+}
+
+// Crepeuw special menu (has sauces section)
+function CrepeuwMenu({ cart, categoryOrder }: { cart: FoodCart; categoryOrder: string[] }) {
+  return (
+    <>
+      <CategorizedMenu menu={cart.menu} categoryOrder={categoryOrder} />
+      <div className="space-y-4 mb-6">
+        <h2 className="text-lg font-semibold text-gray-900 underline">Sauces</h2>
+        <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
+          <div>Chocolate</div>
+          <div></div>
+          <div>White Chocolate</div>
+          <div></div>
+          <div>Caramel</div>
+          <div></div>
+          <div>Pistachio Sauce</div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// Schedule card component with switch statement instead of nested ternaries
+interface ScheduleCardProps {
+  cart: FoodCart;
+}
+
+function ScheduleCard({ cart }: ScheduleCardProps) {
+  const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  switch (cart.slug) {
+    case "kona-ice":
+      return (
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Clock className="w-5 h-5 mr-2" />
+              Hours
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-600 mb-4">
+              Kona Ice travels to various locations on an alternating schedule. Check out their Facebook to see where they will be!
+            </p>
+            <div className="mt-4">
+              <a
+                href={cart.businessLinks?.facebook || "#"}
+                className="text-primary hover:text-primary/80 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Facebook
+              </a>
+            </div>
+          </CardContent>
+        </Card>
+      );
+
+    case "toms_coffee":
+      return (
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Clock className="w-5 h-5 mr-2" />
+              Hours
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-600 mb-4">
+              Travelin' Tom's Coffee travels to various locations on an alternating schedule. Check out their facebook to see where they will be!
+            </p>
+            <div className="mt-4">
+              <a
+                href={cart.businessLinks?.facebook || "#"}
+                className="text-primary hover:text-primary/80 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Facebook
+              </a>
+            </div>
+          </CardContent>
+        </Card>
+      );
+
+    case "cinn-city":
+      return (
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Clock className="w-5 h-5 mr-2" />
+              Hours
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-600">
+              Currently in their off-season. Schedule will be updated when they are running!
+            </p>
+          </CardContent>
+        </Card>
+      );
+
+    case "stellies":
+      return (
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Clock className="w-5 h-5 mr-2" />
+              Hours
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-600">
+              {Object.keys(cart.schedule)[0]}
+            </p>
+          </CardContent>
+        </Card>
+      );
+
+    default:
+      return (
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Clock className="w-5 h-5 mr-2" />
+              Hours
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-2">
+              {DAYS_OF_WEEK.map((day) => (
+                <div key={day} className="flex justify-between">
+                  <span className="font-medium">{day}</span>
+                  <span className="text-gray-600">{cart.schedule[day]}</span>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      );
+  }
+}
+
 export default function IndividualFoodCartDetailPage() {
   const { slug } = useParams<{ slug: string }>();
 
@@ -119,716 +605,21 @@ export default function IndividualFoodCartDetailPage() {
                   </div>
                 </div>
 
-                {/* Schedule */}
-                {cart.slug === "kona-ice" ? (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center">
-                        <Clock className="w-5 h-5 mr-2" />
-                        Hours
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600 mb-4">
-                        Kona Ice travels to various locations on an alternating schedule. Check out their Facebook to see where they will be!
-                      </p>
-                      <div className="mt-4">
-                        <a
-                          href={cart.businessLinks?.facebook || "#"}
-                          className="text-primary hover:text-primary/80 transition-colors"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View Facebook
-                        </a>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ) : cart.slug === "toms_coffee" ? (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center">
-                        <Clock className="w-5 h-5 mr-2" />
-                        Hours
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600 mb-4">
-                        Travelin' Tom's Coffee travels to various locations on an alternating schedule. Check out their facebook to see where they will be!
-                      </p>
-                      <div className="mt-4">
-                        <a
-                          href={cart.businessLinks?.facebook || "#"}
-                          className="text-primary hover:text-primary/80 transition-colors"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View Facebook
-                        </a>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ) : cart.slug === "cinn-city" ? (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center">
-                        <Clock className="w-5 h-5 mr-2" />
-                        Hours
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">
-                        Currently in their off-season. Schedule will be updated when they are running!
-                      </p>
-                    </CardContent>
-                  </Card>
-                ) : cart.slug === "stellies" ? (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center">
-                        <Clock className="w-5 h-5 mr-2" />
-                        Hours
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">
-                        {Object.keys(cart.schedule)[0]}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ) : (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center">
-                        <Clock className="w-5 h-5 mr-2" />
-                        Hours
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
-                          <div key={day} className="flex justify-between">
-                            <span className="font-medium">{day}</span>
-                            <span className="text-gray-600">{cart.schedule[day]}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                )}
+                <ScheduleCard cart={cart} />
               </div>
 
               {/* Menu */}
               <div className="space-y-6">
-                {cart.slug === "sandwich-hub" ? (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Menu</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600 mb-4">
-                        Sandwich Hub has a rotating menu and is subject to change. Please check their website to find the menu of the day!
-                      </p>
-                      <div className="mt-4">
-                        <a
-                          href="https://www.sandwichhubmadison.com/menu"
-                          className="text-primary hover:text-primary/80 transition-colors"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View Today's Menu
-                        </a>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ) : cart.slug === "kona-ice" ? (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Menu</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <img
-                        src="/konaice-menu_pic.jpg"
-                        alt="Kona Ice Menu"
-                        className="w-full rounded-lg"
-                      />
-                    </CardContent>
-                  </Card>
-                ) : cart.slug === "roost" ? (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Menu</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <img
-                        src="/roost-menu_pic.jpg"
-                        alt="The Roost Fried Chicken Menu"
-                        className="w-full rounded-lg"
-                      />
-                    </CardContent>
-                  </Card>
-                ) : cart.slug === "toms_coffee" ? (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Menu</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <img
-                        src="/toms-menu_pic.jpg"
-                        alt="Travelin' Tom's Coffee Menu"
-                        className="w-full rounded-lg"
-                      />
-                    </CardContent>
-                  </Card>
-                ) : cart.slug === "cinn-city" ? (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Menu</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <img
-                        src="/cinncity-menu_pic.jpg"
-                        alt="Cinn City Smash Menu"
-                        className="w-full rounded-lg"
-                      />
-                    </CardContent>
-                  </Card>
-                ) : (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Menu</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-6">
-                        <div>
-
-                          {/* Jolly Frog */}
-                          {cart.slug === "jolly-frog" ? (
-                            (() => {
-                              const groupedMenu = cart.menu.reduce((acc, item) => {
-                                const category = item.category || 'Uncategorized';
-                                if (!acc[category]) {
-                                  acc[category] = [];
-                                }
-                                acc[category].push(item);
-                                return acc;
-                              }, {} as Record<string, MenuItem[]>);
-
-                              const categoryOrder = ["Tacos with Rice & Beans (2 per order)", "Burrito / Bowl (chips on the side)", "Tostadas with Rice (2 per order)", "Build Your Own", "Nachos", "Drinks"];
-
-                              return categoryOrder
-                                .filter(category => groupedMenu[category])
-                                .map(category => (
-                                  <React.Fragment key={category}>
-                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-                                    <div className="space-y-4 mb-6">
-                                      {groupedMenu[category].map((item, index) => (
-                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                          <div className="flex justify-between items-start">
-                                            <div className="flex-1">
-                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                            </div>
-                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                          </div>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </React.Fragment>
-                                ));
-                            })()
-                          ) : cart.slug === "surco" ? (
-                            (() => {
-                              const groupedMenu = cart.menu.reduce((acc, item) => {
-                                const category = item.category || 'Uncategorized';
-                                if (!acc[category]) {
-                                  acc[category] = [];
-                                }
-                                acc[category].push(item);
-                                return acc;
-                              }, {} as Record<string, MenuItem[]>);
-
-                              const categoryOrder = ["Chicken Dishes", "Vegetarian Dishes", "Extras", "Beverages"];
-
-                              return categoryOrder.map(category => (
-                                groupedMenu[category] && (
-                                  <React.Fragment key={category}>
-                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-                                    <div className="space-y-4 mb-6">
-                                      {groupedMenu[category].map((item, index) => (
-                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                          <div className="flex justify-between items-start">
-                                            <div className="flex-1">
-                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                            </div>
-                                            {item.name === "Cilantro Rice, GF" ? (
-                                              <div className="ml-4 flex flex-col items-end">
-                                                <div className="font-semibold">
-                                                  <span className="text-gray-900">Small: </span>
-                                                  <span className="text-primary">$8.00</span>
-                                                </div>
-                                                <div className="font-semibold">
-                                                  <span className="text-gray-900">Large: </span>
-                                                  <span className="text-primary">$13.00</span>
-                                                </div>
-                                              </div>
-                                            ) : (
-                                              <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                            )}
-                                          </div>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </React.Fragment>
-                                )
-                              ));
-                            })()
-                          ) : cart.slug === "roost" ? (
-                            (() => {
-                              const groupedMenu = cart.menu.reduce((acc, item) => {
-                                const category = item.category || 'Uncategorized';
-                                if (!acc[category]) {
-                                  acc[category] = [];
-                                }
-                                acc[category].push(item);
-                                return acc;
-                              }, {} as Record<string, MenuItem[]>);
-
-                              const categoryOrder = ["Chicken Tenders & Sandwiches", "Extras"];
-
-                              return (
-                                <>
-                                  {categoryOrder
-                                    .filter(category => groupedMenu[category])
-                                    .map(category => (
-                                      <React.Fragment key={category}>
-                                        {category === "Chicken Tenders & Sandwiches" && (
-                                          <>
-                                            <div className="flex justify-between items-baseline mb-4">
-                                              <h2 className="text-lg font-semibold text-gray-900 underline">Jumbo 1/4 lb Chicken Tenders</h2>
-                                              <span className="font-semibold text-gray-900">Tenders / Meal</span>
-                                            </div>
-                                            <div className="space-y-4 mb-6">
-                                              {groupedMenu[category].slice(0, 3).map((item, index) => (
-                                                <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                                  <div className="flex justify-between items-start">
-                                                    <div className="flex-1">
-                                                      <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                                    </div>
-                                                    <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                                  </div>
-                                                </div>
-                                              ))}
-                                            </div>
-
-                                            <div className="flex justify-between items-baseline mb-4">
-                                              <h2 className="text-lg font-semibold text-gray-900 underline">Chicken Sandwiches</h2>
-                                              <span className="font-semibold text-gray-900">Sandwich / Meal</span>
-                                            </div>
-                                            <div className="space-y-4 mb-6">
-                                              {groupedMenu[category].slice(3, 6).map((item, index) => (
-                                                <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                                  <div className="flex justify-between items-start">
-                                                    <div className="flex-1">
-                                                      <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                                    </div>
-                                                    <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                                  </div>
-                                                </div>
-                                              ))}
-                                            </div>
-
-                                            <div className="flex justify-between items-baseline mb-4">
-                                              <h2 className="text-lg font-semibold text-gray-900 underline">Sides</h2>
-                                            </div>
-                                            <div className="space-y-4 mb-6">
-                                              {groupedMenu[category].slice(6, 9).map((item, index) => (
-                                                <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                                  <div className="flex justify-between items-start">
-                                                    <div className="flex-1">
-                                                      <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                                    </div>
-                                                    {item.name === "French Fries" ? (
-                                                      <div className="ml-4 flex flex-col items-end">
-                                                        <div className="font-semibold">
-                                                          <span className="text-gray-900">Small: </span>
-                                                          <span className="text-primary">$4.00</span>
-                                                        </div>
-                                                        <div className="font-semibold">
-                                                          <span className="text-gray-900">Large: </span>
-                                                          <span className="text-primary">$6.00</span>
-                                                        </div>
-                                                      </div>
-                                                    ) : (
-                                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                                    )}
-                                                  </div>
-                                                </div>
-                                              ))}
-                                            </div>
-                                          </>
-                                        )}
-                                        {category === "Extras" && (
-                                          <>
-                                            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-                                            <div className="space-y-4 mb-6">
-                                              {groupedMenu[category].map((item, index) => (
-                                                <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                                  <div className="flex justify-between items-start">
-                                                    <div className="flex-1">
-                                                      <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                                    </div>
-                                                    {item.name === "Meal - Substitute lemonade" ? (
-                                                      <div className="ml-4 flex flex-col items-end">
-                                                        <div className="font-semibold">
-                                                          <span className="text-gray-900">Small: </span>
-                                                          <span className="text-primary">$1.00</span>
-                                                        </div>
-                                                        <div className="font-semibold">
-                                                          <span className="text-gray-900">Large: </span>
-                                                          <span className="text-primary">$2.00</span>
-                                                        </div>
-                                                      </div>
-                                                    ) : (
-                                                      <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                                    )}
-                                                  </div>
-                                                </div>
-                                              ))}
-                                            </div>
-                                          </>
-                                        )}
-                                      </React.Fragment>
-                                    ))}
-                                  <div className="space-y-4 mb-6">
-                                    <h2 className="text-lg font-semibold text-gray-900 underline">Spice Level</h2>
-                                    <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
-                                      <div>1) Extreme</div>
-                                      <div></div>
-                                      <div>2) Spicy</div>
-                                      <div></div>
-                                      <div>3) Mild</div>
-                                      <div></div>
-                                      <div>4) No Spice</div>
-                                      <div></div>
-                                      <div>5) Naked</div>
-                                    </div>
-                                  </div>
-                                </>
-                              );
-                            })()
-                          ) : cart.slug === "falafel" ? (
-                            (() => {
-                              const groupedMenu = cart.menu.reduce((acc, item) => {
-                                const category = item.category || 'Uncategorized';
-                                if (!acc[category]) {
-                                  acc[category] = [];
-                                }
-                                acc[category].push(item);
-                                return acc;
-                              }, {} as Record<string, MenuItem[]>);
-
-                              const categoryOrder = ["Main Dishes"];
-
-                              return categoryOrder
-                                .filter(category => groupedMenu[category])
-                                .map(category => (
-                                  <React.Fragment key={category}>
-                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-                                    <div className="space-y-4 mb-6">
-                                      {groupedMenu[category].map((item, index) => (
-                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                          <div className="flex justify-between items-start">
-                                            <div className="flex-1">
-                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                            </div>
-                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                          </div>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </React.Fragment>
-                                ));
-                            })()
-                          ) : cart.slug === "crepeuw" ? (
-                            <>
-                              {(() => {
-                                const groupedMenu = cart.menu.reduce((acc, item) => {
-                                  const category = item.category || 'Uncategorized';
-                                  if (!acc[category]) {
-                                    acc[category] = [];
-                                  }
-                                  acc[category].push(item);
-                                  return acc;
-                                }, {} as Record<string, MenuItem[]>);
-
-                                const categoryOrder = ["Crepes", "Crepe Sushi"];
-
-                                return categoryOrder
-                                  .filter(category => groupedMenu[category])
-                                  .map(category => (
-                                    <React.Fragment key={category}>
-                                      <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-                                      <div className="space-y-4 mb-6">
-                                        {groupedMenu[category].map((item, index) => (
-                                          <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                            <div className="flex justify-between items-start">
-                                              <div className="flex-1">
-                                                <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                                <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                              </div>
-                                              <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                            </div>
-                                          </div>
-                                        ))}
-                                      </div>
-                                    </React.Fragment>
-                                  ));
-                              })()}
-                              <div className="space-y-4 mb-6">
-                                <h2 className="text-lg font-semibold text-gray-900 underline">Sauces</h2>
-                                <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
-                                  <div>Chocolate</div>
-                                  <div></div>
-                                  <div>White Chocolate</div>
-                                  <div></div>
-                                  <div>Caramel</div>
-                                  <div></div>
-                                  <div>Pistachio Sauce</div>
-                                </div>
-                              </div>
-                            </>
-                          ) : cart.slug === "mj-jamaican" ? (
-                            (() => {
-                              const groupedMenu = cart.menu.reduce((acc, item) => {
-                                const category = item.category || 'Uncategorized';
-                                if (!acc[category]) {
-                                  acc[category] = [];
-                                }
-                                acc[category].push(item);
-                                return acc;
-                              }, {} as Record<string, MenuItem[]>);
-
-                              const categoryOrder = ["Plates", "Sides"];
-
-                              return categoryOrder
-                                .filter(category => groupedMenu[category])
-                                .map(category => (
-                                  <React.Fragment key={category}>
-                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-                                    <div className="space-y-4 mb-6">
-                                      {groupedMenu[category].map((item, index) => (
-                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                          <div className="flex justify-between items-start">
-                                            <div className="flex-1">
-                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                            </div>
-                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                          </div>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </React.Fragment>
-                                ));
-                            })()
-                          ) : cart.slug === "naan_stop" ? (
-                            (() => {
-                              const groupedMenu = cart.menu.reduce((acc, item) => {
-                                const category = item.category || 'Uncategorized';
-                                if (!acc[category]) {
-                                  acc[category] = [];
-                                }
-                                acc[category].push(item);
-                                return acc;
-                              }, {} as Record<string, MenuItem[]>);
-
-                              const categoryOrder = ["Naan Folds", "Sides", "Drinks"];
-
-                              return categoryOrder
-                                .filter(category => groupedMenu[category])
-                                .map(category => (
-                                  <React.Fragment key={category}>
-                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-                                    <div className="space-y-4 mb-6">
-                                      {groupedMenu[category].map((item, index) => (
-                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                          <div className="flex justify-between items-start">
-                                            <div className="flex-1">
-                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                            </div>
-                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                          </div>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </React.Fragment>
-                                ));
-                            })()
-                          ) : cart.slug === "stellies" ? (
-                            (() => {
-                              const groupedMenu = cart.menu.reduce((acc, item) => {
-                                const category = item.category || 'Uncategorized';
-                                if (!acc[category]) {
-                                  acc[category] = [];
-                                }
-                                acc[category].push(item);
-                                return acc;
-                              }, {} as Record<string, MenuItem[]>);
-
-                              const categoryOrder = ["Ice Cream"];
-
-                              return categoryOrder
-                                .filter(category => groupedMenu[category])
-                                .map(category => (
-                                  <React.Fragment key={category}>
-                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-                                    <div className="space-y-4 mb-6">
-                                      {groupedMenu[category].map((item, index) => (
-                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                          <div className="flex justify-between items-start">
-                                            <div className="flex-1">
-                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                            </div>
-                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                          </div>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </React.Fragment>
-                                ));
-                            })()
-                          ) : cart.slug === "fresh-cool" ? (
-                            (() => {
-                              const groupedMenu = cart.menu.reduce((acc, item) => {
-                                const category = item.category || 'Uncategorized';
-                                if (!acc[category]) {
-                                  acc[category] = [];
-                                }
-                                acc[category].push(item);
-                                return acc;
-                              }, {} as Record<string, MenuItem[]>);
-
-                              const categoryOrder = ["Spring Rolls"];
-
-                              return categoryOrder
-                                .filter(category => groupedMenu[category])
-                                .map(category => (
-                                  <React.Fragment key={category}>
-                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-                                    <div className="space-y-4 mb-6">
-                                      {groupedMenu[category].map((item, index) => (
-                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                          <div className="flex justify-between items-start">
-                                            <div className="flex-1">
-                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                            </div>
-                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                          </div>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </React.Fragment>
-                                ));
-                            })()
-                          ) : cart.slug === "toast" ? (
-                            (() => {
-                              const groupedMenu = cart.menu.reduce((acc, item) => {
-                                const category = item.category || 'Uncategorized';
-                                if (!acc[category]) {
-                                  acc[category] = [];
-                                }
-                                acc[category].push(item);
-                                return acc;
-                              }, {} as Record<string, MenuItem[]>);
-
-                              const categoryOrder = ["Classic Paninis"];
-
-                              return categoryOrder
-                                .filter(category => groupedMenu[category])
-                                .map(category => (
-                                  <React.Fragment key={category}>
-                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-                                    <div className="space-y-4 mb-6">
-                                      {groupedMenu[category].map((item, index) => (
-                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                          <div className="flex justify-between items-start">
-                                            <div className="flex-1">
-                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                            </div>
-                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                          </div>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </React.Fragment>
-                                ));
-                            })()
-                          ) : cart.slug === "cinn-city" ? (
-                            (() => {
-                              const groupedMenu = cart.menu.reduce((acc, item) => {
-                                const category = item.category || 'Uncategorized';
-                                if (!acc[category]) {
-                                  acc[category] = [];
-                                }
-                                acc[category].push(item);
-                                return acc;
-                              }, {} as Record<string, MenuItem[]>);
-
-                              const categoryOrder = ["Smash Burgers", "City Fries", "Fresh Churros", "Add Ons", "Drinks"];
-
-                              return categoryOrder
-                                .filter(category => groupedMenu[category])
-                                .map(category => (
-                                  <React.Fragment key={category}>
-                                    <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-                                    <div className="space-y-4 mb-6">
-                                      {groupedMenu[category].map((item, index) => (
-                                        <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                          <div className="flex justify-between items-start">
-                                            <div className="flex-1">
-                                              <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                            </div>
-                                            <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                          </div>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </React.Fragment>
-                                ));
-                            })()
-                          ) : (
-                            <div className="space-y-4">
-                              {cart.menu.map((item, index) => (
-                                <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-                                  <div className="flex justify-between items-start">
-                                    <div className="flex-1">
-                                      <h5 className="font-medium text-gray-900">{item.name}</h5>
-                                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                                    </div>
-                                    <span className="font-semibold text-primary ml-4">{item.price}</span>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                          
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                )}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Menu</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-6">
+                      <MenuContent cart={cart} />
+                    </div>
+                  </CardContent>
+                </Card>
 
                 {/* Business Links - Hidden for Fresh Cool Drinks */}
                 {cart.slug !== "fresh-cool" && (
