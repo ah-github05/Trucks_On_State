@@ -343,7 +343,7 @@ export class MemStorage implements IStorage {
         locationDisplayName: "State Street & Library Mall",
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
         businessLinks: {
-          instagram: "Thttps://www.instagram.com/mjjamaicankitchn/?hl=enBD",
+          instagram: "https://www.instagram.com/mjjamaicankitchn/?hl=en",
           facebook: "https://www.facebook.com/MJJamaicanK/"
         },
         menu: [
@@ -630,8 +630,8 @@ export class MemStorage implements IStorage {
         locationDisplayName: "Traveling",
         businessLinks: {
           website: "https://www.culinarynirvanallc.com",
-          instagram: "https://www.facebook.com/p/Culinary-Nirvana-61556890915815/",
-          facebook: "https://www.instagram.com/culinary.nirvana/?hl=en"
+          instagram: "https://www.instagram.com/culinary.nirvana/?hl=en",
+          facebook: "https://www.facebook.com/p/Culinary-Nirvana-61556890915815/"
         },
         menu: [
           { name: "TBD", price: "$TBD", description: "TBD" },

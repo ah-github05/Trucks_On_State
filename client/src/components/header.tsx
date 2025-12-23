@@ -67,7 +67,7 @@ export default function SiteNavigationHeader() {
                   Home
                 </Button>
               </Link>
-              {/* trucks */}
+              {/* carts */}
               <Button
                 variant="ghost"
                 className="food-carts-nav-button"
@@ -82,8 +82,8 @@ export default function SiteNavigationHeader() {
                 onClick={() => scrollToSection('about')}
               >
                 About
-                {/* contact */}
               </Button>
+              {/* contact */}
               <Button 
                 variant="ghost" 
                 className="contact-nav-button"
