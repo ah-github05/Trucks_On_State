@@ -146,7 +146,7 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
     imageAlt: 'Kona Ice Menu'
   },
   "roost": {
-    type: 'roost-special',
+    type: 'image',
     imageSrc: '/roost-menu_pic.jpg',
     imageAlt: 'The Roost Fried Chicken Menu'
   },
