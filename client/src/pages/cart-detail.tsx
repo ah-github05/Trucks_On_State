@@ -195,7 +195,12 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
   "toast": {
     type: 'categorized',
     categoryOrder: ["Classic Paninis"]
-  }
+  },
+  "nirvana": {
+  type: 'image',
+  imageSrc: '/nirvana_menu.jpg',
+  imageAlt: 'Culinary Nirvana Menu'
+}
 };
 
 // Menu content component to handle all menu rendering patterns
