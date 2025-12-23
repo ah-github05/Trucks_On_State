@@ -173,7 +173,7 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
     categoryOrder: ["Main Dishes"]
   },
   "crepeuw": {
-    type: 'crepeuw-special',
+    type: 'categorized',
     categoryOrder: ["Crepes", "Crepe Sushi"]
   },
   "mj-jamaican": {
