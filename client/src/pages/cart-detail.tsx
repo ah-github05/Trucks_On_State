@@ -130,7 +130,7 @@ export default function IndividualFoodCartDetailPage() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-gray-600 mb-4">
-                        Kona Ice travels to various locations on an alternating schedule. Check out their facebook to see where they will be!
+                        Kona Ice travels to various locations on an alternating schedule. Check out their Facebook to see where they will be!
                       </p>
                       <div className="mt-4">
                         <a
@@ -154,7 +154,7 @@ export default function IndividualFoodCartDetailPage() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-gray-600 mb-4">
-                        Travelin' Tom's Coffee travels to various locations on a alternating schedule. Check out their facebook to see where they will be!
+                        Travelin' Tom's Coffee travels to various locations on an alternating schedule. Check out their facebook to see where they will be!
                       </p>
                       <div className="mt-4">
                         <a
