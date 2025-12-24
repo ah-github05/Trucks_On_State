@@ -172,8 +172,12 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
     type: 'categorized',
     categoryOrder: ["Main Dishes"]
   },
-  "crepeuw": { //FIXME: issue with menu. Add bombay
+  "bombay": {
     type: 'categorized',
+    categoryOrder: ["Bombay Specialties", "Lentil & Bean Dishes"]
+  },
+  "crepeuw": {
+    type: 'crepeuw-special',
     categoryOrder: ["Crepes", "Crepe Sushi"]
   },
   "mj-jamaican": {
