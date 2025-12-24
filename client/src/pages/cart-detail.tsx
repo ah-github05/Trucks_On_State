@@ -124,7 +124,7 @@ function CategorizedMenu({ menu, categoryOrder, renderItem }: CategorizedMenuPro
 
 // Menu configuration for special cart-specific rendering
 interface MenuConfig {
-  type: 'external-link' | 'image' | 'categorized' | 'roost-special' | 'surco-special' | 'crepeuw-special' | 'default';
+  type: 'external-link' | 'image' | 'categorized' | 'roost-special' | 'surco-special' | 'default';
   externalUrl?: string;
   externalMessage?: string;
   externalLinkText?: string;
@@ -177,8 +177,8 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
     categoryOrder: ["Bombay Specialties", "Lentil & Bean Dishes"]
   },
   "crepeuw": {
-    type: 'crepeuw-special',
-    categoryOrder: ["Crepes", "Crepe Sushi"]
+    type: 'categorized',
+    categoryOrder: ["Crepes", "Crepe Sushi", "Sauces"]
   },
   "mj-jamaican": {
     type: 'categorized',
@@ -247,9 +247,6 @@ function MenuContent({ cart }: MenuContentProps) {
 
     case 'surco-special':
       return <SurcoMenu cart={cart} categoryOrder={config.categoryOrder || []} />;
-
-    case 'crepeuw-special':
-      return <CrepeuwMenu cart={cart} categoryOrder={config.categoryOrder || []} />;
 
     case 'categorized':
       return <CategorizedMenu menu={cart.menu} categoryOrder={config.categoryOrder || []} />;
@@ -360,27 +357,6 @@ function SurcoMenu({ cart, categoryOrder }: { cart: FoodCart; categoryOrder: str
           </React.Fragment>
         );
       })}
-    </>
-  );
-}
-
-// Crepeuw special menu (has sauces section)
-function CrepeuwMenu({ cart, categoryOrder }: { cart: FoodCart; categoryOrder: string[] }) {
-  return (
-    <>
-      <CategorizedMenu menu={cart.menu} categoryOrder={categoryOrder} />
-      <div className="space-y-4 mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 underline">Sauces</h2>
-        <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
-          <div>Chocolate</div>
-          <div></div>
-          <div>White Chocolate</div>
-          <div></div>
-          <div>Caramel</div>
-          <div></div>
-          <div>Pistachio Sauce</div>
-        </div>
-      </div>
     </>
   );
 }
