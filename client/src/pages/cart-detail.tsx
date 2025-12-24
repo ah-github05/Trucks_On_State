@@ -424,6 +424,33 @@ function ScheduleCard({ cart }: ScheduleCardProps) {
         </Card>
       );
 
+    case "nirvana":
+      return (
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Clock className="w-5 h-5 mr-2" />
+              Hours
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-600 mb-4">
+              Culinary Nirvana does weekly stops at specific locations as well as pop up appearances at community and private events. Check out their website to see where they will be!
+            </p>
+            <div className="mt-4">
+              <a
+                href="https://www.culinarynirvanallc.com/on-the-road"
+                className="text-primary hover:text-primary/80 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Website
+              </a>
+            </div>
+          </CardContent>
+        </Card>
+      );
+
     case "cinn-city":
       return (
         <Card>
@@ -616,23 +643,23 @@ export default function IndividualFoodCartDetailPage() {
                       <div className="space-y-3">
                         <div className="flex flex-col gap-2">
                           {cart.businessLinks?.website && (
-                            <a 
-                              href={cart.businessLinks.website} 
+                            <a
+                              href={cart.businessLinks.website}
                               className="text-primary hover:text-primary/80 transition-colors"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              Visit Website
+                              Website
                             </a>
                           )}
                           {cart.businessLinks?.facebook && (
-                            <a 
-                              href={cart.businessLinks.facebook} 
+                            <a
+                              href={cart.businessLinks.facebook}
                               className="text-primary hover:text-primary/80 transition-colors"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              Facebook Page
+                              Facebook
                             </a>
                           )}
                           {cart.businessLinks?.instagram && (
