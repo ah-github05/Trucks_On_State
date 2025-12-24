@@ -176,7 +176,7 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
     type: 'categorized',
     categoryOrder: ["Bombay Specialties", "Lentil & Bean Dishes"]
   },
-  "crepeuw": {
+  "crepuw": {
     type: 'categorized',
     categoryOrder: ["Crepes", "Crepe Sushi"]
   },
