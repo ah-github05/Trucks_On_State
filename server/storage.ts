@@ -401,7 +401,6 @@ export class MemStorage implements IStorage {
         }
       },
 
-
       // Crepuw
       {
         slug: "crepuw",
@@ -423,7 +422,7 @@ export class MemStorage implements IStorage {
           { name: "Mediterranean Breeze", price: "$9.00", description: "Avocado, lettuce, feta cheese, olive oil, tomatoes.", category: "Crepes" },
           { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream, kataifi, chocolate sauce.", category: "Crepe Sushi" },
           { name: "Strawberry Brownie", price: "$8.00", description: "Strawberry, brownie, selection of sauce.", category: "Crepe Sushi" },
-          { name: "Nutella Banana", price: "$8.00", description: "Banana, nutella, selection of sauce.", category: "Crepe Sushi" },
+          { name: "Nutella Banana", price: "$8.00", description: "Banana, nutella, selection of sauce.", category: "Crepe Sushi" }
         ],
         schedule: {
           "Monday": "11:00 am - 3:00 pm",
@@ -620,7 +619,7 @@ export class MemStorage implements IStorage {
         slug: "nirvana",
         name: "Culinary Nirvana",
         description: "TBD",
-        image: "TBD",
+        image: "/nirvana_pic.jpg",
         category: "american",
         location: "traveling",
         locationDisplayName: "Traveling",
