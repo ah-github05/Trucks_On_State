@@ -7,6 +7,7 @@
     "category": "asian",
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
+    "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
     "businessLinks": {},
     "menu": [
       {
@@ -65,6 +66,7 @@
     "category": "sandwiches",
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
+    "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
     "businessLinks": {
       "website": "https://toastmadison.com",
       "instagram": "https://www.instagram.com/toastmadison?igsh=bDRmNjJzZm5sdWIy",
@@ -157,6 +159,7 @@
     "category": "sandwiches",
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
+    "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
     "businessLinks": {
       "website": "https://www.sandwichhubmadison.com",
       "instagram": "https://www.instagram.com/sandwich.hub.madison?igsh=cWFsdmVkMHBqenM4"
@@ -181,6 +184,7 @@
     "category": "south_american",
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
+    "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
     "businessLinks": {
       "website": "https://www.surcocart.com",
       "facebook": "https://www.facebook.com/SurcoCart/",
@@ -239,25 +243,25 @@
         "name": "Extra avocado",
         "price": "$2.00",
         "description": "",
-        "category": "Extras"
+        "category": "Add Ons"
       },
       {
         "name": "Extra chicken",
         "price": "$6.00",
         "description": "",
-        "category": "Extras"
+        "category": "Add Ons"
       },
       {
         "name": "Switch to cilantro rice",
         "price": "$3.00",
         "description": "",
-        "category": "Extras"
+        "category": "Add Ons"
       },
       {
         "name": "Switch to chaufa rice",
         "price": "$3.00",
         "description": "",
-        "category": "Extras"
+        "category": "Add Ons"
       },
       {
         "name": "Inka Cola",
@@ -306,9 +310,10 @@
     "name": "Bombay Fast",
     "description": "Hearty dishes from the streets of Bombay",
     "image": "https://bloximages.chicago2.vip.townnews.com/captimes.com/content/tncms/assets/v3/editorial/6/86/686e01e1-6dcf-5678-bba6-30383ae84644/60f6c1e8cf21f.image.jpg?resize=1396%2C930",
-    "category": "southeast_asian",
+    "category": "south_asian",
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
+    "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
     "businessLinks": {
       "instagram": "https://www.instagram.com/bombayfastcafe?utm_source=ig_web_button_share_sheet&igsh=enJzc25kaWZodTZt"
     },
@@ -381,6 +386,7 @@
     "category": "asian",
     "location": "southeast-campus",
     "locationDisplayName": "1225 W Dayton St, Madison, WI 53706",
+    "mapsUrl": "https://maps.google.com/?q=1225+W+Dayton+St+Madison+WI+53706",
     "businessLinks": {
       "website": "https://nani.restaurant",
       "instagram": "https://www.instagram.com/nani.restaurant/?utm_source=ig_web_button_share_sheet"
@@ -436,6 +442,7 @@
     "category": "mexican",
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
+    "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
     "businessLinks": {
       "facebook": "https://www.facebook.com/jollyfrogllc?mibextid=wwXIfr"
     },
@@ -532,6 +539,7 @@
     "category": "american",
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
+    "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
     "businessLinks": {
       "website": "https://www.theroostfriedchicken.com",
       "instagram": "https://www.instagram.com/theroostfriedchicken?utm_source=ig_web_button_share_sheet&igsh=MTdueWhrd3BnMjdzcw==",
@@ -596,31 +604,31 @@
         "name": "Make it a Meal",
         "price": " ",
         "description": "Includes french fries and a drink.",
-        "category": "Extras"
+        "category": "Add Ons"
       },
       {
-        "name": "Meal - Substitute cheese curds",
+        "name": "Meal - Substitute Cheese Curds",
         "price": "$2.00 ",
         "description": " ",
-        "category": "Extras"
+        "category": "Add Ons"
       },
       {
-        "name": "Meal - Substitute lemonade",
+        "name": "Meal - Substitute Lemonade",
         "price": "$1.00 / $2.00",
         "description": " ",
-        "category": "Extras"
+        "category": "Add Ons"
       },
       {
         "name": "Roost Style",
         "price": "Free",
         "description": "Substitute mayo for Roost Sauce.",
-        "category": "Extras"
+        "category": "Add Ons"
       },
       {
         "name": "Dip Chicken in Honey Butter",
         "price": "$1.00",
         "description": " ",
-        "category": "Extras"
+        "category": "Add Ons"
       }
     ],
     "schedule": {
@@ -642,8 +650,9 @@
     "category": "caribbean",
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
+    "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
     "businessLinks": {
-      "instagram": "Thttps://www.instagram.com/mjjamaicankitchn/?hl=enBD",
+      "instagram": "https://www.instagram.com/mjjamaicankitchn/?hl=en",
       "facebook": "https://www.facebook.com/MJJamaicanK/"
     },
     "menu": [
@@ -715,6 +724,7 @@
     "category": "middle_eastern",
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
+    "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
     "businessLinks": {
       "website": "https://kingoffalafel.dine.online/locations/2964238?fulfillment=pickup"
     },
@@ -763,6 +773,7 @@
     "category": "sweet_treats",
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
+    "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
     "businessLinks": {
       "instagram": "https://www.instagram.com/crepuwmadison?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       "facebook": "https://www.facebook.com/crepuwmadison"
@@ -833,9 +844,10 @@
     "name": "Naan Stop Fusion",
     "description": "Warm naan sandwiches",
     "image": "/naan_pic.jpg",
-    "category": "southeast_asian",
+    "category": "south_asian",
     "location": "west-side",
     "locationDisplayName": "6640 Odana Rd, Madison, WI 53719",
+    "mapsUrl": "https://maps.google.com/?q=6640+Odana+Rd+Madison+WI+53719",
     "businessLinks": {
       "instagram": "https://www.instagram.com/naanstop.fusion",
       "facebook": "https://www.facebook.com/profile.php?id=100087276965434&sk=about"
@@ -903,6 +915,7 @@
     "category": "sweet_treats",
     "location": "capitol-square",
     "locationDisplayName": "Dane County Farmers' Market",
+    "mapsUrl": "https://maps.google.com/?q=Capitol+Square+Madison+WI",
     "businessLinks": {
       "website": "https://www.stelliesicecream.com",
       "instagram": "https://www.instagram.com/stelliesicecream/",
@@ -912,17 +925,12 @@
       {
         "name": "Single-Serve Ice Cream Containers",
         "price": "$6.00",
-        "description": "Flavors vary on what is available."
+        "description": "Flavors vary on what is available.",
+        "category": "Ice Cream"
       }
     ],
     "schedule": {
-      "Monday": "Closed",
-      "Tuesday": "Closed",
-      "Wednesday": "Closed",
-      "Thursday": "Closed",
-      "Friday": "Closed",
-      "Saturday": "Closed",
-      "Sunday": "Closed"
+      "Closed during the winter. Reopens in May at the start of the Farmers' Market season.": ""
     },
     "id": 13
   },
@@ -930,10 +938,10 @@
     "slug": "toms_coffee",
     "name": "Travelin' Tom's Coffee",
     "description": "Hot and cold brews made to order",
-    "image": "TBD",
+    "image": "/tomscoffee_pic.jpg",
     "category": "drinks",
-    "location": "multiple-areas",
-    "locationDisplayName": "Multiple Areas",
+    "location": "traveling",
+    "locationDisplayName": "Traveling",
     "businessLinks": {
       "website": "https://travelintomscoffee.com/local-site/travelin-toms-coffee-of-central-madison/",
       "instagram": "https://www.instagram.com/travelintomscoffee/",
@@ -981,10 +989,10 @@
     "slug": "kona-ice",
     "name": "Kona Ice",
     "description": "Snow cones and shaved ice",
-    "image": "TBD",
+    "image": "/konaice_pic.jpg",
     "category": "sweet_treats",
-    "location": "multiple-areas",
-    "locationDisplayName": "Multiple Areas",
+    "location": "traveling",
+    "locationDisplayName": "Traveling",
     "businessLinks": {
       "website": "https://www.kona-ice.com/local-site/kona-ice-of-madison/",
       "instagram": "https://www.instagram.com/konaice/?hl=en",
@@ -1027,5 +1035,184 @@
       "Sunday": "TBD"
     },
     "id": 15
+  },
+  {
+    "slug": "cinn-city",
+    "name": "Cinn City Smash",
+    "description": "Smash burgers and sweet churros",
+    "image": "/cinncity_pic.jpg",
+    "category": "american",
+    "location": "traveling",
+    "locationDisplayName": "Traveling",
+    "businessLinks": {
+      "website": "https://cinncitysmash.com/",
+      "instagram": "https://www.instagram.com/cinncitysmash/",
+      "facebook": "https://www.facebook.com/cinncitysmash/"
+    },
+    "menu": [
+      {
+        "name": "Classic",
+        "price": "$TBD",
+        "description": "Smash sauce, tomato, lettuce, onions, pickles, & american cheese on a brioche bun.",
+        "category": "Smash Burgers"
+      },
+      {
+        "name": "Veggie",
+        "price": "$TBD",
+        "description": "Smash sauce, tomato, lettuce, onions, pickles, & american cheese on a brioche bun.",
+        "category": "Smash Burgers"
+      },
+      {
+        "name": "Vegan",
+        "price": "$TBD",
+        "description": "Smash sauce, tomato, lettuce, onions, pickles, & american cheese on a brioche bun.",
+        "category": "Smash Burgers"
+      },
+      {
+        "name": "Regular",
+        "price": "$5.00",
+        "description": "Tossed with salt.",
+        "category": "City Fries"
+      },
+      {
+        "name": "Truffle",
+        "price": "$6.00",
+        "description": "Tossed with truffle oil, parmesan, crushed red pepper, garlic powder, & parsley.",
+        "category": "City Fries"
+      },
+      {
+        "name": "Plain (Vegan)",
+        "price": "$5.00",
+        "description": "Rolled in cinnamon sugar.",
+        "category": "Fresh Churros"
+      },
+      {
+        "name": "Raspberry (Vegan)",
+        "price": "$6.00",
+        "description": "Rolled in cinnamon sugar. Filled with raspberry puree.",
+        "category": "Fresh Churros"
+      },
+      {
+        "name": "Nutella",
+        "price": "$6.00",
+        "description": "Rolled in cinnamon sugar. Filled with nutella.",
+        "category": "Fresh Churros"
+      },
+      {
+        "name": "Smash Burger - Add Fries",
+        "price": "$3.00",
+        "description": " ",
+        "category": "Add Ons"
+      },
+      {
+        "name": "Smash Burger - Add Truffle Fries",
+        "price": "$4.00",
+        "description": " ",
+        "category": "Add Ons"
+      },
+      {
+        "name": "Smash Burger - Gluten Free Bun",
+        "price": "$2.00",
+        "description": " ",
+        "category": "Add Ons"
+      },
+      {
+        "name": "City Fries - Add Smash Sauce",
+        "price": "$0.75",
+        "description": " ",
+        "category": "Add Ons"
+      },
+      {
+        "name": "Pepsi",
+        "price": "$2.00",
+        "description": " ",
+        "category": "Drinks"
+      },
+      {
+        "name": "Diet Pepsi",
+        "price": "$2.00",
+        "description": " ",
+        "category": "Drinks"
+      },
+      {
+        "name": "Squirt",
+        "price": "$2.00",
+        "description": " ",
+        "category": "Drinks"
+      },
+      {
+        "name": "Root Beer",
+        "price": "$2.00",
+        "description": " ",
+        "category": "Drinks"
+      },
+      {
+        "name": "Water",
+        "price": "$1.00",
+        "description": " ",
+        "category": "Drinks"
+      }
+    ],
+    "schedule": {
+      "Monday": "TBD",
+      "Tuesday": "TBD",
+      "Wednesday": "TBD",
+      "Thursday": "TBD",
+      "Friday": "TBD",
+      "Saturday": "TBD",
+      "Sunday": "TBD"
+    },
+    "id": 16
+  },
+  {
+    "slug": "nirvana",
+    "name": "Culinary Nirvana",
+    "description": "TBD",
+    "image": "TBD",
+    "category": "american",
+    "location": "traveling",
+    "locationDisplayName": "Traveling",
+    "businessLinks": {
+      "website": "https://www.culinarynirvanallc.com",
+      "instagram": "https://www.instagram.com/culinary.nirvana/?hl=en",
+      "facebook": "https://www.facebook.com/p/Culinary-Nirvana-61556890915815/"
+    },
+    "menu": [
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      },
+      {
+        "name": "TBD",
+        "price": "$TBD",
+        "description": "TBD"
+      }
+    ],
+    "schedule": {
+      "Monday": "TBD",
+      "Tuesday": "TBD",
+      "Wednesday": "TBD",
+      "Thursday": "TBD",
+      "Friday": "TBD",
+      "Saturday": "TBD",
+      "Sunday": "TBD"
+    },
+    "id": 17
   }
 ]
