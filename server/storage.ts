@@ -417,23 +417,13 @@ export class MemStorage implements IStorage {
           facebook: "https://www.facebook.com/crepuwmadison"
         },
         menu: [
-          // Crepes
           { name: "Strawberry Banana", price: "$8.00", description: "Strawberries, bananas, custard, cream, nutella, selection of sauce.", category: "Crepes" },
           { name: "Strawberry Nutella", price: "$8.00", description: "Strawberries, nutella selection of sauce.", category: "Crepes" },
           { name: "Banana Nutella", price: "$8.00", description: "Banana, nutella selection of sauce.", category: "Crepes" },
           { name: "Mediterranean Breeze", price: "$9.00", description: "Avocado, lettuce, feta cheese, olive oil, tomatoes.", category: "Crepes" },
-
-          // Crepe Sushi
           { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream, kataifi, chocolate sauce.", category: "Crepe Sushi" },
-          { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream. kataifi, chocolate sauce.", category: "Crepe Sushi" },
           { name: "Strawberry Brownie", price: "$8.00", description: "Strawberry, brownie, selection of sauce.", category: "Crepe Sushi" },
           { name: "Nutella Banana", price: "$8.00", description: "Banana, nutella, selection of sauce.", category: "Crepe Sushi" },
-
-          // Sauces
-          { name: "Chocolate", price: "Included", description: "Available sauce option", category: "Sauces" },
-          { name: "White Chocolate", price: "Included", description: "Available sauce option", category: "Sauces" },
-          { name: "Caramel", price: "Included", description: "Available sauce option", category: "Sauces" },
-          { name: "Pistachio Sauce", price: "Included", description: "Available sauce option", category: "Sauces" },
         ],
         schedule: {
           "Monday": "11:00 am - 3:00 pm",
