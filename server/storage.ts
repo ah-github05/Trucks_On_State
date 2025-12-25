@@ -15,7 +15,7 @@ export class MemStorage implements IStorage {
   constructor() {
     this.carts = new Map();
     this.currentId = 1;
-    this.seedfffeData();
+    this.seedData();
   }
 
   private seedData() {
