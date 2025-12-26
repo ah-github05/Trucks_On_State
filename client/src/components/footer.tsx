@@ -19,7 +19,7 @@ export default function SiteContactFooter() {
   };
 
   return (
-    <footer id="contact" className="footer-background">
+    <footer className="footer-background">
       <div className="footer-container">
         <div className="footer-grid">
           <div className="brand-section">
