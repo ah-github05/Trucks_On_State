@@ -68,7 +68,7 @@ export default function FoodCartNewsletterSignup() {
             </div>
 
             <div className="form-field">
-              <label htmlFor="email" className="form-label">E-mail</label>
+              <label htmlFor="email" className="form-label">Email</label>
               <Input
                 id="email"
                 type="email"
