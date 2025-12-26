@@ -660,11 +660,10 @@ export class MemStorage implements IStorage {
           facebook: "https://www.facebook.com/littlesistercookies/"
         },
         menu: [
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" },
-          { name: "TBD", price: "$TBD", description: "TBD" }
+          { name: "One", price: "$2.00", description: " " },
+          { name: "Three", price: "$5.00", description: " " },
+          { name: "Six", price: "$9.00", description: " " },
+          { name: "Bakers Dozen", price: "$18.00", description: " " },
         ],
         schedule: {
           "Monday": "TBD",
