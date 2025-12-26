@@ -6,8 +6,10 @@ import { useToast } from "@/hooks/use-toast";
 
 export default function FoodCartNewsletterSignup() {
   const [name, setName] = useState("");
+  const [inquiryType, setInquiryType] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const getWordCount = (text: string) => {
@@ -26,25 +28,57 @@ export default function FoodCartNewsletterSignup() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email || !message) {
+    if (!name || !inquiryType || !email || !message) {
       toast({
         title: "All fields required",
-        description: "Please fill in your name, email, and message.",
+        description: "Please fill in all fields before submitting.",
         variant: "destructive",
       });
       return;
     }
-    
-    // Simulate message submission
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as we can.",
-    });
-    setName("");
-    setEmail("");
-    setMessage("");
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "d0ab3f69-c768-41ff-bbd6-00065de0dca8",
+          name: name,
+          email: email,
+          subject: inquiryType,
+          message: message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Message sent!",
+          description: "We'll get back to you as soon as we can.",
+        });
+        setName("");
+        setInquiryType("");
+        setEmail("");
+        setMessage("");
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -68,7 +102,23 @@ export default function FoodCartNewsletterSignup() {
             </div>
 
             <div className="form-field">
-              <label htmlFor="email" className="form-label">E-mail</label>
+              <label htmlFor="inquiryType" className="form-label">Inquiry Type</label>
+              <select
+                id="inquiryType"
+                value={inquiryType}
+                onChange={(e) => setInquiryType(e.target.value)}
+                className="form-input h-12"
+                required
+              >
+                <option value="">Select an option...</option>
+                <option value="Add my cart">Add my cart</option>
+                <option value="General question">General question</option>
+                <option value="Report issue">Report issue</option>
+              </select>
+            </div>
+
+            <div className="form-field">
+              <label htmlFor="email" className="form-label">Email</label>
               <Input
                 id="email"
                 type="email"
@@ -97,11 +147,12 @@ export default function FoodCartNewsletterSignup() {
             </div>
 
             <div className="form-submit">
-              <Button 
+              <Button
                 type="submit"
                 className="submit-button"
+                disabled={isSubmitting}
               >
-                Submit
+                {isSubmitting ? "Sending..." : "Submit"}
               </Button>
             </div>
           </form>
