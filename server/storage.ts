@@ -660,10 +660,10 @@ export class MemStorage implements IStorage {
           facebook: "https://www.facebook.com/littlesistercookies/"
         },
         menu: [
-          { name: "One", price: "$2.00", description: " ", category: "Cookies - Change flavors per event" },
-          { name: "Three", price: "$5.00", description: " ", category: "Cookies - Change flavors per event" },
-          { name: "Six", price: "$9.00", description: " ", category: "Cookies - Change flavors per event" },
-          { name: "Bakers Dozen", price: "$18.00", description: " ", category: "Cookies - Change flavors per event" },
+          { name: "One", price: "$2.00", description: "Flavors: Chocolate, Seasonal (vary by event)", category: "Cookies" },
+          { name: "Three", price: "$5.00", description: "Flavors: Chocolate, Seasonal (vary by event)", category: "Cookies" },
+          { name: "Six", price: "$9.00", description: "Flavors: Chocolate, Seasonal (vary by event)", category: "Cookies" },
+          { name: "Bakers Dozen", price: "$18.00", description: "Flavors: Chocolate, Seasonal (vary by event)", category: "Cookies" },
         ],
         schedule: {
           "Monday": "TBD",

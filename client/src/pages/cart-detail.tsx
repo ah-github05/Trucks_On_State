@@ -207,7 +207,7 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
   },
   "cookies": {
   type: 'categorized',
-  categoryOrder: ["Cookies - Change flavors per event"]
+  categoryOrder: ["Cookies"]
 }
 };
 
