@@ -82,7 +82,7 @@ export default function FoodCartNewsletterSignup() {
   };
 
   return (
-    <section className="hero-section">
+    <section id="contact" className="hero-section">
       <div className="hero-overlay"></div>
       <div className="contact-form-container relative">
         <div className="contact-form-card">
