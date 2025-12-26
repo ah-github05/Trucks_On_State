@@ -1,4 +1,4 @@
-import { ShoppingCart} from "lucide-react";
+import { Truck } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
 export default function SiteContactFooter() {
@@ -24,7 +24,7 @@ export default function SiteContactFooter() {
         <div className="footer-grid">
           <div className="brand-section">
             <h3 className="text-2xl font-bold flex items-center">
-              <ShoppingCart className="w-6 h-6 mr-2" />
+              <Truck className="w-6 h-6 mr-2" />
               Capital City Food Carts
             </h3>
           </div>
