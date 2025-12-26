@@ -302,7 +302,7 @@ html {
 
 /* Hero Component Classes */
 .hero-section {
-  @apply relative hero-gradient text-white;
+  @apply relative hero-gradient text-white py-16;
 }
 
 .hero-overlay {
@@ -888,7 +888,7 @@ html {
 }
 
 .contact-form-card {
-  @apply bg-white rounded-lg p-8 shadow-lg;
+  @apply bg-white rounded-lg py-12 px-8 shadow-lg;
 }
 
 .contact-form-title {
