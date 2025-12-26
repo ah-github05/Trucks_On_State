@@ -29,7 +29,7 @@ export default function CapitalCityFoodCartsAboutSection() {
                   <MapPin className="locations-stat-icon" />
                 </div>
                 <div className="locations-stat-content">
-                  <h4 className="locations-stat-number">+4 Areas</h4>
+                  <h4 className="locations-stat-number">4+ Areas</h4>
                   <p className="locations-stat-label">Around the city</p>
                 </div>
               </div>
