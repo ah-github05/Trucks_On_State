@@ -644,7 +644,7 @@ export class MemStorage implements IStorage {
           "Saturday": "TBD",
           "Sunday": "TBD"
         }
-      }
+      },
 
       // Little sister cookies
       {
