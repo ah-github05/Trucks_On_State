@@ -618,7 +618,7 @@ export class MemStorage implements IStorage {
       {
         slug: "nirvana",
         name: "Culinary Nirvana",
-        description: "TBD",
+        description: "A unique farm-to-fork culinary experience",
         image: "/nirvana_pic.jpg",
         category: "american",
         location: "traveling",
@@ -644,7 +644,39 @@ export class MemStorage implements IStorage {
           "Saturday": "TBD",
           "Sunday": "TBD"
         }
+      },
+
+      // Little sister cookies
+      {
+        slug: "cookies",
+        name: "Little Sister Cookies",
+        description: "Warm, gooey cookies baked fresh daily",
+        image: "/cookies_pic.jpg",
+        category: "sweet_treats",
+        location: "TBD",
+        locationDisplayName: "TBD",
+        businessLinks: {
+          website: "https://sites.google.com/littlesistercookies.com/little-sister-cookies",
+          facebook: "https://www.facebook.com/littlesistercookies/"
+        },
+        menu: [
+          { name: "One", price: "$2.00", description: "Flavors: Chocolate, Seasonal (vary by event)", category: "Cookies" },
+          { name: "Three", price: "$5.00", description: "Flavors: Chocolate, Seasonal (vary by event)", category: "Cookies" },
+          { name: "Six", price: "$9.00", description: "Flavors: Chocolate, Seasonal (vary by event)", category: "Cookies" },
+          { name: "Bakers Dozen", price: "$18.00", description: "Flavors: Chocolate, Seasonal (vary by event)", category: "Cookies" },
+        ],
+        schedule: {
+          "Monday": "TBD",
+          "Tuesday": "TBD",
+          "Wednesday": "TBD",
+          "Thursday": "TBD",
+          "Friday": "TBD",
+          "Saturday": "TBD",
+          "Sunday": "TBD"
+        }
       }
+
+
 
     ];
 
