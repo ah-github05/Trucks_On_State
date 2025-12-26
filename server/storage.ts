@@ -618,7 +618,7 @@ export class MemStorage implements IStorage {
       {
         slug: "nirvana",
         name: "Culinary Nirvana",
-        description: "TBD",
+        description: "A unique farm-to-fork culinary experience",
         image: "/nirvana_pic.jpg",
         category: "american",
         location: "traveling",
@@ -645,6 +645,8 @@ export class MemStorage implements IStorage {
           "Sunday": "TBD"
         }
       }
+
+
 
     ];
 
