@@ -204,6 +204,10 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
   type: 'image',
   imageSrc: '/nirvana_menu.jpg',
   imageAlt: 'Culinary Nirvana Menu'
+  },
+  "cookies": {
+  type: 'categorized',
+  categoryOrder: ["Cookies - Change flavors per event"]
 }
 };
 
