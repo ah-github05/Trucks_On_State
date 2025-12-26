@@ -646,6 +646,37 @@ export class MemStorage implements IStorage {
         }
       }
 
+      // Little sister cookies
+      {
+        slug: "cookies",
+        name: "Little Sister Cookies",
+        description: "Warm, gooey cookies baked fresh daily",
+        image: "/cookies_pic.jpg",
+        category: "sweet_treats",
+        location: "TBD",
+        locationDisplayName: "TBD",
+        businessLinks: {
+          website: "https://sites.google.com/littlesistercookies.com/little-sister-cookies",
+          facebook: "https://www.facebook.com/littlesistercookies/"
+        },
+        menu: [
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" },
+          { name: "TBD", price: "$TBD", description: "TBD" }
+        ],
+        schedule: {
+          "Monday": "TBD",
+          "Tuesday": "TBD",
+          "Wednesday": "TBD",
+          "Thursday": "TBD",
+          "Friday": "TBD",
+          "Saturday": "TBD",
+          "Sunday": "TBD"
+        }
+      }
+
 
 
     ];
