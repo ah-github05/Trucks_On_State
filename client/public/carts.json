@@ -1225,26 +1225,26 @@
       {
         "name": "One",
         "price": "$2.00",
-        "description": " ",
-        "category": "Cookies - Change flavors per event"
+        "description": "Flavors: Chocolate, Seasonal (vary by event)",
+        "category": "Cookies"
       },
       {
         "name": "Three",
         "price": "$5.00",
-        "description": " ",
-        "category": "Cookies - Change flavors per event"
+        "description": "Flavors: Chocolate, Seasonal (vary by event)",
+        "category": "Cookies"
       },
       {
         "name": "Six",
         "price": "$9.00",
-        "description": " ",
-        "category": "Cookies - Change flavors per event"
+        "description": "Flavors: Chocolate, Seasonal (vary by event)",
+        "category": "Cookies"
       },
       {
         "name": "Bakers Dozen",
         "price": "$18.00",
-        "description": " ",
-        "category": "Cookies - Change flavors per event"
+        "description": "Flavors: Chocolate, Seasonal (vary by event)",
+        "category": "Cookies"
       }
     ],
     "schedule": {
