@@ -94,11 +94,45 @@ Start the development server:
 npm run dev
 ```
 
-The application will be available at `http://localhost:5000`
+The application will be available at `http://localhost:3000`
 
 - Frontend hot module replacement (HMR) is enabled via Vite
-- Backend Express server runs on port 5000 for development
+- Backend Express server runs on port 3000 for development
 - API routes available at `/api/*` (development only)
+
+### Development Workflow & Version Control
+
+This project uses a **branch-based workflow** for development:
+
+1. **Development Branch (`dev`)**
+   - All active development work happens on the `dev` branch
+   - Create feature branches from `dev` for specific features or fixes
+   - Test changes locally before merging
+
+2. **Merging to Main**
+   - Once features are tested and stable on `dev`, merge to `main`
+   - The `main` branch represents production-ready code
+   - Vercel automatically deploys when changes are pushed to `main`
+
+3. **Recommended Workflow**
+   ```bash
+   # Create a feature branch from dev
+   git checkout dev
+   git checkout -b feature/your-feature-name
+
+   # Make changes and commit
+   git add .
+   git commit -m "Add your feature"
+
+   # Merge back to dev
+   git checkout dev
+   git merge feature/your-feature-name
+
+   # After testing, merge dev to main for deployment
+   git checkout main
+   git merge dev
+   git push origin main
+   ```
 
 ### Building for Production
 
@@ -175,7 +209,8 @@ To add a new food cart:
 ```
 
 3. Run `npm run build` to regenerate `carts.json`
-4. Commit and push to trigger Vercel deployment
+4. Commit changes to the `dev` branch for testing
+5. After testing, merge `dev` to `main` to trigger Vercel deployment
 
 ## 🚢 Deployment
 
@@ -190,10 +225,14 @@ To add a new food cart:
    - Output Directory: `dist/public`
 
 3. **Deploy**
+   - Development work is done on the `dev` branch
+   - Merge `dev` to `main` when ready to deploy
    ```bash
+   git checkout main
+   git merge dev
    git push origin main
    ```
-   Vercel will automatically deploy on push to main branch.
+   Vercel will automatically deploy on push to the `main` branch.
 
 
 ### Manual Deployment
