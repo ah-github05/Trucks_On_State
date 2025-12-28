@@ -261,6 +261,5 @@ vercel --prod
 
 ## 📧 Contact
 
-For questions, suggestions, or to add your food cart to the platform:
 - Project Maintainer: Ariav Hayempour
 - GitHub: [@ariavhayempour](https://github.com/ariavhayempour)
