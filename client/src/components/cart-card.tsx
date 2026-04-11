@@ -14,11 +14,16 @@ export default function IndividualFoodCartCard({ cart }: CartCardProps) {
 
   return (
     <Card className="food-cart-card">
-      <img
-        src={cart.image}
-        alt={`${cart.name} food cart`}
-        className="cart-card-image"
-      />
+      <div className="cart-card-image-wrapper">
+        <img
+          src={cart.image}
+          alt={`${cart.name} food cart`}
+          className="cart-card-image"
+        />
+        <span className="cart-category-badge">
+          {capitalizeFirst(cart.category.replace(/_/g, ' '))}
+        </span>
+      </div>
       <CardContent className="cart-card-content">
         <div className="cart-card-header">
           <h3 className="cart-card-title">{cart.name}</h3>
