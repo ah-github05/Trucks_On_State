@@ -1,72 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   DESIGN TOKENS — Warm & Homey
+   ============================================================ */
+
 :root {
-  --background: 0 0% 100%;
-  --foreground: 20 14.3% 4.1%;
+  --background: 35 38% 97%;          /* warm parchment */
+  --foreground: 20 14% 4%;           /* original near-black */
   --muted: 60 4.8% 95.9%;
   --muted-foreground: 25 5.3% 44.7%;
   --popover: 0 0% 100%;
-  --popover-foreground: 20 14.3% 4.1%;
-  --card: 0 0% 100%;
-  --card-foreground: 20 14.3% 4.1%;
-  --border: 20 5.9% 90%;
+  --popover-foreground: 20 14% 4%;
+  --card: 35 35% 99%;                /* barely-warm white */
+  --card-foreground: 20 14% 4%;
+  --border: 35 22% 87%;              /* warm sand border */
   --input: 20 5.9% 90%;
-  --primary: 0 80% 45%; /* #B91C3C - Red-maroon for food trucks */
+  --primary: 0 80% 45%;              /* original red-maroon #B91C3C */
   --primary-foreground: 60 9.1% 97.8%;
-  --secondary: 158 64% 52%; /* #059669 - Green accent */
+  --secondary: 158 64% 52%;          /* original green #059669 */
   --secondary-foreground: 0 0% 98%;
-  --accent: 60 4.8% 95.9%;
+  --accent: 43 96% 56%;              /* original yellow #FBBF24 */
   --accent-foreground: 24 9.8% 10%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 60 9.1% 97.8%;
-  --ring: 20 14.3% 4.1%;
-  --radius: 0.5rem;
-  --chart-1: 12 76% 61%;
-  --chart-2: 173 58% 39%;
-  --chart-3: 197 37% 24%;
-  --chart-4: 43 74% 66%;
-  --chart-5: 27 87% 67%;
-  --sidebar-background: 0 0% 98%;
-  --sidebar-foreground: 240 5.3% 26.1%;
-  --sidebar-primary: 240 5.9% 10%;
-  --sidebar-primary-foreground: 0 0% 98%;
-  --sidebar-accent: 240 4.8% 95.9%;
-  --sidebar-accent-foreground: 240 5.9% 10%;
-  --sidebar-border: 220 13% 91%;
-  --sidebar-ring: 217.2 10.6% 64.9%;
+  --ring: 0 80% 45%;
+  --radius: 0.875rem;
+  --chart-1: 3 70% 44%;
+  --chart-2: 158 52% 40%;
+  --chart-3: 38 80% 55%;
+  --chart-4: 200 60% 48%;
+  --chart-5: 280 50% 52%;
+  --sidebar-background: 35 30% 98%;
+  --sidebar-foreground: 20 20% 20%;
+  --sidebar-primary: 3 70% 44%;
+  --sidebar-primary-foreground: 35 40% 97%;
+  --sidebar-accent: 35 28% 93%;
+  --sidebar-accent-foreground: 20 20% 10%;
+  --sidebar-border: 35 22% 87%;
+  --sidebar-ring: 3 70% 44%;
 }
 
 .dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --primary: 0 80% 45%; /* Keep same red-maroon in dark mode */
-  --primary-foreground: 60 9.1% 97.8%;
-  --secondary: 158 64% 52%; /* Keep same green in dark mode */
+  --background: 20 18% 9%;
+  --foreground: 35 30% 92%;
+  --muted: 20 12% 16%;
+  --muted-foreground: 28 10% 55%;
+  --popover: 20 16% 11%;
+  --popover-foreground: 35 30% 92%;
+  --card: 20 14% 11%;
+  --card-foreground: 35 30% 92%;
+  --border: 25 10% 20%;
+  --input: 25 10% 18%;
+  --primary: 3 70% 44%;
+  --primary-foreground: 35 40% 97%;
+  --secondary: 158 52% 40%;
   --secondary-foreground: 0 0% 98%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
+  --accent: 38 80% 55%;
+  --accent-foreground: 20 20% 10%;
+  --destructive: 0 72% 52%;
   --destructive-foreground: 0 0% 98%;
-  --ring: 240 4.9% 83.9%;
-  --sidebar-background: 240 5.9% 10%;
-  --sidebar-foreground: 240 4.8% 95.9%;
-  --sidebar-primary: 224.3 76.3% 94.1%;
-  --sidebar-primary-foreground: 240 5.9% 10%;
-  --sidebar-accent: 240 3.7% 15.9%;
-  --sidebar-accent-foreground: 240 4.8% 95.9%;
-  --sidebar-border: 240 3.7% 15.9%;
-  --sidebar-ring: 217.2 10.6% 64.9%;
+  --ring: 3 70% 44%;
 }
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes float-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
 
 html {
   scroll-padding-top: 30px;
@@ -76,140 +92,26 @@ html {
   * {
     @apply border-border;
   }
-
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: 'Nunito', sans-serif;
   }
 }
 
-/* Custom food truck themed colors */
-.bg-primary-600 {
-  background-color: hsl(0 70% 35%); /* #8B1538 */
-}
+/* ============================================================
+   HEADER
+   ============================================================ */
 
-.bg-primary-700 {
-  background-color: hsl(0 75% 25%); /* #6B1020 */
-}
-
-.text-primary-700 {
-  color: hsl(0 75% 25%); /* #6B1020 */
-}
-
-.text-primary-500 {
-  color: hsl(0 80% 45%); /* #B91C3C */
-}
-
-.bg-secondary-600 {
-  color: hsl(158 64% 42%); /* #047857 */
-}
-
-.text-secondary-600 {
-  color: hsl(158 64% 42%); /* #047857 */
-}
-
-.text-accent-yellow {
-  color: hsl(43 96% 56%); /* #FBBF24 */
-}
-
-.bg-accent-yellow {
-  background-color: hsl(43 96% 56%); /* #FBBF24 */
-}
-
-.text-accent-red {
-  color: hsl(0 75% 30%); /* #7F1D1D */
-}
-
-/* Food truck hero gradient */
-.hero-gradient {
-  background: linear-gradient(135deg, hsl(0 80% 45%) 0%, hsl(0 70% 35%) 100%);
-}
-
-/* Footer Component Classes */
-.footer-background {
-  @apply bg-gray-900 text-white py-12;
-}
-
-.footer-container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-}
-
-.footer-grid {
-  @apply grid grid-cols-1 md:grid-cols-4 gap-8;
-}
-
-.brand-section {
-  @apply col-span-1 md:col-span-2;
-}
-
-.brand-title {
-  @apply text-2xl font-bold mb-4 flex items-center;
-}
-
-.brand-icon {
-  @apply w-6 h-6 mr-2;
-}
-
-/* Social Media Specific Classes */
-.social-media-container {
-  @apply flex space-x-4;
-}
-
-.facebook-link {
-  @apply text-gray-300 hover:text-white transition-colors;
-}
-
-.twitter-link {
-  @apply text-gray-300 hover:text-white transition-colors;
-}
-
-.instagram-link {
-  @apply text-gray-300 hover:text-white transition-colors;
-}
-
-.facebook-icon {
-  @apply w-5 h-5;
-}
-
-.twitter-icon {
-  @apply w-5 h-5;
-}
-
-.instagram-icon {
-  @apply w-5 h-5;
-}
-
-/* Quick Links Navigation Classes */
-.quick-links-title {
-  @apply text-lg font-semibold mb-4;
-}
-
-.quick-links-list {
-  @apply space-y-2;
-}
-
-.home-link {
-  @apply text-gray-300 hover:text-white transition-colors cursor-pointer;
-}
-
-.food-carts-button {
-  @apply text-gray-300 hover:text-white transition-colors text-left;
-}
-
-.about-button {
-  @apply text-gray-300 hover:text-white transition-colors text-left;
-}
-
-.footer-bottom {
-  @apply border-t border-gray-800 mt-8 pt-8 text-center;
-}
-
-.copyright-text {
-  @apply text-gray-300;
-}
-
-/* Header Component Classes */
 .main-header {
-  @apply bg-white shadow-sm sticky top-0 z-50;
+  background: hsl(35, 40%, 98%);
+  border-bottom: 1px solid hsl(35, 22%, 89%);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 16px hsla(20, 30%, 40%, 0.07);
 }
 
 .header-container {
@@ -225,15 +127,23 @@ html {
 }
 
 .brand-logo-link {
-  @apply flex items-center cursor-pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
 }
 
 .brand-logo-icon {
-  @apply h-6 w-6 text-primary mr-2;
+  color: hsl(0, 80%, 45%);
+  @apply h-5 w-5;
 }
 
 .brand-logo-text {
-  @apply text-2xl font-bold text-primary-700;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: hsl(0, 75%, 25%);
+  letter-spacing: -0.01em;
 }
 
 .desktop-navigation {
@@ -241,23 +151,31 @@ html {
 }
 
 .desktop-nav-links {
-  @apply ml-10 flex items-baseline space-x-4;
+  @apply ml-8 flex items-center gap-1;
 }
 
 .home-nav-button {
-  @apply text-primary-700 hover:text-primary;
+  color: hsl(0, 75%, 28%) !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
 }
 
-.food-carts-nav-button {
-  @apply text-gray-700 hover:text-primary;
-}
-
-.about-nav-button {
-  @apply text-gray-700 hover:text-primary;
-}
-
+.food-carts-nav-button,
+.about-nav-button,
 .contact-nav-button {
-  @apply text-gray-700 hover:text-primary;
+  color: hsl(28, 12%, 42%) !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  transition: color 0.2s ease !important;
+}
+
+.food-carts-nav-button:hover,
+.about-nav-button:hover,
+.contact-nav-button:hover {
+  color: hsl(0, 80%, 45%) !important;
+  background: hsl(0, 80%, 97%) !important;
 }
 
 .mobile-menu-section {
@@ -265,15 +183,12 @@ html {
 }
 
 .mobile-menu-toggle {
-  @apply text-gray-700 hover:text-primary;
+  color: hsl(28, 12%, 45%) !important;
 }
 
-.mobile-menu-close-icon {
-  @apply h-6 w-6;
-}
-
+.mobile-menu-close-icon,
 .mobile-menu-open-icon {
-  @apply h-6 w-6;
+  @apply h-5 w-5;
 }
 
 .mobile-dropdown-menu {
@@ -281,69 +196,224 @@ html {
 }
 
 .mobile-menu-container {
-  @apply px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t;
+  padding: 0.75rem 1rem;
+  background: hsl(35, 40%, 98%);
+  border-top: 1px solid hsl(35, 22%, 89%);
+  @apply space-y-1;
 }
 
 .mobile-home-button {
-  @apply text-primary-700 block w-full text-left;
+  color: hsl(0, 75%, 28%) !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 600 !important;
+  @apply block w-full text-left;
 }
 
-.mobile-food-carts-button {
-  @apply text-gray-700 hover:text-primary block w-full text-left;
-}
-
-.mobile-about-button {
-  @apply text-gray-700 hover:text-primary block w-full text-left;
-}
-
+.mobile-food-carts-button,
+.mobile-about-button,
 .mobile-contact-button {
-  @apply text-gray-700 hover:text-primary block w-full text-left;
+  color: hsl(28, 12%, 42%) !important;
+  font-family: 'Nunito', sans-serif !important;
+  @apply block w-full text-left;
 }
 
-/* Hero Component Classes */
+/* ============================================================
+   HERO
+   ============================================================ */
+
 .hero-section {
-  @apply relative hero-gradient text-white py-16;
+  position: relative;
+  overflow: hidden;
+  /* Warm brick-red, like a cozy local restaurant sign */
+  background: linear-gradient(135deg, hsl(0, 80%, 45%) 0%, hsl(0, 70%, 35%) 100%);
+  color: white;
+}
+
+/* Soft vignette overlay for warmth (replaces harsh stripe texture) */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,200,140,0.08) 0%, transparent 70%),
+              radial-gradient(ellipse at 80% 100%, rgba(0,0,0,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-glow-amber,
+.hero-glow-red {
+  display: none;
 }
 
 .hero-overlay {
-  @apply absolute inset-0 bg-black bg-opacity-40;
+  display: none;
 }
 
 .hero-content-container {
-  @apply relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24;
+  position: relative;
+  z-index: 1;
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20;
+  padding-bottom: 4.5rem;
 }
 
 .hero-text-center {
-  @apply text-center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: hsl(43, 96%, 48%);
+  border: 1px solid rgba(255, 220, 160, 0.35);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  margin-bottom: 1.5rem;
+  animation: float-in 0.6s ease-out both;
+  background: rgba(255, 200, 120, 0.1);
 }
 
 .hero-main-title {
-  @apply text-4xl md:text-6xl font-bold mb-6;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 8.5vw, 6.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  color: hsl(35, 55%, 96%);
+  animation: float-in 0.65s 0.1s ease-out both;
 }
 
 .hero-accent-text {
-  @apply text-yellow-300;
+  font-style: italic;
+  /* Warm amber/honey — friendlier than sharp lemon yellow */
+  color: hsl(43, 96%, 64%);
 }
 
 .hero-description {
-  @apply text-xl md:text-2xl mb-8 max-w-3xl mx-auto;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: rgba(230, 210, 185, 1);
+  max-width: 32rem;
+  margin-bottom: 2.25rem;
+  line-height: 1.8;
+  animation: float-in 0.65s 0.2s ease-out both;
 }
 
 .hero-buttons-container {
-  @apply flex flex-col sm:flex-row gap-4 justify-center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  animation: float-in 0.65s 0.3s ease-out both;
+}
+
+@media (min-width: 640px) {
+  .hero-buttons-container {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 .explore-carts-button {
-  @apply bg-yellow-300 text-gray-900 font-semibold px-8 py-3 rounded-full hover:bg-yellow-200 transition-colors;
+  background: hsl(43, 96%, 56%) !important;
+  color: hsl(20, 30%, 12%) !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  padding: 0.75rem 2rem !important;
+  border-radius: 100px !important;
+  border: none !important;
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.18) !important;
+  transition: all 0.25s ease !important;
+}
+
+.explore-carts-button:hover {
+  background: hsl(43, 96%, 64%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.22) !important;
 }
 
 .learn-more-button {
-  @apply border-2 border-white font-semibold px-8 py-3 rounded-full hover:bg-white transition-colors text-[#000000];
+  border: 1.5px solid rgba(255, 235, 200, 0.75) !important;
+  color: hsl(35, 70%, 88%) !important;
+  background: transparent !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  padding: 0.73rem 2rem !important;
+  border-radius: 100px !important;
+  transition: all 0.25s ease !important;
 }
 
-/* Search Filter Component Classes */
+.learn-more-button:hover {
+  border-color: rgba(255, 235, 200, 0.85) !important;
+  background: rgba(255, 235, 200, 0.1) !important;
+}
+
+/* ── Warm amber ribbon marquee ── */
+.hero-marquee-wrapper {
+  position: relative;
+  margin-top: 4rem;
+  background: hsl(43, 96%, 56%);
+  overflow: hidden;
+  padding: 0.6rem 0;
+}
+
+.hero-marquee-wrapper::before,
+.hero-marquee-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, hsl(43, 96%, 56%), transparent);
+}
+
+.hero-marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, hsl(43, 96%, 56%), transparent);
+}
+
+.hero-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 38s linear infinite;
+}
+
+.hero-marquee-item {
+  padding: 0.25rem 1.75rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: hsl(0, 75%, 22%);
+  white-space: nowrap;
+  border-right: 1px solid hsl(43, 80%, 46%);
+}
+
+/* ============================================================
+   SEARCH FILTER
+   ============================================================ */
+
 .search-filter-section {
-  @apply bg-white py-8 border-b;
+  background: hsl(35, 40%, 98%);
+  border-bottom: 1px solid hsl(35, 22%, 89%);
+  padding: 1.25rem 0;
 }
 
 .search-filter-container {
@@ -351,426 +421,308 @@ html {
 }
 
 .search-filter-content {
-  @apply flex flex-col md:flex-row gap-4 items-center justify-between;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .search-input-container {
-  @apply relative flex-1 max-w-md;
+  position: relative;
+  max-width: 26rem;
 }
 
 .search-input-icon {
-  @apply absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4;
+  position: absolute;
+  left: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: hsl(28, 12%, 52%);
+  @apply h-4 w-4;
+  pointer-events: none;
 }
 
 .food-cart-search-input {
-  @apply pl-10;
+  padding-left: 2.5rem !important;
+  background: hsl(35, 35%, 96%) !important;
+  border: 1px solid hsl(35, 22%, 86%) !important;
+  color: hsl(20, 20%, 10%) !important;
+  border-radius: 0.625rem !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 0.875rem !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
 }
 
-.category-filter-buttons {
-  @apply flex flex-wrap gap-2;
+.food-cart-search-input::placeholder {
+  color: hsl(28, 10%, 56%) !important;
 }
 
-  /* Category Button Classes */
-
-.all-category-active {
-  @apply bg-primary text-white;
+.food-cart-search-input:focus {
+  border-color: hsl(0, 80%, 45%) !important;
+  box-shadow: 0 0 0 3px hsl(0, 80%, 96%) !important;
+  background: white !important;
+  outline: none !important;
 }
 
-.all-category-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.sandwiches-category-active {
-  @apply bg-primary text-white;
-}
-
-.sandwiches-category-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.south_american-category-active {
-  @apply bg-primary text-white;
-}
-
-.south_american-category-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.south_asian-category-active {
-  @apply bg-primary text-white;
-}
-
-.south_asian-category-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.mexican-category-active {
-  @apply bg-primary text-white;
-}
-
-.mexican-category-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.asian-category-active {
-  @apply bg-primary text-white;
-}
-
-.asian-category-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.american-category-active {
-  @apply bg-primary text-white;
-}
-
-.american-category-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.caribbean-category-active {
-  @apply bg-primary text-white;
-}
-
-.caribbean-category-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.middle_eastern-category-active {
-  @apply bg-primary text-white;
-}
-
-.middle_eastern-category-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.sweet_treats-category-active {
-  @apply bg-primary text-white;
-}
-
-.sweet_treats-category-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.drinks-category-active {
-  @apply bg-primary text-white;
-}
-
-.drinks-category-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
+.category-filter-buttons,
 .location-filter-buttons {
-  @apply flex flex-wrap gap-2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
-/* Location Button Classes */
-
-.all-location-active {
-  @apply bg-primary text-white;
-}
-
-.all-location-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.state-street-library-mall-location-active {
-  @apply bg-primary text-white;
-}
-
-.state-street-library-mall-location-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.west-side-location-active {
-  @apply bg-primary text-white;
-}
-
-.west-side-location-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.southeast-campus-location-active {
-  @apply bg-primary text-white;
-}
-
-.southeast-campus-location-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
-.capitol-square-location-active {
-  @apply bg-primary text-white;
-}
-
-.capitol-square-location-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-}
-
+/* ── Active filter pills ── */
+.all-category-active,
+.sandwiches-category-active,
+.south_american-category-active,
+.south_asian-category-active,
+.mexican-category-active,
+.asian-category-active,
+.american-category-active,
+.caribbean-category-active,
+.middle_eastern-category-active,
+.sweet_treats-category-active,
+.drinks-category-active,
+.all-location-active,
+.state-street-library-mall-location-active,
+.west-side-location-active,
+.southeast-campus-location-active,
+.capitol-square-location-active,
 .traveling-location-active {
-  @apply bg-primary text-white;
+  background: hsl(0, 80%, 45%) !important;
+  color: white !important;
+  border: 1px solid hsl(0, 80%, 45%) !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.78rem !important;
+  border-radius: 100px !important;
 }
 
+/* ── Inactive filter pills ── */
+.all-category-inactive,
+.sandwiches-category-inactive,
+.south_american-category-inactive,
+.south_asian-category-inactive,
+.mexican-category-inactive,
+.asian-category-inactive,
+.american-category-inactive,
+.caribbean-category-inactive,
+.middle_eastern-category-inactive,
+.sweet_treats-category-inactive,
+.drinks-category-inactive,
+.all-location-inactive,
+.state-street-library-mall-location-inactive,
+.west-side-location-inactive,
+.southeast-campus-location-inactive,
+.capitol-square-location-inactive,
 .traveling-location-inactive {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+  background: hsl(35, 30%, 95%) !important;
+  color: hsl(28, 22%, 14%) !important;
+  border: 1px solid hsl(35, 20%, 76%) !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 0.78rem !important;
+  border-radius: 100px !important;
+  transition: all 0.18s ease !important;
 }
 
+.all-category-inactive:hover,
+.sandwiches-category-inactive:hover,
+.south_american-category-inactive:hover,
+.south_asian-category-inactive:hover,
+.mexican-category-inactive:hover,
+.asian-category-inactive:hover,
+.american-category-inactive:hover,
+.caribbean-category-inactive:hover,
+.middle_eastern-category-inactive:hover,
+.sweet_treats-category-inactive:hover,
+.drinks-category-inactive:hover,
+.all-location-inactive:hover,
+.state-street-library-mall-location-inactive:hover,
+.west-side-location-inactive:hover,
+.southeast-campus-location-inactive:hover,
+.capitol-square-location-inactive:hover,
+.traveling-location-inactive:hover {
+  background: hsl(0, 80%, 97%) !important;
+  border-color: hsl(0, 80%, 78%) !important;
+  color: hsl(0, 75%, 28%) !important;
+}
 
+/* ============================================================
+   CART CARDS
+   ============================================================ */
 
-/* Cart Card Component Classes */
 .food-cart-card {
-  @apply bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300;
+  /* Slightly warm white — like a recipe card */
+  background: hsl(35, 35%, 99%);
+  border: 1px solid hsl(35, 22%, 88%);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  /* Warm brown shadow, not cold gray */
+  box-shadow: 0 2px 10px hsla(20, 40%, 30%, 0.07);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.food-cart-card:hover {
+  transform: translateY(-4px);
+  border-color: hsl(0, 70%, 76%);
+  box-shadow: 0 14px 36px hsla(3, 60%, 30%, 0.13),
+              0 3px 10px hsla(20, 40%, 30%, 0.07);
+}
+
+.cart-card-image-wrapper {
+  position: relative;
+  overflow: hidden;
 }
 
 .cart-card-image {
-  @apply w-full h-48 object-cover;
+  width: 100%;
+  height: 11rem;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.food-cart-card:hover .cart-card-image {
+  transform: scale(1.04);
+}
+
+.cart-category-badge {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  /* Warm amber, not sharp lemon */
+  background: hsl(43, 96%, 56%);
+  color: hsl(20, 30%, 14%);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.6rem;
+  border-radius: 100px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .cart-card-content {
-  @apply p-6;
+  padding: 1.25rem 1.25rem 1.25rem;
 }
 
 .cart-card-header {
-  @apply mb-2;
+  margin-bottom: 0.4rem;
 }
 
 .cart-card-title {
-  @apply text-xl font-bold text-gray-900;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: hsl(20, 20%, 10%);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
 }
 
 .cart-card-description {
-  @apply text-gray-600 mb-4;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.855rem;
+  color: hsl(28, 16%, 18%);
+  line-height: 1.65;
+  margin-bottom: 0.85rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .cart-card-location {
-  @apply flex items-center text-sm text-gray-500 mb-4;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .cart-location-icon {
-  @apply w-4 h-4 mr-2;
+  color: hsl(0, 80%, 45%);
+  @apply w-3.5 h-3.5 flex-shrink-0;
 }
 
 .cart-location-text {
-  @apply text-gray-500;
+  color: hsl(28, 16%, 18%);
+  font-family: 'Nunito', sans-serif;
 }
 
 .cart-card-footer {
-  @apply flex items-center justify-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.875rem;
+  border-top: 1px solid hsl(35, 22%, 90%);
 }
 
 .cart-status {
-  @apply text-sm font-medium;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .cart-status-open {
-  @apply text-secondary-600;
+  color: hsl(158, 64%, 36%);
+}
+
+.cart-status-open::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(158, 64%, 45%);
+  box-shadow: 0 0 5px hsl(158, 64%, 55%);
 }
 
 .cart-status-closed {
-  @apply text-red-600;
+  color: hsl(0, 80%, 46%);
+}
+
+.cart-status-closed::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(0, 80%, 52%);
 }
 
 .view-menu-button {
-  @apply bg-primary text-white hover:bg-primary transition-colors;
+  background: hsl(0, 80%, 45%) !important;
+  color: white !important;
+  border: none !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  padding: 0.35rem 0.9rem !important;
+  border-radius: 0.625rem !important;
+  transition: all 0.2s ease !important;
 }
 
-/* About Component Classes */
-.about-section {
-  @apply py-16 bg-white;
+.view-menu-button:hover {
+  background: hsl(0, 80%, 38%) !important;
+  transform: translateY(-1px) !important;
 }
 
-.about-container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-}
+/* ============================================================
+   HOME PAGE
+   ============================================================ */
 
-.about-content-grid {
-  @apply grid grid-cols-1 lg:grid-cols-2 gap-12 items-center;
-}
-
-.about-text-content {
-  @apply space-y-6;
-}
-
-.about-section-title {
-  @apply text-3xl md:text-4xl font-bold text-gray-900 mb-6;
-}
-
-.about-description-first {
-  @apply text-lg text-gray-600 mb-6;
-}
-
-.about-description-second {
-  @apply text-lg text-gray-600 mb-6;
-}
-
-.about-stats-container {
-  @apply flex flex-col sm:flex-row gap-4;
-}
-
-.food-carts-stat {
-  @apply flex items-center;
-}
-
-.food-carts-stat-icon-bg {
-  @apply bg-primary/10 rounded-full p-3 mr-4;
-}
-
-.food-carts-stat-icon {
-  @apply w-6 h-6 text-primary;
-}
-
-.food-carts-stat-content {
-  @apply space-y-1;
-}
-
-.food-carts-stat-number {
-  @apply font-semibold text-gray-900;
-}
-
-.food-carts-stat-label {
-  @apply text-sm text-gray-600;
-}
-
-.locations-stat {
-  @apply flex items-center;
-}
-
-.locations-stat-icon-bg {
-  @apply bg-secondary/10 rounded-full p-3 mr-4;
-}
-
-.locations-stat-icon {
-  @apply w-6 h-6 text-secondary;
-}
-
-.locations-stat-content {
-  @apply space-y-1;
-}
-
-.locations-stat-number {
-  @apply font-semibold text-gray-900;
-}
-
-.locations-stat-label {
-  @apply text-sm text-gray-600;
-}
-
-.about-image-container {
-  @apply flex justify-center;
-}
-
-.about-hero-image {
-  @apply rounded-xl shadow-lg w-full h-auto;
-}
-
-/* Contact Component Classes */
-.contact-form-section {
-  @apply hero-gradient py-24 px-4;
-}
-
-.newsletter-container {
-  @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center;
-}
-
-.newsletter-title {
-  @apply text-3xl md:text-4xl font-bold text-white mb-4;
-}
-
-.newsletter-description {
-  @apply text-xl text-white/90 mb-8;
-}
-
-.newsletter-form {
-  @apply flex flex-col sm:flex-row gap-4 max-w-md mx-auto;
-}
-
-.newsletter-email-input {
-  @apply flex-1 bg-white;
-}
-
-.newsletter-subscribe-button {
-  @apply bg-yellow-300 text-gray-900 font-semibold hover:bg-yellow-200 transition-colors;
-}
-
-/* Cart Grid Component Classes */
-.carts-listing-section {
-  @apply py-16;
-}
-
-.carts-listing-container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-}
-
-.carts-listing-header {
-  @apply text-center mb-12;
-}
-
-.carts-listing-title {
-  @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4;
-}
-
-.carts-listing-description {
-  @apply text-lg text-gray-600 max-w-2xl mx-auto;
-}
-
-.carts-loading-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
-}
-
-.cart-skeleton-card {
-  @apply bg-white rounded-xl shadow-lg overflow-hidden;
-}
-
-.cart-skeleton-image {
-  @apply w-full h-48;
-}
-
-.cart-skeleton-content {
-  @apply p-6 space-y-4;
-}
-
-.cart-skeleton-title {
-  @apply h-6 w-48;
-}
-
-.cart-skeleton-description {
-  @apply h-4 w-full;
-}
-
-.cart-skeleton-location {
-  @apply h-4 w-32;
-}
-
-.cart-skeleton-footer {
-  @apply flex justify-between items-center;
-}
-
-.cart-skeleton-status {
-  @apply h-4 w-16;
-}
-
-.cart-skeleton-button {
-  @apply h-8 w-20;
-}
-
-.carts-active-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
-}
-
-.carts-empty-state {
-  @apply text-center py-12;
-}
-
-.carts-empty-message {
-  @apply text-lg text-gray-600;
-}
-
-/* Home Page Classes */
 .home-page-container {
-  @apply min-h-screen bg-gray-50;
+  min-height: 100vh;
+  background: hsl(35, 38%, 97%);
 }
 
 .home-carts-section {
-  @apply py-16;
+  padding: 4rem 0;
+  background: hsl(35, 38% ,97%);
 }
 
 .home-carts-container {
@@ -778,15 +730,26 @@ html {
 }
 
 .home-carts-header {
-  @apply text-center mb-12;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .home-carts-title {
-  @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: hsl(20, 20%, 10%);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
 }
 
 .home-carts-description {
-  @apply text-lg text-gray-600 max-w-2xl mx-auto;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: hsl(28, 10%, 46%);
+  max-width: 38rem;
+  margin: 0 auto;
+  line-height: 1.75;
 }
 
 .home-carts-error {
@@ -794,143 +757,685 @@ html {
 }
 
 .home-carts-error-message {
-  @apply text-red-600;
+  color: hsl(0, 80%, 45%);
+  font-family: 'Nunito', sans-serif;
 }
 
 .home-carts-loading-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
 }
 
 .home-cart-skeleton-card {
-  @apply bg-white rounded-xl shadow-lg overflow-hidden;
+  background: hsl(35, 35%, 99%);
+  border: 1px solid hsl(35, 22%, 88%);
+  border-radius: 1.25rem;
+  overflow: hidden;
 }
 
 .home-cart-skeleton-image {
-  @apply w-full h-48;
+  @apply w-full;
+  height: 11rem;
+  background: hsl(35, 25%, 91%);
 }
 
 .home-cart-skeleton-content {
-  @apply p-6;
+  padding: 1.25rem;
 }
 
 .home-cart-skeleton-title {
-  @apply h-6 w-3/4 mb-2;
+  @apply h-5 w-3/4 mb-3;
+  background: hsl(35, 22%, 88%);
+  border-radius: 0.375rem;
 }
 
 .home-cart-skeleton-description {
-  @apply h-4 w-full mb-4;
+  @apply h-3 w-full mb-2;
+  background: hsl(35, 20%, 91%);
+  border-radius: 0.25rem;
 }
 
 .home-cart-skeleton-location {
-  @apply h-4 w-1/2 mb-4;
+  @apply h-3 w-1/2 mb-4;
+  background: hsl(35, 20%, 91%);
+  border-radius: 0.25rem;
 }
 
 .home-cart-skeleton-footer {
   @apply flex justify-between items-center;
+  padding-top: 0.875rem;
+  border-top: 1px solid hsl(35, 22%, 90%);
 }
 
 .home-cart-skeleton-status {
-  @apply h-4 w-16;
+  @apply h-3 w-16;
+  background: hsl(35, 22%, 88%);
+  border-radius: 0.25rem;
 }
 
 .home-cart-skeleton-button {
-  @apply h-8 w-20;
+  @apply h-7 w-20;
+  background: hsl(35, 22%, 88%);
+  border-radius: 0.625rem;
 }
 
 .home-carts-empty-state {
-  @apply text-center py-12;
+  text-align: center;
+  padding: 4rem 0;
 }
 
 .home-carts-empty-message {
-  @apply text-gray-600 text-lg;
+  font-family: 'Nunito', sans-serif;
+  color: hsl(28, 10%, 50%);
+  font-size: 1rem;
 }
 
 .home-carts-active-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
 }
 
-/* Not Found Page Classes */
-.not-found-page-container {
-  @apply min-h-screen w-full flex items-center justify-center bg-gray-50;
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+
+.about-section {
+  padding: 5rem 0;
+  /* Soft warm cream — like looking at an old recipe book */
+  background: hsl(43, 30%, 96%);
+  position: relative;
 }
 
-.not-found-card {
-  @apply w-full max-w-md mx-4;
+.about-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-.not-found-card-content {
-  @apply pt-6;
+.about-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
 }
 
-.not-found-header {
-  @apply flex mb-4 gap-2;
+@media (min-width: 1024px) {
+  .about-content-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
 }
 
-.not-found-icon {
-  @apply h-8 w-8 text-red-500;
+.about-text-content {
+  @apply space-y-5;
 }
 
-.not-found-title {
-  @apply text-2xl font-bold text-gray-900;
+.about-section-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  color: hsl(20, 20%, 10%);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
 }
 
-.not-found-description {
-  @apply mt-4 text-sm text-gray-600;
+.about-description-first,
+.about-description-second {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: hsl(28, 10%, 46%);
+  line-height: 1.85;
 }
 
-/* Contact Form Classes */
-.contact-form-section {
-  @apply hero-gradient py-16 px-4;
+.about-stats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .about-stats-container {
+    flex-direction: row;
+  }
+}
+
+.food-carts-stat,
+.locations-stat {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.food-carts-stat-icon-bg {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.875rem;
+  background: hsl(0, 80%, 96%);
+  border: 1px solid hsl(0, 70%, 86%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.food-carts-stat-icon {
+  color: hsl(0, 80%, 45%);
+  @apply w-5 h-5;
+}
+
+.food-carts-stat-content,
+.locations-stat-content {
+  @apply space-y-0.5;
+}
+
+.food-carts-stat-number,
+.locations-stat-number {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: hsl(20, 20%, 10%);
+}
+
+.food-carts-stat-label,
+.locations-stat-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  color: hsl(28, 10%, 50%);
+}
+
+.locations-stat-icon-bg {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.875rem;
+  background: hsl(158, 40%, 94%);
+  border: 1px solid hsl(158, 55%, 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.locations-stat-icon {
+  color: hsl(158, 64%, 42%);
+  @apply w-5 h-5;
+}
+
+.about-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.about-hero-image {
+  border-radius: 1.25rem;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* Warm, soft shadow */
+  box-shadow: 0 16px 48px hsla(20, 40%, 30%, 0.14),
+              0 4px 12px hsla(20, 30%, 30%, 0.06);
+}
+
+/* ============================================================
+   CONTACT / NEWSLETTER
+   ============================================================ */
+
+#contact.hero-section {
+  padding-top: clamp(4rem, 10vw, 8rem);
+  padding-bottom: clamp(4rem, 10vw, 8rem);
 }
 
 .contact-form-container {
-  @apply max-w-2xl mx-auto;
+  width: 92vw;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-form-card {
-  @apply bg-white rounded-lg py-12 px-8 shadow-lg;
+  background: hsl(35, 40%, 99%);
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem;
+  /* Warm shadow on card */
+  box-shadow: 0 20px 60px hsla(20, 40%, 20%, 0.22);
 }
 
 .contact-form-title {
-  @apply text-3xl font-bold text-center text-gray-900 mb-8;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  color: hsl(20, 20%, 10%);
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .contact-form {
-  @apply space-y-6;
+  @apply space-y-5;
 }
 
 .form-field {
-  @apply space-y-2;
+  @apply space-y-1.5;
 }
 
 .form-label {
-  @apply block text-lg font-semibold text-gray-900;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: hsl(20, 16%, 28%);
+  letter-spacing: 0.01em;
+  display: block;
 }
 
 .form-input {
-  @apply w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-1 focus:ring-primary transition-colors;
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  background: hsl(35, 35%, 96%) !important;
+  border: 1px solid hsl(35, 20%, 84%) !important;
+  border-radius: 0.75rem;
+  color: hsl(20, 20%, 10%) !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 0.875rem !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+  border-color: hsl(0, 80%, 45%) !important;
+  box-shadow: 0 0 0 3px hsl(0, 80%, 96%) !important;
+  background: white !important;
+  outline: none !important;
+}
+
+.form-input option {
+  background: white;
+  color: hsl(20, 20%, 10%);
 }
 
 .form-textarea {
-  @apply w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none;
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  background: hsl(35, 35%, 96%) !important;
+  border: 1px solid hsl(35, 20%, 84%) !important;
+  border-radius: 0.75rem;
+  color: hsl(20, 20%, 10%) !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 0.875rem !important;
+  min-height: 9rem;
+  resize: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-textarea:focus {
+  border-color: hsl(0, 80%, 45%) !important;
+  box-shadow: 0 0 0 3px hsl(0, 80%, 96%) !important;
+  background: white !important;
+  outline: none !important;
 }
 
 .word-counter {
-  @apply text-right mt-1;
+  text-align: right;
+  margin-top: 0.35rem;
 }
 
 .word-counter-normal {
-  @apply text-sm text-gray-600;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.75rem;
+  color: hsl(28, 10%, 56%);
 }
 
 .word-counter-over {
-  @apply text-sm text-destructive font-semibold;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.75rem;
+  color: hsl(0, 80%, 46%);
+  font-weight: 600;
 }
 
 .form-submit {
-  @apply flex justify-center pt-6;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
 }
 
 .submit-button {
-  @apply bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-8 rounded-md text-lg transition-colors focus:ring-2 focus:ring-primary/50;
+  background: hsl(0, 80%, 45%) !important;
+  color: white !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  padding: 0.65rem 2.5rem !important;
+  border-radius: 100px !important;
+  border: none !important;
+  transition: all 0.25s ease !important;
+  width: 12rem;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: hsl(0, 80%, 38%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px hsla(3, 60%, 30%, 0.28) !important;
+}
+
+.submit-button:disabled {
+  opacity: 0.6 !important;
+}
+
+/* ── Contact form responsive breakpoints ── */
+@media (min-width: 640px) {
+  .contact-form-card {
+    padding: 2.5rem 2.5rem;
+  }
+  .form-label {
+    font-size: 0.88rem;
+  }
+  .form-input {
+    padding: 0.65rem 1rem;
+    font-size: 0.95rem !important;
+  }
+  .form-textarea {
+    padding: 0.65rem 1rem;
+    font-size: 0.95rem !important;
+    min-height: 11rem;
+  }
+  .submit-button {
+    font-size: 0.95rem !important;
+    padding: 0.7rem 3rem !important;
+    width: 14rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-form-card {
+    padding: 3.5rem 4rem;
+  }
+  .contact-form-title {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .form-label {
+    font-size: 1rem;
+  }
+  .form-input {
+    padding: 0.8rem 1.25rem;
+    font-size: 1.05rem !important;
+    border-radius: 0.875rem;
+  }
+  .form-textarea {
+    padding: 0.8rem 1.25rem;
+    font-size: 1.05rem !important;
+    min-height: 14rem;
+    border-radius: 0.875rem;
+  }
+  .submit-button {
+    font-size: 1.05rem !important;
+    padding: 0.85rem 4rem !important;
+    width: 18rem;
+  }
+}
+
+.newsletter-container {
+  @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center;
+}
+
+.newsletter-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 2.25rem;
+  color: hsl(35, 55%, 95%);
+  margin-bottom: 1rem;
+}
+
+.newsletter-description {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05rem;
+  color: rgba(255, 235, 210, 0.82);
+  margin-bottom: 2rem;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .newsletter-form { flex-direction: row; }
+}
+
+.newsletter-email-input {
+  flex: 1;
+  background: white !important;
+  border: none !important;
+}
+
+.newsletter-subscribe-button {
+  background: hsl(43, 96%, 56%) !important;
+  color: hsl(20, 30%, 14%) !important;
+  font-weight: 700 !important;
+  font-family: 'Nunito', sans-serif !important;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer-background {
+  /* Warm dark brown — not cold gray-900 */
+  background: hsl(20, 18%, 11%);
+  color: hsl(35, 30%, 88%);
+  padding: 3rem 0;
+}
+
+.footer-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid { grid-template-columns: 2fr 1fr; }
+}
+
+.brand-section { grid-column: 1; }
+
+.brand-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(43, 96%, 62%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.brand-icon {
+  @apply w-5 h-5;
+  color: hsl(43, 96%, 56%);
+}
+
+.social-media-container { @apply flex space-x-4; }
+
+.facebook-link,
+.twitter-link,
+.instagram-link {
+  color: hsl(28, 10%, 52%);
+  transition: color 0.2s;
+}
+
+.facebook-link:hover,
+.twitter-link:hover,
+.instagram-link:hover {
+  color: hsl(43, 96%, 62%);
+}
+
+.facebook-icon,
+.twitter-icon,
+.instagram-icon { @apply w-5 h-5; }
+
+.quick-links-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(43, 90%, 56%);
+  margin-bottom: 1rem;
+}
+
+.quick-links-list { @apply space-y-2; }
+
+.home-link,
+.food-carts-button,
+.about-button {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.875rem;
+  color: hsl(28, 10%, 52%);
+  cursor: pointer;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+}
+
+.home-link:hover,
+.food-carts-button:hover,
+.about-button:hover {
+  color: hsl(35, 30%, 88%);
+}
+
+.footer-bottom {
+  border-top: 1px solid hsl(20, 12%, 18%);
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  text-align: center;
+}
+
+.copyright-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  color: hsl(28, 8%, 42%);
+}
+
+/* ============================================================
+   CART LISTING (other pages)
+   ============================================================ */
+
+.carts-listing-section {
+  padding: 4rem 0;
+  background: hsl(35, 38%, 97%);
+}
+
+.carts-listing-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.carts-listing-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.carts-listing-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: hsl(20, 20%, 10%);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.carts-listing-description {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: hsl(28, 10%, 46%);
+  max-width: 38rem;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.carts-loading-grid { @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6; }
+
+.cart-skeleton-card {
+  background: hsl(35, 35%, 99%);
+  border: 1px solid hsl(35, 22%, 88%);
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+.cart-skeleton-image {
+  @apply w-full;
+  height: 11rem;
+  background: hsl(35, 25%, 91%);
+}
+
+.cart-skeleton-content {
+  padding: 1.25rem;
+  @apply space-y-3;
+}
+
+.cart-skeleton-title { @apply h-5 w-48; background: hsl(35, 22%, 88%); border-radius: 0.375rem; }
+.cart-skeleton-description { @apply h-3 w-full; background: hsl(35, 20%, 91%); border-radius: 0.25rem; }
+.cart-skeleton-location { @apply h-3 w-32; background: hsl(35, 20%, 91%); border-radius: 0.25rem; }
+.cart-skeleton-footer { @apply flex justify-between items-center; }
+.cart-skeleton-status { @apply h-3 w-16; background: hsl(35, 22%, 88%); border-radius: 0.25rem; }
+.cart-skeleton-button { @apply h-7 w-20; background: hsl(35, 22%, 88%); border-radius: 0.625rem; }
+
+.carts-active-grid { @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6; }
+.carts-empty-state { text-align: center; padding: 4rem 0; }
+.carts-empty-message { font-family: 'Nunito', sans-serif; color: hsl(28, 10%, 50%); font-size: 1rem; }
+
+/* ============================================================
+   NOT FOUND PAGE
+   ============================================================ */
+
+.not-found-page-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(35, 38%, 97%);
+}
+
+.not-found-card { width: 100%; max-width: 28rem; margin: 0 1rem; }
+.not-found-card-content { padding-top: 1.5rem; }
+.not-found-header { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.not-found-icon { @apply h-7 w-7; color: hsl(0, 80%, 46%); }
+
+.not-found-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: hsl(20, 20%, 10%);
+}
+
+.not-found-description {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.875rem;
+  color: hsl(28, 10%, 46%);
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   LEGACY UTILITIES
+   ============================================================ */
+
+.bg-primary-600 { background-color: hsl(0, 75%, 35%); }
+.bg-primary-700 { background-color: hsl(0, 75%, 25%); }
+.text-primary-700 { color: hsl(0, 75%, 25%); }
+.text-primary-500 { color: hsl(0, 80%, 45%); }
+.bg-secondary-600 { background-color: hsl(158, 52%, 36%); }
+.text-secondary-600 { color: hsl(158, 52%, 36%); }
+.text-accent-yellow { color: hsl(43, 96%, 42%); }
+.bg-accent-yellow { background-color: hsl(43, 96%, 56%); }
+.text-accent-red { color: hsl(0, 75%, 25%); }
+
+.hero-gradient {
+  background: linear-gradient(135deg, hsl(0, 80%, 45%) 0%, hsl(0, 70%, 35%) 100%);
 }
