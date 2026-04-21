@@ -19,15 +19,15 @@
   --card-foreground: 20 14% 4%;
   --border: 35 22% 87%;              /* warm sand border */
   --input: 20 5.9% 90%;
-  --primary: 0 80% 45%;              /* original red-maroon #B91C3C */
+  --primary: 0 100% 30%;              /* #C5050C */
   --primary-foreground: 60 9.1% 97.8%;
   --secondary: 158 64% 52%;          /* original green #059669 */
   --secondary-foreground: 0 0% 98%;
-  --accent: 43 96% 56%;              /* original yellow #FBBF24 */
+  --accent: 45 100% 50%;              /* original yellow #FBBF24 */
   --accent-foreground: 24 9.8% 10%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 60 9.1% 97.8%;
-  --ring: 0 80% 45%;
+  --ring: 0 100% 30%;
   --radius: 0.875rem;
   --chart-1: 3 70% 44%;
   --chart-2: 158 52% 40%;
@@ -55,15 +55,15 @@
   --card-foreground: 35 30% 92%;
   --border: 25 10% 20%;
   --input: 25 10% 18%;
-  --primary: 3 70% 44%;
+  --primary: 0 100% 30%;
   --primary-foreground: 35 40% 97%;
   --secondary: 158 52% 40%;
   --secondary-foreground: 0 0% 98%;
   --accent: 38 80% 55%;
   --accent-foreground: 20 20% 10%;
-  --destructive: 0 72% 52%;
+  --destructive: 0 100% 30%;
   --destructive-foreground: 0 0% 98%;
-  --ring: 3 70% 44%;
+  --ring: 0 100% 30%;
 }
 
 /* ============================================================
@@ -271,7 +271,7 @@ html {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: hsl(43, 96%, 48%);
+  color: hsl(45, 100%, 48%);
   border: 1px solid rgba(255, 220, 160, 0.35);
   border-radius: 100px;
   padding: 0.35rem 1rem;
@@ -294,7 +294,7 @@ html {
 .hero-accent-text {
   font-style: italic;
   /* Warm amber/honey — friendlier than sharp lemon yellow */
-  color: hsl(43, 96%, 64%);
+  color: hsl(45, 100%, 64%);
 }
 
 .hero-description {
@@ -324,7 +324,7 @@ html {
 }
 
 .explore-carts-button {
-  background: hsl(43, 96%, 56%) !important;
+  background: hsl(45, 100%, 56%) !important;
   color: hsl(20, 30%, 12%) !important;
   font-family: 'Nunito', sans-serif !important;
   font-weight: 700 !important;
@@ -337,7 +337,7 @@ html {
 }
 
 .explore-carts-button:hover {
-  background: hsl(43, 96%, 64%) !important;
+  background: hsl(45, 100%, 64%) !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.22) !important;
 }
@@ -363,7 +363,7 @@ html {
 .hero-marquee-wrapper {
   position: relative;
   margin-top: 4rem;
-  background: hsl(43, 96%, 56%);
+  background: hsl(45, 100%, 56%);
   overflow: hidden;
   padding: 0.6rem 0;
 }
@@ -380,12 +380,12 @@ html {
 
 .hero-marquee-wrapper::before {
   left: 0;
-  background: linear-gradient(to right, hsl(43, 96%, 56%), transparent);
+  background: linear-gradient(to right, hsl(45, 100%, 56%), transparent);
 }
 
 .hero-marquee-wrapper::after {
   right: 0;
-  background: linear-gradient(to left, hsl(43, 96%, 56%), transparent);
+  background: linear-gradient(to left, hsl(45, 100%, 56%), transparent);
 }
 
 .hero-marquee-track {
@@ -403,7 +403,7 @@ html {
   text-transform: uppercase;
   color: hsl(0, 75%, 22%);
   white-space: nowrap;
-  border-right: 1px solid hsl(43, 80%, 46%);
+  border-right: 1px solid hsl(45, 100%, 46%);
 }
 
 /* ============================================================
@@ -591,7 +591,7 @@ html {
   top: 0.6rem;
   right: 0.6rem;
   /* Warm amber, not sharp lemon */
-  background: hsl(43, 96%, 56%);
+  background: hsl(45, 100%, 56%);
   color: hsl(20, 30%, 14%);
   font-family: 'Nunito', sans-serif;
   font-size: 0.65rem;
@@ -1209,7 +1209,7 @@ html {
 }
 
 .newsletter-subscribe-button {
-  background: hsl(43, 96%, 56%) !important;
+  background: hsl(45, 100%, 56%) !important;
   color: hsl(20, 30%, 14%) !important;
   font-weight: 700 !important;
   font-family: 'Nunito', sans-serif !important;
@@ -1246,7 +1246,7 @@ html {
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
-  color: hsl(43, 96%, 62%);
+  color: hsl(45, 100%, 62%);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -1255,7 +1255,7 @@ html {
 
 .brand-icon {
   @apply w-5 h-5;
-  color: hsl(43, 96%, 56%);
+  color: hsl(45, 100%, 56%);
 }
 
 .social-media-container { @apply flex space-x-4; }
@@ -1270,7 +1270,7 @@ html {
 .facebook-link:hover,
 .twitter-link:hover,
 .instagram-link:hover {
-  color: hsl(43, 96%, 62%);
+  color: hsl(45, 100%, 62%);
 }
 
 .facebook-icon,
@@ -1283,7 +1283,7 @@ html {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: hsl(43, 90%, 56%);
+  color: hsl(45, 100%, 56%);
   margin-bottom: 1rem;
 }
 
@@ -1427,14 +1427,14 @@ html {
    ============================================================ */
 
 .bg-primary-600 { background-color: hsl(0, 75%, 35%); }
-.bg-primary-700 { background-color: hsl(0, 75%, 25%); }
-.text-primary-700 { color: hsl(0, 75%, 25%); }
-.text-primary-500 { color: hsl(0, 80%, 45%); }
+.bg-primary-700 { background-color: hsl(2, 95%, 28%); }
+.text-primary-700 { color: hsl(2, 95%, 28%); }
+.text-primary-500 { color: hsl(2, 95%, 40%); }
 .bg-secondary-600 { background-color: hsl(158, 52%, 36%); }
 .text-secondary-600 { color: hsl(158, 52%, 36%); }
-.text-accent-yellow { color: hsl(43, 96%, 42%); }
-.bg-accent-yellow { background-color: hsl(43, 96%, 56%); }
-.text-accent-red { color: hsl(0, 75%, 25%); }
+.text-accent-yellow { color: hsl(45, 100%, 42%); }
+.bg-accent-yellow { background-color: hsl(45, 100%, 56%); }
+.text-accent-red { color: hsl(2, 95%, 40%); }
 
 .hero-gradient {
   background: linear-gradient(135deg, hsl(0, 80%, 45%) 0%, hsl(0, 70%, 35%) 100%);
