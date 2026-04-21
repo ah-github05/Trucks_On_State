@@ -54,6 +54,9 @@ export default function MadisonFoodCartHomePage() {
               Each cart brings unique flavors and experiences to Madison's streets.
               Click on any cart to see their full menu and schedule.
             </p>
+            <p className="text-xs text-accent-yellow italic mt-1">
+              Schedules changed due to weather or unforeseen circumstances may not be accurately reflected.
+            </p>
           </div>
           
           {error && (
