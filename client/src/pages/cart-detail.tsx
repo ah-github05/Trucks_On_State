@@ -49,9 +49,11 @@ interface DualPriceMenuItemProps {
   index: number;
   smallPrice: string;
   largePrice: string;
+  smallLabel?: string;
+  largeLabel?: string;
 }
 
-function DualPriceMenuItem({ item, index, smallPrice, largePrice }: DualPriceMenuItemProps) {
+function DualPriceMenuItem({ item, index, smallPrice, largePrice, smallLabel = "Small", largeLabel = "Large" }: DualPriceMenuItemProps) {
   return (
     <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
       <div className="flex justify-between items-start">
@@ -61,11 +63,11 @@ function DualPriceMenuItem({ item, index, smallPrice, largePrice }: DualPriceMen
         </div>
         <div className="ml-4 flex flex-col items-end">
           <div className="font-semibold">
-            <span className="text-gray-900">Small: </span>
+            <span className="text-gray-900">{smallLabel}: </span>
             <span className="text-primary">{smallPrice}</span>
           </div>
           <div className="font-semibold">
-            <span className="text-gray-900">Large: </span>
+            <span className="text-gray-900">{largeLabel}: </span>
             <span className="text-primary">{largePrice}</span>
           </div>
         </div>
@@ -143,7 +145,7 @@ function CategorizedMenu({ menu, categoryOrder, renderItem }: CategorizedMenuPro
 
 // Menu configuration for special cart-specific rendering
 interface MenuConfig {
-  type: 'external-link' | 'image' | 'categorized' | 'roost-special' | 'surco-special' | 'message-only' | 'default';
+  type: 'external-link' | 'image' | 'categorized' | 'roost-special' | 'surco-special' | 'china-cottage-special' | 'message-only' | 'default';
   externalUrl?: string;
   externalMessage?: string;
   externalLinkText?: string;
@@ -231,7 +233,11 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
   "cookies": {
   type: 'categorized',
   categoryOrder: ["Cookies"]
-}
+  },
+  "china_cottage": {
+    type: 'china-cottage-special',
+    categoryOrder: ["Appetizers", "Fried Rice (with peas, carrots, & egg)", "Stir-Fried Noodles (Chicken, Tofu, or Vegetable)", "Lunch Specials (with steamed white rice)", "Beverages"]
+  }
 };
 
 // Menu content component to handle all menu rendering patterns
@@ -277,6 +283,9 @@ function MenuContent({ cart }: MenuContentProps) {
 
     case 'surco-special':
       return <SurcoMenu cart={cart} categoryOrder={config.categoryOrder || []} />;
+
+    case 'china-cottage-special':
+      return <ChinaCottageMenu cart={cart} categoryOrder={config.categoryOrder || []} />;
 
     case 'categorized': {
       const renderItem = cart.slug === 'bombay'
@@ -362,6 +371,50 @@ function RoostMenu({ cart }: { cart: FoodCart }) {
           <div>5) Naked</div>
         </div>
       </div>
+    </>
+  );
+}
+
+const CHINA_COTTAGE_DUAL_PRICE_ITEMS = new Set([
+  "Fresh Squeezed Lemonade",
+  "Fresh Squeezed Orange Juice",
+  "Combination (Lemonade + Orange Juice)",
+  "Thai Iced Tea (w/ Cream + Sugar)",
+  "Thai Iced Coffee (w/ Cream + Sugar)",
+]);
+
+function ChinaCottageMenu({ cart, categoryOrder }: { cart: FoodCart; categoryOrder: string[] }) {
+  const groupedMenu = groupMenuByCategory(cart.menu);
+
+  return (
+    <>
+      {categoryOrder.map(category => {
+        const items = groupedMenu[category];
+        if (!items) return null;
+
+        return (
+          <React.Fragment key={category}>
+            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+            <div className="space-y-4 mb-6">
+              {items.map((item, index) =>
+                CHINA_COTTAGE_DUAL_PRICE_ITEMS.has(item.name) ? (
+                  <DualPriceMenuItem
+                    key={index}
+                    item={item}
+                    index={index}
+                    smallPrice={item.price.split(", ")[0]?.trim() ?? ""}
+                    largePrice={item.price.split(", ")[1]?.trim() ?? ""}
+                    smallLabel="Medium (16 oz)"
+                    largeLabel="Large (20 oz)"
+                  />
+                ) : (
+                  <StandardMenuItem key={index} item={item} index={index} />
+                )
+              )}
+            </div>
+          </React.Fragment>
+        );
+      })}
     </>
   );
 }
@@ -686,8 +739,8 @@ export default function IndividualFoodCartDetailPage() {
                   </CardContent>
                 </Card>
 
-                {/* Business Links - Hidden for Fresh Cool Drinks */}
-                {cart.slug !== "fresh-cool" && (
+                {/* Business Links - Hidden for Fresh Cool Drinks and China Cottage */}
+                {cart.slug !== "fresh-cool" && cart.slug !== "china_cottage" && (
                   <Card>
                     <CardHeader>
                       <CardTitle>Business Links</CardTitle>
