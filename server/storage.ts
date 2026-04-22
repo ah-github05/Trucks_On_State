@@ -178,26 +178,34 @@ export class MemStorage implements IStorage {
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
+        saturdayLocationDisplayName: "Dane County Farmers' Market",
+        saturdayMapsUrl: "https://maps.google.com/?q=Capitol+Square+Madison+WI",
         businessLinks: {
           instagram: "https://www.instagram.com/bombayfastcafe?utm_source=ig_web_button_share_sheet&igsh=enJzc25kaWZodTZt",
         },
         menu: [
+          // Specialties
           { name: "Bombay Vada Pav", price: "$10.00", description: "Bombay potato burger topped with sweet and spicy relish. Served with garlic chutney and flavored green chilies.", category: "Bombay Specialties" },
           { name: "Bombay Misal Pav", price: "$10.00", description: "Indian pluses cooked with authentic home-style spices topped with Bombay Trail mix. Garnished with chopped onions, cilantro, and lemon. Served with bread.", category: "Bombay Specialties" },
           { name: "Bombay Pav Bhaji", price: "$10.00", description: "Medley of vegetables cooked with authentic home-style spices. Garnished with butter, chopped onions, cilantro, and lemon. Served with bread.", category: "Bombay Specialties" },
+          
+          //Lentil & Bean Dishes
           { name: "Bombay Falafel Meal", price: "$10.00", description: "Bombay style falafel completed with pulav, gravy, and salad. Served with a side of sweet and green chutney.", category: "Bombay Specialties" },
           { name: "Chole", price: "$10.00", description: "One pot recipe of garbanzo beans (chickpeas) cooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney.", category: "Lentil & Bean Dishes"},
           { name: "Chole Samosa", price: "$10.00", description: "Chatt recipe made with samosas, chana masala, various chutneys, and spices. Popular recipe from North India", category: "Lentil & Bean Dishes" },
           { name: "Dal Makhani (Black Gram)", price: "$10.00", description: "Black Gram cooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lemon. Served with naan, rice, and chutney.", category: "Lentil & Bean Dishes"},
-          { name: "Rajma (Kidney Beans)", price: "$10.00", description: "Kidney beans cooked with authentic home style spices garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney.", category: "Lentil & Bean Dishes"}
+          { name: "Rajma (Kidney Beans)", price: "$10.00", description: "Kidney beans cooked with authentic home style spices garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney.", category: "Lentil & Bean Dishes"},
+
+          // Drinks
+          { name: "Mango Lassi", price: "10 oz: $5.00, 12 oz: $6.00, 16 oz: $8.00", description: "Creamy, sweet smoothie made with ripe mangoes and yogurt.", category: "Drinks" }
         ],
         schedule: {
-        "Monday": "Closed",
+        "Monday": "11:00 am - 4:30 pm",
         "Tuesday": "11:00 am - 4:30 pm",
         "Wednesday": "11:00 am - 4:30 pm",
         "Thursday": "11:00 am - 4:30 pm",
         "Friday": "11:00 am - 4:30 pm",
-        "Saturday": "Closed",
+        "Saturday": "8:30 am - 1:45 pm",
         "Sunday": "Closed"
         }
       },

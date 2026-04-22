@@ -74,6 +74,25 @@ function DualPriceMenuItem({ item, index, smallPrice, largePrice }: DualPriceMen
   );
 }
 
+function MultiPriceMenuItem({ item, index }: MenuItemProps) {
+  const prices = item.price.split(", ");
+  return (
+    <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+      <div className="flex justify-between items-start">
+        <div className="flex-1">
+          <h5 className="font-medium text-gray-900">{item.name}</h5>
+          <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+        </div>
+        <div className="ml-4 flex flex-col items-end">
+          {prices.map((p, i) => (
+            <span key={i} className="font-semibold text-primary">{p.trim()}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Menu category component
 interface MenuCategoryProps {
   category: string;
@@ -124,7 +143,7 @@ function CategorizedMenu({ menu, categoryOrder, renderItem }: CategorizedMenuPro
 
 // Menu configuration for special cart-specific rendering
 interface MenuConfig {
-  type: 'external-link' | 'image' | 'categorized' | 'roost-special' | 'surco-special' | 'default';
+  type: 'external-link' | 'image' | 'categorized' | 'roost-special' | 'surco-special' | 'message-only' | 'default';
   externalUrl?: string;
   externalMessage?: string;
   externalLinkText?: string;
@@ -174,7 +193,7 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
   },
   "bombay": {
     type: 'categorized',
-    categoryOrder: ["Bombay Specialties", "Lentil & Bean Dishes"]
+    categoryOrder: ["Bombay Specialties", "Lentil & Bean Dishes", "Drinks"]
   },
   "crepuw": {
     type: 'categorized',
@@ -199,6 +218,10 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
   "toast": {
     type: 'categorized',
     categoryOrder: ["Classic Paninis"]
+  },
+  "nani": {
+    type: 'message-only',
+    externalMessage: "Menu rotates frequently — see the in-person board for the daily menu."
   },
   "nirvana": {
   type: 'image',
@@ -237,6 +260,9 @@ function MenuContent({ cart }: MenuContentProps) {
         </>
       );
 
+    case 'message-only':
+      return <p className="text-gray-600">{config.externalMessage}</p>;
+
     case 'image':
       return (
         <img
@@ -252,8 +278,12 @@ function MenuContent({ cart }: MenuContentProps) {
     case 'surco-special':
       return <SurcoMenu cart={cart} categoryOrder={config.categoryOrder || []} />;
 
-    case 'categorized':
-      return <CategorizedMenu menu={cart.menu} categoryOrder={config.categoryOrder || []} />;
+    case 'categorized': {
+      const renderItem = cart.slug === 'bombay'
+        ? (item: MenuItem, index: number) => <MultiPriceMenuItem key={index} item={item} index={index} />
+        : undefined;
+      return <CategorizedMenu menu={cart.menu} categoryOrder={config.categoryOrder || []} renderItem={renderItem} />;
+    }
 
     case 'default':
       return (
@@ -448,7 +478,7 @@ function ScheduleCard({ cart }: ScheduleCardProps) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View Website
+                View Schedule
               </a>
             </div>
           </CardContent>
@@ -465,9 +495,19 @@ function ScheduleCard({ cart }: ScheduleCardProps) {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-600">
-              Currently in their off-season. Schedule will be updated when they are running!
+            <p className="text-gray-600 mb-4">
+              Cinn City Smash does weekly stops at specific locations as well as pop up appearances at community and private events. Check out their website to see where they will be!
             </p>
+            <div className="mt-4">
+              <a
+                href="https://cinncitysmash.com/#Where"
+                className="text-primary hover:text-primary/80 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Schedule
+              </a>
+            </div>
           </CardContent>
         </Card>
       );
@@ -606,18 +646,27 @@ export default function IndividualFoodCartDetailPage() {
                 <div className="space-y-3">
                   <div className="flex items-center text-gray-600">
                     <MapPin className="w-5 h-5 mr-3" />
-                    {cart.mapsUrl ? (
-                      <a
-                        href={cart.mapsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary hover:text-primary/80 transition-colors hover:underline"
-                      >
-                        {cart.locationDisplayName}
-                      </a>
-                    ) : (
-                      <span>{cart.locationDisplayName}</span>
-                    )}
+                    {(() => {
+                      const isSaturday = new Date().getDay() === 6;
+                      const displayName = isSaturday && cart.saturdayLocationDisplayName
+                        ? cart.saturdayLocationDisplayName
+                        : cart.locationDisplayName;
+                      const mapsUrl = isSaturday && cart.saturdayMapsUrl
+                        ? cart.saturdayMapsUrl
+                        : cart.mapsUrl;
+                      return mapsUrl ? (
+                        <a
+                          href={mapsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary/80 transition-colors hover:underline"
+                        >
+                          {displayName}
+                        </a>
+                      ) : (
+                        <span>{displayName}</span>
+                      );
+                    })()}
                   </div>
                 </div>
 
