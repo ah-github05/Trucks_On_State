@@ -79,13 +79,13 @@ export class MemStorage implements IStorage {
           { name: "Grilled Cheese", price: "$11.00", description: "Cheddar cheese on a French roll.", category: "Classic Paninis" },
         ],
         schedule: {
-          "Monday": "11:00 am - 3:00 pm",
-          "Tuesday": "11:00 am - 3:00 pm",
-          "Wednesday": "11:00 am - 3:00 pm",
-          "Thursday": "11:00 am - 3:00 pm",
-          "Friday": "11:00 am - 3:00 pm",
-          "Saturday": "11:00 am - 3:00 pm",
-          "Sunday": "11:00 am - 3:00 pm"
+          "Monday": "11:00 am - 4:00 pm",
+          "Tuesday": "11:00 am - 4:00 pm",
+          "Wednesday": "11:00 am - 4:00 pm",
+          "Thursday": "11:00 am - 4:00 pm",
+          "Friday": "11:00 am - 4:00 pm",
+          "Saturday": "11:00 am - 4:00 pm",
+          "Sunday": "11:00 am - 4:00 pm"
         }
       },
 
