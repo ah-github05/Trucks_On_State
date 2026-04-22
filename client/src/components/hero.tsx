@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
 
 const cuisineItems = [
-  "🌮 Mexican",
+  "🇲🇽 Mexican",
   "🍜 Asian",
-  "🥗 American",
+  "🇺🇸 American",
   "🌴 Caribbean",
   "🫔 South American",
   "🧆 Middle Eastern",
