@@ -115,36 +115,18 @@ export default function SiteNavigationHeader() {
       {isMobileMenuOpen && (
         <div className="mobile-dropdown-menu">
           <div className="mobile-menu-container">
-            <Link href="/">
-              <Button 
-                variant="ghost" 
-                className="mobile-home-button"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Home
-              </Button>
-            </Link>
-            <Button
-              variant="ghost"
-              className="mobile-food-carts-button"
-              onClick={() => scrollToSection('carts')}
-            >
+            <button className="mobile-home-button" onClick={() => { setIsMobileMenuOpen(false); scrollToSection('home'); }}>
+              Home
+            </button>
+            <button className="mobile-food-carts-button" onClick={() => scrollToSection('carts')}>
               Food Carts
-            </Button>
-            <Button 
-              variant="ghost" 
-              className="mobile-about-button"
-              onClick={() => scrollToSection('about')}
-            >
+            </button>
+            <button className="mobile-about-button" onClick={() => scrollToSection('about')}>
               About
-            </Button>
-            <Button 
-              variant="ghost" 
-              className="mobile-contact-button"
-              onClick={() => scrollToSection('contact')}
-            >
+            </button>
+            <button className="mobile-contact-button" onClick={() => scrollToSection('contact')}>
               Contact
-            </Button>
+            </button>
           </div>
         </div>
       )}
