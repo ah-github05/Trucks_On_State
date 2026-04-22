@@ -49,9 +49,11 @@ interface DualPriceMenuItemProps {
   index: number;
   smallPrice: string;
   largePrice: string;
+  smallLabel?: string;
+  largeLabel?: string;
 }
 
-function DualPriceMenuItem({ item, index, smallPrice, largePrice }: DualPriceMenuItemProps) {
+function DualPriceMenuItem({ item, index, smallPrice, largePrice, smallLabel = "Small", largeLabel = "Large" }: DualPriceMenuItemProps) {
   return (
     <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
       <div className="flex justify-between items-start">
@@ -61,13 +63,32 @@ function DualPriceMenuItem({ item, index, smallPrice, largePrice }: DualPriceMen
         </div>
         <div className="ml-4 flex flex-col items-end">
           <div className="font-semibold">
-            <span className="text-gray-900">Small: </span>
+            <span className="text-gray-900">{smallLabel}: </span>
             <span className="text-primary">{smallPrice}</span>
           </div>
           <div className="font-semibold">
-            <span className="text-gray-900">Large: </span>
+            <span className="text-gray-900">{largeLabel}: </span>
             <span className="text-primary">{largePrice}</span>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MultiPriceMenuItem({ item, index }: MenuItemProps) {
+  const prices = item.price.split(", ");
+  return (
+    <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+      <div className="flex justify-between items-start">
+        <div className="flex-1">
+          <h5 className="font-medium text-gray-900">{item.name}</h5>
+          <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+        </div>
+        <div className="ml-4 flex flex-col items-end">
+          {prices.map((p, i) => (
+            <span key={i} className="font-semibold text-primary">{p.trim()}</span>
+          ))}
         </div>
       </div>
     </div>
@@ -124,7 +145,7 @@ function CategorizedMenu({ menu, categoryOrder, renderItem }: CategorizedMenuPro
 
 // Menu configuration for special cart-specific rendering
 interface MenuConfig {
-  type: 'external-link' | 'image' | 'categorized' | 'roost-special' | 'surco-special' | 'default';
+  type: 'external-link' | 'image' | 'categorized' | 'roost-special' | 'surco-special' | 'china-cottage-special' | 'message-only' | 'default';
   externalUrl?: string;
   externalMessage?: string;
   externalLinkText?: string;
@@ -174,7 +195,7 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
   },
   "bombay": {
     type: 'categorized',
-    categoryOrder: ["Bombay Specialties", "Lentil & Bean Dishes"]
+    categoryOrder: ["Bombay Specialties", "Lentil & Bean Dishes", "Drinks"]
   },
   "crepuw": {
     type: 'categorized',
@@ -200,6 +221,10 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
     type: 'categorized',
     categoryOrder: ["Classic Paninis"]
   },
+  "nani": {
+    type: 'message-only',
+    externalMessage: "Menu rotates frequently — see the in-person board for the daily menu."
+  },
   "nirvana": {
   type: 'image',
   imageSrc: '/nirvana_menu.jpg',
@@ -208,7 +233,11 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
   "cookies": {
   type: 'categorized',
   categoryOrder: ["Cookies"]
-}
+  },
+  "china_cottage": {
+    type: 'china-cottage-special',
+    categoryOrder: ["Appetizers", "Fried Rice (with peas, carrots, & egg)", "Stir-Fried Noodles (Chicken, Tofu, or Vegetable)", "Lunch Specials (with steamed white rice)", "Beverages"]
+  }
 };
 
 // Menu content component to handle all menu rendering patterns
@@ -237,6 +266,9 @@ function MenuContent({ cart }: MenuContentProps) {
         </>
       );
 
+    case 'message-only':
+      return <p className="text-gray-600">{config.externalMessage}</p>;
+
     case 'image':
       return (
         <img
@@ -252,8 +284,15 @@ function MenuContent({ cart }: MenuContentProps) {
     case 'surco-special':
       return <SurcoMenu cart={cart} categoryOrder={config.categoryOrder || []} />;
 
-    case 'categorized':
-      return <CategorizedMenu menu={cart.menu} categoryOrder={config.categoryOrder || []} />;
+    case 'china-cottage-special':
+      return <ChinaCottageMenu cart={cart} categoryOrder={config.categoryOrder || []} />;
+
+    case 'categorized': {
+      const renderItem = cart.slug === 'bombay'
+        ? (item: MenuItem, index: number) => <MultiPriceMenuItem key={index} item={item} index={index} />
+        : undefined;
+      return <CategorizedMenu menu={cart.menu} categoryOrder={config.categoryOrder || []} renderItem={renderItem} />;
+    }
 
     case 'default':
       return (
@@ -332,6 +371,50 @@ function RoostMenu({ cart }: { cart: FoodCart }) {
           <div>5) Naked</div>
         </div>
       </div>
+    </>
+  );
+}
+
+const CHINA_COTTAGE_DUAL_PRICE_ITEMS = new Set([
+  "Fresh Squeezed Lemonade",
+  "Fresh Squeezed Orange Juice",
+  "Combination (Lemonade + Orange Juice)",
+  "Thai Iced Tea (w/ Cream + Sugar)",
+  "Thai Iced Coffee (w/ Cream + Sugar)",
+]);
+
+function ChinaCottageMenu({ cart, categoryOrder }: { cart: FoodCart; categoryOrder: string[] }) {
+  const groupedMenu = groupMenuByCategory(cart.menu);
+
+  return (
+    <>
+      {categoryOrder.map(category => {
+        const items = groupedMenu[category];
+        if (!items) return null;
+
+        return (
+          <React.Fragment key={category}>
+            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
+            <div className="space-y-4 mb-6">
+              {items.map((item, index) =>
+                CHINA_COTTAGE_DUAL_PRICE_ITEMS.has(item.name) ? (
+                  <DualPriceMenuItem
+                    key={index}
+                    item={item}
+                    index={index}
+                    smallPrice={item.price.split(", ")[0]?.trim() ?? ""}
+                    largePrice={item.price.split(", ")[1]?.trim() ?? ""}
+                    smallLabel="Medium (16 oz)"
+                    largeLabel="Large (20 oz)"
+                  />
+                ) : (
+                  <StandardMenuItem key={index} item={item} index={index} />
+                )
+              )}
+            </div>
+          </React.Fragment>
+        );
+      })}
     </>
   );
 }
@@ -448,7 +531,7 @@ function ScheduleCard({ cart }: ScheduleCardProps) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View Website
+                View Schedule
               </a>
             </div>
           </CardContent>
@@ -465,9 +548,19 @@ function ScheduleCard({ cart }: ScheduleCardProps) {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-600">
-              Currently in their off-season. Schedule will be updated when they are running!
+            <p className="text-gray-600 mb-4">
+              Cinn City Smash does weekly stops at specific locations as well as pop up appearances at community and private events. Check out their website to see where they will be!
             </p>
+            <div className="mt-4">
+              <a
+                href="https://cinncitysmash.com/#Where"
+                className="text-primary hover:text-primary/80 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Schedule
+              </a>
+            </div>
           </CardContent>
         </Card>
       );
@@ -606,18 +699,27 @@ export default function IndividualFoodCartDetailPage() {
                 <div className="space-y-3">
                   <div className="flex items-center text-gray-600">
                     <MapPin className="w-5 h-5 mr-3" />
-                    {cart.mapsUrl ? (
-                      <a
-                        href={cart.mapsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary hover:text-primary/80 transition-colors hover:underline"
-                      >
-                        {cart.locationDisplayName}
-                      </a>
-                    ) : (
-                      <span>{cart.locationDisplayName}</span>
-                    )}
+                    {(() => {
+                      const isSaturday = new Date().getDay() === 6;
+                      const displayName = isSaturday && cart.saturdayLocationDisplayName
+                        ? cart.saturdayLocationDisplayName
+                        : cart.locationDisplayName;
+                      const mapsUrl = isSaturday && cart.saturdayMapsUrl
+                        ? cart.saturdayMapsUrl
+                        : cart.mapsUrl;
+                      return mapsUrl ? (
+                        <a
+                          href={mapsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary/80 transition-colors hover:underline"
+                        >
+                          {displayName}
+                        </a>
+                      ) : (
+                        <span>{displayName}</span>
+                      );
+                    })()}
                   </div>
                 </div>
 
@@ -637,8 +739,8 @@ export default function IndividualFoodCartDetailPage() {
                   </CardContent>
                 </Card>
 
-                {/* Business Links - Hidden for Fresh Cool Drinks */}
-                {cart.slug !== "fresh-cool" && (
+                {/* Business Links - Hidden for Fresh Cool Drinks and China Cottage */}
+                {cart.slug !== "fresh-cool" && cart.slug !== "china_cottage" && (
                   <Card>
                     <CardHeader>
                       <CardTitle>Business Links</CardTitle>
