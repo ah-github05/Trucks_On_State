@@ -14,14 +14,14 @@ interface SearchFilterProps {
 // Food category filters
 const categories = [
   { value: "all", label: "All Carts" },
+  { value: "american", label: "American" },
   { value: "asian", label: "Asian" },
+  { value: "caribbean", label: "Caribbean" },
+  { value: "mexican", label: "Mexican" },
+  { value: "middle_eastern", label: "Middle Eastern" },
   { value: "sandwiches", label: "Sandwiches" },
   { value: "south_american", label: "South American" },
-  { value: "south_asian", label: "Southeast Asian" },
-  { value: "mexican", label: "Mexican" },
-  { value: "american", label: "American" },
-  { value: "caribbean", label: "Caribbean" },
-  { value: "middle_eastern", label: "Middle Eastern" },
+  { value: "south_asian", label: "South Asian" },
   { value: "sweet_treats", label: "Sweet Treats" },
   { value: "drinks", label: "Drinks" }
 
