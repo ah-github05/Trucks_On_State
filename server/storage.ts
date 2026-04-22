@@ -79,13 +79,13 @@ export class MemStorage implements IStorage {
           { name: "Grilled Cheese", price: "$11.00", description: "Cheddar cheese on a French roll.", category: "Classic Paninis" },
         ],
         schedule: {
-          "Monday": "11:00 am - 3:00 pm",
-          "Tuesday": "11:00 am - 3:00 pm",
-          "Wednesday": "11:00 am - 3:00 pm",
-          "Thursday": "11:00 am - 3:00 pm",
-          "Friday": "11:00 am - 3:00 pm",
-          "Saturday": "11:00 am - 3:00 pm",
-          "Sunday": "11:00 am - 3:00 pm"
+          "Monday": "11:00 am - 4:00 pm",
+          "Tuesday": "11:00 am - 4:00 pm",
+          "Wednesday": "11:00 am - 4:00 pm",
+          "Thursday": "11:00 am - 4:00 pm",
+          "Friday": "11:00 am - 4:00 pm",
+          "Saturday": "11:00 am - 4:00 pm",
+          "Sunday": "11:00 am - 4:00 pm"
         }
       },
 
@@ -178,26 +178,34 @@ export class MemStorage implements IStorage {
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
+        saturdayLocationDisplayName: "Dane County Farmers' Market",
+        saturdayMapsUrl: "https://maps.google.com/?q=Capitol+Square+Madison+WI",
         businessLinks: {
           instagram: "https://www.instagram.com/bombayfastcafe?utm_source=ig_web_button_share_sheet&igsh=enJzc25kaWZodTZt",
         },
         menu: [
+          // Specialties
           { name: "Bombay Vada Pav", price: "$10.00", description: "Bombay potato burger topped with sweet and spicy relish. Served with garlic chutney and flavored green chilies.", category: "Bombay Specialties" },
           { name: "Bombay Misal Pav", price: "$10.00", description: "Indian pluses cooked with authentic home-style spices topped with Bombay Trail mix. Garnished with chopped onions, cilantro, and lemon. Served with bread.", category: "Bombay Specialties" },
           { name: "Bombay Pav Bhaji", price: "$10.00", description: "Medley of vegetables cooked with authentic home-style spices. Garnished with butter, chopped onions, cilantro, and lemon. Served with bread.", category: "Bombay Specialties" },
+          
+          //Lentil & Bean Dishes
           { name: "Bombay Falafel Meal", price: "$10.00", description: "Bombay style falafel completed with pulav, gravy, and salad. Served with a side of sweet and green chutney.", category: "Bombay Specialties" },
           { name: "Chole", price: "$10.00", description: "One pot recipe of garbanzo beans (chickpeas) cooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney.", category: "Lentil & Bean Dishes"},
           { name: "Chole Samosa", price: "$10.00", description: "Chatt recipe made with samosas, chana masala, various chutneys, and spices. Popular recipe from North India", category: "Lentil & Bean Dishes" },
           { name: "Dal Makhani (Black Gram)", price: "$10.00", description: "Black Gram cooked with authentic home-style spices. Garnished with chopped onions, cilantro, and lemon. Served with naan, rice, and chutney.", category: "Lentil & Bean Dishes"},
-          { name: "Rajma (Kidney Beans)", price: "$10.00", description: "Kidney beans cooked with authentic home style spices garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney.", category: "Lentil & Bean Dishes"}
+          { name: "Rajma (Kidney Beans)", price: "$10.00", description: "Kidney beans cooked with authentic home style spices garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney.", category: "Lentil & Bean Dishes"},
+
+          // Drinks
+          { name: "Mango Lassi", price: "10 oz: $5.00, 12 oz: $6.00, 16 oz: $8.00", description: "Creamy, sweet smoothie made with ripe mangoes and yogurt.", category: "Drinks" }
         ],
         schedule: {
-        "Monday": "Closed",
+        "Monday": "11:00 am - 4:30 pm",
         "Tuesday": "11:00 am - 4:30 pm",
         "Wednesday": "11:00 am - 4:30 pm",
         "Thursday": "11:00 am - 4:30 pm",
         "Friday": "11:00 am - 4:30 pm",
-        "Saturday": "Closed",
+        "Saturday": "8:30 am - 1:45 pm",
         "Sunday": "Closed"
         }
       },
@@ -674,7 +682,89 @@ export class MemStorage implements IStorage {
           "Saturday": "TBD",
           "Sunday": "TBD"
         }
+      },
+
+      {
+        slug: "china_cottage",
+        name: "China Cottage",
+        description: "Authentic Chinese cuisine",
+        image: "/china_cottage.jpg",
+        category: "asian",
+        location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
+        businessLinks: {},
+
+        menu: [
+          // Appetizers
+          { name: "Egg Rolls (Pork or Vegetable)", price: "$2.00 each", description: "Contains carrots and cabbage.", category: "Appetizers" },
+          { name: "Crabmeat Rangoons", price: "$5.00 / 4 pieces", description: "Contains cream cheese, imitation crabmeat, and onion filling.", category: "Appetizers" },
+          { name: "Steamed Dumplings (Pork or Chicken)", price: "$6.00 / 6 pieces", description: "Contains cabbage and onions", category: "Appetizers" },
+
+          // Fried Rice
+          { name: "Ground Beef", price: "$9.00", description: " ", category: "Fried Rice (with peas, carrots, & egg)" },
+          { name: "Tofu, Chicken, BBQ Pork, or Vegetables", price: "$10.00", description: " ", category: "Fried Rice (with peas, carrots, & egg)" },
+          { name: "Shrimp or Beef", price: "$11.00", description: " ", category: "Fried Rice (with peas, carrots, & egg)" },
+          { name: "Combination (Chicken, BBQ Pork, & Shrimp)", price: "$12.00", description: " ", category: "Fried Rice (with peas, carrots, & egg)" },
+
+          // Stir-Fried Noodles
+          { name: "Lo-Mein", price: "$10.00", description: "Chinese-style, thin, flour noodles. ", category: "Stir-Fried Noodles (Chicken, Tofu, or Vegetable)" },
+          { name: "Udon", price: "$10.00", description: "Thick, round, chewy rice noodles.", category: "Stir-Fried Noodles (Chicken, Tofu, or Vegetable)" },
+          { name: "Chow Fun", price: "$10.00", description: "Flat, rice noodles.", category: "Stir-Fried Noodles (Chicken, Tofu, or Vegetable)" },
+
+          // Lunch Specials
+          
+          // $10.00 Lunch Specials
+          { name: "Governor's Chicken (Spicy)", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Hunan Chicken (Spicy)", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Chicken Cashew", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Chicken with Vegetables", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Chicken Broccoli", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Szechuan Style Chicken", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Fresh Vegetables & Tofu Mix", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Vegetables & Tofu Cashew Mix", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Hunan Tofu (Spicy)", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Fresh Vegetables Mix", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Szechuan Style Tofu", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Sesame Tofu", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "General Tofu", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+
+          // $11.00 Lunch Specials
+          { name: "Hunan Beef (Spicy)", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Governor's Beef (Spicy)", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Beef with Broccoli", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Szechuan Beef", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Beef with Vegetables", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Sesame Chicken", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "General Tso's Chicken", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Orange Chicken", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Sweet & Sour Chicken", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+
+          // Beverages
+          { name: "12 oz Soda Can", price: "$2.00", description: "Pepsi, Diet Pepsi, Mountain Dew, Sprite, Coca-Cola, Diet Coke", category: "Beverages" },
+          { name: "16.9 oz Bottled Water", price: "$1.50", description: " ", category: "Beverages" },
+
+          // Duel pricing (small, large)
+          { name: "Fresh Squeezed Lemonade", price: "$5.00, $6.00", description: " ", category: "Beverages" },
+          { name: "Fresh Squeezed Orange Juice", price: "$6.00, $7.00", description: " ", category: "Beverages" },
+          { name: "Combination (Lemonade + Orange Juice)", price: "$6.00, $7.00", description: " ", category: "Beverages" },
+          { name: "Thai Iced Tea (w/ Cream + Sugar)", price: "$4.00, $5.00", description: " ", category: "Beverages" },
+          { name: "Thai Iced Coffee (w/ Cream + Sugar)", price: "$4.00, $5.00", description: " ", category: "Beverages" },
+        ],
+
+        schedule: {
+          "Monday": "11:00 am - 3:00 pm",
+          "Tuesday": "11:00 am - 3:00 pm",
+          "Wednesday": "11:00 am - 3:00 pm",
+          "Thursday": "11:00 am - 3:00 pm",
+          "Friday": "11:00 am - 3:00 pm",
+          "Saturday": "Closed",
+          "Sunday": "Closed"
+        }
       }
+
+
+
 
 
 

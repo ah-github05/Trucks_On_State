@@ -21,7 +21,9 @@ export default function SiteNavigationHeader() {
     // If we're on the homepage, scroll to the section
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const headerHeight = 64;
+      const top = element.getBoundingClientRect().top + window.scrollY - headerHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
   };
@@ -34,7 +36,9 @@ export default function SiteNavigationHeader() {
       setTimeout(() => {
         const element = document.getElementById(hash);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          const headerHeight = 64;
+          const top = element.getBoundingClientRect().top + window.scrollY - headerHeight;
+          window.scrollTo({ top, behavior: 'smooth' });
         }
       }, 100);
     }
