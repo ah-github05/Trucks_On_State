@@ -193,6 +193,12 @@ html {
 
 .mobile-dropdown-menu {
   @apply md:hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 49;
+  box-shadow: 0 4px 12px hsla(20, 30%, 40%, 0.1);
 }
 
 .mobile-menu-container {
@@ -203,18 +209,30 @@ html {
 }
 
 .mobile-home-button {
-  color: hsl(0, 75%, 28%) !important;
-  font-family: 'Nunito', sans-serif !important;
-  font-weight: 600 !important;
-  @apply block w-full text-left;
+  color: hsl(0, 75%, 28%);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: left;
 }
 
 .mobile-food-carts-button,
 .mobile-about-button,
 .mobile-contact-button {
-  color: hsl(28, 12%, 42%) !important;
-  font-family: 'Nunito', sans-serif !important;
-  @apply block w-full text-left;
+  color: hsl(28, 12%, 42%);
+  font-family: 'Nunito', sans-serif;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: left;
 }
 
 /* ============================================================
