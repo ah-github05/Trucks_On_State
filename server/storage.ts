@@ -687,30 +687,69 @@ export class MemStorage implements IStorage {
       {
         slug: "china_cottage",
         name: "China Cottage",
-        description: "Authentic Chinese cuisine served with a modern twist",
+        description: "Authentic Chinese cuisine",
         image: "*****",
         category: "asian",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
-        businessLinks: {
-        },
+        businessLinks: {},
 
         menu: [
           // Appetizers
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Appetizers" },
+          { name: "Egg Rolls (Pork or Vegetable)", price: "$2.00 each", description: "Contains carrots and cabbage.", category: "Appetizers" },
+          { name: "Crabmeat Rangoons", price: "$5.00 / 4 pieces", description: "Contains cream cheese, imitation crabmeat, and onion filling.", category: "Appetizers" },
+          { name: "Steamed Dumplings (Pork or Chicken)", price: "$6.00 / 6 pieces", description: "Contains cabbage and onions", category: "Appetizers" },
 
           // Fried Rice
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Fried Rice" },
+          { name: "Ground Beef", price: "$9.00", description: " ", category: "Fried Rice (with peas, carrots, & egg)" },
+          { name: "Tofu, Chicken, BBQ Pork, or Vegetables", price: "$10.00", description: " ", category: "Fried Rice (with peas, carrots, & egg)" },
+          { name: "Shrimp or Beef", price: "$11.00", description: " ", category: "Fried Rice (with peas, carrots, & egg)" },
+          { name: "Combination (Chicken, BBQ Pork, & Shrimp)", price: "$12.00", description: " ", category: "Fried Rice (with peas, carrots, & egg)" },
 
           // Stir-Fried Noodles
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Stir-Fried Noodles" },
+          { name: "Lo-Mein", price: "$10.00", description: "Chinese-style, thin, flour noodles. ", category: "Stir-Fried Noodles (Chicken, Tofu, or Vegetable)" },
+          { name: "Udon", price: "$10.00", description: "Thick, round, chewy rice noodles.", category: "Stir-Fried Noodles (Chicken, Tofu, or Vegetable)" },
+          { name: "Chow Fun", price: "$10.00", description: "Flat, rice noodles.", category: "Stir-Fried Noodles (Chicken, Tofu, or Vegetable)" },
 
           // Lunch Specials
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Lunch Specials" },
+          
+          // $10.00 Lunch Specials
+          { name: "Governor's Chicken (Spicy)", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Hunan Chicken (Spicy)", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Chicken Cashew", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Chicken with Vegetables", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Chicken Broccoli", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Szechuan Style Chicken", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Fresh Vegetables & Tofu Mix", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Vegetables & Tofu Cashew Mix", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Hunan Tofu (Spicy)", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Fresh Vegetables Mix", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Szechuan Style Tofu", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Sesame Tofu", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "General Tofu", price: "$10.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+
+          // $11.00 Lunch Specials
+          { name: "Hunan Beef (Spicy)", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Governor's Beef (Spicy)", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Beef with Broccoli", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Szechuan Beef", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Beef with Vegetables", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Sesame Chicken", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "General Tso's Chicken", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Orange Chicken", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
+          { name: "Sweet & Sour Chicken", price: "$11.00", description: " ", category: "Lunch Specials (with steamed white rice)" },
 
           // Beverages
-          { name: "TBD", price: "$TBD", description: "TBD", category: "Beverages" },
+          { name: "12 oz Soda Can", price: "$2.00", description: "Pepsi, Diet Pepsi, Mountain Dew, Sprite, Coca-Cola, Diet Coke", category: "Beverages" },
+          { name: "16.9 oz Bottled Water", price: "$1.50", description: " ", category: "Beverages" },
+
+          // Duel pricing (small, large)
+          { name: "Fresh Squeezed Lemonade", price: "$5.00, $6.00", description: " ", category: "Beverages" },
+          { name: "Fresh Squeezed Orange Juice", price: "$6.00, $7.00", description: " ", category: "Beverages" },
+          { name: "Combination (Lemonade + Orange Juice)", price: "$6.00, $7.00", description: " ", category: "Beverages" },
+          { name: "Thai Iced Tea (w/ Cream + Sugar)", price: "$4.00, $5.00", description: " ", category: "Beverages" },
+          { name: "Thai Iced Coffee (w/ Cream + Sugar)", price: "$4.00, $5.00", description: " ", category: "Beverages" },
         ],
 
         schedule: {
