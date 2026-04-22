@@ -688,7 +688,7 @@ export class MemStorage implements IStorage {
         slug: "china_cottage",
         name: "China Cottage",
         description: "Authentic Chinese cuisine",
-        image: "*****",
+        image: "/china_cottage.jpg",
         category: "asian",
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
