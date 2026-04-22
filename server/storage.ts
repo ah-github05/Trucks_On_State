@@ -682,7 +682,50 @@ export class MemStorage implements IStorage {
           "Saturday": "TBD",
           "Sunday": "TBD"
         }
+      },
+
+      {
+        slug: "china_cottage",
+        name: "China Cottage",
+        description: "Authentic Chinese cuisine served with a modern twist",
+        image: "*****",
+        category: "asian",
+        location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
+        businessLinks: {
+        },
+
+        menu: [
+          // Appetizers
+          { name: "TBD", price: "$TBD", description: "TBD", category: "Appetizers" },
+
+          // Fried Rice
+          { name: "TBD", price: "$TBD", description: "TBD", category: "Fried Rice" },
+
+          // Stir-Fried Noodles
+          { name: "TBD", price: "$TBD", description: "TBD", category: "Stir-Fried Noodles" },
+
+          // Lunch Specials
+          { name: "TBD", price: "$TBD", description: "TBD", category: "Lunch Specials" },
+
+          // Beverages
+          { name: "TBD", price: "$TBD", description: "TBD", category: "Beverages" },
+        ],
+
+        schedule: {
+          "Monday": "11:00 am - 3:00 pm",
+          "Tuesday": "11:00 am - 3:00 pm",
+          "Wednesday": "11:00 am - 3:00 pm",
+          "Thursday": "11:00 am - 3:00 pm",
+          "Friday": "11:00 am - 3:00 pm",
+          "Saturday": "Closed",
+          "Sunday": "Closed"
+        }
       }
+
+
+
 
 
 
