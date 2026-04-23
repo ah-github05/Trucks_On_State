@@ -19,7 +19,7 @@ export default function MadisonFoodCartHomePage() {
     queryKey: ["/carts.json"],
   });
 
-  const filteredCarts = carts?.filter((cart) => {
+  const filteredCarts = (carts?.filter((cart) => {
     const matchesSearch = searchQuery === "" ||
       cart.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       cart.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -29,7 +29,11 @@ export default function MadisonFoodCartHomePage() {
     const matchesLocation = selectedLocation === "all" || cart.location === selectedLocation;
 
     return matchesSearch && matchesCategory && matchesLocation;
-  }) || [];
+  }) || []).sort((a, b) => {
+    if (a.location === "traveling" && b.location !== "traveling") return 1;
+    if (a.location !== "traveling" && b.location === "traveling") return -1;
+    return 0;
+  });
 
   return (
     <div className="home-page-container">
