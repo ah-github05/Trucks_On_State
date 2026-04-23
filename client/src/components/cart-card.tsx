@@ -46,11 +46,13 @@ export default function IndividualFoodCartCard({ cart }: CartCardProps) {
           )}
         </div>
         <div className="cart-card-footer">
-          <span className={`cart-status ${
-            isOpen ? 'cart-status-open' : 'cart-status-closed'
-          }`}>
-            {isOpen ? 'Open Now' : 'Closed'}
-          </span>
+          {cart.location !== "traveling" && (
+            <span className={`cart-status ${
+              isOpen ? 'cart-status-open' : 'cart-status-closed'
+            }`}>
+              {isOpen ? 'Open Now' : 'Closed'}
+            </span>
+          )}
           <Link href={`/cart/${cart.slug}`}>
             <Button className="view-menu-button">
               View Menu
