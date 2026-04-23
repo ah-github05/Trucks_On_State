@@ -55,7 +55,7 @@ export default function MadisonFoodCartHomePage() {
               Click on any cart to see their full menu and schedule.
             </p>
             <p className="text-xs text-accent-yellow italic mt-1">
-              Schedules changed due to weather or unforeseen circumstances may not be accurately reflected.
+              Schedule changes due to weather or unforeseen circumstances may not be accurately reflected
             </p>
           </div>
           
