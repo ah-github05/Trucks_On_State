@@ -48,6 +48,7 @@ export const foodCartSchema = z.object({
   mapsUrl: z.string().optional(),
   saturdayLocationDisplayName: z.string().optional(),
   saturdayMapsUrl: z.string().optional(),
+  glutenFree: z.boolean().optional(),
   menu: z.array(menuItemSchema),
   schedule: scheduleSchema,
   businessLinks: businessLinksSchema.optional(),
