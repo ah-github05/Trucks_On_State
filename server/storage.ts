@@ -421,18 +421,30 @@ export class MemStorage implements IStorage {
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
         saturdayLocationDisplayName: "Dane County Farmers' Market",
         saturdayMapsUrl: "https://maps.google.com/?q=Capitol+Square+Madison+WI",
+        glutenFree: true,
         businessLinks: {
           instagram: "https://www.instagram.com/crepuwmadison?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
           facebook: "https://www.facebook.com/crepuwmadison"
         },
         menu: [
+
+          // crepes
           { name: "Strawberry Banana", price: "$8.00", description: "Strawberries, bananas, custard, cream, nutella, selection of sauce.", category: "Crepes" },
           { name: "Strawberry Nutella", price: "$8.00", description: "Strawberries, nutella selection of sauce.", category: "Crepes" },
           { name: "Banana Nutella", price: "$8.00", description: "Banana, nutella selection of sauce.", category: "Crepes" },
           { name: "Mediterranean Breeze", price: "$9.00", description: "Avocado, lettuce, feta cheese, olive oil, tomatoes.", category: "Crepes" },
+
+          // crepe sushi
           { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream, kataifi, chocolate sauce.", category: "Crepe Sushi" },
           { name: "Strawberry Brownie", price: "$8.00", description: "Strawberry, brownie, selection of sauce.", category: "Crepe Sushi" },
-          { name: "Nutella Banana", price: "$8.00", description: "Banana, nutella, selection of sauce.", category: "Crepe Sushi" }
+          { name: "Nutella Banana", price: "$8.00", description: "Banana, nutella, selection of sauce.", category: "Crepe Sushi" },
+
+          // sauces
+          { name: "Chocolate", price: " ", description: " ", category: "Sauces" },
+          { name: "White Chocolate", price: " ", description: " ", category: "Sauces" },
+          { name: "Caramel", price: " ", description: " ", category: "Sauces" },
+          { name: "Pistachio", price: " ", description: " ", category: "Sauces" }
+
         ],
         schedule: {
           "Monday": "11:00 am - 4:00 pm",
