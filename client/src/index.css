@@ -489,6 +489,39 @@ html {
 }
 
 /* ── Active filter pills ── */
+.dietary-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.gluten-free-active {
+  background: hsl(142, 60%, 35%) !important;
+  color: white !important;
+  border: 1px solid hsl(142, 60%, 35%) !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.78rem !important;
+  border-radius: 100px !important;
+}
+
+.gluten-free-inactive {
+  background: hsl(35, 30%, 95%) !important;
+  color: hsl(28, 22%, 14%) !important;
+  border: 1px solid hsl(35, 20%, 76%) !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 0.78rem !important;
+  border-radius: 100px !important;
+  transition: all 0.18s ease !important;
+}
+
+.gluten-free-inactive:hover {
+  background: hsl(142, 60%, 95%) !important;
+  border-color: hsl(142, 60%, 60%) !important;
+  color: hsl(142, 60%, 25%) !important;
+}
+
 .all-category-active,
 .sandwiches-category-active,
 .south_american-category-active,
