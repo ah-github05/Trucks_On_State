@@ -14,6 +14,7 @@ export default function MadisonFoodCartHomePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedLocation, setSelectedLocation] = useState("all");
+  const [glutenFreeOnly, setGlutenFreeOnly] = useState(false);
 
   const { data: carts, isLoading, error } = useQuery<FoodCart[]>({
     queryKey: ["/carts.json"],
@@ -28,7 +29,9 @@ export default function MadisonFoodCartHomePage() {
 
     const matchesLocation = selectedLocation === "all" || cart.location === selectedLocation;
 
-    return matchesSearch && matchesCategory && matchesLocation;
+    const matchesGlutenFree = !glutenFreeOnly || cart.glutenFree === true;
+
+    return matchesSearch && matchesCategory && matchesLocation && matchesGlutenFree;
   }) || []).sort((a, b) => {
     if (a.location === "traveling" && b.location !== "traveling") return 1;
     if (a.location !== "traveling" && b.location === "traveling") return -1;
@@ -46,6 +49,8 @@ export default function MadisonFoodCartHomePage() {
         onCategoryChange={setSelectedCategory}
         selectedLocation={selectedLocation}
         onLocationChange={setSelectedLocation}
+        glutenFreeOnly={glutenFreeOnly}
+        onGlutenFreeChange={setGlutenFreeOnly}
       />
 
       <section id="carts" className="home-carts-section">
