@@ -419,6 +419,8 @@ export class MemStorage implements IStorage {
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
+        saturdayLocationDisplayName: "Dane County Farmers' Market",
+        saturdayMapsUrl: "https://maps.google.com/?q=Capitol+Square+Madison+WI",
         businessLinks: {
           instagram: "https://www.instagram.com/crepuwmadison?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
           facebook: "https://www.facebook.com/crepuwmadison"
@@ -433,12 +435,12 @@ export class MemStorage implements IStorage {
           { name: "Nutella Banana", price: "$8.00", description: "Banana, nutella, selection of sauce.", category: "Crepe Sushi" }
         ],
         schedule: {
-          "Monday": "11:00 am - 3:00 pm",
-          "Tuesday": "11:00 am - 3:00 pm",
-          "Wednesday": "11:00 am - 3:00 pm",
-          "Thursday": "11:00 am - 3:00 pm",
-          "Friday": "11:00 am - 3:00 pm",
-          "Saturday": "Closed",
+          "Monday": "11:00 am - 4:00 pm",
+          "Tuesday": "11:00 am - 4:00 pm",
+          "Wednesday": "11:00 am - 4:00 pm",
+          "Thursday": "11:00 am - 4:00 pm",
+          "Friday": "11:00 am - 4:00 pm",
+          "Saturday": "8:00 am - 1:00 pm",
           "Sunday": "Closed"
         }
       },
