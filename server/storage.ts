@@ -178,6 +178,7 @@ export class MemStorage implements IStorage {
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
+        saturdayLocation: "capitol-square",
         saturdayLocationDisplayName: "Dane County Farmers' Market",
         saturdayMapsUrl: "https://maps.google.com/?q=Capitol+Square+Madison+WI",
         businessLinks: {
@@ -419,6 +420,7 @@ export class MemStorage implements IStorage {
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
+        saturdayLocation: "capitol-square",
         saturdayLocationDisplayName: "Dane County Farmers' Market",
         saturdayMapsUrl: "https://maps.google.com/?q=Capitol+Square+Madison+WI",
         glutenFree: true,
