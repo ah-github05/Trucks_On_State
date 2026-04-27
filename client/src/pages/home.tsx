@@ -20,6 +20,8 @@ export default function MadisonFoodCartHomePage() {
     queryKey: ["/carts.json"],
   });
 
+  const isSaturday = new Date().getDay() === 6;
+
   const filteredCarts = (carts?.filter((cart) => {
     const matchesSearch = searchQuery === "" ||
       cart.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -27,7 +29,8 @@ export default function MadisonFoodCartHomePage() {
 
     const matchesCategory = selectedCategory === "all" || cart.category === selectedCategory;
 
-    const matchesLocation = selectedLocation === "all" || cart.location === selectedLocation;
+    const effectiveLocation = isSaturday && cart.saturdayLocation ? cart.saturdayLocation : cart.location;
+    const matchesLocation = selectedLocation === "all" || effectiveLocation === selectedLocation;
 
     const matchesGlutenFree = !glutenFreeOnly || cart.glutenFree === true;
 
