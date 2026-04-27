@@ -31,19 +31,28 @@ export default function IndividualFoodCartCard({ cart }: CartCardProps) {
         <p className="cart-card-description">{cart.description}</p>
         <div className="cart-card-location">
           <MapPin className="cart-location-icon" />
-          {cart.mapsUrl ? (
-            <a
-              href={cart.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cart-location-text text-primary hover:text-primary/80 transition-colors hover:underline"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {cart.locationDisplayName}
-            </a>
-          ) : (
-            <span className="cart-location-text">{cart.locationDisplayName}</span>
-          )}
+          {(() => {
+            const isSaturday = new Date().getDay() === 6;
+            const displayName = isSaturday && cart.saturdayLocationDisplayName
+              ? cart.saturdayLocationDisplayName
+              : cart.locationDisplayName;
+            const mapsUrl = isSaturday && cart.saturdayMapsUrl
+              ? cart.saturdayMapsUrl
+              : cart.mapsUrl;
+            return mapsUrl ? (
+              <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cart-location-text text-primary hover:text-primary/80 transition-colors hover:underline"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {displayName}
+              </a>
+            ) : (
+              <span className="cart-location-text">{displayName}</span>
+            );
+          })()}
         </div>
         <div className="cart-card-footer">
           {cart.location !== "traveling" && (
