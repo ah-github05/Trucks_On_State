@@ -30,14 +30,18 @@ export class MemStorage implements IStorage {
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
+        saturdayLocation: "capitol-square",
+        saturdayLocationDisplayName: "Dane County Farmers' Market",
+        saturdayMapsUrl: "https://maps.google.com/?q=Capitol+Square+Madison+WI",
         businessLinks: {},
         menu: [
-          { name: "Avocado", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Avocado Chicken", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Avocado Tofu", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Avocado Shrimp", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Avocado BBQ Pork", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Salad Bowl", price: "$7.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce, avocado, choice of protein (chicken, tofu, shrimp, BBQ pork, beef).", category: "Spring Rolls" }
+          { name: "Avocado", price: "$6.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Chicken", price: "$7.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Tofu", price: "$7.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Shrimp", price: "$7.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado BBQ Pork", price: "$7.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Beef", price: "$7.00", description: "Beef, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Salad Bowl", price: "$8.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce, avocado, choice of protein (chicken, tofu, shrimp, BBQ pork, beef).", category: "Spring Rolls" }
         ],
         schedule: {
           "Monday": "10:00 am - 6:00 pm",
@@ -45,8 +49,8 @@ export class MemStorage implements IStorage {
           "Wednesday": "10:00 am - 6:00 pm",
           "Thursday": "10:00 am - 6:00 pm",
           "Friday": "10:00 am - 6:00 pm",
-          "Saturday": "10:00 am - 7:30 pm",
-          "Sunday": "10:00 am - 6:00 pm"
+          "Saturday": "8:30 am - 1:00 pm",
+          "Sunday": "Closed"
         }
       },
 
