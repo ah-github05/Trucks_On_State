@@ -27,7 +27,7 @@ const menuItemSchema = z.object({
   category: z.string().optional(),
 });
 
-const scheduleSchema = z.record(z.string());
+const scheduleSchema = z.record(z.string(), z.string());
 
 const businessLinksSchema = z.object({
   website: z.string().optional(),
