@@ -30,14 +30,18 @@ export class MemStorage implements IStorage {
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
+        saturdayLocation: "capitol-square",
+        saturdayLocationDisplayName: "Dane County Farmers' Market",
+        saturdayMapsUrl: "https://maps.google.com/?q=Capitol+Square+Madison+WI",
         businessLinks: {},
         menu: [
-          { name: "Avocado", price: "$5.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Avocado Chicken", price: "$6.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Avocado Tofu", price: "$6.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Avocado Shrimp", price: "$6.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Avocado BBQ Pork", price: "$6.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
-          { name: "Salad Bowl", price: "$7.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce, avocado, choice of protein (chicken, tofu, shrimp, BBQ pork, beef).", category: "Spring Rolls" }
+          { name: "Avocado", price: "$6.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Chicken", price: "$7.00", description: "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Tofu", price: "$7.00", description: "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Shrimp", price: "$7.00", description: "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado BBQ Pork", price: "$7.00", description: "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Avocado Beef", price: "$7.00", description: "Beef, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.", category: "Spring Rolls" },
+          { name: "Salad Bowl", price: "$8.00", description: "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce, avocado, choice of protein (chicken, tofu, shrimp, BBQ pork, beef).", category: "Spring Rolls" }
         ],
         schedule: {
           "Monday": "10:00 am - 6:00 pm",
@@ -45,8 +49,8 @@ export class MemStorage implements IStorage {
           "Wednesday": "10:00 am - 6:00 pm",
           "Thursday": "10:00 am - 6:00 pm",
           "Friday": "10:00 am - 6:00 pm",
-          "Saturday": "10:00 am - 7:30 pm",
-          "Sunday": "10:00 am - 6:00 pm"
+          "Saturday": "8:30 am - 1:00 pm",
+          "Sunday": "Closed"
         }
       },
 
@@ -178,6 +182,7 @@ export class MemStorage implements IStorage {
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
+        saturdayLocation: "capitol-square",
         saturdayLocationDisplayName: "Dane County Farmers' Market",
         saturdayMapsUrl: "https://maps.google.com/?q=Capitol+Square+Madison+WI",
         businessLinks: {
@@ -419,26 +424,41 @@ export class MemStorage implements IStorage {
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
+        saturdayLocation: "capitol-square",
+        saturdayLocationDisplayName: "Dane County Farmers' Market",
+        saturdayMapsUrl: "https://maps.google.com/?q=Capitol+Square+Madison+WI",
+        glutenFree: true,
         businessLinks: {
           instagram: "https://www.instagram.com/crepuwmadison?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
           facebook: "https://www.facebook.com/crepuwmadison"
         },
         menu: [
+
+          // crepes
           { name: "Strawberry Banana", price: "$8.00", description: "Strawberries, bananas, custard, cream, nutella, selection of sauce.", category: "Crepes" },
           { name: "Strawberry Nutella", price: "$8.00", description: "Strawberries, nutella selection of sauce.", category: "Crepes" },
           { name: "Banana Nutella", price: "$8.00", description: "Banana, nutella selection of sauce.", category: "Crepes" },
           { name: "Mediterranean Breeze", price: "$9.00", description: "Avocado, lettuce, feta cheese, olive oil, tomatoes.", category: "Crepes" },
+
+          // crepe sushi
           { name: "Dubai Chocolate Strawberry", price: "$9.00", description: "Strawberry, pistachio cream, kataifi, chocolate sauce.", category: "Crepe Sushi" },
           { name: "Strawberry Brownie", price: "$8.00", description: "Strawberry, brownie, selection of sauce.", category: "Crepe Sushi" },
-          { name: "Nutella Banana", price: "$8.00", description: "Banana, nutella, selection of sauce.", category: "Crepe Sushi" }
+          { name: "Nutella Banana", price: "$8.00", description: "Banana, nutella, selection of sauce.", category: "Crepe Sushi" },
+
+          // sauces
+          { name: "Chocolate", price: " ", description: " ", category: "Sauces" },
+          { name: "White Chocolate", price: " ", description: " ", category: "Sauces" },
+          { name: "Caramel", price: " ", description: " ", category: "Sauces" },
+          { name: "Pistachio", price: " ", description: " ", category: "Sauces" }
+
         ],
         schedule: {
-          "Monday": "11:00 am - 3:00 pm",
-          "Tuesday": "11:00 am - 3:00 pm",
-          "Wednesday": "11:00 am - 3:00 pm",
-          "Thursday": "11:00 am - 3:00 pm",
-          "Friday": "11:00 am - 3:00 pm",
-          "Saturday": "Closed",
+          "Monday": "11:00 am - 4:00 pm",
+          "Tuesday": "11:00 am - 4:00 pm",
+          "Wednesday": "11:00 am - 4:00 pm",
+          "Thursday": "11:00 am - 4:00 pm",
+          "Friday": "11:00 am - 4:00 pm",
+          "Saturday": "8:00 am - 1:00 pm",
           "Sunday": "Closed"
         }
       },
@@ -499,8 +519,8 @@ export class MemStorage implements IStorage {
         menu: [
           { name: "Single-Serve Ice Cream Containers", price: "$6.00", description: "Flavors vary on what is available.", category: "Ice Cream" }
         ],
-        schedule: { // Typical hours: Saturdays from 8:00 am - 1:00 pm
-          "Closed during the winter. Reopens in May at the start of the Farmers' Market season.": ""
+        schedule: {
+          "Open on Saturdays at the Dane County Farmers' Market!": ""
         }
       },
 
@@ -684,6 +704,7 @@ export class MemStorage implements IStorage {
         }
       },
 
+      // china cottage
       {
         slug: "china_cottage",
         name: "China Cottage",
@@ -693,7 +714,6 @@ export class MemStorage implements IStorage {
         location: "state-street-library-mall",
         locationDisplayName: "State Street & Library Mall",
         mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
-        businessLinks: {},
 
         menu: [
           // Appetizers
@@ -761,7 +781,45 @@ export class MemStorage implements IStorage {
           "Saturday": "Closed",
           "Sunday": "Closed"
         }
-      }
+      },
+
+      // hibachi hut
+      {
+        slug: "hibachi_hut",
+        name: "Hibachi Hut",
+        description: "Hot hibachi made-to-order",
+        image: "/hibachi_hut.jpg",
+        category: "asian",
+        location: "state-street-library-mall",
+        locationDisplayName: "State Street & Library Mall",
+        mapsUrl: "https://maps.google.com/?q=43.075000,-89.398361",
+
+        menu: [
+          { name: "Teriyaki Chicken", price: "$13.00", description: "Grilled chicken glazed with a sweet and savory teriyaki sauce. Served with sir-fried zucchini, broccoli, and carrots over white rice.", category: "Hibachi" },
+          { name: "Teriyaki Steak", price: "$15.00", description: "Grilled steak glazed with a sweet and savory teriyaki sauce. Served with sir-fried zucchini, broccoli, and carrots over white rice.", category: "Hibachi" },
+          { name: "Hibachi Chicken", price: "$13.00", description: "Flat-top grilled chicken with butter, sake, and soy sauce. Served with sir-fried zucchini, broccoli, and carrots over white rice.", category: "Hibachi" },
+          { name: "Hibachi Steak", price: "$15.00", description: "Flat-top grilled steak with butter, sake, and soy sauce. Served with sir-fried zucchini, broccoli, and carrots over white rice", category: "Hibachi" },
+          { name: "Vegetarian Combo", price: "$13.00", description: "Seared-fried tofu, stir-fried mushroom, zucchini, broccoli, and carrots with teriyaki sauce served over white rice.", category: "Hibachi" },
+          { name: "Hibachi Fried Rice", price: "$13.00", description: "Hibachi egg fried rice with chicken and vegetables.", category: "Hibachi" },
+          { name: "Hibachi Noodles (Chicken or Tofu)", price: "$14.00", description: "Noodle stir-fried in butter with a sweet and savory sauce.", category: "Hibachi" },
+          { name: "Hibachi Noodles (Steak)", price: "$16.00", description: "Noodle stir-fried in butter with a sweet and savory sauce.", category: "Hibachi" },
+
+          { name: "Soda", price: "$2.00", description: " ", category: "Drinks" },
+          { name: "Bottled Water", price: "$3.00", description: " ", category: "Drinks" },
+          
+
+        ],
+        schedule: {
+          "Monday": "11:00 am - 3:00 pm",
+          "Tuesday": "11:00 am - 3:00 pm",
+          "Wednesday": "11:00 am - 3:00 pm",
+          "Thursday": "11:00 am - 3:00 pm",
+          "Friday": "11:00 am - 3:00 pm",
+          "Saturday": "Closed",
+          "Sunday": "Closed"
+        }
+      },
+
 
 
 
