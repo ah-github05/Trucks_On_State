@@ -8,41 +8,50 @@
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
     "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
+    "saturdayLocation": "capitol-square",
+    "saturdayLocationDisplayName": "Dane County Farmers' Market",
+    "saturdayMapsUrl": "https://maps.google.com/?q=Capitol+Square+Madison+WI",
     "businessLinks": {},
     "menu": [
       {
         "name": "Avocado",
-        "price": "$5.00",
+        "price": "$6.00",
         "description": "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.",
         "category": "Spring Rolls"
       },
       {
         "name": "Avocado Chicken",
-        "price": "$6.00",
+        "price": "$7.00",
         "description": "Chicken, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.",
         "category": "Spring Rolls"
       },
       {
         "name": "Avocado Tofu",
-        "price": "$6.00",
+        "price": "$7.00",
         "description": "Tofu, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.",
         "category": "Spring Rolls"
       },
       {
         "name": "Avocado Shrimp",
-        "price": "$6.00",
+        "price": "$7.00",
         "description": "Shrimp, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.",
         "category": "Spring Rolls"
       },
       {
         "name": "Avocado BBQ Pork",
-        "price": "$6.00",
+        "price": "$7.00",
         "description": "BBQ pork, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.",
         "category": "Spring Rolls"
       },
       {
-        "name": "Salad Bowl",
+        "name": "Avocado Beef",
         "price": "$7.00",
+        "description": "Beef, lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce.",
+        "category": "Spring Rolls"
+      },
+      {
+        "name": "Salad Bowl",
+        "price": "$8.00",
         "description": "Lettuce, cucumber, carrot, cabbage, rice noodles, peanut sauce, avocado, choice of protein (chicken, tofu, shrimp, BBQ pork, beef).",
         "category": "Spring Rolls"
       }
@@ -53,8 +62,8 @@
       "Wednesday": "10:00 am - 6:00 pm",
       "Thursday": "10:00 am - 6:00 pm",
       "Friday": "10:00 am - 6:00 pm",
-      "Saturday": "10:00 am - 7:30 pm",
-      "Sunday": "10:00 am - 6:00 pm"
+      "Saturday": "8:30 am - 1:00 pm",
+      "Sunday": "Closed"
     },
     "id": 1
   },
@@ -141,13 +150,13 @@
       }
     ],
     "schedule": {
-      "Monday": "11:00 am - 3:00 pm",
-      "Tuesday": "11:00 am - 3:00 pm",
-      "Wednesday": "11:00 am - 3:00 pm",
-      "Thursday": "11:00 am - 3:00 pm",
-      "Friday": "11:00 am - 3:00 pm",
-      "Saturday": "11:00 am - 3:00 pm",
-      "Sunday": "11:00 am - 3:00 pm"
+      "Monday": "11:00 am - 4:00 pm",
+      "Tuesday": "11:00 am - 4:00 pm",
+      "Wednesday": "11:00 am - 4:00 pm",
+      "Thursday": "11:00 am - 4:00 pm",
+      "Friday": "11:00 am - 4:00 pm",
+      "Saturday": "11:00 am - 4:00 pm",
+      "Sunday": "11:00 am - 4:00 pm"
     },
     "id": 2
   },
@@ -314,6 +323,9 @@
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
     "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
+    "saturdayLocation": "capitol-square",
+    "saturdayLocationDisplayName": "Dane County Farmers' Market",
+    "saturdayMapsUrl": "https://maps.google.com/?q=Capitol+Square+Madison+WI",
     "businessLinks": {
       "instagram": "https://www.instagram.com/bombayfastcafe?utm_source=ig_web_button_share_sheet&igsh=enJzc25kaWZodTZt"
     },
@@ -365,15 +377,21 @@
         "price": "$10.00",
         "description": "Kidney beans cooked with authentic home style spices garnished with chopped onions, cilantro, and lime. Served with naan, rice, and chutney.",
         "category": "Lentil & Bean Dishes"
+      },
+      {
+        "name": "Mango Lassi",
+        "price": "10 oz: $5.00, 12 oz: $6.00, 16 oz: $8.00",
+        "description": "Creamy, sweet smoothie made with ripe mangoes and yogurt.",
+        "category": "Drinks"
       }
     ],
     "schedule": {
-      "Monday": "Closed",
+      "Monday": "11:00 am - 4:30 pm",
       "Tuesday": "11:00 am - 4:30 pm",
       "Wednesday": "11:00 am - 4:30 pm",
       "Thursday": "11:00 am - 4:30 pm",
       "Friday": "11:00 am - 4:30 pm",
-      "Saturday": "Closed",
+      "Saturday": "8:30 am - 1:45 pm",
       "Sunday": "Closed"
     },
     "id": 5
@@ -774,6 +792,10 @@
     "location": "state-street-library-mall",
     "locationDisplayName": "State Street & Library Mall",
     "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
+    "saturdayLocation": "capitol-square",
+    "saturdayLocationDisplayName": "Dane County Farmers' Market",
+    "saturdayMapsUrl": "https://maps.google.com/?q=Capitol+Square+Madison+WI",
+    "glutenFree": true,
     "businessLinks": {
       "instagram": "https://www.instagram.com/crepuwmadison?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       "facebook": "https://www.facebook.com/crepuwmadison"
@@ -820,15 +842,39 @@
         "price": "$8.00",
         "description": "Banana, nutella, selection of sauce.",
         "category": "Crepe Sushi"
+      },
+      {
+        "name": "Chocolate",
+        "price": " ",
+        "description": " ",
+        "category": "Sauces"
+      },
+      {
+        "name": "White Chocolate",
+        "price": " ",
+        "description": " ",
+        "category": "Sauces"
+      },
+      {
+        "name": "Caramel",
+        "price": " ",
+        "description": " ",
+        "category": "Sauces"
+      },
+      {
+        "name": "Pistachio",
+        "price": " ",
+        "description": " ",
+        "category": "Sauces"
       }
     ],
     "schedule": {
-      "Monday": "11:00 am - 3:00 pm",
-      "Tuesday": "11:00 am - 3:00 pm",
-      "Wednesday": "11:00 am - 3:00 pm",
-      "Thursday": "11:00 am - 3:00 pm",
-      "Friday": "11:00 am - 3:00 pm",
-      "Saturday": "Closed",
+      "Monday": "11:00 am - 4:00 pm",
+      "Tuesday": "11:00 am - 4:00 pm",
+      "Wednesday": "11:00 am - 4:00 pm",
+      "Thursday": "11:00 am - 4:00 pm",
+      "Friday": "11:00 am - 4:00 pm",
+      "Saturday": "8:00 am - 1:00 pm",
       "Sunday": "Closed"
     },
     "id": 11
@@ -924,7 +970,7 @@
       }
     ],
     "schedule": {
-      "Closed during the winter. Reopens in May at the start of the Farmers' Market season.": ""
+      "Open on Saturdays at the Dane County Farmers' Market!": ""
     },
     "id": 13
   },
@@ -1225,25 +1271,25 @@
       {
         "name": "One",
         "price": "$2.00",
-        "description": "Flavors: Chocolate, Seasonal (vary by event)",
+        "description": "Flavors: Chocolate Chip, Seasonal (vary by event)",
         "category": "Cookies"
       },
       {
         "name": "Three",
         "price": "$5.00",
-        "description": "Flavors: Chocolate, Seasonal (vary by event)",
+        "description": "Flavors: Chocolate Chip, Seasonal (vary by event)",
         "category": "Cookies"
       },
       {
         "name": "Six",
         "price": "$9.00",
-        "description": "Flavors: Chocolate, Seasonal (vary by event)",
+        "description": "Flavors: Chocolate Chip, Seasonal (vary by event)",
         "category": "Cookies"
       },
       {
         "name": "Bakers Dozen",
         "price": "$18.00",
-        "description": "Flavors: Chocolate, Seasonal (vary by event)",
+        "description": "Flavors: Chocolate Chip, Seasonal (vary by event)",
         "category": "Cookies"
       }
     ],
@@ -1257,5 +1303,343 @@
       "Sunday": "TBD"
     },
     "id": 18
+  },
+  {
+    "slug": "china_cottage",
+    "name": "China Cottage",
+    "description": "Authentic Chinese cuisine",
+    "image": "/china_cottage.jpg",
+    "category": "asian",
+    "location": "state-street-library-mall",
+    "locationDisplayName": "State Street & Library Mall",
+    "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
+    "menu": [
+      {
+        "name": "Egg Rolls (Pork or Vegetable)",
+        "price": "$2.00 each",
+        "description": "Contains carrots and cabbage.",
+        "category": "Appetizers"
+      },
+      {
+        "name": "Crabmeat Rangoons",
+        "price": "$5.00 / 4 pieces",
+        "description": "Contains cream cheese, imitation crabmeat, and onion filling.",
+        "category": "Appetizers"
+      },
+      {
+        "name": "Steamed Dumplings (Pork or Chicken)",
+        "price": "$6.00 / 6 pieces",
+        "description": "Contains cabbage and onions",
+        "category": "Appetizers"
+      },
+      {
+        "name": "Ground Beef",
+        "price": "$9.00",
+        "description": " ",
+        "category": "Fried Rice (with peas, carrots, & egg)"
+      },
+      {
+        "name": "Tofu, Chicken, BBQ Pork, or Vegetables",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Fried Rice (with peas, carrots, & egg)"
+      },
+      {
+        "name": "Shrimp or Beef",
+        "price": "$11.00",
+        "description": " ",
+        "category": "Fried Rice (with peas, carrots, & egg)"
+      },
+      {
+        "name": "Combination (Chicken, BBQ Pork, & Shrimp)",
+        "price": "$12.00",
+        "description": " ",
+        "category": "Fried Rice (with peas, carrots, & egg)"
+      },
+      {
+        "name": "Lo-Mein",
+        "price": "$10.00",
+        "description": "Chinese-style, thin, flour noodles. ",
+        "category": "Stir-Fried Noodles (Chicken, Tofu, or Vegetable)"
+      },
+      {
+        "name": "Udon",
+        "price": "$10.00",
+        "description": "Thick, round, chewy rice noodles.",
+        "category": "Stir-Fried Noodles (Chicken, Tofu, or Vegetable)"
+      },
+      {
+        "name": "Chow Fun",
+        "price": "$10.00",
+        "description": "Flat, rice noodles.",
+        "category": "Stir-Fried Noodles (Chicken, Tofu, or Vegetable)"
+      },
+      {
+        "name": "Governor's Chicken (Spicy)",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Hunan Chicken (Spicy)",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Chicken Cashew",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Chicken with Vegetables",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Chicken Broccoli",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Szechuan Style Chicken",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Fresh Vegetables & Tofu Mix",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Vegetables & Tofu Cashew Mix",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Hunan Tofu (Spicy)",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Fresh Vegetables Mix",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Szechuan Style Tofu",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Sesame Tofu",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "General Tofu",
+        "price": "$10.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Hunan Beef (Spicy)",
+        "price": "$11.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Governor's Beef (Spicy)",
+        "price": "$11.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Beef with Broccoli",
+        "price": "$11.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Szechuan Beef",
+        "price": "$11.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Beef with Vegetables",
+        "price": "$11.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Sesame Chicken",
+        "price": "$11.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "General Tso's Chicken",
+        "price": "$11.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Orange Chicken",
+        "price": "$11.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "Sweet & Sour Chicken",
+        "price": "$11.00",
+        "description": " ",
+        "category": "Lunch Specials (with steamed white rice)"
+      },
+      {
+        "name": "12 oz Soda Can",
+        "price": "$2.00",
+        "description": "Pepsi, Diet Pepsi, Mountain Dew, Sprite, Coca-Cola, Diet Coke",
+        "category": "Beverages"
+      },
+      {
+        "name": "16.9 oz Bottled Water",
+        "price": "$1.50",
+        "description": " ",
+        "category": "Beverages"
+      },
+      {
+        "name": "Fresh Squeezed Lemonade",
+        "price": "$5.00, $6.00",
+        "description": " ",
+        "category": "Beverages"
+      },
+      {
+        "name": "Fresh Squeezed Orange Juice",
+        "price": "$6.00, $7.00",
+        "description": " ",
+        "category": "Beverages"
+      },
+      {
+        "name": "Combination (Lemonade + Orange Juice)",
+        "price": "$6.00, $7.00",
+        "description": " ",
+        "category": "Beverages"
+      },
+      {
+        "name": "Thai Iced Tea (w/ Cream + Sugar)",
+        "price": "$4.00, $5.00",
+        "description": " ",
+        "category": "Beverages"
+      },
+      {
+        "name": "Thai Iced Coffee (w/ Cream + Sugar)",
+        "price": "$4.00, $5.00",
+        "description": " ",
+        "category": "Beverages"
+      }
+    ],
+    "schedule": {
+      "Monday": "11:00 am - 3:00 pm",
+      "Tuesday": "11:00 am - 3:00 pm",
+      "Wednesday": "11:00 am - 3:00 pm",
+      "Thursday": "11:00 am - 3:00 pm",
+      "Friday": "11:00 am - 3:00 pm",
+      "Saturday": "Closed",
+      "Sunday": "Closed"
+    },
+    "id": 19
+  },
+  {
+    "slug": "hibachi_hut",
+    "name": "Hibachi Hut",
+    "description": "Hot hibachi made-to-order",
+    "image": "/hibachi_hut.jpg",
+    "category": "asian",
+    "location": "state-street-library-mall",
+    "locationDisplayName": "State Street & Library Mall",
+    "mapsUrl": "https://maps.google.com/?q=43.075000,-89.398361",
+    "menu": [
+      {
+        "name": "Teriyaki Chicken",
+        "price": "$13.00",
+        "description": "Grilled chicken glazed with a sweet and savory teriyaki sauce. Served with sir-fried zucchini, broccoli, and carrots over white rice.",
+        "category": "Hibachi"
+      },
+      {
+        "name": "Teriyaki Steak",
+        "price": "$15.00",
+        "description": "Grilled steak glazed with a sweet and savory teriyaki sauce. Served with sir-fried zucchini, broccoli, and carrots over white rice.",
+        "category": "Hibachi"
+      },
+      {
+        "name": "Hibachi Chicken",
+        "price": "$13.00",
+        "description": "Flat-top grilled chicken with butter, sake, and soy sauce. Served with sir-fried zucchini, broccoli, and carrots over white rice.",
+        "category": "Hibachi"
+      },
+      {
+        "name": "Hibachi Steak",
+        "price": "$15.00",
+        "description": "Flat-top grilled steak with butter, sake, and soy sauce. Served with sir-fried zucchini, broccoli, and carrots over white rice",
+        "category": "Hibachi"
+      },
+      {
+        "name": "Vegetarian Combo",
+        "price": "$13.00",
+        "description": "Seared-fried tofu, stir-fried mushroom, zucchini, broccoli, and carrots with teriyaki sauce served over white rice.",
+        "category": "Hibachi"
+      },
+      {
+        "name": "Hibachi Fried Rice",
+        "price": "$13.00",
+        "description": "Hibachi egg fried rice with chicken and vegetables.",
+        "category": "Hibachi"
+      },
+      {
+        "name": "Hibachi Noodles (Chicken or Tofu)",
+        "price": "$14.00",
+        "description": "Noodle stir-fried in butter with a sweet and savory sauce.",
+        "category": "Hibachi"
+      },
+      {
+        "name": "Hibachi Noodles (Steak)",
+        "price": "$16.00",
+        "description": "Noodle stir-fried in butter with a sweet and savory sauce.",
+        "category": "Hibachi"
+      },
+      {
+        "name": "Soda",
+        "price": "$2.00",
+        "description": " ",
+        "category": "Drinks"
+      },
+      {
+        "name": "Bottled Water",
+        "price": "$3.00",
+        "description": " ",
+        "category": "Drinks"
+      }
+    ],
+    "schedule": {
+      "Monday": "11:00 am - 3:00 pm",
+      "Tuesday": "11:00 am - 3:00 pm",
+      "Wednesday": "11:00 am - 3:00 pm",
+      "Thursday": "11:00 am - 3:00 pm",
+      "Friday": "11:00 am - 3:00 pm",
+      "Saturday": "Closed",
+      "Sunday": "Closed"
+    },
+    "id": 20
   }
 ]

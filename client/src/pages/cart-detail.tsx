@@ -199,7 +199,7 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
   },
   "crepuw": {
     type: 'categorized',
-    categoryOrder: ["Crepes", "Crepe Sushi"]
+    categoryOrder: ["Crepes", "Crepe Sushi", "Sauces"]
   },
   "mj-jamaican": {
     type: 'categorized',
@@ -237,6 +237,10 @@ const MENU_CONFIG: Record<string, MenuConfig> = {
   "china_cottage": {
     type: 'china-cottage-special',
     categoryOrder: ["Appetizers", "Fried Rice (with peas, carrots, & egg)", "Stir-Fried Noodles (Chicken, Tofu, or Vegetable)", "Lunch Specials (with steamed white rice)", "Beverages"]
+  },
+  "hibachi_hut": {
+    type: 'categorized',
+    categoryOrder: ["Hibachi", "Drinks"]
   }
 };
 
@@ -740,7 +744,7 @@ export default function IndividualFoodCartDetailPage() {
                 </Card>
 
                 {/* Business Links - Hidden for Fresh Cool Drinks and China Cottage */}
-                {cart.slug !== "fresh-cool" && cart.slug !== "china_cottage" && (
+                {cart.slug !== "fresh-cool" && cart.slug !== "china_cottage" && cart.slug !== "hibachi_hut" && (
                   <Card>
                     <CardHeader>
                       <CardTitle>Business Links</CardTitle>

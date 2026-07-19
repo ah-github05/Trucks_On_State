@@ -14,22 +14,32 @@ export default function MadisonFoodCartHomePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedLocation, setSelectedLocation] = useState("all");
+  const [glutenFreeOnly, setGlutenFreeOnly] = useState(false);
 
   const { data: carts, isLoading, error } = useQuery<FoodCart[]>({
     queryKey: ["/carts.json"],
   });
 
-  const filteredCarts = carts?.filter((cart) => {
+  const isSaturday = new Date().getDay() === 6;
+
+  const filteredCarts = (carts?.filter((cart) => {
     const matchesSearch = searchQuery === "" ||
       cart.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       cart.description.toLowerCase().includes(searchQuery.toLowerCase());
 
     const matchesCategory = selectedCategory === "all" || cart.category === selectedCategory;
 
-    const matchesLocation = selectedLocation === "all" || cart.location === selectedLocation;
+    const effectiveLocation = isSaturday && cart.saturdayLocation ? cart.saturdayLocation : cart.location;
+    const matchesLocation = selectedLocation === "all" || effectiveLocation === selectedLocation;
 
-    return matchesSearch && matchesCategory && matchesLocation;
-  }) || [];
+    const matchesGlutenFree = !glutenFreeOnly || cart.glutenFree === true;
+
+    return matchesSearch && matchesCategory && matchesLocation && matchesGlutenFree;
+  }) || []).sort((a, b) => {
+    if (a.location === "traveling" && b.location !== "traveling") return 1;
+    if (a.location !== "traveling" && b.location === "traveling") return -1;
+    return 0;
+  });
 
   return (
     <div className="home-page-container">
@@ -42,6 +52,8 @@ export default function MadisonFoodCartHomePage() {
         onCategoryChange={setSelectedCategory}
         selectedLocation={selectedLocation}
         onLocationChange={setSelectedLocation}
+        glutenFreeOnly={glutenFreeOnly}
+        onGlutenFreeChange={setGlutenFreeOnly}
       />
 
       <section id="carts" className="home-carts-section">

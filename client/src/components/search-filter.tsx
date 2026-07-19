@@ -9,6 +9,8 @@ interface SearchFilterProps {
   onCategoryChange: (category: string) => void;
   selectedLocation: string;
   onLocationChange: (location: string) => void;
+  glutenFreeOnly: boolean;
+  onGlutenFreeChange: (value: boolean) => void;
 }
 
 // Food category filters
@@ -50,6 +52,8 @@ export default function FoodCartSearchAndFilter({
   onCategoryChange,
   selectedLocation,
   onLocationChange,
+  glutenFreeOnly,
+  onGlutenFreeChange,
 }: SearchFilterProps) {
   return (
     <section className="search-filter-section">
@@ -88,14 +92,24 @@ export default function FoodCartSearchAndFilter({
                 variant={selectedCategory === category.value ? "default" : "secondary"}
                 size="sm"
                 onClick={() => onCategoryChange(category.value)}
-                className={selectedCategory === category.value 
-                  ? `${category.value}-category-active` 
+                className={selectedCategory === category.value
+                  ? `${category.value}-category-active`
                   : `${category.value}-category-inactive`
                 }
               >
                 {category.label}
               </Button>
             ))}
+          </div>
+          <div className="dietary-filter-buttons">
+            <Button
+              variant={glutenFreeOnly ? "default" : "secondary"}
+              size="sm"
+              onClick={() => onGlutenFreeChange(!glutenFreeOnly)}
+              className={glutenFreeOnly ? "gluten-free-active" : "gluten-free-inactive"}
+            >
+              Gluten Free
+            </Button>
           </div>
         </div>
       </div>
