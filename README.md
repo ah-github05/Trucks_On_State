@@ -35,7 +35,7 @@ A centralized web application for discovering and exploring food carts throughou
 ## 📁 Project Structure
 
 ```
-Capital_City_Food_Carts/
+capital_city_food_carts/
 ├── attached_assets/      # Source images (for processing/archival)
 ├── client/              # Frontend React application
 │   ├── public/          # Static assets (images, carts.json)
