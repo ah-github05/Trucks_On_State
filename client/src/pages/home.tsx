@@ -23,9 +23,11 @@ export default function MadisonFoodCartHomePage() {
   const isSaturday = new Date().getDay() === 6;
 
   const filteredCarts = (carts?.filter((cart) => {
-    const matchesSearch = searchQuery === "" ||
-      cart.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      cart.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const query = searchQuery.trim().toLowerCase();
+    const matchesSearch = query === "" ||
+      cart.name.toLowerCase().includes(query) ||
+      cart.description.toLowerCase().includes(query) ||
+      cart.menu.some((item) => item.name.toLowerCase().includes(query));
 
     const matchesCategory = selectedCategory === "all" || cart.category === selectedCategory;
 
@@ -44,10 +46,11 @@ export default function MadisonFoodCartHomePage() {
   return (
     <div className="home-page-container">
       <SiteNavigationHeader />
-      <FoodCartHeroBanner />
-      <FoodCartSearchAndFilter
+      <FoodCartHeroBanner
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
+      />
+      <FoodCartSearchAndFilter
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
         selectedLocation={selectedLocation}
@@ -59,14 +62,14 @@ export default function MadisonFoodCartHomePage() {
       <section id="carts" className="home-carts-section">
         <div className="home-carts-container">
           <div className="home-carts-header">
+            <div className="kicker">Featured Today</div>
             <h2 className="home-carts-title">
-              Featured Food Carts
+              Carts on State Street right now
             </h2>
             <p className="home-carts-description">
-              Each cart brings unique flavors and experiences to Madison's streets.
-              Click on any cart to see their full menu and schedule.
+              Each one brings something Madison doesn't get anywhere else. Tap through for menu, hours, and directions.
             </p>
-            <p className="text-xs text-accent-yellow italic mt-1">
+            <p className="home-carts-disclaimer">
               Schedule changes due to weather or unforeseen circumstances may not be accurately reflected
             </p>
           </div>
