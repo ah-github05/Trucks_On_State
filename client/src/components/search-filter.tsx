@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ChevronDown, Check, MapPin, UtensilsCrossed, Leaf, X, SlidersHorizontal } from "lucide-react";
+import { ChevronDown, Check, MapPin, Search, UtensilsCrossed, Leaf, X, SlidersHorizontal } from "lucide-react";
 import type { FoodCart } from "@shared/schema";
 
 interface SearchFilterProps {
   carts: FoodCart[];
+  searchQuery: string;
+  onSearchChange: (query: string) => void;
   selectedCategory: string;
   onCategoryChange: (category: string) => void;
   selectedLocation: string;
@@ -57,6 +59,8 @@ function countByOption(
 
 export default function FoodCartSearchAndFilter({
   carts,
+  searchQuery,
+  onSearchChange,
   selectedCategory,
   onCategoryChange,
   selectedLocation,
@@ -122,25 +126,32 @@ export default function FoodCartSearchAndFilter({
     [cartsForCategoryCounts],
   );
 
-  const matchingCartCount = useMemo(
-    () =>
-      carts.filter(
-        (cart) =>
-          (selectedCategory === "all" || cart.category === selectedCategory) &&
-          (selectedLocation === "all" || effectiveLocationFor(cart) === selectedLocation) &&
-          (!glutenFreeOnly || cart.glutenFree === true),
-      ).length,
-    [carts, selectedCategory, selectedLocation, glutenFreeOnly, effectiveLocationFor],
-  );
+  const matchingCartCount = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    return carts.filter(
+      (cart) =>
+        (query === "" ||
+          cart.name.toLowerCase().includes(query) ||
+          cart.description.toLowerCase().includes(query) ||
+          cart.menu.some((item) => item.name.toLowerCase().includes(query))) &&
+        (selectedCategory === "all" || cart.category === selectedCategory) &&
+        (selectedLocation === "all" || effectiveLocationFor(cart) === selectedLocation) &&
+        (!glutenFreeOnly || cart.glutenFree === true),
+    ).length;
+  }, [carts, searchQuery, selectedCategory, selectedLocation, glutenFreeOnly, effectiveLocationFor]);
 
   const selectedLocationLabel = locations.find((l) => l.value === selectedLocation)?.label ?? "All Locations";
   const selectedCategoryLabel = categories.find((c) => c.value === selectedCategory)?.label ?? "All Cuisines";
 
-  const activeFilterCount = [selectedLocation !== "all", selectedCategory !== "all", glutenFreeOnly].filter(
-    Boolean,
-  ).length;
+  const activeFilterCount = [
+    searchQuery.trim() !== "",
+    selectedLocation !== "all",
+    selectedCategory !== "all",
+    glutenFreeOnly,
+  ].filter(Boolean).length;
 
-  const activeFilterSummary = [
+  // Dropdown/switch filters only — the tray's persistent search field reports itself separately.
+  const activeDropdownSummary = [
     selectedLocation !== "all" ? selectedLocationLabel : null,
     selectedCategory !== "all" ? selectedCategoryLabel : null,
     glutenFreeOnly ? "Gluten Free" : null,
@@ -149,6 +160,7 @@ export default function FoodCartSearchAndFilter({
     .join(" · ");
 
   const clearAll = () => {
+    onSearchChange("");
     onLocationChange("all");
     onCategoryChange("all");
     onGlutenFreeChange(false);
@@ -157,8 +169,29 @@ export default function FoodCartSearchAndFilter({
   return (
     <section className="search-filter-section">
       <div className="search-filter-container">
-        {/* Desktop: Command Bar — two dropdowns + a gluten-free switch */}
+        {/* Desktop: Command Bar — live search + two dropdowns + a gluten-free switch */}
         <div className="command-bar" ref={barRef}>
+          <div className="command-search">
+            <Search className="command-search-icon" aria-hidden="true" />
+            <input
+              type="text"
+              placeholder='Search by name, cuisine, or a dish'
+              value={searchQuery}
+              onChange={(e) => onSearchChange(e.target.value)}
+              aria-label="Search food carts"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                className="command-search-clear"
+                onClick={() => onSearchChange("")}
+                aria-label="Clear search"
+              >
+                <X aria-hidden="true" />
+              </button>
+            )}
+          </div>
+
           <div className="command-select-group">
             <button
               type="button"
@@ -259,14 +292,31 @@ export default function FoodCartSearchAndFilter({
               Clear
             </button>
           )}
-
-          <span className="command-results">
-            <b>{matchingCartCount}</b> cart{matchingCartCount === 1 ? "" : "s"}
-          </span>
         </div>
 
-        {/* Mobile: Ticket Tray — collapsed summary row that tears open into grouped filters */}
+        {/* Mobile: Ticket Tray — persistent search + collapsed filter summary that tears open into grouped filters */}
         <div className="ticket-tray">
+          <div className="ticket-tray-search">
+            <Search className="ticket-tray-search-icon" aria-hidden="true" />
+            <input
+              type="text"
+              placeholder='Search by name, cuisine, or a dish'
+              value={searchQuery}
+              onChange={(e) => onSearchChange(e.target.value)}
+              aria-label="Search food carts"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                className="ticket-tray-search-clear"
+                onClick={() => onSearchChange("")}
+                aria-label="Clear search"
+              >
+                <X aria-hidden="true" />
+              </button>
+            )}
+          </div>
+
           <button
             type="button"
             className="ticket-tray-summary"
@@ -280,7 +330,7 @@ export default function FoodCartSearchAndFilter({
               <span className="ticket-tray-summary-text">
                 <span className="ticket-tray-summary-title">Filters</span>
                 <span className="ticket-tray-summary-sub">
-                  {activeFilterSummary || `${matchingCartCount} carts`}
+                  {activeDropdownSummary || `${matchingCartCount} cart${matchingCartCount === 1 ? "" : "s"}`}
                 </span>
               </span>
             </span>

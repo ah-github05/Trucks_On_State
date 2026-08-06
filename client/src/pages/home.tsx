@@ -6,15 +6,42 @@ import CapitalCityFoodCartsAboutSection from "@/components/about";
 import FoodCartNewsletterSignup from "@/components/newsletter";
 import SiteContactFooter from "@/components/footer";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { FoodCart } from "@shared/schema";
 import { Skeleton } from "@/components/ui/skeleton";
+import { scrollToSectionId } from "@/lib/utils";
+
+const SEARCH_SCROLL_DEBOUNCE_MS = 500;
 
 export default function MadisonFoodCartHomePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedLocation, setSelectedLocation] = useState("all");
   const [glutenFreeOnly, setGlutenFreeOnly] = useState(false);
+  const searchScrollTimeout = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
+    clearTimeout(searchScrollTimeout.current);
+    searchScrollTimeout.current = setTimeout(() => {
+      scrollToSectionId("carts");
+    }, SEARCH_SCROLL_DEBOUNCE_MS);
+  };
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    scrollToSectionId("carts");
+  };
+
+  const handleLocationChange = (location: string) => {
+    setSelectedLocation(location);
+    scrollToSectionId("carts");
+  };
+
+  const handleGlutenFreeChange = (value: boolean) => {
+    setGlutenFreeOnly(value);
+    scrollToSectionId("carts");
+  };
 
   const { data: carts, isLoading, error } = useQuery<FoodCart[]>({
     queryKey: ["/carts.json"],
@@ -48,19 +75,18 @@ export default function MadisonFoodCartHomePage() {
   return (
     <div className="home-page-container">
       <SiteNavigationHeader />
-      <FoodCartHeroBanner
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-      />
+      <FoodCartHeroBanner />
       <div id="carts" className="food-carts-section-wrapper">
         <FoodCartSearchAndFilter
           carts={carts ?? []}
+          searchQuery={searchQuery}
+          onSearchChange={handleSearchChange}
           selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
+          onCategoryChange={handleCategoryChange}
           selectedLocation={selectedLocation}
-          onLocationChange={setSelectedLocation}
+          onLocationChange={handleLocationChange}
           glutenFreeOnly={glutenFreeOnly}
-          onGlutenFreeChange={setGlutenFreeOnly}
+          onGlutenFreeChange={handleGlutenFreeChange}
           effectiveLocationFor={effectiveLocationFor}
         />
 
