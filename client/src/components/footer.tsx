@@ -24,7 +24,7 @@ export default function SiteContactFooter() {
               Capital City Food Carts
             </div>
             <p className="footer-description">
-              The single source for every food cart on and around State Street, Madison, Wisconsin. Real hours, real menus, updated by locals.
+              The single source for food carts on around Madison, Wisconsin. Real hours, real menus, real good food.
             </p>
           </div>
           <div className="footer-col">
