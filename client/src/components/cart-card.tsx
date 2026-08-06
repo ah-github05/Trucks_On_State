@@ -24,6 +24,7 @@ export default function IndividualFoodCartCard({ cart }: CartCardProps) {
           {capitalizeFirst(cart.category.replace(/_/g, ' '))}
         </span>
       </div>
+      <div className="ticket-perf" aria-hidden="true"></div>
       <CardContent className="cart-card-content">
         <div className="cart-card-header">
           <h3 className="cart-card-title">{cart.name}</h3>
