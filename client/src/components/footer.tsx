@@ -61,6 +61,15 @@ export default function SiteContactFooter() {
         </div>
         <div className="footer-bottom">
           <p className="copyright-text">&copy; 2025 Capital City Food Carts. All rights reserved.</p>
+          <a
+            className="footer-credit-link"
+            href="https://github.com/ariavhayempour/capital_city_food_carts"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub - Ariav Hayempour :)
+          </a>
+          <p className="footer-made-with">Made with ❤️ and 🧀</p>
         </div>
       </div>
     </footer>
