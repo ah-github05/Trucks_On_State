@@ -9,9 +9,11 @@ replit.md
 # Build files (will be rebuilt by Vercel)
 dist
 
-# Assets not needed for deployment
-*.jpeg
-*.png
+# Source photo assets not needed for deployment (already built into
+# client/public by scripts/crop-image.py etc.) — scoped to attached_assets
+# only so favicon/OG images checked into client/public are still deployed.
+attached_assets/*.jpeg
+attached_assets/*.png
 
 # IDE and config files
 .claude
