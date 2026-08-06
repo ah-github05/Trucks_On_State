@@ -22,6 +22,9 @@ export default function MadisonFoodCartHomePage() {
 
   const isSaturday = new Date().getDay() === 6;
 
+  const effectiveLocationFor = (cart: FoodCart) =>
+    isSaturday && cart.saturdayLocation ? cart.saturdayLocation : cart.location;
+
   const filteredCarts = (carts?.filter((cart) => {
     const query = searchQuery.trim().toLowerCase();
     const matchesSearch = query === "" ||
@@ -31,8 +34,7 @@ export default function MadisonFoodCartHomePage() {
 
     const matchesCategory = selectedCategory === "all" || cart.category === selectedCategory;
 
-    const effectiveLocation = isSaturday && cart.saturdayLocation ? cart.saturdayLocation : cart.location;
-    const matchesLocation = selectedLocation === "all" || effectiveLocation === selectedLocation;
+    const matchesLocation = selectedLocation === "all" || effectiveLocationFor(cart) === selectedLocation;
 
     const matchesGlutenFree = !glutenFreeOnly || cart.glutenFree === true;
 
@@ -52,12 +54,14 @@ export default function MadisonFoodCartHomePage() {
       />
       <div id="carts" className="food-carts-section-wrapper">
         <FoodCartSearchAndFilter
+          carts={carts ?? []}
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
           selectedLocation={selectedLocation}
           onLocationChange={setSelectedLocation}
           glutenFreeOnly={glutenFreeOnly}
           onGlutenFreeChange={setGlutenFreeOnly}
+          effectiveLocationFor={effectiveLocationFor}
         />
 
         <section className="home-carts-section">

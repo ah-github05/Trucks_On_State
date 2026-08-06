@@ -1,7 +1,5 @@
-import { useState, useMemo } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { Search } from "lucide-react";
-import type { FoodCart } from "@shared/schema";
 import capitolStateStreet from "@assets/capitol-state-street.jpg";
 import { scrollToSectionId } from "@/lib/utils";
 
@@ -12,20 +10,6 @@ interface HeroProps {
 
 export default function FoodCartHeroBanner({ searchQuery, onSearchChange }: HeroProps) {
   const [pendingQuery, setPendingQuery] = useState(searchQuery);
-  const { data: carts } = useQuery<FoodCart[]>({
-    queryKey: ["/carts.json"],
-  });
-
-  const stats = useMemo(() => {
-    if (!carts) return null;
-    const zones = new Set(carts.map((c) => c.location).filter((l) => l !== "TBD"));
-    const cuisines = new Set(carts.map((c) => c.category));
-    return {
-      cartCount: carts.length,
-      zoneCount: zones.size,
-      cuisineCount: cuisines.size,
-    };
-  }, [carts]);
 
   const submitSearch = () => {
     onSearchChange(pendingQuery);
@@ -68,15 +52,6 @@ export default function FoodCartHeroBanner({ searchQuery, onSearchChange }: Hero
       </div>
 
       <span className="hero-photo-credit">State Street &amp; the Capitol</span>
-
-      <div className="stat-strip">
-        <div className="stat-strip-inner">
-          <div className="stat"><b>{stats ? stats.cartCount : "—"}</b><span>Carts tracked</span></div>
-          <div className="stat"><b>{stats ? stats.zoneCount : "—"}</b><span>Madison zones</span></div>
-          <div className="stat"><b>{stats ? stats.cuisineCount : "—"}</b><span>Cuisines</span></div>
-          <div className="stat"><b>Sat</b><span>Rotation tracked</span></div>
-        </div>
-      </div>
     </section>
   );
 }
