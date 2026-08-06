@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#C5050C"/>
+  <g fill="#FBBF24">
+    <!-- cart body -->
+    <rect x="10" y="26" width="36" height="18" rx="3"/>
+    <!-- awning -->
+    <path d="M8 26 L14 14 H42 L48 26 Z"/>
+    <!-- window -->
+    <rect x="16" y="30" width="14" height="10" rx="1.5" fill="#C5050C"/>
+  </g>
+  <g fill="#111827">
+    <circle cx="18" cy="48" r="5"/>
+    <circle cx="40" cy="48" r="5"/>
+  </g>
+  <g fill="#FBBF24">
+    <circle cx="18" cy="48" r="2"/>
+    <circle cx="40" cy="48" r="2"/>
+  </g>
+</svg>
