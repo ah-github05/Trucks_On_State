@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useDocumentMeta } from "@/hooks/use-document-meta";
 import type { FoodCart, MenuItem } from "@shared/schema";
 
 // Utility function to group menu items by category
@@ -618,6 +619,15 @@ export default function IndividualFoodCartDetailPage() {
   });
 
   const cart = carts?.find(t => t.slug === slug);
+
+  useDocumentMeta({
+    title: cart
+      ? `${cart.name} | Capital City Food Carts, Madison WI`
+      : "Capital City Food Carts | Madison, WI Food Cart Directory",
+    description: cart
+      ? `${cart.name} at ${cart.locationDisplayName} in Madison, WI. ${cart.description}. See menu, hours, and location.`
+      : undefined,
+  });
 
   if (error || (carts && !cart)) {
     return (
