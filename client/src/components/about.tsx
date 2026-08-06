@@ -17,24 +17,24 @@ export default function CapitalCityFoodCartsAboutSection() {
       <div className="about-container">
         <div className="about-content-grid">
           <div className="about-text-content">
-            <div className="kicker">Our Story</div>
+            <div className="kicker">Story</div>
             <h2 className="about-section-title">
-              Built by locals who got tired of guessing.
+              Built by a student who got tired of guessing.
             </h2>
             <p className="about-description-first">
-              Capital City Food Carts started with one simple problem: no single place tracked who was actually open on State Street. We built the map, the hours, and the menus — so you don't have to check ten different Instagram bios before lunch.
+              Capital City Food Carts started with one simple problem: no single place tracked what was actually open. I built the map, the hours, and the menus — so you don't have to check ten different Instagram bios before lunch.
             </p>
             <p className="about-description-second">
-              Carts move on Saturdays. Some go to Capitol Square, some go traveling. We track that too.
+              Carts move depending on the day. Some go to Capitol Square, some go traveling. That's tracked that too.
             </p>
             <div className="about-stats-container">
               <div className="food-carts-stat">
                 <h4 className="food-carts-stat-number">{cartCount ?? "—"}</h4>
-                <p className="food-carts-stat-label">Food carts</p>
+                <p className="food-carts-stat-label">Carts</p>
               </div>
               <div className="locations-stat">
                 <h4 className="locations-stat-number">{zoneCount ?? "—"}</h4>
-                <p className="locations-stat-label">Locations</p>
+                <p className="locations-stat-label">Madison Areas</p>
               </div>
             </div>
           </div>
