@@ -438,40 +438,16 @@ function ScheduleBlock({ cart }: ScheduleBlockProps) {
   const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const today = DAYS_OF_WEEK[new Date().getDay()];
 
-  const ROTATING_SCHEDULE_MESSAGES: Record<string, { message: string; linkUrl: string; linkText: string }> = {
-    "kona-ice": {
-      message: "Kona Ice travels to various locations on an alternating schedule. Check out their Facebook to see where they will be!",
-      linkUrl: cart.businessLinks?.facebook || "#",
-      linkText: "View Facebook",
-    },
-    "toms_coffee": {
-      message: "Travelin' Tom's Coffee travels to various locations on an alternating schedule. Check out their facebook to see where they will be!",
-      linkUrl: cart.businessLinks?.facebook || "#",
-      linkText: "View Facebook",
-    },
-    "nirvana": {
-      message: "Culinary Nirvana does weekly stops at specific locations as well as pop up appearances at community and private events. Check out their website to see where they will be!",
-      linkUrl: "https://www.culinarynirvanallc.com/on-the-road",
-      linkText: "View Schedule",
-    },
-    "cinn-city": {
-      message: "Cinn City Smash does weekly stops at specific locations as well as pop up appearances at community and private events. Check out their website to see where they will be!",
-      linkUrl: "https://cinncitysmash.com/#Where",
-      linkText: "View Schedule",
-    },
+  const ROTATING_SCHEDULE_MESSAGES: Record<string, string> = {
+    "kona-ice": "Kona Ice travels to various locations on an alternating schedule.",
+    "toms_coffee": "Travelin' Tom's Coffee travels to various locations on an alternating schedule.",
+    "nirvana": "Culinary Nirvana does weekly stops at specific locations as well as pop up appearances at community and private events.",
+    "cinn-city": "Cinn City Smash does weekly stops at specific locations as well as pop up appearances at community and private events.",
   };
 
   const rotating = ROTATING_SCHEDULE_MESSAGES[cart.slug];
   if (rotating) {
-    return (
-      <>
-        <p className="stub-desc">{rotating.message}</p>
-        <a className="stub-link" href={rotating.linkUrl} target="_blank" rel="noopener noreferrer">
-          <Clock size={15} />
-          {rotating.linkText}
-        </a>
-      </>
-    );
+    return <p className="stub-desc">{rotating}</p>;
   }
 
   if (cart.slug === "stellies") {
@@ -574,12 +550,14 @@ export default function IndividualFoodCartDetailPage() {
         <>
           <section className="detail-hero">
             <img src={cart.image} alt={cart.name} />
-            <span className={`detail-hero-stamp ${isCurrentlyOpen(cart.schedule) ? "open" : "closed"}`}>
-              {isCurrentlyOpen(cart.schedule) ? "Open Now" : "Closed"}
-            </span>
-            <div className="detail-hero-info">
-              <span className="detail-hero-cat">{capitalizeFirst(cart.category.replace(/_/g, ' '))}</span>
-              <h1>{cart.name}</h1>
+            <div className="wrap detail-hero-content">
+              <span className={`detail-hero-stamp ${isCurrentlyOpen(cart.schedule) ? "open" : "closed"}`}>
+                {isCurrentlyOpen(cart.schedule) ? "Open Now" : "Closed"}
+              </span>
+              <div className="detail-hero-info">
+                <span className="detail-hero-cat">{capitalizeFirst(cart.category.replace(/_/g, ' '))}</span>
+                <h1>{cart.name}</h1>
+              </div>
             </div>
           </section>
 

@@ -14,12 +14,8 @@ export function cn(...inputs: ClassValue[]) {
  */
 export function getStickyChromeHeight(): number {
   const header = document.querySelector(".main-header");
-  const filterBar = document.querySelector(".search-filter-section");
-  let height = header ? header.getBoundingClientRect().height : 0;
-  if (filterBar && getComputedStyle(filterBar).position === "sticky") {
-    height += filterBar.getBoundingClientRect().height;
-  }
-  return height + 16; // small breathing room below the sticky chrome
+  const height = header ? header.getBoundingClientRect().height : 0;
+  return height + 16; // small breathing room below the sticky header
 }
 
 export function scrollToSectionId(sectionId: string) {
