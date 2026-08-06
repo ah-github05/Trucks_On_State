@@ -42,7 +42,6 @@ export default function SiteNavigationHeader() {
           <div className="brand-logo-section">
             <Link href="/">
               <div className="brand-logo-link">
-                <span className="brand-flag" aria-hidden="true">C</span>
                 <h1 className="brand-logo-text">
                   Capital City Food Carts
                 </h1>

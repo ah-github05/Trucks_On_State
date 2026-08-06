@@ -175,11 +175,11 @@ html {
 }
 
 .desktop-navigation {
-  @apply hidden md:block;
+  @apply hidden md:block ml-auto mr-6;
 }
 
 .desktop-nav-links {
-  @apply ml-8 flex items-center;
+  @apply flex items-center;
   gap: 2.2rem;
 }
 
@@ -1025,44 +1025,95 @@ html {
     radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 0, transparent 40%);
 }
 
-.contact-form-container {
+.contact-container {
   position: relative;
   z-index: 1;
-  max-width: 640px;
+  max-width: 1120px;
   margin: 0 auto;
   @apply px-4;
 }
 
-.cta-head {
-  text-align: center;
-  margin-bottom: 2.5rem;
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
 }
 
-.contact-cta-title {
+@media (min-width: 960px) {
+  .contact-grid {
+    grid-template-columns: 0.8fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.contact-ways-title {
   font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(1.85rem, 4vw, 2.6rem);
-  margin-bottom: 0.75rem;
+  font-size: clamp(1.85rem, 3.4vw, 2.3rem);
+  margin-bottom: 1.6rem;
   letter-spacing: -0.02em;
   color: var(--white);
 }
 
-.contact-cta-description {
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 32rem;
-  margin: 0 auto;
-  font-size: 1.02rem;
+.contact-ways-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.contact-way {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.contact-way-title {
   font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 1.02rem;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.contact-way-description {
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .contact-form-card {
+  position: relative;
   background: var(--white);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(20, 2, 3, 0.3);
+  box-shadow: 0 6px 0 var(--red-deep), 0 24px 60px rgba(20, 2, 3, 0.3);
+}
+
+.contact-stub-head {
+  background: var(--red-deep);
+  color: var(--white);
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.contact-stub-head span {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+  .contact-stub-head {
+    padding-right: 1.4rem;
+  }
 }
 
 .contact-form {
-  padding: 2rem 2rem 2.25rem;
+  padding: 1.6rem 2rem 2.25rem;
   color: var(--ink);
 }
 
@@ -1080,12 +1131,12 @@ html {
 .form-label {
   display: block;
   font-family: 'Archivo', sans-serif;
-  font-weight: 700;
-  font-size: 0.82rem;
-  color: var(--ink-soft);
-  margin-bottom: 0.4rem;
+  font-weight: 800;
+  font-size: 0.7rem;
+  color: var(--red);
+  margin-bottom: 0.45rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
 }
 
 .form-input,
@@ -1099,7 +1150,13 @@ textarea.form-textarea {
   font-family: 'Archivo', sans-serif;
   font-size: 0.95rem;
   color: var(--ink);
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.55;
 }
 
 .form-input:focus,
@@ -1115,15 +1172,74 @@ textarea.form-textarea {
   color: var(--ink);
 }
 
+.inquiry-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.inquiry-chip {
+  border: 1.5px dashed var(--line);
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.1s;
+}
+
+.inquiry-chip:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.inquiry-chip:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+.inquiry-chip.is-selected {
+  background: var(--red);
+  border-color: var(--red);
+  border-style: solid;
+  color: var(--white);
+  transform: rotate(-1deg);
+  box-shadow: 0 2px 0 var(--red-deep);
+}
+
+.inquiry-chip.is-selected:hover {
+  color: var(--white);
+}
+
+.inquiry-error {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--red);
+}
+
 .form-textarea {
   resize: vertical;
   min-height: 8rem;
   line-height: 1.6;
 }
 
+.contact-form .ticket-perf {
+  margin: 0.3rem -2rem 1.4rem;
+}
+
+.form-field-message {
+  margin-bottom: 1.4rem;
+}
+
 .word-counter {
   text-align: right;
-  margin-top: 0.35rem;
+  margin-top: 0.4rem;
   font-size: 0.76rem;
   color: var(--ink-soft);
   font-family: 'Archivo', sans-serif;
@@ -1141,16 +1257,21 @@ textarea.form-textarea {
   border: none !important;
   font-family: 'Archivo', sans-serif !important;
   font-weight: 800 !important;
-  padding: 0.9rem 1.5rem !important;
-  border-radius: 10px !important;
+  padding: 0.95rem 1.5rem !important;
+  border-radius: 100px !important;
   cursor: pointer;
   font-size: 0.98rem !important;
+  letter-spacing: 0.01em;
   transition: 0.2s;
 }
 
 .submit-button:hover:not(:disabled) {
   background: var(--red-dark) !important;
   transform: translateY(-1px);
+}
+
+.submit-button:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .submit-button:disabled {
@@ -1163,26 +1284,59 @@ textarea.form-textarea {
   align-items: center;
   gap: 0.5rem;
   justify-content: center;
-  margin-top: 1.25rem;
+  margin-top: 1.1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 100px;
   font-size: 0.82rem;
+  font-weight: 700;
   font-family: 'Archivo', sans-serif;
-  color: rgba(255, 255, 255, 0.75);
+}
+
+.contact-note-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .contact-note.success {
-  color: var(--gold);
-  font-weight: 700;
+  color: var(--green);
+  background: rgba(31, 138, 83, 0.1);
+}
+
+.contact-note.success .contact-note-dot {
+  background: var(--green);
+  box-shadow: 0 0 6px rgba(31, 138, 83, 0.5);
 }
 
 .contact-note.error {
-  color: #ffb4b4;
-  font-weight: 700;
+  color: var(--red);
+  background: rgba(197, 5, 12, 0.08);
+}
+
+.contact-note.error .contact-note-dot {
+  background: var(--red);
 }
 
 @media (max-width: 640px) {
   .contact-form-row {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+
+  .contact-form .ticket-perf {
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+  }
+
+  .contact-form {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .contact-stub-head {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }
 
@@ -1416,6 +1570,10 @@ textarea.form-textarea {
    CART DETAIL PAGE
    ============================================================ */
 
+.wrap {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
 .detail-page-container {
   min-height: 100vh;
   background: var(--paper);
@@ -1465,10 +1623,20 @@ textarea.form-textarea {
   background: linear-gradient(0deg, rgba(20, 2, 3, 0.72) 0%, rgba(20, 2, 3, 0.1) 42%, transparent 65%);
 }
 
+.detail-hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
 .detail-hero-stamp {
   position: absolute;
   top: 1.25rem;
-  right: clamp(24px, 4vw, 64px);
+  right: 1rem;
   z-index: 1;
   font-family: 'Archivo', sans-serif;
   font-size: 0.72rem;
@@ -1479,6 +1647,19 @@ textarea.form-textarea {
   border-radius: 100px;
   transform: rotate(3deg);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22);
+  pointer-events: auto;
+}
+
+@media (min-width: 640px) {
+  .detail-hero-stamp {
+    right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .detail-hero-stamp {
+    right: 2rem;
+  }
 }
 
 .detail-hero-stamp.open {
@@ -1492,12 +1673,9 @@ textarea.form-textarea {
 }
 
 .detail-hero-info {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  padding: 2rem clamp(24px, 4vw, 64px) 1.75rem;
+  position: relative;
+  pointer-events: auto;
+  padding: 0 0 1.75rem;
 }
 
 .detail-hero-cat {

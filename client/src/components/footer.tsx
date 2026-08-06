@@ -21,7 +21,6 @@ export default function SiteContactFooter() {
         <div className="footer-grid">
           <div>
             <div className="footer-brand">
-              <span className="footer-brand-flag" aria-hidden="true">C</span>
               Capital City Food Carts
             </div>
             <p className="footer-description">

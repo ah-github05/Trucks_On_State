@@ -50,24 +50,24 @@ export default function MadisonFoodCartHomePage() {
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
       />
-      <FoodCartSearchAndFilter
-        selectedCategory={selectedCategory}
-        onCategoryChange={setSelectedCategory}
-        selectedLocation={selectedLocation}
-        onLocationChange={setSelectedLocation}
-        glutenFreeOnly={glutenFreeOnly}
-        onGlutenFreeChange={setGlutenFreeOnly}
-      />
+      <div id="carts" className="food-carts-section-wrapper">
+        <FoodCartSearchAndFilter
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+          selectedLocation={selectedLocation}
+          onLocationChange={setSelectedLocation}
+          glutenFreeOnly={glutenFreeOnly}
+          onGlutenFreeChange={setGlutenFreeOnly}
+        />
 
-      <section id="carts" className="home-carts-section">
+        <section className="home-carts-section">
         <div className="home-carts-container">
           <div className="home-carts-header">
-            <div className="kicker">Featured Today</div>
             <h2 className="home-carts-title">
-              Carts on State Street right now
+              Featured Food Carts
             </h2>
             <p className="home-carts-description">
-              Each one brings something Madison doesn't get anywhere else. Tap through for menu, hours, and directions.
+              Each cart brings unique flavors and experiences to Madison's streets. Tap through for menu, hours, and directions.
             </p>
             <p className="home-carts-disclaimer">
               Schedule changes due to weather or unforeseen circumstances may not be accurately reflected
@@ -118,6 +118,7 @@ export default function MadisonFoodCartHomePage() {
           )}
         </div>
       </section>
+      </div>
 
       <CapitalCityFoodCartsAboutSection />
       <FoodCartNewsletterSignup />
