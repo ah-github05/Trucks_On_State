@@ -428,42 +428,6 @@ html {
   text-transform: uppercase;
 }
 
-.stat-strip {
-  position: relative;
-  z-index: 1;
-  background: var(--red-deep);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.stat-strip-inner {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  display: flex;
-  justify-content: center;
-  gap: clamp(2rem, 6vw, 5rem);
-  padding: 1.5rem 0;
-  flex-wrap: wrap;
-}
-
-.stat {
-  text-align: center;
-}
-
-.stat b {
-  display: block;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 1.85rem;
-  color: var(--gold);
-}
-
-.stat span {
-  font-family: 'Archivo', sans-serif;
-  font-size: 0.76rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.75);
-}
-
 @media (max-width: 900px) {
   .hero-section {
     min-height: 0;
@@ -475,9 +439,6 @@ html {
   .hero-main-title {
     font-size: clamp(2.3rem, 9vw, 3.2rem);
     max-width: none;
-  }
-  .stat-strip {
-    position: static;
   }
 }
 
@@ -498,36 +459,7 @@ html {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-.search-filter-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-  align-items: center;
-}
-
-.filter-label {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--ink-soft);
-  flex-basis: 100%;
-}
-
-.filter-label:first-child {
-  flex-basis: auto;
-  margin-right: 0.25rem;
-}
-
-.category-filter-buttons,
-.location-filter-buttons,
-.dietary-filter-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
+/* Shared chip primitive — used inside the mobile ticket tray. */
 .chip {
   border: 1.5px solid var(--line);
   background: var(--white);
@@ -571,9 +503,493 @@ html {
   color: var(--white);
 }
 
+/* ----------------------------------------------------------
+   Desktop: Command Bar
+   Two dropdown selects + a gluten-free switch, one line tall.
+   ---------------------------------------------------------- */
+
+.command-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.command-select-group {
+  position: relative;
+}
+
+.command-select {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  border-radius: 100px;
+  padding: 0.55rem 1rem 0.55rem 1.1rem;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--ink);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.command-select:hover {
+  border-color: var(--red);
+}
+
+.command-select.is-set {
+  border-color: var(--red);
+  background: rgba(197, 5, 12, 0.05);
+  color: var(--red-deep);
+}
+
+.command-select.is-open {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(197, 5, 12, 0.12);
+}
+
+.command-select-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--ink-soft);
+}
+
+.command-select.is-set .command-select-icon {
+  color: var(--red);
+}
+
+.command-select-caret {
+  width: 12px;
+  height: 12px;
+  color: var(--ink-soft);
+  margin-left: 0.15rem;
+  transition: transform 0.2s;
+}
+
+.command-select.is-open .command-select-caret {
+  transform: rotate(180deg);
+}
+
+.command-panel {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 0;
+  z-index: 45;
+  min-width: 320px;
+  border: 1.5px solid var(--red);
+  border-radius: 14px;
+  background: var(--white);
+  box-shadow: 0 16px 32px rgba(30, 10, 8, 0.18);
+  overflow: hidden;
+  animation: panel-in 0.15s ease-out;
+}
+
+.command-panel-wide {
+  min-width: 420px;
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.command-panel-label {
+  padding: 0.7rem 1.1rem;
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-dim);
+}
+
+.command-panel-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.15rem;
+  padding: 0.6rem;
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+.command-panel-grid-2col {
+  grid-template-columns: 1fr 1fr;
+}
+
+.command-panel-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 10px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  border: none;
+  background: none;
+  text-align: left;
+}
+
+.command-panel-item:hover {
+  background: var(--paper-dim);
+}
+
+.command-panel-item.is-selected {
+  background: rgba(197, 5, 12, 0.08);
+  color: var(--red-deep);
+  font-weight: 700;
+}
+
+.command-panel-item.is-zero {
+  opacity: 0.45;
+}
+
+.command-panel-check {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+}
+
+.command-panel-check svg {
+  width: 14px;
+  height: 14px;
+}
+
+.command-panel-item-label {
+  flex: 1;
+}
+
+.command-panel-count {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--ink-soft);
+  background: var(--paper-dim);
+  padding: 0.1rem 0.45rem;
+  border-radius: 100px;
+  min-width: 1.6rem;
+  text-align: center;
+}
+
+.command-panel-item.is-selected .command-panel-count {
+  background: rgba(197, 5, 12, 0.12);
+  color: var(--red-deep);
+}
+
+.command-divider {
+  width: 1.5px;
+  align-self: stretch;
+  background: var(--line);
+  margin: 0 0.15rem;
+}
+
+.command-gluten-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem 0.5rem 0.6rem;
+  border-radius: 100px;
+  border: 1.5px solid var(--line);
+  background: var(--white);
+  cursor: pointer;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  transition: 0.15s;
+}
+
+.command-gluten-toggle:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.command-gluten-toggle.is-active {
+  border-color: var(--green);
+  color: var(--green);
+  background: rgba(31, 138, 83, 0.06);
+}
+
+.command-gluten-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.command-switch {
+  width: 30px;
+  height: 17px;
+  border-radius: 100px;
+  background: var(--line);
+  position: relative;
+  transition: 0.2s;
+  flex-shrink: 0;
+}
+
+.command-switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--white);
+  transition: 0.2s;
+}
+
+.command-gluten-toggle.is-active .command-switch {
+  background: var(--green);
+}
+
+.command-gluten-toggle.is-active .command-switch::after {
+  transform: translateX(13px);
+}
+
+.command-clear {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: none;
+  background: none;
+  padding: 0.5rem 0.3rem;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--red);
+  cursor: pointer;
+}
+
+.command-clear svg {
+  width: 14px;
+  height: 14px;
+}
+
+.command-results {
+  margin-left: auto;
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.command-results b {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+/* Command Bar is desktop-only; the ticket tray takes over below 861px. */
+.ticket-tray {
+  display: none;
+}
+
+/* ----------------------------------------------------------
+   Mobile: Ticket Tray
+   Collapsed one-line summary that tears open into a full tray.
+   ---------------------------------------------------------- */
+
 @media (max-width: 860px) {
   .search-filter-section {
     position: static;
+    padding: 0;
+  }
+
+  .command-bar {
+    display: none;
+  }
+
+  .ticket-tray {
+    display: block;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 8px 0 var(--line), 0 14px 30px rgba(30, 10, 8, 0.1);
+    overflow: hidden;
+  }
+
+  .ticket-tray-summary {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .ticket-tray-summary-left {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .ticket-tray-icon-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--red);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transform: rotate(-3deg);
+    box-shadow: 0 3px 0 var(--red-dark);
+  }
+
+  .ticket-tray-icon-badge svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .ticket-tray-summary-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 0;
+  }
+
+  .ticket-tray-summary-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 0.92rem;
+    color: var(--ink);
+  }
+
+  .ticket-tray-summary-sub {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ticket-tray-count-badge {
+    flex-shrink: 0;
+    background: var(--gold);
+    color: var(--red-deep);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 0.72rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .ticket-tray-chevron {
+    width: 18px;
+    height: 18px;
+    color: var(--ink-soft);
+    flex-shrink: 0;
+    transform: rotate(-90deg);
+    transition: transform 0.2s;
+  }
+
+  .ticket-tray-chevron.is-open {
+    transform: rotate(0deg);
+  }
+
+  .ticket-tray-perf {
+    height: 14px;
+    position: relative;
+    background:
+      radial-gradient(circle 5px at 0 50%, transparent 5px, var(--white) 5.5px),
+      radial-gradient(circle 5px at 100% 50%, transparent 5px, var(--white) 5.5px);
+  }
+
+  .ticket-tray-perf::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    border-top: 2px dashed var(--line);
+  }
+
+  .ticket-tray-body {
+    padding: 0 1.1rem 1.25rem;
+  }
+
+  .ticket-tray-group {
+    margin-bottom: 1.3rem;
+  }
+
+  .ticket-tray-group:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .ticket-tray-group-label {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--ink-soft);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  .ticket-tray-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .ticket-tray-footer {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .ticket-tray-clear {
+    flex: 1;
+    padding: 0.7rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--line);
+    background: var(--white);
+    color: var(--ink-soft);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  .ticket-tray-apply {
+    flex: 2;
+    padding: 0.7rem;
+    border-radius: 100px;
+    border: none;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 3px 0 var(--red-dark);
   }
 }
 
