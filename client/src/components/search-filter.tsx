@@ -1,10 +1,4 @@
-import { Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-
 interface SearchFilterProps {
-  searchQuery: string;
-  onSearchChange: (query: string) => void;
   selectedCategory: string;
   onCategoryChange: (category: string) => void;
   selectedLocation: string;
@@ -27,7 +21,6 @@ const categories = [
   { value: "sweet_treats", label: "Sweet Treats" },
   { value: "drinks", label: "Drinks" }
 
-
   // When adding a new label go to index.css and add the corresponding classes for active and inactive states
 ];
 
@@ -39,15 +32,11 @@ const locations = [
   { value: "southeast-campus", label: "Southeast Campus" },
   { value: "capitol-square", label: "Capitol Square" },
   { value: "traveling", label: "Traveling" },
-
-  
 ]
   // When adding a new label go to index.css and add the corresponding classes for active and inactive states
 
 
 export default function FoodCartSearchAndFilter({
-  searchQuery,
-  onSearchChange,
   selectedCategory,
   onCategoryChange,
   selectedLocation,
@@ -59,57 +48,39 @@ export default function FoodCartSearchAndFilter({
     <section className="search-filter-section">
       <div className="search-filter-container">
         <div className="search-filter-content">
-          <div className="search-input-container">
-            <Search className="search-input-icon" />
-            <Input
-              type="text"
-              placeholder="Search food carts..."
-              value={searchQuery}
-              onChange={(e) => onSearchChange(e.target.value)}
-              className="food-cart-search-input"
-            />
-          </div>
+          <span className="filter-label">Filter by location</span>
           <div className="location-filter-buttons">
             {locations.map((location) => (
-              <Button
+              <button
                 key={location.value}
-                variant={selectedLocation === location.value ? "default" : "secondary"}
-                size="sm"
                 onClick={() => onLocationChange(location.value)}
-                className={selectedLocation === location.value
-                  ? `${location.value}-location-active`
-                  : `${location.value}-location-inactive`
-                }
+                className={`chip ${selectedLocation === location.value ? "chip-active" : ""}`}
               >
                 {location.label}
-              </Button>
+              </button>
             ))}
           </div>
+
+          <span className="filter-label">Filter by cuisine</span>
           <div className="category-filter-buttons">
             {categories.map((category) => (
-              <Button
+              <button
                 key={category.value}
-                variant={selectedCategory === category.value ? "default" : "secondary"}
-                size="sm"
                 onClick={() => onCategoryChange(category.value)}
-                className={selectedCategory === category.value
-                  ? `${category.value}-category-active`
-                  : `${category.value}-category-inactive`
-                }
+                className={`chip ${selectedCategory === category.value ? "chip-active" : ""}`}
               >
                 {category.label}
-              </Button>
+              </button>
             ))}
           </div>
+
           <div className="dietary-filter-buttons">
-            <Button
-              variant={glutenFreeOnly ? "default" : "secondary"}
-              size="sm"
+            <button
               onClick={() => onGlutenFreeChange(!glutenFreeOnly)}
-              className={glutenFreeOnly ? "gluten-free-active" : "gluten-free-inactive"}
+              className={`chip chip-gluten-free ${glutenFreeOnly ? "chip-active" : ""}`}
             >
               Gluten Free
-            </Button>
+            </button>
           </div>
         </div>
       </div>

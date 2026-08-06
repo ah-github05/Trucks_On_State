@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+
+type SubmitStatus = "idle" | "success" | "error";
 
 export default function FoodCartNewsletterSignup() {
   const [name, setName] = useState("");
@@ -10,7 +8,7 @@ export default function FoodCartNewsletterSignup() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
+  const [status, setStatus] = useState<SubmitStatus>("idle");
 
   const getWordCount = (text: string) => {
     return text.trim().split(/\s+/).filter(word => word.length > 0).length;
@@ -22,7 +20,7 @@ export default function FoodCartNewsletterSignup() {
   const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newMessage = e.target.value;
     const newWordCount = getWordCount(newMessage);
-    
+
     if (newWordCount <= maxWords) {
       setMessage(newMessage);
     }
@@ -30,15 +28,7 @@ export default function FoodCartNewsletterSignup() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !inquiryType || !email || !message) {
-      toast({
-        title: "All fields required",
-        description: "Please fill in all fields before submitting.",
-        variant: "destructive",
-      });
-      return;
-    }
-
+    setStatus("idle");
     setIsSubmitting(true);
 
     try {
@@ -59,10 +49,7 @@ export default function FoodCartNewsletterSignup() {
       const data = await response.json();
 
       if (data.success) {
-        toast({
-          title: "Message sent!",
-          description: "We'll get back to you as soon as we can.",
-        });
+        setStatus("success");
         setName("");
         setInquiryType("");
         setEmail("");
@@ -71,55 +58,58 @@ export default function FoodCartNewsletterSignup() {
         throw new Error("Form submission failed");
       }
     } catch (error) {
-      toast({
-        title: "Failed to send message",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
+      setStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact" className="hero-section">
-      <div className="hero-overlay"></div>
+    <section id="contact" className="contact-cta-section">
       <div className="contact-form-container relative">
-        <div className="contact-form-card">
-          <h2 className="contact-form-title">Contact Us</h2>
-          
-          <form onSubmit={handleSubmit} className="contact-form">
-            <div className="form-field">
-              <label htmlFor="name" className="form-label">Name</label>
-              <Input
-                id="name"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="form-input"
-                required
-              />
-            </div>
+        <div className="cta-head">
+          <h2 className="contact-cta-title">Get in touch.</h2>
+          <p className="contact-cta-description">
+            Own a cart and want to be listed? Spotted an outdated hours or menu? Tell us.
+          </p>
+        </div>
 
-            <div className="form-field">
-              <label htmlFor="inquiryType" className="form-label">Inquiry Type</label>
-              <select
-                id="inquiryType"
-                value={inquiryType}
-                onChange={(e) => setInquiryType(e.target.value)}
-                className="form-input h-12"
-                required
-              >
-                <option value="">Select an option...</option>
-                <option value="Add my cart">Add my cart</option>
-                <option value="General question">General question</option>
-                <option value="Report issue">Report issue</option>
-              </select>
+        <div className="contact-form-card">
+          <div className="ticket-perf"></div>
+          <form onSubmit={handleSubmit} className="contact-form">
+            <div className="contact-form-row">
+              <div className="form-field">
+                <label htmlFor="name" className="form-label">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="form-input"
+                  required
+                />
+              </div>
+
+              <div className="form-field">
+                <label htmlFor="inquiryType" className="form-label">Inquiry Type</label>
+                <select
+                  id="inquiryType"
+                  value={inquiryType}
+                  onChange={(e) => setInquiryType(e.target.value)}
+                  className="form-input"
+                  required
+                >
+                  <option value="">Select an option…</option>
+                  <option value="Add my cart">Add my cart</option>
+                  <option value="General question">General question</option>
+                  <option value="Report issue">Report issue</option>
+                </select>
+              </div>
             </div>
 
             <div className="form-field">
               <label htmlFor="email" className="form-label">Email</label>
-              <Input
+              <input
                 id="email"
                 type="email"
                 value={email}
@@ -131,7 +121,7 @@ export default function FoodCartNewsletterSignup() {
 
             <div className="form-field">
               <label htmlFor="message" className="form-label">Message</label>
-              <Textarea
+              <textarea
                 id="message"
                 value={message}
                 onChange={handleMessageChange}
@@ -140,23 +130,25 @@ export default function FoodCartNewsletterSignup() {
                 required
               />
               <div className="word-counter">
-                <span className={wordCount > maxWords ? "word-counter-over" : "word-counter-normal"}>
+                <span className={wordCount >= maxWords ? "word-counter-over" : "word-counter-normal"}>
                   {wordCount}/{maxWords} words
                 </span>
               </div>
             </div>
 
-            <div className="form-submit">
-              <Button
-                type="submit"
-                className="submit-button"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Sending..." : "Submit"}
-              </Button>
-            </div>
+            <button type="submit" className="submit-button" disabled={isSubmitting}>
+              {isSubmitting ? "Sending…" : "Submit"}
+            </button>
           </form>
         </div>
+
+        {status !== "idle" && (
+          <div className={`contact-note ${status}`}>
+            {status === "success"
+              ? "Message sent — we'll get back to you soon."
+              : "Failed to send — please try again later."}
+          </div>
+        )}
       </div>
     </section>
   );
