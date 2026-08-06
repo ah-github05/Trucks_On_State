@@ -23,6 +23,7 @@
   --line: #E4D9C8;
   --white: #ffffff;
   --green: #1f8a53;
+  --green-deep: #186e42;
 
   /* shadcn/Tailwind semantic tokens, derived from the palette above */
   --background: 38 58% 96%;          /* paper */
@@ -345,6 +346,10 @@ html {
   margin-bottom: 1.4rem;
   max-width: 20ch;
   animation: float-in 0.65s 0.1s ease-out both;
+  -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.16);
+  paint-order: stroke fill;
+  text-shadow:
+    0 3px 14px rgba(0, 0, 0, 0.12);
 }
 
 .hero-main-title em {
@@ -363,58 +368,6 @@ html {
   animation: float-in 0.65s 0.2s ease-out both;
 }
 
-.hero-search {
-  max-width: 560px;
-  background: var(--white);
-  border-radius: 15px;
-  padding: 0.55rem;
-  display: flex;
-  gap: 0.5rem;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-  animation: float-in 0.65s 0.3s ease-out both;
-}
-
-.hero-search input {
-  flex: 1;
-  min-width: 0;
-  border: none;
-  background: transparent;
-  padding: 0.7rem 1rem;
-  font-family: 'Archivo', sans-serif;
-  font-size: 0.98rem;
-  color: var(--ink);
-  outline: none;
-}
-
-.hero-search input::placeholder {
-  color: #9a8d7f;
-}
-
-.hero-search button {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--red);
-  color: var(--white);
-  border: none;
-  border-radius: 10px;
-  padding: 0.7rem 1.5rem;
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: 0.2s;
-  flex-shrink: 0;
-}
-
-.hero-search button:hover {
-  background: var(--red-dark);
-}
-
-.hero-search-icon {
-  @apply h-4 w-4;
-}
-
 .hero-photo-credit {
   position: absolute;
   bottom: 1.1rem;
@@ -428,6 +381,10 @@ html {
   text-transform: uppercase;
 }
 
+.hero-section:has(.hero-marquee-ghost) .hero-photo-credit {
+  bottom: 2.6rem;
+}
+
 @media (max-width: 900px) {
   .hero-section {
     min-height: 0;
@@ -439,6 +396,80 @@ html {
   .hero-main-title {
     font-size: clamp(2.3rem, 9vw, 3.2rem);
     max-width: none;
+  }
+}
+
+/* Faint scrolling cart names inside the hero's existing photo gradient */
+
+.hero-marquee-ghost {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding: 0 0 0.9rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 3rem, #000 calc(100% - 3rem), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 3rem, #000 calc(100% - 3rem), transparent 100%);
+}
+
+.hero-marquee-ghost .hero-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 60s linear infinite;
+}
+
+.hero-marquee-ghost:hover .hero-marquee-track {
+  animation-play-state: paused;
+}
+
+.hero-marquee-ghost .hero-marquee-set {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-marquee-ghost .hero-marquee-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0 1.6rem 0 0;
+  white-space: nowrap;
+}
+
+.hero-marquee-ghost .hero-marquee-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-marquee-ghost .hero-marquee-cuisine {
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-marquee-ghost .hero-marquee-cuisine::before {
+  content: '\2014';
+  margin-right: 0.5rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 900px) {
+  .hero-marquee-ghost .hero-marquee-cuisine {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-marquee-ghost .hero-marquee-track {
+    animation: none;
+  }
+  .hero-marquee-ghost {
+    overflow-x: auto;
   }
 }
 
@@ -513,6 +544,78 @@ html {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
+}
+
+/* Live search field — first control in the command bar, sized as the primary input */
+.command-search {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 1 1 260px;
+  min-width: 200px;
+  max-width: 340px;
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  border-radius: 100px;
+  padding: 0.55rem 0.85rem 0.55rem 1.1rem;
+  transition: 0.15s;
+}
+
+.command-search:focus-within {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(197, 5, 12, 0.12);
+}
+
+.command-search-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--ink-soft);
+}
+
+.command-search:focus-within .command-search-icon {
+  color: var(--red);
+}
+
+.command-search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--ink);
+  outline: none;
+}
+
+.command-search input::placeholder {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.command-search-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: var(--paper-dim);
+  border-radius: 50%;
+  color: var(--ink-soft);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.command-search-clear:hover {
+  background: var(--line);
+  color: var(--ink);
+}
+
+.command-search-clear svg {
+  width: 11px;
+  height: 11px;
 }
 
 .command-select-group {
@@ -781,21 +884,6 @@ html {
   height: 14px;
 }
 
-.command-results {
-  margin-left: auto;
-  font-family: 'Archivo', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--ink-soft);
-  white-space: nowrap;
-}
-
-.command-results b {
-  font-family: 'Archivo Black', sans-serif;
-  font-weight: 400;
-  color: var(--ink);
-}
-
 /* Command Bar is desktop-only; the ticket tray takes over below 861px. */
 .ticket-tray {
   display: none;
@@ -822,6 +910,75 @@ html {
     border-radius: 16px;
     box-shadow: 0 8px 0 var(--line), 0 14px 30px rgba(30, 10, 8, 0.1);
     overflow: hidden;
+  }
+
+  .ticket-tray-search {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0.9rem 0.9rem 0;
+    padding: 0.75rem 0.85rem;
+    background: var(--paper-dim);
+    border: 1.5px solid transparent;
+    border-radius: 12px;
+    transition: 0.15s;
+  }
+
+  .ticket-tray-search:focus-within {
+    border-color: var(--red);
+    background: var(--white);
+  }
+
+  .ticket-tray-search-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--ink-soft);
+  }
+
+  .ticket-tray-search:focus-within .ticket-tray-search-icon {
+    color: var(--red);
+  }
+
+  .ticket-tray-search input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    background: transparent;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--ink);
+    outline: none;
+  }
+
+  .ticket-tray-search input::placeholder {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  .ticket-tray-search-clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: var(--line);
+    border-radius: 50%;
+    color: var(--ink-soft);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .ticket-tray-search-clear:hover {
+    background: var(--red);
+    color: var(--white);
+  }
+
+  .ticket-tray-search-clear svg {
+    width: 12px;
+    height: 12px;
   }
 
   .ticket-tray-summary {
@@ -1063,6 +1220,32 @@ html {
   border-radius: 100px;
   transform: rotate(4deg);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.cart-gluten-free-badge {
+  position: absolute;
+  top: 2.55rem;
+  right: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--green-deep);
+  color: var(--white);
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem 0.3rem 0.6rem;
+  border-radius: 100px;
+  transform: rotate(-3deg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.cart-gluten-free-badge svg {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
 }
 
 .cart-card-content {
@@ -1360,33 +1543,62 @@ html {
 
 .about-stats-container {
   display: flex;
-  gap: 1.25rem;
-  margin-top: 1.8rem;
-  flex-wrap: wrap;
+  margin-top: 2.2rem;
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: 0 10px 28px rgba(30, 10, 8, 0.07);
+  overflow: hidden;
+  width: fit-content;
 }
 
 .food-carts-stat,
 .locations-stat {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 1rem 1.4rem;
-  box-shadow: 0 4px 14px rgba(30, 10, 8, 0.05);
+  padding: 1.2rem 2rem;
+  position: relative;
+}
+
+.food-carts-stat::after {
+  content: "";
+  position: absolute;
+  top: 0.9rem;
+  bottom: 0.9rem;
+  right: 0;
+  width: 1.5px;
+  background: var(--line);
 }
 
 .food-carts-stat-number,
 .locations-stat-number {
   font-family: 'Archivo Black', sans-serif;
-  font-size: 1.55rem;
+  font-size: 2.25rem;
+  line-height: 1;
   color: var(--red);
   display: block;
+  letter-spacing: -0.01em;
 }
 
 .food-carts-stat-label,
 .locations-stat-label {
   font-family: 'Archivo', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: var(--ink-soft);
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 420px) {
+  .about-stats-container {
+    width: 100%;
+  }
+
+  .food-carts-stat,
+  .locations-stat {
+    flex: 1;
+    padding: 1.1rem 1rem;
+  }
 }
 
 .about-image-container {
