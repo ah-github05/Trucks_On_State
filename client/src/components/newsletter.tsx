@@ -97,7 +97,7 @@ export default function FoodCartNewsletterSignup() {
       <div className="contact-container">
         <div className="contact-grid">
           <div className="contact-ways">
-            <h2 className="contact-ways-title">Ways to reach out</h2>
+            <h2 className="contact-ways-title">How to reach out</h2>
             <ul className="contact-ways-list">
               {REACH_OUT_WAYS.map((way) => (
                 <li key={way.title} className="contact-way">
@@ -109,9 +109,6 @@ export default function FoodCartNewsletterSignup() {
           </div>
 
           <div className="contact-form-card">
-            <div className="contact-stub-head">
-              <span>Cart Comms · Madison, WI</span>
-            </div>
 
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="contact-form-row">
