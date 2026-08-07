@@ -24,7 +24,7 @@ export default function SiteContactFooter() {
               Capital City Food Carts
             </div>
             <p className="footer-description">
-              The single source for food carts on around Madison, Wisconsin. Real hours, real menus, real good food.
+              The single source for food carts in and around Madison, Wisconsin. Real hours, real menus, real good food.
             </p>
           </div>
           <div className="footer-col">

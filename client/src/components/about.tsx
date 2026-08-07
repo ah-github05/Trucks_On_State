@@ -25,7 +25,7 @@ export default function CapitalCityFoodCartsAboutSection() {
               Capital City Food Carts started with one simple problem: no single place tracked what was actually open. I built the map, the hours, and the menus — so you don't have to check ten different Instagram bios before lunch.
             </p>
             <p className="about-description-second">
-              Carts move depending on the day. Some go to Capitol Square, some go traveling. That's tracked that too.
+              Carts move depending on the day. Some go to Capitol Square, some go traveling. That's tracked too.
             </p>
             <div className="about-stats-container">
               <div className="food-carts-stat">
