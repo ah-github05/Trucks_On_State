@@ -3,11 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import SiteNavigationHeader from "@/components/header";
 import SiteContactFooter from "@/components/footer";
-import { isCurrentlyOpen } from "@/lib/utils";
-import { ArrowLeft, MapPin, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { isCurrentlyOpen, capitalizeFirst } from "@/lib/utils";
+import { ArrowLeft, MapPin, Clock, Globe, Link2, ShoppingBag } from "lucide-react";
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
 import type { FoodCart, MenuItem } from "@shared/schema";
@@ -31,15 +29,14 @@ interface MenuItemProps {
 }
 
 function StandardMenuItem({ item, index }: MenuItemProps) {
+  const hasDescription = item.description && item.description.trim().length > 0;
   return (
-    <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-      <div className="flex justify-between items-start">
-        <div className="flex-1">
-          <h5 className="font-medium text-gray-900">{item.name}</h5>
-          <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-        </div>
-        <span className="font-semibold text-primary ml-4">{item.price}</span>
+    <div key={index} className="menu-item">
+      <div>
+        <div className="menu-item-name">{item.name}</div>
+        {hasDescription && <div className="menu-item-desc">{item.description}</div>}
       </div>
+      {item.price.trim().length > 0 && <span className="menu-item-price">{item.price}</span>}
     </div>
   );
 }
@@ -55,23 +52,16 @@ interface DualPriceMenuItemProps {
 }
 
 function DualPriceMenuItem({ item, index, smallPrice, largePrice, smallLabel = "Small", largeLabel = "Large" }: DualPriceMenuItemProps) {
+  const hasDescription = item.description && item.description.trim().length > 0;
   return (
-    <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-      <div className="flex justify-between items-start">
-        <div className="flex-1">
-          <h5 className="font-medium text-gray-900">{item.name}</h5>
-          <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-        </div>
-        <div className="ml-4 flex flex-col items-end">
-          <div className="font-semibold">
-            <span className="text-gray-900">{smallLabel}: </span>
-            <span className="text-primary">{smallPrice}</span>
-          </div>
-          <div className="font-semibold">
-            <span className="text-gray-900">{largeLabel}: </span>
-            <span className="text-primary">{largePrice}</span>
-          </div>
-        </div>
+    <div key={index} className="menu-item">
+      <div>
+        <div className="menu-item-name">{item.name}</div>
+        {hasDescription && <div className="menu-item-desc">{item.description}</div>}
+      </div>
+      <div className="menu-item-price dual">
+        <b>{smallPrice}</b>
+        <span>{largeLabel} {largePrice}</span>
       </div>
     </div>
   );
@@ -79,18 +69,17 @@ function DualPriceMenuItem({ item, index, smallPrice, largePrice, smallLabel = "
 
 function MultiPriceMenuItem({ item, index }: MenuItemProps) {
   const prices = item.price.split(", ");
+  const hasDescription = item.description && item.description.trim().length > 0;
   return (
-    <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
-      <div className="flex justify-between items-start">
-        <div className="flex-1">
-          <h5 className="font-medium text-gray-900">{item.name}</h5>
-          <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-        </div>
-        <div className="ml-4 flex flex-col items-end">
-          {prices.map((p, i) => (
-            <span key={i} className="font-semibold text-primary">{p.trim()}</span>
-          ))}
-        </div>
+    <div key={index} className="menu-item">
+      <div>
+        <div className="menu-item-name">{item.name}</div>
+        {hasDescription && <div className="menu-item-desc">{item.description}</div>}
+      </div>
+      <div className="menu-item-price dual">
+        {prices.map((p, i) => (
+          i === 0 ? <b key={i}>{p.trim()}</b> : <span key={i}>{p.trim()}</span>
+        ))}
       </div>
     </div>
   );
@@ -109,12 +98,10 @@ function MenuCategory({ category, items, renderItem }: MenuCategoryProps) {
   );
 
   return (
-    <React.Fragment>
-      <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-      <div className="space-y-4 mb-6">
-        {items.map(renderItem || defaultRenderItem)}
-      </div>
-    </React.Fragment>
+    <div className="menu-category">
+      <div className="menu-category-title">{category}</div>
+      {items.map(renderItem || defaultRenderItem)}
+    </div>
   );
 }
 
@@ -256,31 +243,35 @@ function MenuContent({ cart }: MenuContentProps) {
   switch (config.type) {
     case 'external-link':
       return (
-        <>
-          <p className="text-gray-600 mb-4">{config.externalMessage}</p>
-          <div className="mt-4">
-            <a
-              href={config.externalUrl}
-              className="text-primary hover:text-primary/80 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {config.externalLinkText}
-            </a>
-          </div>
-        </>
+        <div className="menu-category">
+          <p className="menu-external-message">{config.externalMessage}</p>
+          <a
+            href={config.externalUrl}
+            className="menu-external-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {config.externalLinkText}
+          </a>
+        </div>
       );
 
     case 'message-only':
-      return <p className="text-gray-600">{config.externalMessage}</p>;
+      return (
+        <div className="menu-category">
+          <p className="menu-external-message">{config.externalMessage}</p>
+        </div>
+      );
 
     case 'image':
       return (
-        <img
-          src={config.imageSrc}
-          alt={config.imageAlt}
-          className="w-full rounded-lg"
-        />
+        <div className="menu-category">
+          <img
+            src={config.imageSrc}
+            alt={config.imageAlt}
+            className="menu-image"
+          />
+        </div>
       );
 
     case 'roost-special':
@@ -301,7 +292,7 @@ function MenuContent({ cart }: MenuContentProps) {
 
     case 'default':
       return (
-        <div className="space-y-4">
+        <div className="menu-category">
           {cart.menu.map((item, index) => (
             <StandardMenuItem key={index} item={item} index={index} />
           ))}
@@ -318,30 +309,22 @@ function RoostMenu({ cart }: { cart: FoodCart }) {
 
   return (
     <>
-      <div className="flex justify-between items-baseline mb-4">
-        <h2 className="text-lg font-semibold text-gray-900 underline">Jumbo 1/4 lb Chicken Tenders</h2>
-        <span className="font-semibold text-gray-900">Tenders / Meal</span>
-      </div>
-      <div className="space-y-4 mb-6">
+      <div className="menu-category">
+        <div className="menu-category-title">Jumbo 1/4 lb Chicken Tenders</div>
         {chickenCategory.slice(0, 3).map((item, index) => (
           <StandardMenuItem key={index} item={item} index={index} />
         ))}
       </div>
 
-      <div className="flex justify-between items-baseline mb-4">
-        <h2 className="text-lg font-semibold text-gray-900 underline">Chicken Sandwiches</h2>
-        <span className="font-semibold text-gray-900">Sandwich / Meal</span>
-      </div>
-      <div className="space-y-4 mb-6">
+      <div className="menu-category">
+        <div className="menu-category-title">Chicken Sandwiches</div>
         {chickenCategory.slice(3, 6).map((item, index) => (
           <StandardMenuItem key={index} item={item} index={index} />
         ))}
       </div>
 
-      <div className="flex justify-between items-baseline mb-4">
-        <h2 className="text-lg font-semibold text-gray-900 underline">Sides</h2>
-      </div>
-      <div className="space-y-4 mb-6">
+      <div className="menu-category">
+        <div className="menu-category-title">Sides</div>
         {chickenCategory.slice(6, 9).map((item, index) => (
           item.name === "French Fries" ? (
             <DualPriceMenuItem key={index} item={item} index={index} smallPrice="$4.00" largePrice="$6.00" />
@@ -351,8 +334,8 @@ function RoostMenu({ cart }: { cart: FoodCart }) {
         ))}
       </div>
 
-      <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">Extras</h2>
-      <div className="space-y-4 mb-6">
+      <div className="menu-category">
+        <div className="menu-category-title">Extras</div>
         {extrasCategory.map((item, index) => (
           item.name === "Meal - Substitute lemonade" ? (
             <DualPriceMenuItem key={index} item={item} index={index} smallPrice="$1.00" largePrice="$2.00" />
@@ -362,17 +345,13 @@ function RoostMenu({ cart }: { cart: FoodCart }) {
         ))}
       </div>
 
-      <div className="space-y-4 mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 underline">Spice Level</h2>
-        <div className="grid grid-cols-[max-content,1fr] gap-x-4 mb-6">
+      <div className="menu-category">
+        <div className="menu-category-title">Spice Level</div>
+        <div className="menu-spice-levels">
           <div>1) Extreme</div>
-          <div></div>
           <div>2) Spicy</div>
-          <div></div>
           <div>3) Mild</div>
-          <div></div>
           <div>4) No Spice</div>
-          <div></div>
           <div>5) Naked</div>
         </div>
       </div>
@@ -398,26 +377,24 @@ function ChinaCottageMenu({ cart, categoryOrder }: { cart: FoodCart; categoryOrd
         if (!items) return null;
 
         return (
-          <React.Fragment key={category}>
-            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-            <div className="space-y-4 mb-6">
-              {items.map((item, index) =>
-                CHINA_COTTAGE_DUAL_PRICE_ITEMS.has(item.name) ? (
-                  <DualPriceMenuItem
-                    key={index}
-                    item={item}
-                    index={index}
-                    smallPrice={item.price.split(", ")[0]?.trim() ?? ""}
-                    largePrice={item.price.split(", ")[1]?.trim() ?? ""}
-                    smallLabel="Medium (16 oz)"
-                    largeLabel="Large (20 oz)"
-                  />
-                ) : (
-                  <StandardMenuItem key={index} item={item} index={index} />
-                )
-              )}
-            </div>
-          </React.Fragment>
+          <div className="menu-category" key={category}>
+            <div className="menu-category-title">{category}</div>
+            {items.map((item, index) =>
+              CHINA_COTTAGE_DUAL_PRICE_ITEMS.has(item.name) ? (
+                <DualPriceMenuItem
+                  key={index}
+                  item={item}
+                  index={index}
+                  smallPrice={item.price.split(", ")[0]?.trim() ?? ""}
+                  largePrice={item.price.split(", ")[1]?.trim() ?? ""}
+                  smallLabel="Medium (16 oz)"
+                  largeLabel="Large (20 oz)"
+                />
+              ) : (
+                <StandardMenuItem key={index} item={item} index={index} />
+              )
+            )}
+          </div>
         );
       })}
     </>
@@ -435,180 +412,62 @@ function SurcoMenu({ cart, categoryOrder }: { cart: FoodCart; categoryOrder: str
         if (!items) return null;
 
         return (
-          <React.Fragment key={category}>
-            <h2 className="text-lg font-semibold text-gray-900 mb-4 underline">{category}</h2>
-            <div className="space-y-4 mb-6">
-              {items.map((item, index) => (
-                item.name === "Cilantro Rice, GF" ? (
-                  <DualPriceMenuItem key={index} item={item} index={index} smallPrice="$8.00" largePrice="$13.00" />
-                ) : (
-                  <StandardMenuItem key={index} item={item} index={index} />
-                )
-              ))}
-            </div>
-          </React.Fragment>
+          <div className="menu-category" key={category}>
+            <div className="menu-category-title">{category}</div>
+            {items.map((item, index) => (
+              item.name === "Cilantro Rice, GF" ? (
+                <DualPriceMenuItem key={index} item={item} index={index} smallPrice="$8.00" largePrice="$13.00" />
+              ) : (
+                <StandardMenuItem key={index} item={item} index={index} />
+              )
+            ))}
+          </div>
         );
       })}
     </>
   );
 }
 
-// Schedule card component with switch statement instead of nested ternaries
-interface ScheduleCardProps {
+// Schedule block — the ticket stub's "Hours" section, with per-cart custom messages
+// for carts whose hours are rotating/off-site rather than a fixed weekly schedule.
+interface ScheduleBlockProps {
   cart: FoodCart;
 }
 
-function ScheduleCard({ cart }: ScheduleCardProps) {
+function ScheduleBlock({ cart }: ScheduleBlockProps) {
   const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const today = DAYS_OF_WEEK[new Date().getDay()];
 
-  switch (cart.slug) {
-    case "kona-ice":
-      return (
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <Clock className="w-5 h-5 mr-2" />
-              Hours
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-600 mb-4">
-              Kona Ice travels to various locations on an alternating schedule. Check out their Facebook to see where they will be!
-            </p>
-            <div className="mt-4">
-              <a
-                href={cart.businessLinks?.facebook || "#"}
-                className="text-primary hover:text-primary/80 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Facebook
-              </a>
-            </div>
-          </CardContent>
-        </Card>
-      );
+  const ROTATING_SCHEDULE_MESSAGES: Record<string, string> = {
+    "kona-ice": "Kona Ice travels to various locations on an alternating schedule.",
+    "toms_coffee": "Travelin' Tom's Coffee travels to various locations on an alternating schedule.",
+    "nirvana": "Culinary Nirvana does weekly stops at specific locations as well as pop up appearances at community and private events.",
+    "cinn-city": "Cinn City Smash does weekly stops at specific locations as well as pop up appearances at community and private events.",
+  };
 
-    case "toms_coffee":
-      return (
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <Clock className="w-5 h-5 mr-2" />
-              Hours
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-600 mb-4">
-              Travelin' Tom's Coffee travels to various locations on an alternating schedule. Check out their facebook to see where they will be!
-            </p>
-            <div className="mt-4">
-              <a
-                href={cart.businessLinks?.facebook || "#"}
-                className="text-primary hover:text-primary/80 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Facebook
-              </a>
-            </div>
-          </CardContent>
-        </Card>
-      );
-
-    case "nirvana":
-      return (
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <Clock className="w-5 h-5 mr-2" />
-              Hours
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-600 mb-4">
-              Culinary Nirvana does weekly stops at specific locations as well as pop up appearances at community and private events. Check out their website to see where they will be!
-            </p>
-            <div className="mt-4">
-              <a
-                href="https://www.culinarynirvanallc.com/on-the-road"
-                className="text-primary hover:text-primary/80 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Schedule
-              </a>
-            </div>
-          </CardContent>
-        </Card>
-      );
-
-    case "cinn-city":
-      return (
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <Clock className="w-5 h-5 mr-2" />
-              Hours
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-600 mb-4">
-              Cinn City Smash does weekly stops at specific locations as well as pop up appearances at community and private events. Check out their website to see where they will be!
-            </p>
-            <div className="mt-4">
-              <a
-                href="https://cinncitysmash.com/#Where"
-                className="text-primary hover:text-primary/80 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Schedule
-              </a>
-            </div>
-          </CardContent>
-        </Card>
-      );
-
-    case "stellies":
-      return (
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <Clock className="w-5 h-5 mr-2" />
-              Hours
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-600">
-              {Object.keys(cart.schedule)[0]}
-            </p>
-          </CardContent>
-        </Card>
-      );
-
-    default:
-      return (
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <Clock className="w-5 h-5 mr-2" />
-              Hours
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-2">
-              {DAYS_OF_WEEK.map((day) => (
-                <div key={day} className="flex justify-between">
-                  <span className="font-medium">{day}</span>
-                  <span className="text-gray-600">{cart.schedule[day]}</span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      );
+  const rotating = ROTATING_SCHEDULE_MESSAGES[cart.slug];
+  if (rotating) {
+    return <p className="stub-desc">{rotating}</p>;
   }
+
+  if (cart.slug === "stellies") {
+    return <p className="stub-desc">{Object.keys(cart.schedule)[0]}</p>;
+  }
+
+  return (
+    <div className="stub-schedule">
+      {DAYS_OF_WEEK.map((day) => {
+        const hours = cart.schedule[day];
+        const isClosed = !hours || hours.toLowerCase() === "closed";
+        return (
+          <div key={day} className={`stub-schedule-row ${day === today ? "today" : ""}`}>
+            <span className="stub-schedule-day">{day}</span>
+            <span className={`stub-schedule-hours ${isClosed ? "closed" : ""}`}>{hours || "Closed"}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default function IndividualFoodCartDetailPage() {
@@ -631,188 +490,173 @@ export default function IndividualFoodCartDetailPage() {
 
   if (error || (carts && !cart)) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="detail-page-container">
         <SiteNavigationHeader />
-        <div className="max-w-4xl mx-auto px-4 py-16">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Food Cart Not Found</h1>
-            <p className="text-gray-600 mb-8">The food cart you're looking for doesn't exist.</p>
-            <Link href="/">
-              <Button>
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
+        <div className="detail-not-found">
+          <h1>Food Cart Not Found</h1>
+          <p>The food cart you're looking for doesn't exist.</p>
+          <Link href="/">
+            <button className="detail-not-found-button">
+              <ArrowLeft size={16} />
+              Back to Home
+            </button>
+          </Link>
         </div>
         <SiteContactFooter />
       </div>
     );
   }
 
+  const isSaturday = new Date().getDay() === 6;
+  const displayLocation = cart && isSaturday && cart.saturdayLocationDisplayName
+    ? cart.saturdayLocationDisplayName
+    : cart?.locationDisplayName;
+  const displayMapsUrl = cart && isSaturday && cart.saturdayMapsUrl
+    ? cart.saturdayMapsUrl
+    : cart?.mapsUrl;
+
+  const showBusinessLinks = cart && cart.slug !== "fresh-cool" && cart.slug !== "china_cottage" && cart.slug !== "hibachi_hut";
+  const hasBusinessLinks = cart?.businessLinks && (
+    cart.businessLinks.website || cart.businessLinks.facebook ||
+    cart.businessLinks.instagram || cart.businessLinks.orderOnline
+  );
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="detail-page-container">
       <SiteNavigationHeader />
-      
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <Link href="/">
-          <Button variant="outline" className="mb-6">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to All Carts
-          </Button>
-        </Link>
 
-        {isLoading && (
-          <div className="space-y-8">
-            <Skeleton className="w-full h-64 rounded-xl" />
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <Skeleton className="h-8 w-3/4" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-2/3" />
-              </div>
-              <div className="space-y-4">
-                <Skeleton className="h-6 w-1/2" />
-                <Skeleton className="h-32 w-full" />
-              </div>
-            </div>
+      <div className="back-bar">
+        <div className="wrap">
+          <Link href="/">
+            <button className="back-link">
+              <ArrowLeft size={16} />
+              Back to All Carts
+            </button>
+          </Link>
+        </div>
+      </div>
+
+      {isLoading && (
+        <div className="detail-loading">
+          <Skeleton className="detail-loading-hero" />
+          <div className="wrap detail-loading-grid">
+            <Skeleton className="detail-loading-stub" />
+            <Skeleton className="detail-loading-menu" />
           </div>
-        )}
+        </div>
+      )}
 
-        {cart && (
-          <div className="space-y-8">
-            {/* Hero Image */}
-            <div className="relative">
-              <img
-                src={cart.image}
-                alt={cart.name}
-                className="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"
-              />
-              <div className="absolute top-4 right-4">
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                  isCurrentlyOpen(cart.schedule) 
-                    ? 'bg-green-100 text-green-800' 
-                    : 'bg-red-100 text-red-800'
-                }`}>
-                  {isCurrentlyOpen(cart.schedule) ? 'Open Now' : 'Closed'}
-                </span>
+      {cart && (
+        <>
+          <section className="detail-hero">
+            <img src={cart.image} alt={cart.name} />
+            <div className="wrap detail-hero-content">
+              <span className={`detail-hero-stamp ${isCurrentlyOpen(cart.schedule) ? "open" : "closed"}`}>
+                {isCurrentlyOpen(cart.schedule) ? "Open Now" : "Closed"}
+              </span>
+              <div className="detail-hero-info">
+                <span className="detail-hero-cat">{capitalizeFirst(cart.category.replace(/_/g, ' '))}</span>
+                <h1>{cart.name}</h1>
               </div>
             </div>
+          </section>
 
-            {/* Main Content */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Cart Info */}
-              <div className="space-y-6">
-                <div>
-                  <div className="mb-2">
-                    <h1 className="text-3xl font-bold text-gray-900">{cart.name}</h1>
-                  </div>
-                  <p className="text-lg text-gray-600">{cart.description}</p>
+          <section className="detail-section">
+            <div className="wrap detail-grid">
+
+              <div className="stub">
+                <div className="stub-head">
+                  <span>Order Ticket</span>
                 </div>
+                <div className="ticket-perf"></div>
+                <div className="stub-body">
 
-                <div className="space-y-3">
-                  <div className="flex items-center text-gray-600">
-                    <MapPin className="w-5 h-5 mr-3" />
-                    {(() => {
-                      const isSaturday = new Date().getDay() === 6;
-                      const displayName = isSaturday && cart.saturdayLocationDisplayName
-                        ? cart.saturdayLocationDisplayName
-                        : cart.locationDisplayName;
-                      const mapsUrl = isSaturday && cart.saturdayMapsUrl
-                        ? cart.saturdayMapsUrl
-                        : cart.mapsUrl;
-                      return mapsUrl ? (
-                        <a
-                          href={mapsUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-primary hover:text-primary/80 transition-colors hover:underline"
-                        >
-                          {displayName}
+                  <div className="stub-block">
+                    <div className="stub-block-label">
+                      <MapPin size={13} />
+                      About
+                    </div>
+                    <p className="stub-desc">{cart.description}</p>
+                  </div>
+
+                  <div className="stub-block">
+                    <div className="stub-block-label">
+                      <MapPin size={13} />
+                      Location
+                    </div>
+                    <div className="stub-location">
+                      {displayMapsUrl ? (
+                        <a href={displayMapsUrl} target="_blank" rel="noopener noreferrer">
+                          {displayLocation}
                         </a>
                       ) : (
-                        <span>{displayName}</span>
-                      );
-                    })()}
-                  </div>
-                </div>
-
-                <ScheduleCard cart={cart} />
-              </div>
-
-              {/* Menu */}
-              <div className="space-y-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Menu</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-6">
-                      <MenuContent cart={cart} />
+                        <span>{displayLocation}</span>
+                      )}
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
 
-                {/* Business Links - Hidden for Fresh Cool Drinks and China Cottage */}
-                {cart.slug !== "fresh-cool" && cart.slug !== "china_cottage" && cart.slug !== "hibachi_hut" && (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Business Links</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3">
-                        <div className="flex flex-col gap-2">
-                          {cart.businessLinks?.website && (
-                            <a
-                              href={cart.businessLinks.website}
-                              className="text-primary hover:text-primary/80 transition-colors"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              Website
-                            </a>
-                          )}
-                          {cart.businessLinks?.facebook && (
-                            <a
-                              href={cart.businessLinks.facebook}
-                              className="text-primary hover:text-primary/80 transition-colors"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              Facebook
-                            </a>
-                          )}
-                          {cart.businessLinks?.instagram && (
-                            <a 
-                              href={cart.businessLinks.instagram} 
-                              className="text-primary hover:text-primary/80 transition-colors"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              Instagram
-                            </a>
-                          )}
-                          {cart.businessLinks?.orderOnline && (
-                            <a 
-                              href={cart.businessLinks.orderOnline} 
-                              className="text-primary hover:text-primary/80 transition-colors"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              Order Online
-                            </a>
-                          )}
-                        </div>
+                  <div className="stub-block">
+                    <div className="stub-block-label">
+                      <Clock size={13} />
+                      Hours
+                    </div>
+                    <ScheduleBlock cart={cart} />
+                  </div>
+
+                  {showBusinessLinks && hasBusinessLinks && (
+                    <div className="stub-block">
+                      <div className="stub-block-label">
+                        <ShoppingBag size={13} />
+                        Find Them Online
                       </div>
-                    </CardContent>
-                  </Card>
-                )}
+                      <div className="stub-links">
+                        {cart.businessLinks?.website && (
+                          <a className="stub-link" href={cart.businessLinks.website} target="_blank" rel="noopener noreferrer">
+                            <Globe size={15} />
+                            Website
+                          </a>
+                        )}
+                        {cart.businessLinks?.facebook && (
+                          <a className="stub-link" href={cart.businessLinks.facebook} target="_blank" rel="noopener noreferrer">
+                            <Link2 size={15} />
+                            Facebook
+                          </a>
+                        )}
+                        {cart.businessLinks?.instagram && (
+                          <a className="stub-link" href={cart.businessLinks.instagram} target="_blank" rel="noopener noreferrer">
+                            <Link2 size={15} />
+                            Instagram
+                          </a>
+                        )}
+                        {cart.businessLinks?.orderOnline && (
+                          <a className="stub-link" href={cart.businessLinks.orderOnline} target="_blank" rel="noopener noreferrer">
+                            <ShoppingBag size={15} />
+                            Order Online
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                </div>
               </div>
+
+              <div className="menu-ticket">
+                <div className="menu-ticket-head">
+                  <div className="kicker">Full Menu</div>
+                  <h2>{cart.name}</h2>
+                </div>
+                <div className="ticket-perf" style={{ marginTop: "1.4rem" }}></div>
+                <div className="menu-ticket-body">
+                  <MenuContent cart={cart} />
+                </div>
+              </div>
+
             </div>
-          </div>
-        )}
-      </div>
-      
+          </section>
+        </>
+      )}
+
       <SiteContactFooter />
     </div>
   );

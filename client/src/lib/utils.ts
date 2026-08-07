@@ -6,6 +6,34 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/**
+ * Measures the real height of any sticky chrome (header, and the filter bar
+ * when it's present and sticky at this viewport) so section scroll targets
+ * land below it instead of underneath it. Avoids hardcoded offsets that
+ * silently drift whenever the header or filter bar's height changes.
+ */
+export function getStickyChromeHeight(): number {
+  const header = document.querySelector(".main-header");
+  const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+  // The filter bar is only sticky at some viewports, so ask the browser rather
+  // than assuming — at widths where it scrolls away it must not be counted.
+  const filterBar = document.querySelector(".search-filter-section");
+  const filterBarHeight =
+    filterBar && window.getComputedStyle(filterBar).position === "sticky"
+      ? filterBar.getBoundingClientRect().height
+      : 0;
+
+  return headerHeight + filterBarHeight + 16; // small breathing room below the sticky chrome
+}
+
+export function scrollToSectionId(sectionId: string) {
+  const element = document.getElementById(sectionId);
+  if (!element) return;
+  const top = element.getBoundingClientRect().top + window.scrollY - getStickyChromeHeight();
+  window.scrollTo({ top, behavior: "smooth" });
+}
+
 export function capitalizeFirst(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }

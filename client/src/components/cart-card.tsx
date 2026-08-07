@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { MapPin } from "lucide-react";
+import { Leaf, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { capitalizeFirst, isCurrentlyOpen } from "@/lib/utils";
@@ -23,7 +23,14 @@ export default function IndividualFoodCartCard({ cart }: CartCardProps) {
         <span className="cart-category-badge">
           {capitalizeFirst(cart.category.replace(/_/g, ' '))}
         </span>
+        {cart.glutenFree && (
+          <span className="cart-gluten-free-badge">
+            <Leaf aria-hidden="true" />
+            Gluten Free
+          </span>
+        )}
       </div>
+      <div className="ticket-perf" aria-hidden="true"></div>
       <CardContent className="cart-card-content">
         <div className="cart-card-header">
           <h3 className="cart-card-title">{cart.name}</h3>

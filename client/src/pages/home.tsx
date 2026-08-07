@@ -6,15 +6,50 @@ import CapitalCityFoodCartsAboutSection from "@/components/about";
 import FoodCartNewsletterSignup from "@/components/newsletter";
 import SiteContactFooter from "@/components/footer";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FoodCart } from "@shared/schema";
 import { Skeleton } from "@/components/ui/skeleton";
+import { scrollToSectionId } from "@/lib/utils";
+import { cartMatchesFilters, effectiveLocationFor as locationForCart } from "@/lib/filters";
+
+const SEARCH_SCROLL_DEBOUNCE_MS = 500;
 
 export default function MadisonFoodCartHomePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedLocation, setSelectedLocation] = useState("all");
   const [glutenFreeOnly, setGlutenFreeOnly] = useState(false);
+  const searchScrollTimeout = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  useEffect(() => () => clearTimeout(searchScrollTimeout.current), []);
+
+  // Scroll only when a search begins — re-scrolling on every keystroke pause
+  // yanks the viewport (and on mobile, the input itself) away mid-typing.
+  const handleSearchChange = (query: string) => {
+    const isStartingSearch = searchQuery.trim() === "" && query.trim() !== "";
+    setSearchQuery(query);
+
+    if (!isStartingSearch) return;
+    clearTimeout(searchScrollTimeout.current);
+    searchScrollTimeout.current = setTimeout(() => {
+      scrollToSectionId("carts");
+    }, SEARCH_SCROLL_DEBOUNCE_MS);
+  };
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    scrollToSectionId("carts");
+  };
+
+  const handleLocationChange = (location: string) => {
+    setSelectedLocation(location);
+    scrollToSectionId("carts");
+  };
+
+  const handleGlutenFreeChange = (value: boolean) => {
+    setGlutenFreeOnly(value);
+    scrollToSectionId("carts");
+  };
 
   const { data: carts, isLoading, error } = useQuery<FoodCart[]>({
     queryKey: ["/carts.json"],
@@ -22,20 +57,15 @@ export default function MadisonFoodCartHomePage() {
 
   const isSaturday = new Date().getDay() === 6;
 
-  const filteredCarts = (carts?.filter((cart) => {
-    const matchesSearch = searchQuery === "" ||
-      cart.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      cart.description.toLowerCase().includes(searchQuery.toLowerCase());
+  const effectiveLocationFor = (cart: FoodCart) => locationForCart(cart, isSaturday);
 
-    const matchesCategory = selectedCategory === "all" || cart.category === selectedCategory;
-
-    const effectiveLocation = isSaturday && cart.saturdayLocation ? cart.saturdayLocation : cart.location;
-    const matchesLocation = selectedLocation === "all" || effectiveLocation === selectedLocation;
-
-    const matchesGlutenFree = !glutenFreeOnly || cart.glutenFree === true;
-
-    return matchesSearch && matchesCategory && matchesLocation && matchesGlutenFree;
-  }) || []).sort((a, b) => {
+  const filteredCarts = (carts?.filter((cart) =>
+    cartMatchesFilters(
+      cart,
+      { searchQuery, selectedCategory, selectedLocation, glutenFreeOnly },
+      effectiveLocationFor,
+    ),
+  ) || []).sort((a, b) => {
     if (a.location === "traveling" && b.location !== "traveling") return 1;
     if (a.location !== "traveling" && b.location === "traveling") return -1;
     return 0;
@@ -45,28 +75,31 @@ export default function MadisonFoodCartHomePage() {
     <div className="home-page-container">
       <SiteNavigationHeader />
       <FoodCartHeroBanner />
-      <FoodCartSearchAndFilter
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        selectedCategory={selectedCategory}
-        onCategoryChange={setSelectedCategory}
-        selectedLocation={selectedLocation}
-        onLocationChange={setSelectedLocation}
-        glutenFreeOnly={glutenFreeOnly}
-        onGlutenFreeChange={setGlutenFreeOnly}
-      />
+      <div id="carts" className="food-carts-section-wrapper">
+        <FoodCartSearchAndFilter
+          carts={carts ?? []}
+          searchQuery={searchQuery}
+          onSearchChange={handleSearchChange}
+          selectedCategory={selectedCategory}
+          onCategoryChange={handleCategoryChange}
+          selectedLocation={selectedLocation}
+          onLocationChange={handleLocationChange}
+          glutenFreeOnly={glutenFreeOnly}
+          onGlutenFreeChange={handleGlutenFreeChange}
+          effectiveLocationFor={effectiveLocationFor}
+          matchingCartCount={filteredCarts.length}
+        />
 
-      <section id="carts" className="home-carts-section">
+        <section className="home-carts-section">
         <div className="home-carts-container">
           <div className="home-carts-header">
             <h2 className="home-carts-title">
               Featured Food Carts
             </h2>
             <p className="home-carts-description">
-              Each cart brings unique flavors and experiences to Madison's streets.
-              Click on any cart to see their full menu and schedule.
+              Each cart brings unique flavors and experiences to Madison's streets. Tap through for menu, hours, and directions.
             </p>
-            <p className="text-xs text-accent-yellow italic mt-1">
+            <p className="home-carts-disclaimer">
               Schedule changes due to weather or unforeseen circumstances may not be accurately reflected
             </p>
           </div>
@@ -115,6 +148,7 @@ export default function MadisonFoodCartHomePage() {
           )}
         </div>
       </section>
+      </div>
 
       <CapitalCityFoodCartsAboutSection />
       <FoodCartNewsletterSignup />
