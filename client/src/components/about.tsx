@@ -30,7 +30,7 @@ export default function CapitalCityFoodCartsAboutSection() {
             <div className="about-stats-container">
               <div className="food-carts-stat">
                 <h4 className="food-carts-stat-number">{cartCount ?? "—"}</h4>
-                <p className="food-carts-stat-label">Carts</p>
+                <p className="food-carts-stat-label">Carts Added</p>
               </div>
               <div className="locations-stat">
                 <h4 className="locations-stat-number">{zoneCount ?? "—"}</h4>
