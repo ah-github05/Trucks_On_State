@@ -7,22 +7,26 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 /**
- * Measures the real height of any sticky chrome (header, and the filter bar
- * when it's present and sticky at this viewport) so section scroll targets
- * land below it instead of underneath it. Avoids hardcoded offsets that
- * silently drift whenever the header or filter bar's height changes.
+ * Measures the real height of the sticky chrome sitting above a scroll target,
+ * so sections land below it instead of underneath it. Avoids hardcoded offsets
+ * that silently drift whenever the header or filter bar's height changes.
+ *
+ * The filter bar only counts when it is sticky *and* sits outside the target:
+ * it lives inside the carts section, so counting it there would offset past
+ * the section's own top and reveal the hero above it.
  */
-export function getStickyChromeHeight(): number {
+export function getStickyChromeHeight(target?: Element | null): number {
   const header = document.querySelector(".main-header");
   const headerHeight = header ? header.getBoundingClientRect().height : 0;
 
   // The filter bar is only sticky at some viewports, so ask the browser rather
   // than assuming — at widths where it scrolls away it must not be counted.
   const filterBar = document.querySelector(".search-filter-section");
-  const filterBarHeight =
-    filterBar && window.getComputedStyle(filterBar).position === "sticky"
-      ? filterBar.getBoundingClientRect().height
-      : 0;
+  const filterBarCounts =
+    filterBar &&
+    window.getComputedStyle(filterBar).position === "sticky" &&
+    !target?.contains(filterBar);
+  const filterBarHeight = filterBarCounts ? filterBar.getBoundingClientRect().height : 0;
 
   return headerHeight + filterBarHeight + 16; // small breathing room below the sticky chrome
 }
@@ -30,7 +34,7 @@ export function getStickyChromeHeight(): number {
 export function scrollToSectionId(sectionId: string) {
   const element = document.getElementById(sectionId);
   if (!element) return;
-  const top = element.getBoundingClientRect().top + window.scrollY - getStickyChromeHeight();
+  const top = element.getBoundingClientRect().top + window.scrollY - getStickyChromeHeight(element);
   window.scrollTo({ top, behavior: "smooth" });
 }
 
