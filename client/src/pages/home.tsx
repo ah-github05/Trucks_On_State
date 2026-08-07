@@ -6,10 +6,11 @@ import CapitalCityFoodCartsAboutSection from "@/components/about";
 import FoodCartNewsletterSignup from "@/components/newsletter";
 import SiteContactFooter from "@/components/footer";
 import { useQuery } from "@tanstack/react-query";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FoodCart } from "@shared/schema";
 import { Skeleton } from "@/components/ui/skeleton";
 import { scrollToSectionId } from "@/lib/utils";
+import { cartMatchesFilters, effectiveLocationFor as locationForCart } from "@/lib/filters";
 
 const SEARCH_SCROLL_DEBOUNCE_MS = 500;
 
@@ -20,8 +21,15 @@ export default function MadisonFoodCartHomePage() {
   const [glutenFreeOnly, setGlutenFreeOnly] = useState(false);
   const searchScrollTimeout = useRef<ReturnType<typeof setTimeout>>(undefined);
 
+  useEffect(() => () => clearTimeout(searchScrollTimeout.current), []);
+
+  // Scroll only when a search begins — re-scrolling on every keystroke pause
+  // yanks the viewport (and on mobile, the input itself) away mid-typing.
   const handleSearchChange = (query: string) => {
+    const isStartingSearch = searchQuery.trim() === "" && query.trim() !== "";
     setSearchQuery(query);
+
+    if (!isStartingSearch) return;
     clearTimeout(searchScrollTimeout.current);
     searchScrollTimeout.current = setTimeout(() => {
       scrollToSectionId("carts");
@@ -49,24 +57,15 @@ export default function MadisonFoodCartHomePage() {
 
   const isSaturday = new Date().getDay() === 6;
 
-  const effectiveLocationFor = (cart: FoodCart) =>
-    isSaturday && cart.saturdayLocation ? cart.saturdayLocation : cart.location;
+  const effectiveLocationFor = (cart: FoodCart) => locationForCart(cart, isSaturday);
 
-  const filteredCarts = (carts?.filter((cart) => {
-    const query = searchQuery.trim().toLowerCase();
-    const matchesSearch = query === "" ||
-      cart.name.toLowerCase().includes(query) ||
-      cart.description.toLowerCase().includes(query) ||
-      cart.menu.some((item) => item.name.toLowerCase().includes(query));
-
-    const matchesCategory = selectedCategory === "all" || cart.category === selectedCategory;
-
-    const matchesLocation = selectedLocation === "all" || effectiveLocationFor(cart) === selectedLocation;
-
-    const matchesGlutenFree = !glutenFreeOnly || cart.glutenFree === true;
-
-    return matchesSearch && matchesCategory && matchesLocation && matchesGlutenFree;
-  }) || []).sort((a, b) => {
+  const filteredCarts = (carts?.filter((cart) =>
+    cartMatchesFilters(
+      cart,
+      { searchQuery, selectedCategory, selectedLocation, glutenFreeOnly },
+      effectiveLocationFor,
+    ),
+  ) || []).sort((a, b) => {
     if (a.location === "traveling" && b.location !== "traveling") return 1;
     if (a.location !== "traveling" && b.location === "traveling") return -1;
     return 0;
@@ -88,6 +87,7 @@ export default function MadisonFoodCartHomePage() {
           glutenFreeOnly={glutenFreeOnly}
           onGlutenFreeChange={handleGlutenFreeChange}
           effectiveLocationFor={effectiveLocationFor}
+          matchingCartCount={filteredCarts.length}
         />
 
         <section className="home-carts-section">

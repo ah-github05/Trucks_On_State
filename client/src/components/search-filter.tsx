@@ -13,6 +13,8 @@ interface SearchFilterProps {
   glutenFreeOnly: boolean;
   onGlutenFreeChange: (value: boolean) => void;
   effectiveLocationFor: (cart: FoodCart) => string;
+  /** Owned by the results grid so the tray's count can't drift from what's rendered. */
+  matchingCartCount: number;
 }
 
 // Food category filters
@@ -68,6 +70,7 @@ export default function FoodCartSearchAndFilter({
   glutenFreeOnly,
   onGlutenFreeChange,
   effectiveLocationFor,
+  matchingCartCount,
 }: SearchFilterProps) {
   const [openDropdown, setOpenDropdown] = useState<"location" | "category" | null>(null);
   const [isTrayOpen, setIsTrayOpen] = useState(false);
@@ -125,20 +128,6 @@ export default function FoodCartSearchAndFilter({
     () => countByOption(cartsForCategoryCounts, categories, (cart, value) => cart.category === value),
     [cartsForCategoryCounts],
   );
-
-  const matchingCartCount = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
-    return carts.filter(
-      (cart) =>
-        (query === "" ||
-          cart.name.toLowerCase().includes(query) ||
-          cart.description.toLowerCase().includes(query) ||
-          cart.menu.some((item) => item.name.toLowerCase().includes(query))) &&
-        (selectedCategory === "all" || cart.category === selectedCategory) &&
-        (selectedLocation === "all" || effectiveLocationFor(cart) === selectedLocation) &&
-        (!glutenFreeOnly || cart.glutenFree === true),
-    ).length;
-  }, [carts, searchQuery, selectedCategory, selectedLocation, glutenFreeOnly, effectiveLocationFor]);
 
   const selectedLocationLabel = locations.find((l) => l.value === selectedLocation)?.label ?? "All Locations";
   const selectedCategoryLabel = categories.find((c) => c.value === selectedCategory)?.label ?? "All Cuisines";

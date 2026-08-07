@@ -48,11 +48,21 @@ export default function FoodCartNewsletterSignup() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!inquiryType) {
-      setInquiryError(true);
+    // The inquiry picker is a button group, not a form control, so native
+    // validation can't see it. Flag it alongside the native pass rather than
+    // returning early — otherwise an empty form surfaces its errors one at a time.
+    const missingInquiry = !inquiryType;
+    setInquiryError(missingInquiry);
+
+    const nativeFieldsValid = e.currentTarget.reportValidity();
+
+    // `required` treats "   " as filled, so check the trimmed values too.
+    const hasAllFields = name.trim() !== "" && email.trim() !== "" && message.trim() !== "";
+
+    if (!nativeFieldsValid || missingInquiry || !hasAllFields) {
       return;
     }
 
