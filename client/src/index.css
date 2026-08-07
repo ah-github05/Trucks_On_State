@@ -397,10 +397,6 @@ html {
   animation: marquee-scroll 60s linear infinite;
 }
 
-.hero-marquee-ghost:hover .hero-marquee-track {
-  animation-play-state: paused;
-}
-
 .hero-marquee-ghost .hero-marquee-set {
   display: flex;
   align-items: center;
