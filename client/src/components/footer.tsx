@@ -1,5 +1,5 @@
-import { Truck } from "lucide-react";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
+import { scrollToSectionId } from "@/lib/utils";
 
 export default function SiteContactFooter() {
   const [location, setLocation] = useLocation();
@@ -12,55 +12,31 @@ export default function SiteContactFooter() {
     }
 
     // If we're on the homepage, scroll to the section
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToSectionId(sectionId);
   };
 
   return (
     <footer className="footer-background">
       <div className="footer-container">
         <div className="footer-grid">
-          <div className="brand-section">
-            <h3 className="text-2xl font-bold flex items-center">
-              <Truck className="w-6 h-6 mr-2" />
-              Capital City Food Carts
-            </h3>
-          </div>
           <div>
-            <h4 className="quick-links-title">Quick Links</h4>
-            <ul className="quick-links-list">
-              <li>
-                <button
-                  onClick={() => scrollToSection('home')}
-                  className="home-link"
-                >
-                  Home
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('carts')}
-                  className="food-carts-button"
-                >
-                  Food Carts
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToSection('about')}
-                  className="about-button"
-                >
-                  About
-                </button>
-              </li>
-            </ul>
+            <div className="footer-brand">
+              Capital City Food Carts
+            </div>
+            <p className="footer-description">
+              The single source for food carts in and around Madison, Wisconsin. Real hours, real menus, real good food.
+            </p>
           </div>
-          
+          <div className="footer-col">
+            <h4>Explore</h4>
+            <button onClick={() => scrollToSection('home')}>Home</button>
+            <button onClick={() => scrollToSection('carts')}>Food Carts</button>
+            <button onClick={() => scrollToSection('about')}>About</button>
+            <button onClick={() => scrollToSection('contact')}>Contact</button>
+          </div>
         </div>
         <div className="footer-bottom">
-          <p className="copyright-text">&copy; 2025 Capital City Food Carts. All rights reserved.</p>
+          <p className="copyright-text">&copy; 2026 Capital City Food Carts. Madison, WI.</p>
           <a
             className="footer-credit-link"
             href="https://github.com/ariavhayempour/capital_city_food_carts"

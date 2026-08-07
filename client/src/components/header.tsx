@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Truck, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { scrollToSectionId } from "@/lib/utils";
 
 export default function SiteNavigationHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,12 +20,7 @@ export default function SiteNavigationHeader() {
     }
 
     // If we're on the homepage, scroll to the section
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 64;
-      const top = element.getBoundingClientRect().top + window.scrollY - headerHeight;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
+    scrollToSectionId(sectionId);
     setIsMobileMenuOpen(false);
   };
 
@@ -34,12 +30,7 @@ export default function SiteNavigationHeader() {
     if (hash && location === '/') {
       // Small delay to ensure DOM is ready
       setTimeout(() => {
-        const element = document.getElementById(hash);
-        if (element) {
-          const headerHeight = 64;
-          const top = element.getBoundingClientRect().top + window.scrollY - headerHeight;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
+        scrollToSectionId(hash);
       }, 100);
     }
   }, [location]);
@@ -51,53 +42,55 @@ export default function SiteNavigationHeader() {
           <div className="brand-logo-section">
             <Link href="/">
               <div className="brand-logo-link">
-                <Truck className="brand-logo-icon" />
                 <h1 className="brand-logo-text">
                   Capital City Food Carts
                 </h1>
               </div>
             </Link>
           </div>
-          
+
           <nav className="desktop-navigation">
             <div className="desktop-nav-links">
               <Link href="/">
                 {/* home */}
-                <Button 
-                  variant="ghost" 
+                <button
                   className="home-nav-button"
                   onClick={() => scrollToSection('home')}
                   >
                   Home
-                </Button>
+                </button>
               </Link>
               {/* carts */}
-              <Button
-                variant="ghost"
+              <button
                 className="food-carts-nav-button"
                 onClick={() => scrollToSection('carts')}
               >
                 Food Carts
-              </Button>
+              </button>
               {/* about */}
-              <Button 
-                variant="ghost" 
+              <button
                 className="about-nav-button"
                 onClick={() => scrollToSection('about')}
               >
                 About
-              </Button>
+              </button>
               {/* contact */}
-              <Button 
-                variant="ghost" 
+              <button
                 className="contact-nav-button"
                 onClick={() => scrollToSection('contact')}
               >
                 Contact
-              </Button>
+              </button>
             </div>
           </nav>
-          
+
+          <button
+            className="header-cta"
+            onClick={() => scrollToSection('carts')}
+          >
+            Find a Cart
+          </button>
+
           <div className="mobile-menu-section">
             <Button
               variant="ghost"

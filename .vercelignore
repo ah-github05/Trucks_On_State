@@ -2,9 +2,7 @@
 node_modules
 .git
 .gitignore
-.replit
 *.md
-replit.md
 
 # Build files (will be rebuilt by Vercel)
 dist
