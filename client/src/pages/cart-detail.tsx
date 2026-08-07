@@ -567,7 +567,6 @@ export default function IndividualFoodCartDetailPage() {
               <div className="stub">
                 <div className="stub-head">
                   <span>Order Ticket</span>
-                  <b>№ {String(cart.id).padStart(3, "0")}</b>
                 </div>
                 <div className="ticket-perf"></div>
                 <div className="stub-body">

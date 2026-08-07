@@ -2375,12 +2375,6 @@ textarea.form-textarea {
   text-transform: uppercase;
 }
 
-.stub-head b {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 0.95rem;
-  color: var(--gold);
-}
-
 .stub-body {
   padding: 0.35rem 1.4rem 1.5rem;
 }
@@ -2414,8 +2408,9 @@ textarea.form-textarea {
 
 .stub-desc {
   font-family: 'Archivo', sans-serif;
-  color: var(--ink-soft);
-  font-size: 0.92rem;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
@@ -2471,12 +2466,12 @@ textarea.form-textarea {
 }
 
 .stub-schedule-hours {
-  color: var(--ink-soft);
+  color: var(--ink);
   font-weight: 500;
 }
 
 .stub-schedule-hours.closed {
-  color: #b5a89a;
+  color: var(--ink);
 }
 
 .stub-links {
