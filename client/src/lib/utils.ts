@@ -14,8 +14,17 @@ export function cn(...inputs: ClassValue[]) {
  */
 export function getStickyChromeHeight(): number {
   const header = document.querySelector(".main-header");
-  const height = header ? header.getBoundingClientRect().height : 0;
-  return height + 16; // small breathing room below the sticky header
+  const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+  // The filter bar is only sticky at some viewports, so ask the browser rather
+  // than assuming — at widths where it scrolls away it must not be counted.
+  const filterBar = document.querySelector(".search-filter-section");
+  const filterBarHeight =
+    filterBar && window.getComputedStyle(filterBar).position === "sticky"
+      ? filterBar.getBoundingClientRect().height
+      : 0;
+
+  return headerHeight + filterBarHeight + 16; // small breathing room below the sticky chrome
 }
 
 export function scrollToSectionId(sectionId: string) {
