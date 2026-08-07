@@ -33,7 +33,7 @@ export default function FoodCartHeroBanner() {
           Best <em>Capital City.</em> <br />Tastiest <em>Food Carts.</em>
         </h1>
         <p className="hero-description">
-          Every cart on State Street, Library Mall, and beyond. Real hours, real menus, real good food. All in one convient place.
+          Every cart on State Street, by the Capitol, and beyond. Real hours, real menus, real good food. All in one convenient place.
         </p>
       </div>
 
