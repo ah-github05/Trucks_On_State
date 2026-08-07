@@ -84,13 +84,6 @@ export default function SiteNavigationHeader() {
             </div>
           </nav>
 
-          <button
-            className="header-cta"
-            onClick={() => scrollToSection('carts')}
-          >
-            Find a Cart
-          </button>
-
           <div className="mobile-menu-section">
             <Button
               variant="ghost"
