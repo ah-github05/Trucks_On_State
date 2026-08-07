@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import SiteNavigationHeader from "@/components/header";
 import SiteContactFooter from "@/components/footer";
 import { isCurrentlyOpen, capitalizeFirst } from "@/lib/utils";
-import { ArrowLeft, MapPin, Clock, Globe, Link2, ShoppingBag } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, Globe, Link2, ShoppingBag, FileText, Monitor } from "lucide-react";
 import React from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
@@ -573,7 +573,7 @@ export default function IndividualFoodCartDetailPage() {
 
                   <div className="stub-block">
                     <div className="stub-block-label">
-                      <MapPin size={13} />
+                      <FileText size={13} />
                       About
                     </div>
                     <p className="stub-desc">{cart.description}</p>
@@ -606,7 +606,7 @@ export default function IndividualFoodCartDetailPage() {
                   {showBusinessLinks && hasBusinessLinks && (
                     <div className="stub-block">
                       <div className="stub-block-label">
-                        <ShoppingBag size={13} />
+                        <Monitor size={13} />
                         Find Them Online
                       </div>
                       <div className="stub-links">

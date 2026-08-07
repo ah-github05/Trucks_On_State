@@ -176,7 +176,7 @@ html {
 }
 
 .desktop-navigation {
-  @apply hidden md:block ml-auto mr-6;
+  @apply hidden md:block ml-auto;
 }
 
 .desktop-nav-links {
@@ -208,25 +208,6 @@ html {
 .contact-nav-button:hover {
   opacity: 1;
   border-color: var(--gold);
-}
-
-.header-cta {
-  @apply hidden md:inline-flex;
-  background: var(--gold);
-  color: var(--red-deep);
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800;
-  font-size: 0.85rem;
-  border: none;
-  cursor: pointer;
-  padding: 0.6rem 1.3rem;
-  border-radius: 100px;
-  transition: all 0.2s ease;
-}
-
-.header-cta:hover {
-  background: #ffc84a;
-  transform: translateY(-1px);
 }
 
 .mobile-menu-section {
