@@ -205,11 +205,11 @@ export class MemStorage implements IStorage {
           { name: "Mango Lassi", price: "10 oz: $5.00, 12 oz: $6.00, 16 oz: $8.00", description: "Creamy, sweet smoothie made with ripe mangoes and yogurt.", category: "Drinks" }
         ],
         schedule: {
-        "Monday": "11:00 am - 4:30 pm",
-        "Tuesday": "11:00 am - 4:30 pm",
-        "Wednesday": "11:00 am - 4:30 pm",
-        "Thursday": "11:00 am - 4:30 pm",
-        "Friday": "11:00 am - 4:30 pm",
+        "Monday": "11:00 am - 4:00 pm",
+        "Tuesday": "11:00 am - 4:00 pm",
+        "Wednesday": "11:00 am - 4:00 pm",
+        "Thursday": "11:00 am - 4:00 pm",
+        "Friday": "11:00 am - 4:00 pm",
         "Saturday": "8:30 am - 1:45 pm",
         "Sunday": "Closed"
         }
