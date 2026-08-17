@@ -76,7 +76,7 @@ export default function FoodCartNewsletterSignup() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          access_key: "d0ab3f69-c768-41ff-bbd6-00065de0dca8",
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "",
           name: name,
           email: email,
           subject: inquiryType,
