@@ -21,7 +21,7 @@ Integrate Web3Forms, a third-party form submission service, to handle email deli
 5. User receives success/error feedback via toast notification
 
 **Authentication:**
-- Access Key: `d0ab3f69-c768-41ff-bbd6-00065de0dca8` (public-facing, included as hidden field)
+- Access Key: Loaded via `VITE_WEB3FORMS_ACCESS_KEY` environment variable
 - No backend secrets or environment variables needed
 
 **Deployment Impact:**
@@ -62,7 +62,7 @@ Integrate Web3Forms, a third-party form submission service, to handle email deli
 ### Submission Process
 1. Show loading state on submit button
 2. POST request to `https://api.web3forms.com/submit` with:
-   - `access_key`: d0ab3f69-c768-41ff-bbd6-00065de0dca8
+   - `access_key`: `VITE_WEB3FORMS_ACCESS_KEY` environment variable
    - `name`: User's name
    - `email`: User's email address
    - `subject`: Selected inquiry type
