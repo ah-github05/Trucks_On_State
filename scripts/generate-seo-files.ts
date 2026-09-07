@@ -78,6 +78,74 @@ function injectItemListSchema(carts: FoodCart[]) {
   console.log(`✓ Injected ItemList structured data for ${carts.length} carts into dist/public/index.html`);
 }
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+// No SSR in production, so per-route meta tags are baked into a static file per cart instead.
+function generateCartPages(carts: FoodCart[]) {
+  const distIndexPath = path.resolve(__dirname, '../dist/public/index.html');
+  if (!fs.existsSync(distIndexPath)) {
+    console.warn('⚠ dist/public/index.html not found — run this after `vite build`. Skipping per-cart pages.');
+    return;
+  }
+
+  const baseHtml = fs.readFileSync(distIndexPath, 'utf-8');
+
+  for (const cart of carts) {
+    const title = `${cart.name} | Capital City Food Carts, Madison WI`;
+    const description = `${cart.name} at ${cart.locationDisplayName} in Madison, WI. ${cart.description}. See menu, hours, and location.`;
+    const canonical = `${SITE_URL}/cart/${cart.slug}`;
+    // cart.image may already be absolute (some carts use hotlinked source photos).
+    const absoluteImage = /^https?:\/\//.test(cart.image) ? cart.image : `${SITE_URL}${cart.image}`;
+    const escTitle = escapeHtml(title);
+    const escDescription = escapeHtml(description);
+    const escImage = escapeHtml(absoluteImage);
+
+    const cartSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FoodEstablishment',
+      name: cart.name,
+      description: cart.description,
+      image: absoluteImage,
+      url: canonical,
+    };
+
+    let html = baseHtml
+      .replace(/<title>.*?<\/title>/s, `<title>${escTitle}</title>`)
+      .replace(/(<meta name="description" content=")[^"]*(")/, `$1${escDescription}$2`)
+      .replace(/(<meta name="keywords" content=")[^"]*(")/, `$1${escDescription}$2`)
+      .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${canonical}$2`)
+      .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${escTitle}$2`)
+      .replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${escDescription}$2`)
+      .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${canonical}$2`)
+      .replace(/(<meta property="og:image" content=")[^"]*(")/, `$1${escImage}$2`)
+      .replace(/(<meta property="og:image:alt" content=")[^"]*(")/, `$1${escTitle}$2`)
+      .replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${escTitle}$2`)
+      .replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${escDescription}$2`)
+      .replace(/(<meta name="twitter:image" content=")[^"]*(")/, `$1${escImage}$2`)
+      .replace(/(<meta name="twitter:image:alt" content=")[^"]*(")/, `$1${escTitle}$2`);
+
+    // Strips the base page's WebSite + ItemList schemas, neither valid for a single cart.
+    const schemaScriptRegex = /<script type="application\/ld\+json">.*?<\/script>\s*/gs;
+    const newSchemaScript = `<script type="application/ld+json">${JSON.stringify(cartSchema)}</script>\n  `;
+    html = schemaScriptRegex.test(html)
+      ? html.replace(schemaScriptRegex, '').replace('</head>', `  ${newSchemaScript}</head>`)
+      : html.replace('</head>', `  ${newSchemaScript}</head>`);
+
+    const outDir = path.resolve(__dirname, `../dist/public/cart/${cart.slug}`);
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(path.join(outDir, 'index.html'), html);
+  }
+
+  console.log(`✓ Generated ${carts.length} pre-rendered cart pages under dist/public/cart/`);
+}
+
 function main() {
   const mode = process.argv[2];
   const carts = loadCarts();
@@ -85,6 +153,7 @@ function main() {
   if (mode === 'post-build') {
     // Runs after `vite build`, once dist/public/index.html exists.
     injectItemListSchema(carts);
+    generateCartPages(carts);
   } else {
     // Runs before `vite build` so sitemap.xml/robots.txt live in
     // client/public and get copied into dist/public by Vite.
